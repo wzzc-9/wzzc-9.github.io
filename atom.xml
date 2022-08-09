@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-07-28T03:07:25.045Z</updated>
+  <updated>2022-08-09T07:09:47.958Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,28 +17,95 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>models</title>
-    <link href="http://example.com/2022/07/30/models/"/>
-    <id>http://example.com/2022/07/30/models/</id>
-    <published>2022-07-30T03:01:15.000Z</published>
-    <updated>2022-07-28T03:07:25.045Z</updated>
+    <title>CAS登录</title>
+    <link href="http://example.com/2022/08/06/CAS%E7%99%BB%E5%BD%95/"/>
+    <id>http://example.com/2022/08/06/CAS%E7%99%BB%E5%BD%95/</id>
+    <published>2022-08-06T13:16:14.000Z</published>
+    <updated>2022-08-09T07:09:47.958Z</updated>
     
-    <content type="html"><![CDATA[<ol><li><p><code>live2d-widget-model-chitose</code></p><img src="D:\Work\Projects\MyBlog\source\_posts\model\image-20220727115029094.png" alt="image-20220727115029094" style="zoom:25%;" /></li><li><p><code>live2d-widget-model-epsilon2_1</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727141403848.png" alt="image-20220727141403848" style="zoom: 25%;" /></li><li><p><code>live2d-widget-model-gf</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727141300721.png" alt="image-20220727141300721" style="zoom: 25%;" /></li><li><p><code>live2d-widget-model-haru/01</code> (use <code>npm install --save live2d-widget-model-haru</code>)</p></li><li><p><code>live2d-widget-model-haru/02</code> (use <code>npm install --save live2d-widget-model-haru</code>)</p></li><li><p><code>live2d-widget-model-haruto</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727142123671.png" alt="image-20220727142123671" style="zoom: 25%;" /></li><li><p><code>live2d-widget-model-hibiki</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727142221847.png" alt="image-20220727142221847" style="zoom: 25%;" /></li><li><p><code>live2d-widget-model-hijiki</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727142350500.png" alt="image-20220727142350500" style="zoom: 25%;" /></li><li><p><code>live2d-widget-model-izumi</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727142420835.png" alt="image-20220727142420835" style="zoom: 25%;" /></li><li><p><code>live2d-widget-model-koharu</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727142501211.png" alt="image-20220727142501211" style="zoom: 25%;" /></li><li><p><code>live2d-widget-model-miku</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727142535310.png" alt="image-20220727142535310" style="zoom: 25%;" /></li><li><p><code>live2d-widget-model-ni-j</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727142649067.png" alt="image-20220727142649067" style="zoom:25%;" /></li><li><p><code>live2d-widget-model-nico</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727142720667.png" alt="image-20220727142720667" style="zoom:25%;" /></li><li><p><code>live2d-widget-model-nietzsche</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727142750385.png" alt="image-20220727142750385" style="zoom:25%;" /></li><li><p><code>live2d-widget-model-nipsilon</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727142824037.png" alt="image-20220727142824037" style="zoom:25%;" /></li><li><p><code>live2d-widget-model-nito</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727142858507.png" alt="image-20220727142858507" style="zoom:25%;" /></li><li><p><code>live2d-widget-model-shizuku</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727142945910.png" alt="image-20220727142945910" style="zoom:25%;" /></li><li><p><code>live2d-widget-model-tororo</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727114723302.png" alt="image-20220727114723302" style="zoom: 25%;" /></li><li><p><code>live2d-widget-model-tsumiki</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727143153236.png" alt="image-20220727143153236" style="zoom:25%;" /></li><li><p><code>live2d-widget-model-unitychan</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727143245368.png" alt="image-20220727143245368" style="zoom:25%;" /></li><li><p><code>live2d-widget-model-wanko</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727143317451.png" alt="image-20220727143317451" style="zoom:25%;" /></li><li><p><code>live2d-widget-model-z16</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727143353412.png" alt="image-20220727143353412" style="zoom:25%;" /></li></ol>]]></content>
+    <content type="html"><![CDATA[<h3 id="1、CAS介绍">1、CAS介绍</h3><p>CAS最基本的协议过程：</p><img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220807153953551.png" class=""><p>CAS Client与受保护的客户端应用部署在一起，以Filter方式保护受保护的资源。对于访问受保护资源的每个Web请求，CAS Client会分析该请求的Http请求中是否包含Service Ticket，如果没有，则说明当前用户尚未登录，于是将请求重定向到指定好的CAS Server登录地址，并传递Service（也就是要访问的目的资源地址），以便登录成功过后转回该地址。用户在第3步中输入认证信息，如果登录成功，CAS Server随机产生一个相当长度、唯一、不可伪造的Service Ticket，并缓存以待将来验证，之后系统自动重定向到Service所在地址，并为客户端浏览器设置一个Ticket Granted Cookie（TGC），CAS Client在拿到Service和新产生的Ticket过后，在第5，6步中与CAS Server进行身份核实，以确保Service Ticket的合法性。</p><p>在该协议中，所有与CAS的交互均采用SSL协议，确保ST和TGC的安全性。协议工作过程中会有2次重定向的过程，但是CAS Client与CAS Server之间进行Ticket验证的过程对于用户是透明的。</p><p>另外，CAS协议中还提供了Proxy（代理）模式，以适应更加高级、复杂的应用场景，具体参考CAS官方文档。</p><h3 id="2、搭建Tomcat-Https支持">2、搭建Tomcat Https支持</h3><h4 id="1-1、生成密钥库">1.1、生成密钥库</h4><p>使用JDK自带的keytools工具生成密钥库</p><p>别名：caskey 存储路径：D:\Work\Projects\cas\keystore\caskey.keystore</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -genkey -v -alias caskey -keyalg RSA -keystore D:\Work\Projects\cas\keystore\caskey.keystore</span><br></pre></td></tr></table></figure><img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220806212042310.png" class=""><h4 id="1-2、从密钥库导出证书">1.2、从密钥库导出证书</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -export -trustcacerts -alias caskey -file  D:\Work\Projects\cas\keystore\caskey.cer -keystore D:\Work\Projects\cas\keystore\caskey.keystore</span><br></pre></td></tr></table></figure><img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220806212653642.png" class=""><h4 id="1-3、将证书导入到JDK证书库">1.3、将证书导入到JDK证书库</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -import -trustcacerts -alias caskey -file D:\Work\Projects\cas\keystore\caskey.cer -keystore D:\Work\Servers\Java\jdk1.8.0_181\jre\lib\security\cacerts</span><br></pre></td></tr></table></figure><p>密码：changeit</p><img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220806213157447.png" class=""><h4 id="1-4、证书其他命令">1.4、证书其他命令</h4><p><a href="https://blog.csdn.net/gmaaa123/article/details/107460922">https://blog.csdn.net/gmaaa123/article/details/107460922</a></p><h4 id="1-5、Tomcat配置https支持">1.5、Tomcat配置https支持</h4><p>这里采用tomcat9，找到tomcat\config\server.xml打开文件，加入如下配置即可：</p><p>keystoreFile为证书地址，keystorePass为证书密钥</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">&quot;8443&quot;</span> <span class="attr">protocol</span>=<span class="string">&quot;org.apache.coyote.http11.Http11NioProtocol&quot;</span></span></span><br><span class="line"><span class="tag">               <span class="attr">maxThreads</span>=<span class="string">&quot;150&quot;</span> <span class="attr">SSLEnabled</span>=<span class="string">&quot;true&quot;</span> <span class="attr">scheme</span>=<span class="string">&quot;https&quot;</span> <span class="attr">secure</span>=<span class="string">&quot;true&quot;</span></span></span><br><span class="line"><span class="tag">              <span class="attr">clientAuth</span>=<span class="string">&quot;false&quot;</span> <span class="attr">sslProtocol</span>=<span class="string">&quot;TLS&quot;</span></span></span><br><span class="line"><span class="tag">               <span class="attr">keystoreFile</span>=<span class="string">&quot;D:\Work\Projects\cas\keystore\caskey.keystore&quot;</span></span></span><br><span class="line"><span class="tag">              <span class="attr">keystorePass</span>=<span class="string">&quot;wzc1996&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure><p>启动bin下的startup.bat</p><p>Tomcat默认有中文乱码，在conf子目录中，找到<code>&quot;logging.properties&quot;</code>文件，打开文件，找到如下配置项：</p><img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220806214732109.png" class=""><p>将UTF-8修改为GBK，保存重启！</p><h4 id="1-6、测试">1.6、测试</h4><p>通过<code>https://localhost:8443</code>端口可以访问</p><img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220806214949877.png" class=""><h3 id="3、CAS-Server服务端搭建">3、CAS Server服务端搭建</h3><h4 id="2-1、CAS-Server-war-下载">2.1、CAS Server war 下载</h4><p>官网：<a href="https://www.apereo.org/%EF%BC%8CGitHub%E5%AE%98%E7%BD%91%EF%BC%9Ahttps://github.com/apereo/cas">https://www.apereo.org/，GitHub官网：https://github.com/apereo/cas</a></p><p>CAS服务端：<a href="https://github.com/apereo/cas-overlay-template">https://github.com/apereo/cas-overlay-template</a></p><p>maven仓库：<a href="https://repo1.maven.org/maven2/cas/">https://repo1.maven.org/maven2/cas/</a></p><p>war包地址：<a href="https://repo1.maven.org/maven2/org/apereo/cas/cas-server-webapp-tomcat/5.3.14">https://repo1.maven.org/maven2/org/apereo/cas/cas-server-webapp-tomcat/5.3.14</a></p><p>下载</p><img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220806220423381.png" class=""><h4 id="2-2、CAS-Server发布到Tomcat">2.2、CAS Server发布到Tomcat</h4><p>将下载的war包放到Tomcat的webapp目录下，将包名改为cas，访问：<a href="https://localhost:8443/cas">https://localhost:8443/cas</a></p><p>配置日志路径：打开<code>WEB-INF\classes\log4j2.xml</code>文件，修改成实际日志路径</p><img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220807000649129.png" class=""><p>配置hosts：修改C:\Windows\System32\hosts，可以使用域名访问</p><img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220806223755547.png" class=""><p>默认用户名和密码，位于<code>application.properties</code>文件中</p><img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220807001001155.png" class=""><h4 id="2-3、配置数据源，数据库用户认证">2.3、配置数据源，数据库用户认证</h4><p>1：建表</p><p>2：修改application.properties配置文件，注释掉写死的认证用户，加上jdbc数据源配置</p><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cas.authn.accept.users=casuser::Mellon</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].url</span>=<span class="string">jdbc:mysql://localhost:3306/demo?serverTimezone=GMT</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].user</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].password</span>=<span class="string">wzc1996</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].sql</span>=<span class="string">select * from user where username = ?</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].fieldPassword</span>=<span class="string">password</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].driverClass</span>=<span class="string">com.mysql.jdbc.Driver</span></span><br></pre></td></tr></table></figure><p>3：加上jdbc驱动包以及支持jar</p><p><code>cas-server-support-jdbc-5.3.14.jar</code></p><p><code>cas-server-support-jdbc-authentication-5.3.14.jar</code></p><p><code>cas-server-support-jdbc-drivers-5.3.14.jar</code></p><p><code>mysql-connection-java-5.1.28-bin.jar</code></p><h4 id="2-4、密码加密校验">2.4、密码加密校验</h4><p>1：数据库生成下MD5密码</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> md5(<span class="string">&#x27;123456&#x27;</span>);</span><br></pre></td></tr></table></figure><p>2：修改application.properties配置文件</p><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cas.authn.jdbc.query[0].passwordEncoder.type</span>=<span class="string">DEFAULT</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].passwordEncoder.characterEncoding</span>=<span class="string">UTF-8</span></span><br><span class="line"><span class="comment"># MD5加密策略</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].passwordEncoder.encodingAlgorithm</span>=<span class="string">MD5</span></span><br></pre></td></tr></table></figure><p>3：测试OK</p><h3 id="4、CAS-Client-SpringBoot客户端整合搭建">4、CAS Client+SpringBoot客户端整合搭建</h3><p>项目搭建，加入cas client依赖</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">cas.version</span>&gt;</span>2.3.0-GA<span class="tag">&lt;/<span class="name">cas.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>net.unicon.cas<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>cas-client-autoconfig-support<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;cas.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure><p>添加application.yml配置：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cas:</span><br><span class="line">  server-url-prefix: https://localhost:8443/cas  # cas服务端地址</span><br><span class="line">  server-login-url: https://localhost:8443/cas/login #cas登录页</span><br><span class="line">  client-host-url: http://localhost:8080  #登录成功跳转地址</span><br><span class="line">  validation-type: cas3</span><br></pre></td></tr></table></figure><p>启动类添加<code>@EnableCasClient</code>注解</p><p>运行报错：</p><img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220807152433436.png" class=""><p>报错原因是cas服务器默认不支持http请求，可以通过配置来让其支持http请求：</p><p>1、在<code>\WEB-INF\classes\services</code>目录下，修改<code>HTTPSandIMAPS-10000001.json</code>文件</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;serviceId&quot;</span> <span class="punctuation">:</span> <span class="string">&quot;^(https|imaps)://.*&quot;</span><span class="punctuation">,</span></span><br><span class="line">改为</span><br><span class="line"><span class="attr">&quot;serviceId&quot;</span> <span class="punctuation">:</span> <span class="string">&quot;^(https|http|imaps)://.*&quot;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure><p>2、在<code>\WEB-INF\classes</code>下，修改<code>application.properties</code>文件</p><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加支持http</span></span><br><span class="line"><span class="attr">cas.tgc.secure</span>=<span class="string">false</span></span><br><span class="line"><span class="attr">cas.serviceRegistry.initFromJson</span>=<span class="string">true</span></span><br></pre></td></tr></table></figure><h3 id="5、显示用户名">5、显示用户名</h3><p>CAS客户端经过CAS Server认证后，CAS客户端可以去CAS Server端拿到登录认证的信息，比如用户名：</p><p>thymeleaf页面可以<code>$&#123;session._const_cas_assertion_.principal.name&#125;</code>取值；</p><p>可以通过如下源码找到</p><img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220809095537660.png" class=""><h3 id="6、注销">6、注销</h3><p>href接口重定向到<code>https://wzzc:8443/cas/logout</code></p><h3 id="7、CAS单点登录实例实现-测试">7、CAS单点登录实例实现+测试</h3><h3 id="8、CAS-Server界面修改">8、CAS Server界面修改</h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;1、CAS介绍&quot;&gt;1、CAS介绍&lt;/h3&gt;
+&lt;p&gt;CAS最基本的协议过程：&lt;/p&gt;
+&lt;img src=&quot;/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220807153953551.png&quot; class=&quot;&quot;&gt;
+&lt;p&gt;CAS </summary>
+      
+    
+    
+    
+    
+    <category term="CAS" scheme="http://example.com/tags/CAS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBoot</title>
+    <link href="http://example.com/2022/07/29/spring/SpringBoot/"/>
+    <id>http://example.com/2022/07/29/spring/SpringBoot/</id>
+    <published>2022-07-29T03:22:14.000Z</published>
+    <updated>2022-07-29T10:42:03.746Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="SpringBoot自动装配"><a href="#SpringBoot自动装配" class="headerlink" title="SpringBoot自动装配"></a>SpringBoot自动装配</h4><h6 id="1-约定大于配置"><a href="#1-约定大于配置" class="headerlink" title="1. 约定大于配置"></a>1. 约定大于配置</h6><p>   开发人员仅需规定应用中不符合约定的部分</p><p>   在没有规定配置的地方，采用默认配置，以力求最简配置为核心思想总的来说，上面两条都遵循了推荐默认配置的思想。当存在特殊需求的时候，自定义配置即可。这样可以大大的减少配置工作，这就是所谓的“约定”。</p><h6 id="2-实现自动装配原理"><a href="#2-实现自动装配原理" class="headerlink" title="2. 实现自动装配原理"></a>2. 实现自动装配原理</h6>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h4 id=&quot;SpringBoot自动装配&quot;&gt;&lt;a href=&quot;#SpringBoot自动装配&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot自动装配&quot;&gt;&lt;/a&gt;SpringBoot自动装配&lt;/h4&gt;&lt;h6 id=&quot;1-约定大于配置&quot;&gt;&lt;a href</summary>
+      
+    
+    
+    
+    
+    <category term="SpringBoot" scheme="http://example.com/tags/SpringBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机网络</title>
+    <link href="http://example.com/2022/07/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <id>http://example.com/2022/07/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</id>
+    <published>2022-07-29T02:57:44.000Z</published>
+    <updated>2022-07-29T03:22:34.128Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1-http和https"><a href="#1-http和https" class="headerlink" title="1. http和https"></a>1. http和https</h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;1-http和https&quot;&gt;&lt;a href=&quot;#1-http和https&quot; class=&quot;headerlink&quot; title=&quot;1. http和https&quot;&gt;&lt;/a&gt;1. http和https&lt;/h3&gt;</summary>
+      
+    
+    
+    
+    
+    <category term="categories" scheme="http://example.com/tags/categories/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git命令</title>
+    <link href="http://example.com/2022/07/29/git%E5%91%BD%E4%BB%A4/"/>
+    <id>http://example.com/2022/07/29/git%E5%91%BD%E4%BB%A4/</id>
+    <published>2022-07-29T01:44:14.000Z</published>
+    <updated>2022-07-29T02:39:35.288Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>用<code>git commit -a</code>提交了一次变化，而又不确定提交了哪些内容，可以使用如下命令显示当前HEAD上的最近一次的提交（commit）：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git show</span><br><span class="line">$ git <span class="built_in">log</span> -n1 -p</span><br></pre></td></tr></table></figure></li><li><p>如果提交信息（commit message）写错了且这次提交（commit）还没有推（push），你可以通过下面的方法来修改提交信息（commit message）：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit --amend --only</span><br></pre></td></tr></table></figure><p>这会打开你的默认编辑器，在这里你可以编辑信息，另一方面，你也可以用一条命令一次完成：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">   $ git commit --amend --only -m <span class="string">&#x27;xxxxxx&#x27;</span></span><br><span class="line"></span><br><span class="line">​如果已经推（push）了这次提交（commit），可以修改这次提交（commit）然后强推（force push），但是不推荐这么做。</span><br><span class="line"></span><br><span class="line">3. 提交（commit）里的用户名和邮箱不对</span><br><span class="line"></span><br><span class="line">   如果这只是单个提交（commit），修改它：</span><br><span class="line"></span><br><span class="line">   ```bash</span><br><span class="line">   $ git commit --amend --autor <span class="string">&quot;New AuthorName&quot;</span></span><br></pre></td></tr></table></figure><p>如果需要修改所有历史，参考<code>git filter-branch</code>的指南页。</p></li><li><p>我想从一个提交（commit）里移除一个文件</p><p>通过下面的方法，从一个提交（commit）里移除一个文件：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout HEAD^ myfile</span><br><span class="line">$ git add -A</span><br><span class="line">$ git commit --amend</span><br></pre></td></tr></table></figure><p>当往上面提交了一个不必要的文件，你需要强推（force push）去更新这个远程补丁。</p></li></ol>]]></content>
     
     
       
       
     <summary type="html">&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;live2d-widget-model-chitose&lt;/code&gt;&lt;/p&gt;
-
-
-&lt;img src=&quot;D:\Work\Projects\MyBlog\source\_posts\model\image-20220727115029094.png</summary>
+&lt;li&gt;&lt;p&gt;用&lt;code&gt;git commit -a&lt;/code&gt;提交了一次变化，而又不确定提交了哪些内容，可以使用如下命令显示当前HEAD上的最近一次的提交（commit）：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr</summary>
       
     
     
     
-    <category term="style" scheme="http://example.com/categories/style/"/>
     
+    <category term="git" scheme="http://example.com/tags/git/"/>
     
   </entry>
   
@@ -63,6 +130,32 @@
     
     
     <category term="Hello" scheme="http://example.com/tags/Hello/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>models</title>
+    <link href="http://example.com/2022/07/28/models/"/>
+    <id>http://example.com/2022/07/28/models/</id>
+    <published>2022-07-28T03:01:15.000Z</published>
+    <updated>2022-07-28T07:18:00.311Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p><code>live2d-widget-model-chitose</code></p><img src="/2022/07/28/models/image-20220727115029094.png" class=""></li><li><p><code>live2d-widget-model-epsilon2_1</code></p><p><img src="D:\Work\Projects\MyBlog\source_posts\models\image-20220727141046499.png" alt="image-20220727141046499"></p></li><li><p><code>live2d-widget-model-gf</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727141300721.png" alt="image-20220727141300721" style="zoom: 25%;" /></li><li><p><code>live2d-widget-model-haru/01</code> (use <code>npm install --save live2d-widget-model-haru</code>)</p></li><li><p><code>live2d-widget-model-haru/02</code> (use <code>npm install --save live2d-widget-model-haru</code>)</p></li><li><p><code>live2d-widget-model-haruto</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727142123671.png" alt="image-20220727142123671" style="zoom: 25%;" /></li><li><p><code>live2d-widget-model-hibiki</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727142221847.png" alt="image-20220727142221847" style="zoom: 25%;" /></li><li><p><code>live2d-widget-model-hijiki</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727142350500.png" alt="image-20220727142350500" style="zoom: 25%;" /></li><li><p><code>live2d-widget-model-izumi</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727142420835.png" alt="image-20220727142420835" style="zoom: 25%;" /></li><li><p><code>live2d-widget-model-koharu</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727142501211.png" alt="image-20220727142501211" style="zoom: 25%;" /></li><li><p><code>live2d-widget-model-miku</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727142535310.png" alt="image-20220727142535310" style="zoom: 25%;" /></li><li><p><code>live2d-widget-model-ni-j</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727142649067.png" alt="image-20220727142649067" style="zoom:25%;" /></li><li><p><code>live2d-widget-model-nico</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727142720667.png" alt="image-20220727142720667" style="zoom:25%;" /></li><li><p><code>live2d-widget-model-nietzsche</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727142750385.png" alt="image-20220727142750385" style="zoom:25%;" /></li><li><p><code>live2d-widget-model-nipsilon</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727142824037.png" alt="image-20220727142824037" style="zoom:25%;" /></li><li><p><code>live2d-widget-model-nito</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727142858507.png" alt="image-20220727142858507" style="zoom:25%;" /></li><li><p><code>live2d-widget-model-shizuku</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727142945910.png" alt="image-20220727142945910" style="zoom:25%;" /></li><li><p><code>live2d-widget-model-tororo</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727114723302.png" alt="image-20220727114723302" style="zoom: 25%;" /></li><li><p><code>live2d-widget-model-tsumiki</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727143153236.png" alt="image-20220727143153236" style="zoom:25%;" /></li><li><p><code>live2d-widget-model-unitychan</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727143245368.png" alt="image-20220727143245368" style="zoom:25%;" /></li><li><p><code>live2d-widget-model-wanko</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727143317451.png" alt="image-20220727143317451" style="zoom:25%;" /></li><li><p><code>live2d-widget-model-z16</code></p><img src="C:\Users\魏志超\AppData\Roaming\Typora\typora-user-images\image-20220727143353412.png" alt="image-20220727143353412" style="zoom:25%;" /></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;live2d-widget-model-chitose&lt;/code&gt;&lt;/p&gt;
+&lt;img src=&quot;/2022/07/28/models/image-20220727115029094.png&quot; class=&quot;&quot;&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;c</summary>
+      
+    
+    
+    
+    <category term="style" scheme="http://example.com/categories/style/"/>
+    
     
   </entry>
   
