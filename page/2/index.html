@@ -124,7 +124,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -135,7 +135,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -164,6 +164,100 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/06/jenkins%E9%83%A8%E7%BD%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Wzzc">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WzcBlog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | WzcBlog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/09/06/jenkins%E9%83%A8%E7%BD%B2/" class="post-title-link" itemprop="url">jenkins部署</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-09-06 17:00:12" itemprop="dateCreated datePublished" datetime="2022-09-06T17:00:12+08:00">2022-09-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-04 00:11:21" itemprop="dateModified" datetime="2022-10-04T00:11:21+08:00">2022-10-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/jenkins/" itemprop="url" rel="index"><span itemprop="name">jenkins</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170427682.png"></p>
+<p><img src="/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170459433.png"></p>
+<p><img src="/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170537961.png"></p>
+<p><img src="/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170618820.png"></p>
+<p><img src="/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170654508.png"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;开始准备打包...&quot;</span><br><span class="line">source /etc/profile</span><br><span class="line">mvn install -s /home/root/apache-maven-3.8.6/conf/settings-mocha-portal.xml</span><br><span class="line">echo &quot;开始准备上传文件...&quot;</span><br><span class="line">echo &quot;$&#123;WORKSPACE&#125;&quot;</span><br><span class="line">cd $&#123;WORKSPACE&#125;/target/</span><br><span class="line">echo &quot;准备上传应用服务器...&quot;</span><br><span class="line">expect &lt;&lt; EOF</span><br><span class="line">set timeout 30</span><br><span class="line">spawn scp -P 22 mc-portal.jar root@172.27.17.59:/home/root/transport</span><br><span class="line">expect &#123;</span><br><span class="line">        &quot;*assword:&quot; &#123; send &quot;Szrd!234\r&quot;; &#125;</span><br><span class="line">        &quot;*yes/no*&quot; &#123; send &quot;yes\r&quot;; exp_continue &#125;</span><br><span class="line">&#125;</span><br><span class="line">expect eof</span><br><span class="line">EOF</span><br><span class="line">echo &quot;上传完成...&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170722188.png"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">time=$(date &quot;+%Y-%m-%d_%H:%M:%S&quot;)</span><br><span class="line">echo $&#123;time&#125;</span><br><span class="line">cp  /home/root/mc-portal/mc-portal.jar /home/root/mc-portal/backup/mc-portal.jar.$&#123;time&#125;</span><br><span class="line">rm -rf /home/root/mc-portal/mc-portal.jar</span><br><span class="line">mv /home/root/transport/mc-portal.jar  /home/root/mc-portal/mc-portal.jar</span><br><span class="line">cd /home/root/mc-portal/</span><br><span class="line">sh mc-portal.sh restart</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">bash mc-portal.sh</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -209,7 +303,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-14 16:28:44" itemprop="dateModified" datetime="2022-10-14T16:28:44+08:00">2022-10-14</time>
+      <time title="修改时间：2022-10-28 14:49:52" itemprop="dateModified" datetime="2022-10-28T14:49:52+08:00">2022-10-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -356,6 +450,9 @@
 <p>配置权限：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">grant</span> <span class="keyword">all</span> privileges <span class="keyword">on</span> 数据库名.<span class="operator">*</span> <span class="keyword">to</span> 用户名@<span class="string">&#x27;%&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;用户密码&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
+<p>只读权限</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">GRANT</span> <span class="keyword">Select</span> <span class="keyword">ON</span> `数据库名`.<span class="operator">*</span> <span class="keyword">TO</span> `zhongjiang`@`<span class="operator">%</span>`;</span><br></pre></td></tr></table></figure>
+
 <p>添加超级权限：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">grant</span> <span class="keyword">all</span> privileges <span class="keyword">on</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">to</span> <span class="string">&#x27;yangxin&#x27;</span>@<span class="string">&#x27;%&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;yangxin123456&#x27;</span> <span class="keyword">with</span> <span class="keyword">grant</span> option;</span><br><span class="line">mysql<span class="operator">&gt;</span> flush privileges;</span><br></pre></td></tr></table></figure>
 
@@ -380,6 +477,27 @@
 <p>添加MySQL环境变量</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 既然属于mysql的bin目录下面，那我们可以把此目录配置环境变量中，再次执行命令也可以</span></span><br><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加mysql的环境变量</span></span><br><span class="line"><span class="built_in">export</span> MYSQL_HOME=/usr/local/mysql</span><br><span class="line"><span class="built_in">export</span> PATH=.:<span class="variable">$&#123;MYSQL_HOME&#125;</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 刷新环境变量</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
 
+<h5 id="SSL连接"><a href="#SSL连接" class="headerlink" title="SSL连接"></a>SSL连接</h5><p>查看MySQL是否开启SSL：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &quot;%ssl%&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>在mysql&#x2F;bin目录下有<code>mysql_ssl_rsa_setup</code>文件，执行它开始安装ssl</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ./mysql_ssl_rsa_setup</span><br></pre></td></tr></table></figure>
+
+<p>安装完成后，会生成一些私钥公钥在mysql&#x2F;data目录下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ll *.pem</span><br><span class="line">-rw------- 1 mysql mysql 1675 Jun 12 17:22 ca-key.pem         <span class="comment">#CA私钥</span></span><br><span class="line">-rw-r--r-- 1 mysql mysql 1074 Jun 12 17:22 ca.pem             <span class="comment">#自签的CA证书，客户端连接也需要提供</span></span><br><span class="line">-rw-r--r-- 1 mysql mysql 1078 Jun 12 17:22 client-cert.pem    <span class="comment">#客户端连接服务器端需要提供的证书文件</span></span><br><span class="line">-rw------- 1 mysql mysql 1675 Jun 12 17:22 client-key.pem     <span class="comment">#客户端连接服务器端需要提供的私钥文件</span></span><br><span class="line">-rw------- 1 mysql mysql 1675 Jun 12 17:22 private_key.pem    <span class="comment">#私钥/公钥对的私有成员</span></span><br><span class="line">-rw-r--r-- 1 mysql mysql 451 Jun 12 17:22  public_key.pem     <span class="comment">#私钥/公钥对的共有成员</span></span><br><span class="line">-rw-r--r-- 1 mysql mysql 1078 Jun 12 17:22 server-cert.pem    <span class="comment">#服务器端证书文件</span></span><br><span class="line">-rw------- 1 mysql mysql 1675 Jun 12 17:22 server-key.pem     <span class="comment">#服务器端私钥文件</span></span><br></pre></td></tr></table></figure>
+
+<p>修改权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chown</span> -R mysql.mysql *.pem</span><br></pre></td></tr></table></figure>
+
+<p>添加ssl参数到<code>my.cnf</code>配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">ssl-ca=/usr/local/mysql/data/ca.pem</span><br><span class="line">ssl-cert=/usr/local/mysql/data/client-cert.pem</span><br><span class="line">ssl-key=/usr/local/mysql/data/client-key.pem</span><br><span class="line"> </span><br><span class="line">[mysql]</span><br><span class="line">ssl-ca=/usr/local/mysql/data/ca.pem</span><br><span class="line">ssl-cert=/usr/local/mysql/data/client-cert.pem</span><br><span class="line">ssl-key=/usr/local/mysql/data/client-key.pem</span><br></pre></td></tr></table></figure>
+
+<p>重启MySQL</p>
+<p>使用<code>\s</code>或<code>status</code>查看当前连接是否使用了ssl</p>
+<p>强制用户使用ssl</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">/</span><span class="operator">/</span>新建用户</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">grant</span> <span class="keyword">select</span> <span class="keyword">on</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">to</span> <span class="string">&#x27;dba&#x27;</span>@<span class="string">&#x27;%&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;xxx&#x27;</span> REQUIRE SSL; </span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>修改用户</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;dba&#x27;</span>@<span class="string">&#x27;%&#x27;</span> REQUIRE SSL;</span><br><span class="line">mysql<span class="operator">&gt;</span> flush privileges;</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/sumengnan/article/details/114086217">https://blog.csdn.net/sumengnan/article/details/114086217</a></p>
 
       
     </div>
@@ -442,7 +560,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-05 19:41:41" itemprop="dateModified" datetime="2022-10-05T19:41:41+08:00">2022-10-05</time>
+      <time title="修改时间：2022-10-20 16:20:43" itemprop="dateModified" datetime="2022-10-20T16:20:43+08:00">2022-10-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -590,7 +708,7 @@
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cas.authn.jdbc.query[0].passwordEncoder.type</span>=<span class="string">DEFAULT</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].passwordEncoder.characterEncoding</span>=<span class="string">UTF-8</span></span><br><span class="line"><span class="comment"># MD5加密策略</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].passwordEncoder.encodingAlgorithm</span>=<span class="string">MD5</span></span><br></pre></td></tr></table></figure>
 
 <p>3：测试OK</p>
-<h4 id="3-5-其他配置asd"><a href="#3-5-其他配置asd" class="headerlink" title="3.5 其他配置asd"></a>3.5 其他配置asd</h4><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在退出时是否需要 确认一下  true确认 false直接退出，这里是CAS服务端的确认，实际情况用不到</span></span><br><span class="line"><span class="attr">cas.logout.confirmLogout</span>=<span class="string">false</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">#在CAS客户端退出时的配置</span></span><br><span class="line"><span class="comment"># 默认情况下退出登录时，页面将会跳转到CAS服务器内部的注销页面 casLogoutView.jsp ，</span></span><br><span class="line"><span class="comment"># 如果我们需要在退出登录后，跳转到指定页面,需要将下列参数设为true,在退出登录的url里需要添加service参数，该参数指定在注销后需要跳转的页面,配置允许登出后跳转到指定页面,</span></span><br><span class="line"><span class="attr">cas.logout.followServiceRedirects</span>=<span class="string">true</span></span><br><span class="line"><span class="comment">#跳转到指定页面需要的参数名为 service(default)</span></span><br><span class="line"><span class="attr">cas.logout.redirectParameter</span>=<span class="string">service</span></span><br><span class="line"><span class="comment">#是否移除子系统的票据</span></span><br><span class="line"><span class="attr">cas.logout.removeDescendantTickets</span>=<span class="string">true</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-5-其他配置"><a href="#3-5-其他配置" class="headerlink" title="3.5 其他配置"></a>3.5 其他配置</h4><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在退出时是否需要 确认一下  true确认 false直接退出，这里是CAS服务端的确认，实际情况用不到</span></span><br><span class="line"><span class="attr">cas.logout.confirmLogout</span>=<span class="string">false</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">#在CAS客户端退出时的配置</span></span><br><span class="line"><span class="comment"># 默认情况下退出登录时，页面将会跳转到CAS服务器内部的注销页面 casLogoutView.jsp ，</span></span><br><span class="line"><span class="comment"># 如果我们需要在退出登录后，跳转到指定页面,需要将下列参数设为true,在退出登录的url里需要添加service参数，该参数指定在注销后需要跳转的页面,配置允许登出后跳转到指定页面,</span></span><br><span class="line"><span class="attr">cas.logout.followServiceRedirects</span>=<span class="string">true</span></span><br><span class="line"><span class="comment">#跳转到指定页面需要的参数名为 service(default)</span></span><br><span class="line"><span class="attr">cas.logout.redirectParameter</span>=<span class="string">service</span></span><br><span class="line"><span class="comment">#是否移除子系统的票据</span></span><br><span class="line"><span class="attr">cas.logout.removeDescendantTickets</span>=<span class="string">true</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="3-5、CAS-Redis"><a href="#3-5、CAS-Redis" class="headerlink" title="3.5、CAS Redis"></a>3.5、CAS Redis</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- cas 的redis依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apereo.cas<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>cas-server-support-redis-ticket-registry<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;cas.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
