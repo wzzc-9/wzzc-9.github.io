@@ -20,27 +20,23 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Bean生命周期在Bean生命周期中，会经历很多对外扩展的方法，可以在这期间做很多额外的操作，整体流程如下：  首先是Spring会获取到指定bean的一些原数据信息，也就是&#x3D;&#x3D;BeanDefinition&#x3D;&#x3D;，然后会基于BeanDefinition中的class属性的值，&#x3D;&#x3D;采用反射的方式将对象构建出来&#x3D;&#x3D;，然后基于">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Spring">
-<meta property="og:url" content="http://example.com/2022/09/27/Spring%E4%B8%ADBean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="WzcBlog">
+<meta property="og:url" content="http://example.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="WzcBlog">
-<meta property="og:description" content="Bean生命周期在Bean生命周期中，会经历很多对外扩展的方法，可以在这期间做很多额外的操作，整体流程如下：  首先是Spring会获取到指定bean的一些原数据信息，也就是&#x3D;&#x3D;BeanDefinition&#x3D;&#x3D;，然后会基于BeanDefinition中的class属性的值，&#x3D;&#x3D;采用反射的方式将对象构建出来&#x3D;&#x3D;，然后基于">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-09-27T14:22:18.000Z">
-<meta property="article:modified_time" content="2022-10-28T06:50:15.528Z">
 <meta property="article:author" content="Wzzc">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2022/09/27/Spring%E4%B8%ADBean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
+<link rel="canonical" href="http://example.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/09/27/Spring%E4%B8%ADBean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/","path":"2022/09/27/Spring中Bean的生命周期/","title":"Spring"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"tags/设计模式/index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Spring | WzcBlog</title>
+<title>标签: 设计模式 | WzcBlog</title>
   
 
 
@@ -103,7 +99,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -116,7 +112,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">1.</span> <span class="nav-text">Bean生命周期</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -129,18 +124,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/categories/">
-        <span class="site-state-item-count">12</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -168,110 +158,50 @@
 </noscript>
 
 
-    <div class="main-inner post posts-expand">
+    <div class="main-inner tag posts-collapse">
 
 
   
-
-
-<div class="post-block">
   
   
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/27/Spring%E4%B8%ADBean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Wzzc">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WzcBlog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Spring | WzcBlog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Spring
+  <div class="post-block">
+    <div class="post-content">
+      <div class="collection-title">
+        <h1 class="collection-header">设计模式
+          <small>标签</small>
         </h1>
+      </div>
 
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-09-27 22:22:18" itemprop="dateCreated datePublished" datetime="2022-09-27T22:22:18+08:00">2022-09-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-28 14:50:15" itemprop="dateModified" datetime="2022-10-28T14:50:15+08:00">2022-10-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <h1 id="Bean生命周期"><a href="#Bean生命周期" class="headerlink" title="Bean生命周期"></a>Bean生命周期</h1><p>在Bean生命周期中，会经历很多对外扩展的方法，可以在这期间做很多额外的操作，整体流程如下：</p>
-<ul>
-<li>首先是Spring会获取到指定bean的一些原数据信息，也就是&#x3D;&#x3D;BeanDefinition&#x3D;&#x3D;，然后会基于BeanDefinition中的class属性的值，&#x3D;&#x3D;采用反射的方式将对象构建出来&#x3D;&#x3D;，然后基于populateBean方法将对象的一些属性赋值。后续就会经历一些相关的Aware接口，Aware特别多，&#x3D;&#x3D;一般使用ApplicationContextAware的方式，可以用它获取到ApplicationContext对象&#x3D;&#x3D;，从而实现在非Spring容器管理的对象中拿到Spring容器管理的对象；其次，还会经历BeanPostProcessor的前置处理，这里可以动态的去替换bean对象本身。AOP就是借助BeanPostProcessor去构建了代理对象，之后会再经历一个叫做InitializingBean的类中的一个方法：afterPropertiesSet。再往后，就是init-method了，它会执行指定好的初始化方法，最后会执行BeanPostProcessor的后置处理，这样整个对象就构建完毕了，可以正常使用。最后，在工厂销毁之后，单例对象同时也会被销毁，这个时候，就会执行destroy-method以及DisposableBean中的销毁方法。</li>
-</ul>
-
+      
+    <div class="collection-year">
+      <span class="collection-header">2022</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2022-09-12T14:16:10+08:00"
+              content="2022-09-12">
+          09-12
+        </time>
+      </div>
 
-    <footer class="post-footer">
+      <div class="post-title">
+          <a class="post-title-link" href="/2022/09/12/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url">
+            <span itemprop="name">设计模式</span>
+          </a>
+      </div>
 
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2022/09/22/RocketMQ%E5%9F%BA%E7%A1%80/" rel="prev" title="RocketMQ基础">
-                  <i class="fa fa-chevron-left"></i> RocketMQ基础
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2022/09/27/Others/" rel="next" title="Others">
-                  Others <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
+      
+    </header>
   </article>
-</div>
 
-
-
-
-
+    </div>
+  </div>
+  
+  
+  
 
 </div>
   </main>
