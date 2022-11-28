@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
-
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.2.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -15,17 +15,17 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="自动装配 约定大于配置 开发人员仅需规定应用中不符合约定的部分  在没有规定配置的地方，采用默认配置，以力求最简配置为核心思想总的来说，上面两条都遵循了推荐默认配置的思想。当存在特殊需求的时候，自定义配置即可。这样可以大大的减少配置工作，这就是所谓的“约定”。   自动装配 精髓   SpringBoot启动会加载大量 的自动配置类 要写一个自动配置类，看需要的功能有没有在SpringBoot默认">
+    <meta name="description" content="自动装配                            约定大于配置        开发人员仅需规定应用中不符合约定的部分  在没有规定配置的地方，采用默认配置，以力求最简配置为核心思想总的来说，上面两条都遵循了推荐默认配置的思想。当存在特殊需求的时候，自定义配置即可。这样可以大大的减少配置工作，这就是所谓的“约定”。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot">
 <meta property="og:url" content="http://example.com/2022/07/29/SpringBoot/index.html">
-<meta property="og:site_name" content="WzcBlog">
-<meta property="og:description" content="自动装配 约定大于配置 开发人员仅需规定应用中不符合约定的部分  在没有规定配置的地方，采用默认配置，以力求最简配置为核心思想总的来说，上面两条都遵循了推荐默认配置的思想。当存在特殊需求的时候，自定义配置即可。这样可以大大的减少配置工作，这就是所谓的“约定”。   自动装配 精髓   SpringBoot启动会加载大量 的自动配置类 要写一个自动配置类，看需要的功能有没有在SpringBoot默认">
+<meta property="og:site_name">
+<meta property="og:description" content="自动装配                            约定大于配置        开发人员仅需规定应用中不符合约定的部分  在没有规定配置的地方，采用默认配置，以力求最简配置为核心思想总的来说，上面两条都遵循了推荐默认配置的思想。当存在特殊需求的时候，自定义配置即可。这样可以大大的减少配置工作，这就是所谓的“约定”。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/SpringBoot%5Cimage-20220918233054555.png">
 <meta property="og:image" content="http://example.com/SpringBoot%5Cimage-20220918233340610.png">
@@ -49,25 +49,30 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/07/29/SpringBoot/","path":"2022/07/29/SpringBoot/","title":"SpringBoot"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>SpringBoot | WzcBlog</title>
+<title>SpringBoot | </title>
   
 
 
 
 
 
+
+  <script async defer data-website-id="" src=""></script>
+
+  <script defer data-domain="" src=""></script>
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="WzcBlog" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
@@ -80,13 +85,13 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">WzcBlog</p>
+      <p class="site-title"></p>
       <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
   </div>
 </div>
@@ -94,22 +99,16 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">16</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">0</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">20</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
   </ul>
 </nav>
 
 
 
 
-</div>
+</header>
         
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
@@ -125,52 +124,51 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D"><span class="nav-number">1.</span> <span class="nav-text">自动装配</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%A6%E5%AE%9A%E5%A4%A7%E4%BA%8E%E9%85%8D%E7%BD%AE"><span class="nav-number">1.1.</span> <span class="nav-text">约定大于配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D-1"><span class="nav-number">1.2.</span> <span class="nav-text">自动装配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90"><span class="nav-number">1.3.</span> <span class="nav-text">源码分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-number">1.4.</span> <span class="nav-text">结论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E8%A7%A3%E5%88%86%E6%9E%90"><span class="nav-number">1.5.</span> <span class="nav-text">注解分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">启动类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SpringApplication"><span class="nav-number">2.1.</span> <span class="nav-text">SpringApplication</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6yml"><span class="nav-number">3.</span> <span class="nav-text">配置文件yml</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D"><span class="nav-number">1.</span> <span class="nav-text">
+          自动装配</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%A6%E5%AE%9A%E5%A4%A7%E4%BA%8E%E9%85%8D%E7%BD%AE"><span class="nav-number">1.1.</span> <span class="nav-text">
+          约定大于配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D-1"><span class="nav-number">1.2.</span> <span class="nav-text">
+          自动装配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90"><span class="nav-number">1.3.</span> <span class="nav-text">
+          源码分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-number">1.4.</span> <span class="nav-text">
+          结论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E8%A7%A3%E5%88%86%E6%9E%90"><span class="nav-number">1.5.</span> <span class="nav-text">
+          注解分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">
+          启动类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SpringApplication"><span class="nav-number">2.1.</span> <span class="nav-text">
+          SpringApplication</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6yml"><span class="nav-number">3.</span> <span class="nav-text">
+          配置文件yml</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Wzzc"
+      src="/images/photo.jpg">
   <p class="site-author-name" itemprop="name">Wzzc</p>
   <div class="site-description" itemprop="description"></div>
 </div>
-<div class="site-state-wrap site-overview-item animated">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
 
-
-
         </div>
       </div>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
 
     
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
+  </aside>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
 
+    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -186,17 +184,17 @@
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/29/SpringBoot/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/photo.jpg">
       <meta itemprop="name" content="Wzzc">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WzcBlog">
+      <meta itemprop="name" content="">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="SpringBoot | WzcBlog">
+      <meta itemprop="name" content="SpringBoot | ">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -232,14 +230,23 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="自动装配"><a href="#自动装配" class="headerlink" title="自动装配"></a>自动装配</h3><hr>
-<h4 id="约定大于配置"><a href="#约定大于配置" class="headerlink" title="约定大于配置"></a>约定大于配置</h4><ul>
+        
+        <h3 id="自动装配"   >
+          <a href="#自动装配" class="heading-link"><i class="fas fa-link"></i></a><a href="#自动装配" class="headerlink" title="自动装配"></a>自动装配</h3>
+      <hr>
+
+        <h4 id="约定大于配置"   >
+          <a href="#约定大于配置" class="heading-link"><i class="fas fa-link"></i></a><a href="#约定大于配置" class="headerlink" title="约定大于配置"></a>约定大于配置</h4>
+      <ul>
 <li><p>开发人员仅需规定应用中不符合约定的部分</p>
 </li>
 <li><p>在没有规定配置的地方，采用默认配置，以力求最简配置为核心思想总的来说，上面两条都遵循了推荐默认配置的思想。当存在特殊需求的时候，自定义配置即可。这样可以大大的减少配置工作，这就是所谓的“约定”。</p>
 </li>
 </ul>
-<h4 id="自动装配-1"><a href="#自动装配-1" class="headerlink" title="自动装配"></a>自动装配</h4><blockquote>
+
+        <h4 id="自动装配-1"   >
+          <a href="#自动装配-1" class="heading-link"><i class="fas fa-link"></i></a><a href="#自动装配-1" class="headerlink" title="自动装配"></a>自动装配</h4>
+      <blockquote>
 <p><strong>精髓</strong></p>
 </blockquote>
 <ul>
@@ -261,7 +268,7 @@
 <li>在引入一些SpringBoot依赖的时候，不需要指定版本，因为有这些版本仓库</li>
 </ul>
 <p>启动器：就是SpringBoot的启动场景。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></div></figure>
 
 <ul>
 <li><p>比如<code>spring-boot-starte-web</code>，会帮我们自动导入web环境的所有依赖；</p>
@@ -274,14 +281,17 @@
 <blockquote>
 <p>主程序</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//标注这个类是一个SpringBoot的应用：启动类下的所有资源被导入</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AdminApplication</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//将SpringBoot应用启动</span></span><br><span class="line">        SpringApplication.run(AdminApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//标注这个类是一个SpringBoot的应用：启动类下的所有资源被导入</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AdminApplication</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//将SpringBoot应用启动</span></span><br><span class="line">        SpringApplication.run(AdminApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
 
 <ul>
 <li>注解</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootConfiguration</span>	<span class="comment">//SpringBoot的配置</span></span><br><span class="line">	<span class="meta">@Configuration</span>	<span class="comment">//Spring配置类</span></span><br><span class="line">		<span class="meta">@Component</span>	<span class="comment">//说明这也是Spring的一个组件</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span>	<span class="comment">//自动配置</span></span><br><span class="line">	<span class="meta">@AutoConfigurationPackage</span>	<span class="comment">//自动配置包</span></span><br><span class="line">		<span class="meta">@Import(&#123;Registrar.class&#125;)</span>	<span class="comment">//自动配置`包注册`</span></span><br><span class="line">	<span class="meta">@Import(&#123;AutoConfigurationImportSelector.class&#125;)</span>	<span class="comment">//自动配置导入选择</span></span><br><span class="line"><span class="meta">@ComponentScan</span>	<span class="comment">//扫描当前主启动类同级的包</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootConfiguration</span>	<span class="comment">//SpringBoot的配置</span></span><br><span class="line">	<span class="meta">@Configuration</span>	<span class="comment">//Spring配置类</span></span><br><span class="line">		<span class="meta">@Component</span>	<span class="comment">//说明这也是Spring的一个组件</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span>	<span class="comment">//自动配置</span></span><br><span class="line">	<span class="meta">@AutoConfigurationPackage</span>	<span class="comment">//自动配置包</span></span><br><span class="line">		<span class="meta">@Import(&#123;Registrar.class&#125;)</span>	<span class="comment">//自动配置`包注册`</span></span><br><span class="line">	<span class="meta">@Import(&#123;AutoConfigurationImportSelector.class&#125;)</span>	<span class="comment">//自动配置导入选择</span></span><br><span class="line"><span class="meta">@ComponentScan</span>	<span class="comment">//扫描当前主启动类同级的包</span></span><br></pre></td></tr></table></div></figure>
 
-<h4 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h4><ul>
+
+        <h4 id="源码分析"   >
+          <a href="#源码分析" class="heading-link"><i class="fas fa-link"></i></a><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h4>
+      <ul>
 <li>获得自动配置的实体：</li>
 </ul>
 <p><img src="/SpringBoot%5Cimage-20220918233054555.png"></p>
@@ -311,7 +321,10 @@
 <ul>
 <li>@ConditionalOnXXX：如果这里面的条件都满足，才会生效</li>
 </ul>
-<h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4><p>SpringBoot所有的自动配置都是在启动的时候扫描并加载：所有的自动配置类都在<code>spring.factories</code>中，但是不一定生效，要判断条件是否成立，只要导入对应的start，就有了对应的启动器，有了启动器，自动装配就会生效，最后配置成功~</p>
+
+        <h4 id="结论"   >
+          <a href="#结论" class="heading-link"><i class="fas fa-link"></i></a><a href="#结论" class="headerlink" title="结论"></a>结论</h4>
+      <p>SpringBoot所有的自动配置都是在启动的时候扫描并加载：所有的自动配置类都在<code>spring.factories</code>中，但是不一定生效，要判断条件是否成立，只要导入对应的start，就有了对应的启动器，有了启动器，自动装配就会生效，最后配置成功~</p>
 <ul>
 <li>SpringBoot在启动的时候，从类路径下<code>/META-INF/spring.factories</code>获取指定的值；</li>
 <li>将这些自动配置的类导入容器，自动配置就会生效，帮我们自动进行配置；</li>
@@ -321,7 +334,10 @@
 <li>容器中存在很多的XXAutoConfiguration的文件（@Bean），就是这些类给容器中导入了这个场景需要的所有组件，并自动配置，@Configuration，JavaConfig；</li>
 <li>有了自动配置类，免去了手动编写配置文件的工作~</li>
 </ul>
-<h4 id="注解分析"><a href="#注解分析" class="headerlink" title="注解分析"></a>注解分析</h4><ul>
+
+        <h4 id="注解分析"   >
+          <a href="#注解分析" class="heading-link"><i class="fas fa-link"></i></a><a href="#注解分析" class="headerlink" title="注解分析"></a>注解分析</h4>
+      <ul>
 <li><p>@Configuration	&#x2F;&#x2F;表明这是一个配置类</p>
 </li>
 <li><p>@EnableConfigurationProperties    &#x2F;&#x2F;自动配置属性：yml</p>
@@ -333,8 +349,14 @@
 <p><img src="/SpringBoot%5Cimage-20220921213320875.png"></p>
 </li>
 </ul>
-<h3 id="启动类"><a href="#启动类" class="headerlink" title="启动类"></a>启动类</h3><hr>
-<h4 id="SpringApplication"><a href="#SpringApplication" class="headerlink" title="SpringApplication"></a>SpringApplication</h4><blockquote>
+
+        <h3 id="启动类"   >
+          <a href="#启动类" class="heading-link"><i class="fas fa-link"></i></a><a href="#启动类" class="headerlink" title="启动类"></a>启动类</h3>
+      <hr>
+
+        <h4 id="SpringApplication"   >
+          <a href="#SpringApplication" class="heading-link"><i class="fas fa-link"></i></a><a href="#SpringApplication" class="headerlink" title="SpringApplication"></a>SpringApplication</h4>
+      <blockquote>
 <p>主要做了四件事</p>
 </blockquote>
 <ul>
@@ -343,7 +365,10 @@
 <li>找出所有的应用程序监听器，设置到 <strong>listeners</strong> 属性中</li>
 <li>推断并设置main方法的定义类，找到运行的主类</li>
 </ul>
-<h3 id="配置文件yml"><a href="#配置文件yml" class="headerlink" title="配置文件yml"></a>配置文件yml</h3><hr>
+
+        <h3 id="配置文件yml"   >
+          <a href="#配置文件yml" class="heading-link"><i class="fas fa-link"></i></a><a href="#配置文件yml" class="headerlink" title="配置文件yml"></a>配置文件yml</h3>
+      <hr>
 <p><strong>生效优先级</strong></p>
 <ul>
 <li>file：.&#x2F;config&#x2F;</li>
@@ -359,6 +384,24 @@
     
 
     <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Wzzc 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Wzzc 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
           <div class="post-tags">
               <a href="/tags/SpringBoot/" rel="tag"># SpringBoot</a>
           </div>
@@ -401,15 +444,31 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Wzzc</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
     </div>
   </footer>
 
   
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
 
   
 
@@ -417,11 +476,5 @@
 
 
 
-  
-
-
-
-
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":20,"vOffset":-50},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":20,"vOffset":-50},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
 </html>
