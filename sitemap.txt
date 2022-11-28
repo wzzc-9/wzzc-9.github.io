@@ -29,11 +29,11 @@ http://example.com/tags/Linux/
 http://example.com/tags/MySQL/
 http://example.com/tags/Redis/
 http://example.com/tags/RocketMQ/
-http://example.com/tags/Servlet/
-http://example.com/tags/Spring/
-http://example.com/tags/SpringBoot/
 http://example.com/tags/RocketMQ-Dubbo-Zookeeper/
-http://example.com/tags/git/
+http://example.com/tags/Servlet/
+http://example.com/tags/SpringBoot/
 http://example.com/tags/test/
-http://example.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/
+http://example.com/tags/Spring/
+http://example.com/tags/git/
 http://example.com/tags/%E7%BD%91%E7%BB%9C/
+http://example.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/

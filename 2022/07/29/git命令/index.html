@@ -214,19 +214,19 @@
     <div class="post-body" itemprop="articleBody">
         <ol>
 <li><p>用<code>git commit -a</code>提交了一次变化，而又不确定提交了哪些内容，可以使用如下命令显示当前HEAD上的最近一次的提交（commit）：</p>
-<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git show</span><br><span class="line">$ git <span class="built_in">log</span> -n1 -p</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git show</span><br><span class="line">$ git <span class="built_in">log</span> -n1 -p</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果提交信息（commit message）写错了且这次提交（commit）还没有推（push），可以通过下面的方法来修改提交信息（commit message）：</p>
-<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit --amend --only</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit --amend --only</span><br></pre></td></tr></table></figure>
 
 <p>这会打开你的默认编辑器，在这里你可以编辑信息，另一方面，你也可以用一条命令一次完成：</p>
-<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">   $ git commit --amend --only -m <span class="string">&#x27;xxxxxx&#x27;</span></span><br><span class="line"></span><br><span class="line">​		如果已经推（push）了这次提交（commit），可以修改这次提交（commit）然后强推（force push），但是不推荐这么做。</span><br><span class="line"></span><br><span class="line">3. 提交（commit）里的用户名和邮箱不对</span><br><span class="line"></span><br><span class="line">   如果这只是单个提交（commit），修改它：</span><br><span class="line"></span><br><span class="line">   ```bash</span><br><span class="line">   $ git commit --amend --autor <span class="string">&quot;New AuthorName&quot;</span></span><br></pre></td></tr></table></div></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">   $ git commit --amend --only -m <span class="string">&#x27;xxxxxx&#x27;</span></span><br><span class="line"></span><br><span class="line">​		如果已经推（push）了这次提交（commit），可以修改这次提交（commit）然后强推（force push），但是不推荐这么做。</span><br><span class="line"></span><br><span class="line">3. 提交（commit）里的用户名和邮箱不对</span><br><span class="line"></span><br><span class="line">   如果这只是单个提交（commit），修改它：</span><br><span class="line"></span><br><span class="line">   ```bash</span><br><span class="line">   $ git commit --amend --autor <span class="string">&quot;New AuthorName&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>如果需要修改所有历史，参考<code>git filter-branch</code>的指南页。</p>
 </li>
 <li><p>我想从一个提交（commit）里移除一个文件</p>
 <p>通过下面的方法，从一个提交（commit）里移除一个文件：</p>
-<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout HEAD^ myfile</span><br><span class="line">$ git add -A</span><br><span class="line">$ git commit --amend</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout HEAD^ myfile</span><br><span class="line">$ git add -A</span><br><span class="line">$ git commit --amend</span><br></pre></td></tr></table></figure>
 
 <p>当往上面提交了一个不必要的文件，你需要强推（force push）去更新这个远程补丁。</p>
 </li>
