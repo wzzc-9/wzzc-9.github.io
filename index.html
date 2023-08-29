@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Wzzc">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title></title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title"></h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/09/ELK/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gouku.jpg">
+      <meta itemprop="name" content="Wzzc">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/06/09/ELK/" class="post-title-link" itemprop="url">ELK</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-06-09 09:56:26 / 修改时间：09:57:17" itemprop="dateCreated datePublished" datetime="2023-06-09T09:56:26+08:00">2023-06-09</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>17</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Elasticsearch解压安装"><a href="#Elasticsearch解压安装" class="headerlink" title="Elasticsearch解压安装"></a>Elasticsearch解压安装</h1>
+      
+    </div>
+
+    
+    
+    
+	<div>
+	  
+	</div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/02/13/Exception%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gouku.jpg">
+      <meta itemprop="name" content="Wzzc">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/02/13/Exception%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">Exception总结</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-02-13 12:40:01 / 修改时间：12:42:40" itemprop="dateCreated datePublished" datetime="2023-02-13T12:40:01+08:00">2023-02-13</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>291</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>解决java.util.LinkedHashMap cannot be cast to 实体类…的问题</strong></p>
+<blockquote>
+<p>使用openfeign进行远程调用，由于有个接口返回的是R&lt;List&lt;·Object&gt;&gt;类型的数据，在调用方使用List&lt;·Object&gt;去接收数据时，出现java.util.LinkedHashMap cannot be cast to xxx数据转换异常错误。可知远程调用会将待转换的数据转换成LinkedHashMap，而将其转换成想要的数据类型，肯定行不通。</p>
+</blockquote>
+<p>解决办法一：</p>
+<blockquote>
+<p>使用alibaba提供的fastjson工具中的TypeReference，进行转换。</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+	<div>
+	  
+	</div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/14/SpringCloud/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gouku.jpg">
+      <meta itemprop="name" content="Wzzc">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/14/SpringCloud/" class="post-title-link" itemprop="url">SpringCloud&Alibaba</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-12-14 22:09:24" itemprop="dateCreated datePublished" datetime="2022-12-14T22:09:24+08:00">2022-12-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-01-26 16:36:56" itemprop="dateModified" datetime="2023-01-26T16:36:56+08:00">2023-01-26</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h1><ul>
+<li>服务注册与发现<ul>
+<li>Eureka</li>
+<li>Zookeeper</li>
+<li>Consul</li>
+<li><strong>Nacos</strong></li>
+</ul>
+</li>
+<li>服务负载与调用<ul>
+<li><strong>Ribbon</strong></li>
+<li><strong>LoadBalancer</strong></li>
+<li>Feign</li>
+<li><strong>OpenFeign</strong></li>
+</ul>
+</li>
+<li>服务熔断降级<ul>
+<li>Hystrix</li>
+<li><strong>Resilience4j</strong></li>
+<li><strong>Sentinel</strong></li>
+</ul>
+</li>
+<li>服务网关<ul>
+<li>Zuul</li>
+<li><strong>Gateway</strong></li>
+</ul>
+</li>
+<li>服务配置<ul>
+<li>Config</li>
+<li><strong>Nacos</strong></li>
+</ul>
+</li>
+<li>服务总线<ul>
+<li>Bus</li>
+<li><strong>Nacos</strong></li>
+</ul>
+</li>
+</ul>
+<h1 id="Eureka"><a href="#Eureka" class="headerlink" title="Eureka"></a>Eureka</h1><p><strong>自我保护机制：</strong>默认情况下EurekaClient定时向EurekaServer端发送心跳包，如果Eureka在server端一定时间内（默认90秒）没有收到EurekaClient发送的心跳包，便会直接从服务注册列表中剔除该服务，但是在短时间（90秒中）内丢失了大量的服务实例心跳，这时候EurekaServer会开启自我保护机制，不会剔除该服务（该现象可能出现在如果网络不通，但是EurekaClient未出现宕机，此时如果换做别的注册中心如果一定时间内没有收到心跳会将剔除该服务，这样就出现了严重失误，因为客户端还能正常发送心跳，只是网络延迟问题，而保护机制是为了解决此问题而产生的）。</p>
+<p>&#x3D;&#x3D;在自我保护模式中，EurekaServer会保护服务注册表中的信息，不再注销任何服务实例。&#x3D;&#x3D;</p>
+<p><strong>属于CAP里面AP分支</strong></p>
+<h1 id="Consul"><a href="#Consul" class="headerlink" title="Consul"></a>Consul</h1><p><a target="_blank" rel="noopener" href="http://www.consul.io/intro/index.html">http://www.consul.io/intro/index.html</a></p>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>语言</th>
+<th>CAP</th>
+<th>服务健康检查</th>
+<th>对外暴露接口</th>
+<th>Spring Cloud集成</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Eureka</td>
+<td>Java</td>
+<td>AP</td>
+<td>可配支持</td>
+<td>HTTP</td>
+<td>已集成</td>
+</tr>
+<tr>
+<td>Consul</td>
+<td>Go</td>
+<td>CP</td>
+<td>可支持</td>
+<td>HTTP&#x2F;DNS</td>
+<td>已集成</td>
+</tr>
+<tr>
+<td>Zookeeper</td>
+<td>Java</td>
+<td>CP</td>
+<td>可支持</td>
+<td>客户端</td>
+<td>已集成</td>
+</tr>
+</tbody></table>
+<ul>
+<li>C：Consistency（强一致性）</li>
+<li>A：Availability（可用性）</li>
+<li>P：Partition tolerance（分区容错性）</li>
+</ul>
+<p>CAP理论核心：<strong>一个分布式系统不可能同时很好的满足一致性，可用性和分区容错性这三个需求</strong>，因此分成三大类：</p>
+<ul>
+<li>CA：单点集群，满足一致性，可用性的系统，通常在可扩展性上不太强大</li>
+<li>CP：满足一致性，分区容忍性的系统，通常性能不是特别高</li>
+<li>AP：满足可用性，分区容忍性的系统，通常可能对一致性要求低一些</li>
+</ul>
+<h1 id="Ribbon"><a href="#Ribbon" class="headerlink" title="Ribbon"></a>Ribbon</h1><p>NetFlix开源项目，主要功能是提供<strong>客户端的软件负载均衡算法和调用。</strong>提供一系列完善的配置项如连接超时，重试等。</p>
+<p>Ribbon本地负载均衡客户端与Nginx服务端负载均衡区别：</p>
+<p>Nginx是服务器负载均衡，客户端所有请求都会交给Nginx，然后有Nginx实现转发请求。即负载均衡是由服务端实现的。</p>
+<p>Ribbon本地负载均衡，在调用微服务接口时候，会在注册中心上获取注册信息服务列表之后缓存到JVM本地，从而在本地实现PRC远程服务调用技术。</p>
+<p><strong>集中式LB：</strong>即在服务消费方与提供方之间使用独立的LB设施（可以是硬件，如F5，也可以是软件，如Nginx），由该设施负责把访问请求通过某种策略转发至服务的提供方；</p>
+<p><strong>进程内LB：</strong>将LB逻辑集成到消费方，消费方从服务注册中心获取有哪些地址可用，然后自己再从这些地址中选择出一个合适的服务器。</p>
+<p>&#x3D;&#x3D;Ribbon就属于进程内LB&#x3D;&#x3D;，它只是一个类库，集成于消费方进程，消费方通过它来获取到服务提供方的地址。</p>
+<h1 id="OpenFeign"><a href="#OpenFeign" class="headerlink" title="OpenFeign"></a>OpenFeign</h1><blockquote>
+<p>Feign是一个声明式的Web服务客户端，让编写Web服务器客户端变得非常容易，只需要创建一个接口并在接口上添加注解即可。旨在使编写Java Http客户端变得更容易</p>
+</blockquote>
+<p>在Feign的基础上支持了SpringMVC的注解，如@RequestMapping等等。OpenFeign的@FeignClient可以解析SpringMVC的@RequestMapping注解下的接口，并通过动态代理的方式产生实现类，实现类中做负载均衡并调用其他服务。</p>
+
+      
+    </div>
+
+    
+    
+    
+	<div>
+	  
+	</div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/11/Zabbix/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gouku.jpg">
+      <meta itemprop="name" content="Wzzc">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/11/Zabbix/" class="post-title-link" itemprop="url">Zabbix</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-12-11 16:52:13" itemprop="dateCreated datePublished" datetime="2022-12-11T16:52:13+08:00">2022-12-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-01-05 15:38:24" itemprop="dateModified" datetime="2023-01-05T15:38:24+08:00">2023-01-05</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="解决Server端乱码问题"><a href="#解决Server端乱码问题" class="headerlink" title="解决Server端乱码问题"></a>解决Server端乱码问题</h1><p>zabbix默认监测了服务端本身，但编码有问题</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装字体</span></span><br><span class="line">yum -y install wqy-microhei-fonts</span><br><span class="line"></span><br><span class="line"><span class="comment"># 复制字体</span></span><br><span class="line">\<span class="built_in">cp</span> /usr/share/fonts/wqy-microhei/wqy-microhei.ttc /usr/share/fonts/dejavu/DejaVuSans.ttf</span><br></pre></td></tr></table></figure>
+
+<h1 id="部署Zabbix客户端"><a href="#部署Zabbix客户端" class="headerlink" title="部署Zabbix客户端"></a>部署Zabbix客户端</h1><blockquote>
+<p><strong>zabbix-agent2采用golang语言开发，默认10050端口，也就是zabbix客户端的端口</strong></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置时间正确</span></span><br><span class="line">yum install ntpdate -y</span><br><span class="line">ntpdate -u ntp.aliyun.com</span><br><span class="line"></span><br><span class="line"><span class="comment"># 时区的统一配置</span></span><br><span class="line"><span class="built_in">mv</span> /etc/localtime&#123;,.bak&#125;</span><br><span class="line"><span class="built_in">ln</span> -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
+
+<p><strong>zabbix-agent2部署流程</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取zabbix下载源</span></span><br><span class="line">rpm -Uvh https://mirrors.aliyun.com/zabbix/zabbix/5.0/rhel/7/x86_64/zabbix-release-5.0-1.el7.noarch.rpm</span><br><span class="line"><span class="comment"># 更换zabbix.repo源，为阿里的</span></span><br><span class="line">sed -i <span class="string">&#x27;s#http://repo.zabbix.com#https://mirrors.aliyun.com/zabbix#&#x27;</span> /etc/yum.repos.d/zabbix.repo</span><br><span class="line"></span><br><span class="line">yum install zabbix-agent2 -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看配置文件</span></span><br><span class="line">/etc/zabbix/zabbix_agent2.conf</span><br><span class="line"><span class="comment"># 启动命令</span></span><br><span class="line"><span class="built_in">ls</span> -l /usr/sbin/zabbix_agent2</span><br><span class="line"><span class="comment"># 启动客户端，开机自启</span></span><br><span class="line">systemctl <span class="built_in">enable</span> --now zabbix-agent2</span><br></pre></td></tr></table></figure>
+
+<p><strong>修改配置文件</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/zabbix/zabbix_agent2.conf</span><br><span class="line"></span><br><span class="line">Server=1.13.248.197</span><br><span class="line">ServerActive=1.13.248.197</span><br><span class="line">Hostname=机器名称</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看配置信息</span></span><br><span class="line">grep -Ev <span class="string">&#x27;^#|^$&#x27;</span> /etc/zabbix/zabbix_agent2.conf</span><br></pre></td></tr></table></figure>
+
+<p><strong>重启zabbix</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart zabbix-agent2</span><br></pre></td></tr></table></figure>
+
+<p><strong>验证zabbix-agent2的连通性</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在服务器上通过命令，主动获取数据</span></span><br><span class="line">yum install zabbix-get -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 命令监测服务端是否连接上客户端</span></span><br><span class="line">zabbix_get -s <span class="string">&#x27;1.13.248.197&#x27;</span> -p 10050 -k <span class="string">&#x27;agent.ping&#x27;</span></span><br><span class="line">zabbix_get -s <span class="string">&#x27;1.13.248.197&#x27;</span> -p 10050 -k <span class="string">&#x27;system.hostname&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="监控Nginx"><a href="#监控Nginx" class="headerlink" title="监控Nginx"></a>监控Nginx</h1><p><strong>确定监控内容：</strong>nginx内置了一个status状态的功能，通过配置可以看到nginx的运行情况，status显示的内容包括当前连接数，处于活动状态的连接数，已经处理的请求数等等。</p>
+<p>在nginx的配置文件中，添加status配置，在虚拟主机 server {} 中加入上面配置，也可以单独定义一个专门用于监控的虚拟主机。</p>
+<p>deny all , 拒绝除 allow 中的主机之外所有主机访问此URL ，实现过程中如果遇到403 ，有可能是你把自己测试的机器拒绝了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">location /nginx_status &#123;</span><br><span class="line">  stub_status on;</span><br><span class="line">  access_log off;		 //关闭日志</span><br><span class="line">  allow 127.0.0.1;</span><br><span class="line">  allow 192.168.10.5;   //zabbix服务器的IP地址，一般是内网地址</span><br><span class="line">  deny all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./nginx -s reload</span><br></pre></td></tr></table></figure>
+
+<p><strong>在zabbix server上测试访问：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://1.13.248.197/status</span><br></pre></td></tr></table></figure>
+
+<img src="/2022/12/11/Zabbix/image-20221228210959320.png" class="" title="image-20221228210959320">
+
+<p>nginx Status 详细说明：</p>
+<ul>
+<li>Active connections：当前处于活动状态的客户端连接数，包括连接等待空闲连接数。</li>
+<li>accepts：统计总值，Nginx自启动后已经接受的客户端请求的总数。</li>
+<li>handled：统计总值，Nginx自启动后已经处理完成的客户端请求的总数，一般情况下它和accept值相同，如果不同说明nginx性能出现瓶颈</li>
+<li>requests：统计总值，Nginx自启动后客户端发来的总的请求数。</li>
+<li>reading：当前状态，正在读取客户端请求报文首部的连接的连接数。</li>
+<li>writing：当前状态，正在向客户端发送响应报文过程中的连接数。</li>
+<li>waiting：当前状态，正在等待客户端发出请求的空闲连接数，开启 keep-alive的情况下,这个值等于 active –(reading+writing)。</li>
+</ul>
+<p>在访问效率很高，请求很快被处理完毕的情况下，Waiting 数比较多是正常的。如果 reading + writing 数较多，则说明并发访问量很大，正在处理过程中。</p>
+<p><strong>监控脚本编写</strong></p>
+<p>编写脚本，放于&#x2F;usr&#x2F;local&#x2F;zabbix&#x2F;scripts目录下</p>
+<p>通过脚本获取status页面信息的关键值，zabbix server通过这些关键值才能生成数据图像，获取status的关键值脚本如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /usr/local/zabbix/scripts</span><br><span class="line">vim /usr/local/zabbix/scripts/nginx_status.sh</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"><span class="comment"># Description：zabbix监控nginx状态</span></span><br><span class="line"><span class="comment"># Note：此脚本需要配置在被监控端</span></span><br><span class="line">HOST=<span class="string">&quot;127.0.0.1&quot;</span></span><br><span class="line">PORT=<span class="string">&quot;80&quot;</span></span><br><span class="line"><span class="comment"># 检测nginx进程是否存在</span></span><br><span class="line"><span class="keyword">function</span> ping &#123;</span><br><span class="line">    /sbin/pidof nginx | <span class="built_in">wc</span> -l</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 检测nginx性能</span></span><br><span class="line"><span class="keyword">function</span> active &#123;</span><br><span class="line">    /usr/bin/curl <span class="string">&quot;http://<span class="variable">$HOST</span>:<span class="variable">$PORT</span>/status/&quot;</span> 2&gt;/dev/null| grep <span class="string">&#x27;Active&#x27;</span> | awk <span class="string">&#x27;&#123;print $NF&#125;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> reading &#123;</span><br><span class="line">    /usr/bin/curl <span class="string">&quot;http://<span class="variable">$HOST</span>:<span class="variable">$PORT</span>/status/&quot;</span> 2&gt;/dev/null| grep <span class="string">&#x27;Reading&#x27;</span> | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> writing &#123;</span><br><span class="line">    /usr/bin/curl <span class="string">&quot;http://<span class="variable">$HOST</span>:<span class="variable">$PORT</span>/status/&quot;</span> 2&gt;/dev/null| grep <span class="string">&#x27;Writing&#x27;</span> | awk <span class="string">&#x27;&#123;print $4&#125;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> waiting &#123;</span><br><span class="line">    /usr/bin/curl <span class="string">&quot;http://<span class="variable">$HOST</span>:<span class="variable">$PORT</span>/status/&quot;</span> 2&gt;/dev/null| grep <span class="string">&#x27;Waiting&#x27;</span> | awk <span class="string">&#x27;&#123;print $6&#125;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> accepts &#123;</span><br><span class="line">    /usr/bin/curl <span class="string">&quot;http://<span class="variable">$HOST</span>:<span class="variable">$PORT</span>/status/&quot;</span> 2&gt;/dev/null| awk NR==3 | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> handled &#123;</span><br><span class="line">    /usr/bin/curl <span class="string">&quot;http://<span class="variable">$HOST</span>:<span class="variable">$PORT</span>/status/&quot;</span> 2&gt;/dev/null| awk NR==3 | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> requests &#123;</span><br><span class="line">    /usr/bin/curl <span class="string">&quot;http://<span class="variable">$HOST</span>:<span class="variable">$PORT</span>/status/&quot;</span> 2&gt;/dev/null| awk NR==3 | awk <span class="string">&#x27;&#123;print $3&#125;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 执行function</span></span><br><span class="line"><span class="variable">$1</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>本地测试：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sh /usr/local/zabbix/scripts/ngx_status.sh active</span><br><span class="line">sh /usr/local/zabbix/scripts/ngx_status.sh accepts</span><br></pre></td></tr></table></figure>
+
+<p><strong>赋予脚本执行权限：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x /usr/local/zabbix/scripts/ngx_status.sh</span><br></pre></td></tr></table></figure>
+
+<p><strong>修改zabbix_agent2.conf</strong></p>
+<p>使用脚本监控需要将zabbix-agentd.conf文件中的<code>UnsafeUserParameters=1</code> 开启。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/zabbix/zabbix_agent2.conf</span><br><span class="line"></span><br><span class="line">UnsafeUserParameters=1</span><br></pre></td></tr></table></figure>
+
+<p><strong>定义监控脚本Key</strong></p>
+<p>添加zabbix配置文件，放于&#x2F;etc&#x2F;zabbix&#x2F;zabbix_agent2.d&#x2F;目录下（agent的配置文件&#x2F;etc&#x2F;zabbix&#x2F;zabbix_agent2.conf中定义了其他key的包含目录）创建配置文件nginx_status.conf</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/zabbix/zabbix_agent2.d/nginx_status.conf</span><br><span class="line"></span><br><span class="line">UserParameter=nginx.status[*],/usr/local/zabbix/scripts/nginx_status.sh <span class="variable">$1</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>配置好后重启zabbix-agent2</strong></p>
+<p><strong>Zabbix服务端使用zabbix_get 测试获取数据</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">zabbix_get -s 1.13.248.197 -p 10050 -k nginx.status[ping]</span><br><span class="line">zabbix_get -s 1.13.248.197 -p 10050 -k nginx.status[active]</span><br><span class="line">zabbix_get -s 1.13.248.197 -p 10050 -k nginx.status[accepts]</span><br></pre></td></tr></table></figure>
+
+<p><strong>出现Permission denied问题：</strong></p>
+<p>将<code>nginx_status.sh</code>脚本所属用户改为zabbix</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local</span><br><span class="line"><span class="built_in">chown</span> zabbix:zabbix -R zabbix</span><br></pre></td></tr></table></figure>
+
+<p><strong>Web界面配置</strong></p>
+<p>创建模板，添加监控项</p>
+<img src="/2022/12/11/Zabbix/image-20221229141142940.png" class="" title="image-20221229141142940">
+
+<p>创建图像，关联模板</p>
+<img src="/2022/12/11/Zabbix/image-20221229141322844.png" class="" title="image-20221229141322844">
+
+      
+    </div>
+
+    
+    
+    
+	<div>
+	  
+	</div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/05/OpenNMS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gouku.jpg">
+      <meta itemprop="name" content="Wzzc">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/05/OpenNMS/" class="post-title-link" itemprop="url">OpenNMS</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-12-05 22:23:26" itemprop="dateCreated datePublished" datetime="2022-12-05T22:23:26+08:00">2022-12-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-01-05 15:34:05" itemprop="dateModified" datetime="2023-01-05T15:34:05+08:00">2023-01-05</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>OpenNMS :: Checkstyle</p>
+<p>OpenNMS :: Core :: Systemproperties</p>
+<p>OpenNMS :: Core :: SNMP :: API，OpenNMS :: Dependencies :: JAXB</p>
+<p>org.opennms.dependencies:jaxb-dependencies:pom:32.0.0-SNAPSHOT, </p>
+<p>org.opennms.core.snmp:org.opennms.core.snmp.api:jar:32.0.0-SNAPSHOT, org.opennms.features.collection:org.opennms.features.collection.api:jar:32.0.0-SNAPSHOT, </p>
+<p>org.opennms.core:org.opennms.core.lib:jar:32.0.0-SNAPSHOT, </p>
+<p>org.opennms.core:org.opennms.core.xml:jar:32.0.0-SNAPSHOT,</p>
+<p> org.opennms.core.test-api:org.opennms.core.test-api.xml:jar:32.0.0-SNAPSHOT:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">agent</span> <span class="attr">address</span>=<span class="string">&quot;192.168.1.1&quot;</span> <span class="attr">store-by-fs</span>=<span class="string">&quot;true&quot;</span> <span class="attr">node-id</span>=<span class="string">&quot;99&quot;</span> <span class="attr">node-label</span>=<span class="string">&quot;switch&quot;</span> <span class="attr">foreign-source</span>=<span class="string">&quot;fs&quot;</span> <span class="attr">foreign-id</span>=<span class="string">&quot;fid&quot;</span> <span class="attr">location</span>=<span class="string">&quot;HQ&quot;</span> <span class="attr">storage-resource-path</span>=<span class="string">&quot;tmp/foo&quot;</span> <span class="attr">sys-up-time</span>=<span class="string">&quot;149&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">attribute</span> <span class="attr">key</span>=<span class="string">&quot;k1&quot;</span>&gt;</span>&lt;![CDATA[v1]]&gt;<span class="tag">&lt;/<span class="name">attribute</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">agent</span> <span class="attr">address</span>=<span class="string">&quot;192.168.1.1&quot;</span> <span class="attr">store-by-fs</span>=<span class="string">&quot;true&quot;</span> <span class="attr">node-id</span>=<span class="string">&quot;99&quot;</span> <span class="attr">node-label</span>=<span class="string">&quot;switch&quot;</span> <span class="attr">foreign-source</span>=<span class="string">&quot;fs&quot;</span> <span class="attr">foreign-id</span>=<span class="string">&quot;fid&quot;</span> <span class="attr">location</span>=<span class="string">&quot;HQ&quot;</span> <span class="attr">storage-resource-path</span>=<span class="string">&quot;tmp\foo&quot;</span> <span class="attr">sys-up-time</span>=<span class="string">&quot;149&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">attribute</span> <span class="attr">key</span>=<span class="string">&quot;k1&quot;</span>&gt;</span>&lt;![CDATA[v1]]&gt;<span class="tag">&lt;/<span class="name">attribute</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">agent</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+	<div>
+	  
+	</div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/01/PostgreSQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gouku.jpg">
+      <meta itemprop="name" content="Wzzc">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/01/PostgreSQL/" class="post-title-link" itemprop="url">PostgreSQL</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-12-01 17:14:52" itemprop="dateCreated datePublished" datetime="2022-12-01T17:14:52+08:00">2022-12-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-01-05 15:34:05" itemprop="dateModified" datetime="2023-01-05T15:34:05+08:00">2023-01-05</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p><strong>检车PostgreSQL是否已经安装</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查PostgreSQL是否已经安装</span></span><br><span class="line">rpm -qa | grep postgres</span><br><span class="line"><span class="comment"># 检查PostgreSQL安装位置</span></span><br><span class="line">rpm -qal | grep postgres</span><br></pre></td></tr></table></figure>
+
+<p><strong>若已经安装，则使用<code>rpm -e</code>命令卸载</strong></p>
+<p><strong>上传压缩包并解压</strong></p>
+<p><code>postgresql-12.0.tar.gz</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf postgresql-12.0.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p><strong>准备</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新增postgres用户组</span></span><br><span class="line">groupadd postgres</span><br><span class="line"><span class="comment"># 新增postgres用户并且设置这个用户属于上面创建的postgres用户组</span></span><br><span class="line">useradd -g postgres postgres</span><br><span class="line"><span class="comment"># 修改postgres用户密码（这里设置密码为postgres）</span></span><br><span class="line">passwd postgres</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建安装路径和日志文件，并给用户分配权限</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /usr/local/pgsql/data</span><br><span class="line"><span class="built_in">touch</span> /usr/local/pgsql/pgsql.log</span><br><span class="line"></span><br><span class="line"><span class="built_in">chown</span> -R postgres:postgres /usr/local/pgsql/</span><br></pre></td></tr></table></figure>
+
+<p><strong>编译并安装</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/postgresql-12.0</span><br><span class="line">./configure --prefix=/usr/local/pgsql</span><br><span class="line"><span class="comment"># 如果出现configure: error: readline library not found。执行：</span></span><br><span class="line"><span class="comment"># yum install readline-devel</span></span><br><span class="line"><span class="comment"># 如果出现configure: error: zlib library not found。执行：</span></span><br><span class="line"><span class="comment"># yum install zlib-devel</span></span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<p><strong>初始化</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 切换用户</span></span><br><span class="line">su - postgres</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化</span></span><br><span class="line">/usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data</span><br></pre></td></tr></table></figure>
+
+<p>有以下内容输出则为成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Success. You can now start the database server using:</span><br><span class="line"></span><br><span class="line">	./pg_ctl -D /usr/local/pgsql/data -l logfile start</span><br></pre></td></tr></table></figure>
+
+<p><strong>修改文件</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改访问配置文件pg_hba.conf</span></span><br><span class="line"><span class="built_in">cd</span> data</span><br><span class="line">vim pg_hba.conf</span><br><span class="line">host	all		all		0.0.0.0/0		md5</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改配置文件postgresql.conf</span></span><br><span class="line">vim postgresql.conf</span><br><span class="line"><span class="comment"># 具体修改：</span></span><br><span class="line"><span class="comment"># 将 #listen_address = &#x27;localhost&#x27;改为listen_address= &#x27;*&#x27;</span></span><br><span class="line"><span class="comment"># 将 #port = 5432 前的#号去掉</span></span><br><span class="line"><span class="comment"># 将 #password_encryption 前的#号去掉</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>启动</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化数据库并启动</span></span><br><span class="line">pg_ctl -D /usr/local/pgsql/data -l /usr/local/pgsql/pgsql.log start</span><br><span class="line">pg_ctl -D /usr/local/pgsql/data -l /usr/local/pgsql/logfile start</span><br><span class="line"> </span><br><span class="line"><span class="comment">#或者</span></span><br><span class="line">pg_ctl -D /usr/local/pgsql/data &gt; /usr/local/pgsql/pgsql.log 2&gt;&amp;1 &amp;</span><br><span class="line"> </span><br><span class="line"><span class="comment">#不带日志启动</span></span><br><span class="line">pg_ctl -D /usr/local/pgsql/data start</span><br></pre></td></tr></table></figure>
+
+<p><strong>其他命令</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//关闭</span><br><span class="line">pg_ctl -D /opt/pgsql/data -l /opt/pgsql/logfile stop</span><br><span class="line"> </span><br><span class="line">//重启</span><br><span class="line">pg_ctl -D /opt/pgsql/data -l /opt/pgsql/logfile restart</span><br><span class="line"> </span><br><span class="line">//查看数据库状态</span><br><span class="line">pg_ctl -D /opt/pgsql/data status</span><br><span class="line"> </span><br><span class="line">//查看是否启动</span><br><span class="line">ps -A | grep postgres</span><br><span class="line">ps -aux | grep postgres</span><br><span class="line"> </span><br><span class="line">//</span><br><span class="line">rpm -qa | grep postgres    检查PostgreSQL 是否已经安装</span><br><span class="line">rpm -qal | grep postgres   检查PostgreSQL 安装位置</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改密码</span></span><br><span class="line">alter user postgres with password <span class="string">&#x27;postgres&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+	<div>
+	  
+	</div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/27/Redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gouku.jpg">
+      <meta itemprop="name" content="Wzzc">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/27/Redis/" class="post-title-link" itemprop="url">Redis</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-11-27 20:02:58" itemprop="dateCreated datePublished" datetime="2022-11-27T20:02:58+08:00">2022-11-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-01-05 15:34:05" itemprop="dateModified" datetime="2023-01-05T15:34:05+08:00">2023-01-05</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>989</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h1><p><strong>加锁：</strong>加锁时要加上过期时间，加锁和设置过期时间必须时原子操作，否则可能死锁。</p>
+<p><strong>续期：</strong>业务还没有完成，锁到了过期时间，此时要给锁续期，同时设置守护线程定时给锁续期。</p>
+<p><strong>解锁：</strong>加锁和解锁必须时同一个人，对比加锁时设置的value，value相等才能解锁，对比操作和解锁操作需要原子操作。</p>
+<p><strong>特征：</strong></p>
+<ul>
+<li>互斥性：任意时刻，只有一个客户端能持有锁。</li>
+<li>锁超时释放：持有锁超时，可以释放，防止不必要的资源浪费，也可以防止死锁。</li>
+<li>可重入性：一个线程如果获取了锁之后,可以再次对其请求加锁。</li>
+<li>高性能和高可用：加锁和解锁需要开销尽可能低，同时也要保证高可用，避免分布式锁失效。</li>
+<li>安全性：锁只能被持有的客户端删除，不能被其他客户端删除。</li>
+</ul>
+<p><strong>方案：</strong></p>
+<ul>
+<li><p>使用Lua脚本(包含SETNX + EXPIRE两条指令)</p>
+<p>lua脚本如下：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> redis.call(<span class="string">&#x27;setnx&#x27;</span>,KEYS[<span class="number">1</span>],ARGV[<span class="number">1</span>]) == <span class="number">1</span> <span class="keyword">then</span></span><br><span class="line">   redis.call(<span class="string">&#x27;expire&#x27;</span>,KEYS[<span class="number">1</span>],ARGV[<span class="number">2</span>])</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>加锁代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="type">String</span> <span class="variable">lua_scripts</span> <span class="operator">=</span> <span class="string">&quot;if redis.call(&#x27;setnx&#x27;,KEYS[1],ARGV[1]) == 1 then&quot;</span> +</span><br><span class="line">            <span class="string">&quot; redis.call(&#x27;expire&#x27;,KEYS[1],ARGV[2]) return 1 else return 0 end&quot;</span>;   </span><br><span class="line"><span class="type">Object</span> <span class="variable">result</span> <span class="operator">=</span> jedis.eval(lua_scripts, Collections.singletonList(key_resource_id), Collections.singletonList(values));</span><br><span class="line"><span class="comment">//判断是否成功</span></span><br><span class="line"><span class="keyword">return</span> result.equals(<span class="number">1L</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>SET的扩展命令（SET EX PX NX）——保证原子性</p>
+<p>存在问题：</p>
+<ul>
+<li>锁过期释放了，业务还没执行完</li>
+<li>锁被别的线程误删</li>
+</ul>
+</li>
+<li><p>开源框架~Redisson</p>
+<p><img src="/Redis%5Cimage-20221129111542941.png"></p>
+<p>只要线程一加锁成功，就会启动一个<code>watch dog</code>看门狗，它是一个后台线程，会每隔10秒检查一下，如果线程1还持有锁，那么就会不断的延长锁key的生存时间。因此，Redisson就是使用Redisson解决了<strong>「锁过期释放，业务没执行完」</strong>问题。</p>
+</li>
+<li><p>方案七：多机实现的分布式锁Redlock</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+	<div>
+	  
+	</div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/22/JVM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gouku.jpg">
+      <meta itemprop="name" content="Wzzc">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/22/JVM/" class="post-title-link" itemprop="url">JVM</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-11-22 13:44:19" itemprop="dateCreated datePublished" datetime="2022-11-22T13:44:19+08:00">2022-11-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-01-05 15:34:05" itemprop="dateModified" datetime="2023-01-05T15:34:05+08:00">2023-01-05</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>784</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="JVM内存模型"><a href="#JVM内存模型" class="headerlink" title="JVM内存模型"></a>JVM内存模型</h3><blockquote>
+<p>栈、堆、本地方法栈、程序计数器、方法区（元空间）</p>
+</blockquote>
+<ul>
+<li>程序计数器：</li>
+</ul>
+<p>​		用于保存当前线程的行号，它是一块很小的内存空间，主要用来记录各个线程执行的字节码的地址，例如，分支、循环、线程恢复等都依赖于计数器。</p>
+<ul>
+<li>本地方法栈：</li>
+</ul>
+<p>​		用于对JVM所需要的方法提供支持，用于管理本地方法的调用，里面并没有我们写的代码逻辑，<strong>其由native修饰，由 C 语言实现。</strong></p>
+<ul>
+<li>JVM栈：</li>
+</ul>
+<p>​		用于保存栈帧。 每当方法被调用时，都会产生一个栈帧用于保存局部变量表、操作数栈等；用于存储局部变量表、操作数栈、动态链接、方法出口等信息。<strong>（栈里面存的是地址，实际指向的是堆里面的对象）</strong></p>
+<ul>
+<li>方法区（Java8叫元空间）：</li>
+</ul>
+<p>​		用于<strong>保存已经被JVM加载了的类的信息、常量及静态变量等数据。</strong>运行时常量池也在方法区。</p>
+<ul>
+<li>堆（Heap）：</li>
+</ul>
+<p>​		<strong>用于保存所有对象的实例以及数组（但不是所有的对象实例都在堆中）；</strong>物理内存上并不连续。Java 虚拟机中内存最大的一块，<strong>是被所有线程共享的</strong>，几乎所有的对象实例都在这里分配内存。</p>
+<p>​		其大小通过**-Xms(最小值)<strong>和</strong>-Xmx(最大值)**参数设置（最大最小值都要小于1G），前者为启动时申请的最小内存，默认为操作系统物理内存的1&#x2F;64，后者为JVM可申请的最大内存,默认为物理内存的1&#x2F;4，默认当空余堆内存小于40%时，JVM会增大堆内存到-Xmx指定的大小，可通过-XX:MinHeapFreeRation&#x3D;来指定这个比列。</p>
+<p><strong>线程私有：</strong>栈、本地方法栈、程序计数器。每个线程在开辟、运行的过程中会单独创建这样的一份内存，有多少个线程可能有多少个内存。</p>
+<p><strong>全局共享：</strong>堆区、方法区</p>
+<p>&#x3D;&#x3D;栈虽然方法运行完毕了之后被清空了，但是堆上面的还没有被清空，所以引出了GC（垃圾回收），不能立马删除，因为不知道是否还有其它的也是引用了当前的地址来访问的。&#x3D;&#x3D;</p>
+
+      
+    </div>
+
+    
+    
+    
+	<div>
+	  
+	</div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/20/Servlet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gouku.jpg">
+      <meta itemprop="name" content="Wzzc">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/20/Servlet/" class="post-title-link" itemprop="url">Servlet</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-11-20 22:53:50" itemprop="dateCreated datePublished" datetime="2022-11-20T22:53:50+08:00">2022-11-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-01-05 15:34:05" itemprop="dateModified" datetime="2023-01-05T15:34:05+08:00">2023-01-05</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>847</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="过滤器（Filter）和拦截器（Interceptor）的区别"><a href="#过滤器（Filter）和拦截器（Interceptor）的区别" class="headerlink" title="过滤器（Filter）和拦截器（Interceptor）的区别"></a>过滤器（Filter）和拦截器（Interceptor）的区别</h1><p>都是AOP思想的一种体现，用来解决项目中某一类问题的两种接口（工具），都可以对请求做一些增强。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>过滤器（Filter）</th>
+<th>拦截器（Interceptor）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>出身不同</td>
+<td>来自Servlet</td>
+<td>来自Spring</td>
+</tr>
+<tr>
+<td>使用范围不同</td>
+<td>过滤器Filter实现了javax.servlet.Filter接口，也就是说过滤器的使用要依赖于Tomcat等容易，所以它只能在web程序中使用。</td>
+<td>拦截器Interceptor实现了org.springframework.web.Servlet接口，它是由Spring容器进行管理，并不依赖于Tomcat等容器，既可以应用在web程序中，也可以应用在非web程序中（Application，Swing）。</td>
+</tr>
+<tr>
+<td>实现原理不同</td>
+<td>基于过滤器链ApplicationFilterChain实现</td>
+<td>基于反射</td>
+</tr>
+<tr>
+<td>使用场景不同</td>
+<td>字符编码设置、响应数据压缩（通用功能）</td>
+<td>是否登录判断、权限判断、日志等等（偏重业务功能）</td>
+</tr>
+</tbody></table>
+<p>触发时机：</p>
+<p>Request ———————————————————————&gt;</p>
+<p>Tomcat &#x3D;&#x3D;&gt; Filter &#x3D;&#x3D;&gt; Servlet &#x3D;&#x3D;&gt; Interceptor &#x3D;&#x3D;&gt; Controller</p>
+<p>&lt;———————————————————————Response</p>
+<p>Filter2 doFilter 进入方法前</p>
+<p>Filter1 doFilter 进入方法前</p>
+<p>Interceptor1 preHandle 前置</p>
+<p>Interceptor2 preHandle 前置</p>
+<p>Interceptor2 postHandle 处理中</p>
+<p>Interceptor1 postHandle 处理中</p>
+<p>Interceptor2 afterCompletion 后置</p>
+<p>Interceptor1 afterCompletion 后置</p>
+<p>Filter1 doFilter Response 响应前</p>
+<p>Filter2 doFilter Response 响应前</p>
+
+      
+    </div>
+
+    
+    
+    
+	<div>
+	  
+	</div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/24/RocketMQ%E9%AB%98%E7%BA%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gouku.jpg">
+      <meta itemprop="name" content="Wzzc">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/24/RocketMQ%E9%AB%98%E7%BA%A7/" class="post-title-link" itemprop="url">RocketMQ高级</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-10-24 21:50:34" itemprop="dateCreated datePublished" datetime="2022-10-24T21:50:34+08:00">2022-10-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-01-05 15:34:05" itemprop="dateModified" datetime="2023-01-05T15:34:05+08:00">2023-01-05</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="高级功能"><a href="#高级功能" class="headerlink" title="高级功能"></a>高级功能</h1><h2 id="消息存储"><a href="#消息存储" class="headerlink" title="消息存储"></a>消息存储</h2><p>分布式队列因为有高可靠性的要求，所以数据要进行持久化存储</p>
+<p><img src="/RocketMQ%E9%AB%98%E7%BA%A7%5Cimage-20221026211951678.png"></p>
+<p>1、消息生成者发送消息</p>
+<p>2、MQ收到消息，将消息进行持久化，在存储中新增一天记录</p>
+<p>3、返回ACK给生产者</p>
+<p>4、MQ push消息给对应的消费者，然后等待消费者返回ACK</p>
+<p>5、如果消息消费者在指定时间内成功返回ACK，那么MQ认为消息消费成功，在存储中删除消息，即执行第6步；如果MQ在指定时间内没有收到ACK，则认为消息消费失败，会尝试重新push消息，重复执行4、5、6步骤</p>
+<p>6、MQ删除消息</p>
+<h3 id="存储介质"><a href="#存储介质" class="headerlink" title="存储介质"></a>存储介质</h3><ul>
+<li><p>关系型数据库DB</p>
+<p>Apache下开源的另一款MQ——ActiveMQ（默认采用的KahaDB做消息存储）可选用JDBC的方式来做消息持久化，通过简单的xml配置信息即可实现JDBC消息存储。由于，普通关系型数据库（如MqSQL）在单表数据量打到千万级别的情况下，其IO读写性能往往会出现瓶颈。在可靠性方面，该种方案非常依赖DB，如果一旦DB出现故障，则MQ的消息就无法落盘存储会导致线上故障。</p>
+</li>
+<li><p>文件系统</p>
+<p>目前较为常用的几款产品（RocketMQ&#x2F;Kafka&#x2F;RabbitMQ），均采用的是消息刷盘至所部署虚拟机&#x2F;物理机的文件系统来做持久化（刷盘一般可以分为异步刷盘和同步刷盘两种模式）。消息刷盘为消息存储提供了一种高效率、高可靠和高性能的数据持久化方式。除非部署MQ机器本身或是本地磁盘挂了，否则一般是不会出现无法持久化的故障问题。</p>
+</li>
+</ul>
+<h3 id="性能对比"><a href="#性能对比" class="headerlink" title="性能对比"></a>性能对比</h3><p>文件系统 &gt; 关系型数据库DB</p>
+<h3 id="消息的存储和发送"><a href="#消息的存储和发送" class="headerlink" title="消息的存储和发送"></a>消息的存储和发送</h3><h4 id="消息存储-1"><a href="#消息存储-1" class="headerlink" title="消息存储"></a>消息存储</h4><p>RocketMQ的消息用顺序写，保证了消息存储的速度</p>
+<h4 id="消息发送"><a href="#消息发送" class="headerlink" title="消息发送"></a>消息发送</h4><p>Linux操作系统分为【用户态】和【内核态】，文件操作、网络操作需要涉及这两种形态的切换，免不了进行数据复制。一台服务器把本地磁盘文件的内容发送到客户端，一般分为两个步骤：</p>
+<p>（1）read：读取本地文件内容</p>
+<p>（2）write：将读取的内容通过网络发送出去</p>
+<p>这两个看似简单的操作，实际进行了4次数据复制，分别是：</p>
+<p>1、从磁盘复制数据到内核态内存；</p>
+<p>2、从内核态内存复制到用户态内存；</p>
+<p>3、然后从用户态内存复制到网络驱动的内核态内存；</p>
+<p>4、最后是从网络驱动的内核态内存复制到网卡中进行传输；</p>
+<p><img src="/RocketMQ%E9%AB%98%E7%BA%A7%5Cimage-20221026215719035.png"></p>
+<p>通过使用mmap的方式，可以省去向用户态的内存复制，提高速度。这种机制在Java中是通过MappedByteBuffer实现的，RocketMQ充分利用了上述特性，也就是所谓的“零拷贝”技术，提高消息存盘和网络发送的速度。</p>
+<h3 id="消息存储结构"><a href="#消息存储结构" class="headerlink" title="消息存储结构"></a>消息存储结构</h3><p>RocketMQ消息的存储是由ConsumeQueue和CommitLog配合完成的，消息真正的物理存储文件是CommitLog，ConsumeQueue是消息的逻辑队列，类似数据库的索引文件，存储的是指向物理存储的地址。每个Topic下的每个MessageQueue都有一个对应的ConsumeQueue文件。</p>
+<p><img src="/RocketMQ%E9%AB%98%E7%BA%A7%5Cimage-20221026221117882.png"></p>
+<ul>
+<li>CommitLog：存储消息的元数据</li>
+<li>ConsumeQueue：存储消息在CommitLog的索引</li>
+<li>IndexFile：为了消息查询提供了一种通过key或时间区间来查询消息的方法，这种通过IndexFile来查找消息的方法不影响发送与消费消息的主流程</li>
+</ul>
+<h3 id="刷盘机制"><a href="#刷盘机制" class="headerlink" title="刷盘机制"></a>刷盘机制</h3><p>RocketMQ的消息是存储到磁盘上的，这样既能保证断电后恢复，又可以让存储的消息量超出内存的限制。RocketMQ为了提高性能，会尽可能地保证磁盘的顺序写。消息在通过Producer写入RocketMQ的时候，有两种写磁盘方式，分别是同步刷盘和异步刷盘。</p>
+<p><img src="/RocketMQ%E9%AB%98%E7%BA%A7%5Cimage-20221026223057016.png"></p>
+<h4 id="同步刷盘"><a href="#同步刷盘" class="headerlink" title="同步刷盘"></a>同步刷盘</h4><p>在返回写成功状态时，消息已经被写入磁盘。具体流程是，消息写入内存的PAGECACHE后，立刻通知刷盘线程刷盘，然后等待刷盘完成，刷盘线程执行完成后唤醒等待的线程，返回消息写成功的状态。</p>
+<h4 id="异步刷盘"><a href="#异步刷盘" class="headerlink" title="异步刷盘"></a>异步刷盘</h4><p>在返回写成功状态时，消息可能只是被写入了内存的PAGECACHE，写操作的返回快，吞吐量大；当内存里的消息积累到一定程度时，统一触发写磁盘动作，快速写入。</p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>通过Broker配置文件里的flushDiskType参数设置的，这个参数被配置成<strong>SYNC_FLUSH</strong>、<strong>ASYNC_FLUSH</strong>中的</p>
+
+      
+    </div>
+
+    
+    
+    
+	<div>
+	  
+	</div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Wzzc"
+      src="/images/gouku.jpg">
+  <p class="site-author-name" itemprop="name">Wzzc</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wzzc</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">124k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:53</span>
+</div>
+
+<!-- <br /> -->
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<!-- <span id="times">载入时分秒...</span> -->
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("11/17/2022 8:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); 
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        // var times = document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "+hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+  
+  
+  
+<script type="text/javascript"
+    count="150"
+    opacity: 1
+    src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":20,"vOffset":-50},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+</html>
