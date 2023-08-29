@@ -174,42 +174,6 @@
       </tags>
   </entry>
   <entry>
-    <title>JVM</title>
-    <url>/2022/11/22/JVM/</url>
-    <content><![CDATA[<h3 id="JVM内存模型">JVM内存模型</h3>
-<blockquote>
-<p>栈、堆、本地方法栈、程序计数器、方法区（元空间）</p>
-</blockquote>
-<ul>
-<li>程序计数器：</li>
-</ul>
-<p>​		用于保存当前线程的行号，它是一块很小的内存空间，主要用来记录各个线程执行的字节码的地址，例如，分支、循环、线程恢复等都依赖于计数器。</p>
-<ul>
-<li>本地方法栈：</li>
-</ul>
-<p>​		用于对JVM所需要的方法提供支持，用于管理本地方法的调用，里面并没有我们写的代码逻辑，<strong>其由native修饰，由 C 语言实现。</strong></p>
-<ul>
-<li>JVM栈：</li>
-</ul>
-<p>​		用于保存栈帧。 每当方法被调用时，都会产生一个栈帧用于保存局部变量表、操作数栈等；用于存储局部变量表、操作数栈、动态链接、方法出口等信息。<strong>（栈里面存的是地址，实际指向的是堆里面的对象）</strong></p>
-<ul>
-<li>方法区（Java8叫元空间）：</li>
-</ul>
-<p>​		用于**保存已经被JVM加载了的类的信息、常量及静态变量等数据。**运行时常量池也在方法区。</p>
-<ul>
-<li>堆（Heap）：</li>
-</ul>
-<p>​		**用于保存所有对象的实例以及数组（但不是所有的对象实例都在堆中）；**物理内存上并不连续。Java 虚拟机中内存最大的一块，<strong>是被所有线程共享的</strong>，几乎所有的对象实例都在这里分配内存。</p>
-<p>​		其大小通过**-Xms(最小值)<strong>和</strong>-Xmx(最大值)**参数设置（最大最小值都要小于1G），前者为启动时申请的最小内存，默认为操作系统物理内存的1/64，后者为JVM可申请的最大内存,默认为物理内存的1/4，默认当空余堆内存小于40%时，JVM会增大堆内存到-Xmx指定的大小，可通过-XX:MinHeapFreeRation=来指定这个比列。</p>
-<p>**线程私有：**栈、本地方法栈、程序计数器。每个线程在开辟、运行的过程中会单独创建这样的一份内存，有多少个线程可能有多少个内存。</p>
-<p>**全局共享：**堆区、方法区</p>
-<p>==栈虽然方法运行完毕了之后被清空了，但是堆上面的还没有被清空，所以引出了GC（垃圾回收），不能立马删除，因为不知道是否还有其它的也是引用了当前的地址来访问的。==</p>
-]]></content>
-      <tags>
-        <tag>JVM</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Exception总结</title>
     <url>/2023/02/13/Exception%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<p><strong>解决java.util.LinkedHashMap cannot be cast to 实体类…的问题</strong></p>
@@ -279,6 +243,42 @@
 ]]></content>
       <tags>
         <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JVM</title>
+    <url>/2022/11/22/JVM/</url>
+    <content><![CDATA[<h3 id="JVM内存模型">JVM内存模型</h3>
+<blockquote>
+<p>栈、堆、本地方法栈、程序计数器、方法区（元空间）</p>
+</blockquote>
+<ul>
+<li>程序计数器：</li>
+</ul>
+<p>​		用于保存当前线程的行号，它是一块很小的内存空间，主要用来记录各个线程执行的字节码的地址，例如，分支、循环、线程恢复等都依赖于计数器。</p>
+<ul>
+<li>本地方法栈：</li>
+</ul>
+<p>​		用于对JVM所需要的方法提供支持，用于管理本地方法的调用，里面并没有我们写的代码逻辑，<strong>其由native修饰，由 C 语言实现。</strong></p>
+<ul>
+<li>JVM栈：</li>
+</ul>
+<p>​		用于保存栈帧。 每当方法被调用时，都会产生一个栈帧用于保存局部变量表、操作数栈等；用于存储局部变量表、操作数栈、动态链接、方法出口等信息。<strong>（栈里面存的是地址，实际指向的是堆里面的对象）</strong></p>
+<ul>
+<li>方法区（Java8叫元空间）：</li>
+</ul>
+<p>​		用于**保存已经被JVM加载了的类的信息、常量及静态变量等数据。**运行时常量池也在方法区。</p>
+<ul>
+<li>堆（Heap）：</li>
+</ul>
+<p>​		**用于保存所有对象的实例以及数组（但不是所有的对象实例都在堆中）；**物理内存上并不连续。Java 虚拟机中内存最大的一块，<strong>是被所有线程共享的</strong>，几乎所有的对象实例都在这里分配内存。</p>
+<p>​		其大小通过**-Xms(最小值)<strong>和</strong>-Xmx(最大值)**参数设置（最大最小值都要小于1G），前者为启动时申请的最小内存，默认为操作系统物理内存的1/64，后者为JVM可申请的最大内存,默认为物理内存的1/4，默认当空余堆内存小于40%时，JVM会增大堆内存到-Xmx指定的大小，可通过-XX:MinHeapFreeRation=来指定这个比列。</p>
+<p>**线程私有：**栈、本地方法栈、程序计数器。每个线程在开辟、运行的过程中会单独创建这样的一份内存，有多少个线程可能有多少个内存。</p>
+<p>**全局共享：**堆区、方法区</p>
+<p>==栈虽然方法运行完毕了之后被清空了，但是堆上面的还没有被清空，所以引出了GC（垃圾回收），不能立马删除，因为不知道是否还有其它的也是引用了当前的地址来访问的。==</p>
+]]></content>
+      <tags>
+        <tag>JVM</tag>
       </tags>
   </entry>
   <entry>
@@ -1053,52 +1053,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Redis</title>
-    <url>/2022/11/27/Redis/</url>
-    <content><![CDATA[<h1>分布式锁</h1>
-<p>**加锁：**加锁时要加上过期时间，加锁和设置过期时间必须时原子操作，否则可能死锁。</p>
-<p>**续期：**业务还没有完成，锁到了过期时间，此时要给锁续期，同时设置守护线程定时给锁续期。</p>
-<p>**解锁：**加锁和解锁必须时同一个人，对比加锁时设置的value，value相等才能解锁，对比操作和解锁操作需要原子操作。</p>
-<p><strong>特征：</strong></p>
-<ul>
-<li>互斥性：任意时刻，只有一个客户端能持有锁。</li>
-<li>锁超时释放：持有锁超时，可以释放，防止不必要的资源浪费，也可以防止死锁。</li>
-<li>可重入性：一个线程如果获取了锁之后,可以再次对其请求加锁。</li>
-<li>高性能和高可用：加锁和解锁需要开销尽可能低，同时也要保证高可用，避免分布式锁失效。</li>
-<li>安全性：锁只能被持有的客户端删除，不能被其他客户端删除。</li>
-</ul>
-<p><strong>方案：</strong></p>
-<ul>
-<li>
-<p>使用Lua脚本(包含SETNX + EXPIRE两条指令)</p>
-<p>lua脚本如下：</p>
-<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> redis.call(<span class="string">&#x27;setnx&#x27;</span>,KEYS[<span class="number">1</span>],ARGV[<span class="number">1</span>]) == <span class="number">1</span> <span class="keyword">then</span></span><br><span class="line">   redis.call(<span class="string">&#x27;expire&#x27;</span>,KEYS[<span class="number">1</span>],ARGV[<span class="number">2</span>])</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>加锁代码如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="type">String</span> <span class="variable">lua_scripts</span> <span class="operator">=</span> <span class="string">&quot;if redis.call(&#x27;setnx&#x27;,KEYS[1],ARGV[1]) == 1 then&quot;</span> +</span><br><span class="line">            <span class="string">&quot; redis.call(&#x27;expire&#x27;,KEYS[1],ARGV[2]) return 1 else return 0 end&quot;</span>;   </span><br><span class="line"><span class="type">Object</span> <span class="variable">result</span> <span class="operator">=</span> jedis.eval(lua_scripts, Collections.singletonList(key_resource_id), Collections.singletonList(values));</span><br><span class="line"><span class="comment">//判断是否成功</span></span><br><span class="line"><span class="keyword">return</span> result.equals(<span class="number">1L</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>SET的扩展命令（SET EX PX NX）——保证原子性</p>
-<p>存在问题：</p>
-<ul>
-<li>锁过期释放了，业务还没执行完</li>
-<li>锁被别的线程误删</li>
-</ul>
-</li>
-<li>
-<p>开源框架~Redisson</p>
-<p><img src="Redis%5Cimage-20221129111542941.png" alt=""></p>
-<p>只要线程一加锁成功，就会启动一个<code>watch dog</code>看门狗，它是一个后台线程，会每隔10秒检查一下，如果线程1还持有锁，那么就会不断的延长锁key的生存时间。因此，Redisson就是使用Redisson解决了**「锁过期释放，业务没执行完」**问题。</p>
-</li>
-<li>
-<p>方案七：多机实现的分布式锁Redlock</p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Redis</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>RocketMQ基础</title>
     <url>/2022/09/22/RocketMQ%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<p>[TOC]</p>
@@ -1704,73 +1658,59 @@
       </tags>
   </entry>
   <entry>
-    <title>RocketMQ高级</title>
-    <url>/2022/10/24/RocketMQ%E9%AB%98%E7%BA%A7/</url>
-    <content><![CDATA[<h1>高级功能</h1>
-<h2 id="消息存储">消息存储</h2>
-<p>分布式队列因为有高可靠性的要求，所以数据要进行持久化存储</p>
-<p><img src="RocketMQ%E9%AB%98%E7%BA%A7%5Cimage-20221026211951678.png" alt=""></p>
-<p>1、消息生成者发送消息</p>
-<p>2、MQ收到消息，将消息进行持久化，在存储中新增一天记录</p>
-<p>3、返回ACK给生产者</p>
-<p>4、MQ push消息给对应的消费者，然后等待消费者返回ACK</p>
-<p>5、如果消息消费者在指定时间内成功返回ACK，那么MQ认为消息消费成功，在存储中删除消息，即执行第6步；如果MQ在指定时间内没有收到ACK，则认为消息消费失败，会尝试重新push消息，重复执行4、5、6步骤</p>
-<p>6、MQ删除消息</p>
-<h3 id="存储介质">存储介质</h3>
+    <title>Redis</title>
+    <url>/2022/11/27/Redis/</url>
+    <content><![CDATA[<h1>分布式锁</h1>
+<p>**加锁：**加锁时要加上过期时间，加锁和设置过期时间必须时原子操作，否则可能死锁。</p>
+<p>**续期：**业务还没有完成，锁到了过期时间，此时要给锁续期，同时设置守护线程定时给锁续期。</p>
+<p>**解锁：**加锁和解锁必须时同一个人，对比加锁时设置的value，value相等才能解锁，对比操作和解锁操作需要原子操作。</p>
+<p><strong>特征：</strong></p>
+<ul>
+<li>互斥性：任意时刻，只有一个客户端能持有锁。</li>
+<li>锁超时释放：持有锁超时，可以释放，防止不必要的资源浪费，也可以防止死锁。</li>
+<li>可重入性：一个线程如果获取了锁之后,可以再次对其请求加锁。</li>
+<li>高性能和高可用：加锁和解锁需要开销尽可能低，同时也要保证高可用，避免分布式锁失效。</li>
+<li>安全性：锁只能被持有的客户端删除，不能被其他客户端删除。</li>
+</ul>
+<p><strong>方案：</strong></p>
 <ul>
 <li>
-<p>关系型数据库DB</p>
-<p>Apache下开源的另一款MQ——ActiveMQ（默认采用的KahaDB做消息存储）可选用JDBC的方式来做消息持久化，通过简单的xml配置信息即可实现JDBC消息存储。由于，普通关系型数据库（如MqSQL）在单表数据量打到千万级别的情况下，其IO读写性能往往会出现瓶颈。在可靠性方面，该种方案非常依赖DB，如果一旦DB出现故障，则MQ的消息就无法落盘存储会导致线上故障。</p>
+<p>使用Lua脚本(包含SETNX + EXPIRE两条指令)</p>
+<p>lua脚本如下：</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> redis.call(<span class="string">&#x27;setnx&#x27;</span>,KEYS[<span class="number">1</span>],ARGV[<span class="number">1</span>]) == <span class="number">1</span> <span class="keyword">then</span></span><br><span class="line">   redis.call(<span class="string">&#x27;expire&#x27;</span>,KEYS[<span class="number">1</span>],ARGV[<span class="number">2</span>])</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>加锁代码如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="type">String</span> <span class="variable">lua_scripts</span> <span class="operator">=</span> <span class="string">&quot;if redis.call(&#x27;setnx&#x27;,KEYS[1],ARGV[1]) == 1 then&quot;</span> +</span><br><span class="line">            <span class="string">&quot; redis.call(&#x27;expire&#x27;,KEYS[1],ARGV[2]) return 1 else return 0 end&quot;</span>;   </span><br><span class="line"><span class="type">Object</span> <span class="variable">result</span> <span class="operator">=</span> jedis.eval(lua_scripts, Collections.singletonList(key_resource_id), Collections.singletonList(values));</span><br><span class="line"><span class="comment">//判断是否成功</span></span><br><span class="line"><span class="keyword">return</span> result.equals(<span class="number">1L</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 </li>
 <li>
-<p>文件系统</p>
-<p>目前较为常用的几款产品（RocketMQ/Kafka/RabbitMQ），均采用的是消息刷盘至所部署虚拟机/物理机的文件系统来做持久化（刷盘一般可以分为异步刷盘和同步刷盘两种模式）。消息刷盘为消息存储提供了一种高效率、高可靠和高性能的数据持久化方式。除非部署MQ机器本身或是本地磁盘挂了，否则一般是不会出现无法持久化的故障问题。</p>
+<p>SET的扩展命令（SET EX PX NX）——保证原子性</p>
+<p>存在问题：</p>
+<ul>
+<li>锁过期释放了，业务还没执行完</li>
+<li>锁被别的线程误删</li>
+</ul>
+</li>
+<li>
+<p>开源框架~Redisson</p>
+<p><img src="Redis%5Cimage-20221129111542941.png" alt=""></p>
+<p>只要线程一加锁成功，就会启动一个<code>watch dog</code>看门狗，它是一个后台线程，会每隔10秒检查一下，如果线程1还持有锁，那么就会不断的延长锁key的生存时间。因此，Redisson就是使用Redisson解决了**「锁过期释放，业务没执行完」**问题。</p>
+</li>
+<li>
+<p>方案七：多机实现的分布式锁Redlock</p>
 </li>
 </ul>
-<h3 id="性能对比">性能对比</h3>
-<p>文件系统 &gt; 关系型数据库DB</p>
-<h3 id="消息的存储和发送">消息的存储和发送</h3>
-<h4 id="消息存储-2">消息存储</h4>
-<p>RocketMQ的消息用顺序写，保证了消息存储的速度</p>
-<h4 id="消息发送-2">消息发送</h4>
-<p>Linux操作系统分为【用户态】和【内核态】，文件操作、网络操作需要涉及这两种形态的切换，免不了进行数据复制。一台服务器把本地磁盘文件的内容发送到客户端，一般分为两个步骤：</p>
-<p>（1）read：读取本地文件内容</p>
-<p>（2）write：将读取的内容通过网络发送出去</p>
-<p>这两个看似简单的操作，实际进行了4次数据复制，分别是：</p>
-<p>1、从磁盘复制数据到内核态内存；</p>
-<p>2、从内核态内存复制到用户态内存；</p>
-<p>3、然后从用户态内存复制到网络驱动的内核态内存；</p>
-<p>4、最后是从网络驱动的内核态内存复制到网卡中进行传输；</p>
-<p><img src="RocketMQ%E9%AB%98%E7%BA%A7%5Cimage-20221026215719035.png" alt=""></p>
-<p>通过使用mmap的方式，可以省去向用户态的内存复制，提高速度。这种机制在Java中是通过MappedByteBuffer实现的，RocketMQ充分利用了上述特性，也就是所谓的“零拷贝”技术，提高消息存盘和网络发送的速度。</p>
-<h3 id="消息存储结构">消息存储结构</h3>
-<p>RocketMQ消息的存储是由ConsumeQueue和CommitLog配合完成的，消息真正的物理存储文件是CommitLog，ConsumeQueue是消息的逻辑队列，类似数据库的索引文件，存储的是指向物理存储的地址。每个Topic下的每个MessageQueue都有一个对应的ConsumeQueue文件。</p>
-<p><img src="RocketMQ%E9%AB%98%E7%BA%A7%5Cimage-20221026221117882.png" alt=""></p>
-<ul>
-<li>CommitLog：存储消息的元数据</li>
-<li>ConsumeQueue：存储消息在CommitLog的索引</li>
-<li>IndexFile：为了消息查询提供了一种通过key或时间区间来查询消息的方法，这种通过IndexFile来查找消息的方法不影响发送与消费消息的主流程</li>
-</ul>
-<h3 id="刷盘机制">刷盘机制</h3>
-<p>RocketMQ的消息是存储到磁盘上的，这样既能保证断电后恢复，又可以让存储的消息量超出内存的限制。RocketMQ为了提高性能，会尽可能地保证磁盘的顺序写。消息在通过Producer写入RocketMQ的时候，有两种写磁盘方式，分别是同步刷盘和异步刷盘。</p>
-<p><img src="RocketMQ%E9%AB%98%E7%BA%A7%5Cimage-20221026223057016.png" alt=""></p>
-<h4 id="同步刷盘">同步刷盘</h4>
-<p>在返回写成功状态时，消息已经被写入磁盘。具体流程是，消息写入内存的PAGECACHE后，立刻通知刷盘线程刷盘，然后等待刷盘完成，刷盘线程执行完成后唤醒等待的线程，返回消息写成功的状态。</p>
-<h4 id="异步刷盘">异步刷盘</h4>
-<p>在返回写成功状态时，消息可能只是被写入了内存的PAGECACHE，写操作的返回快，吞吐量大；当内存里的消息积累到一定程度时，统一触发写磁盘动作，快速写入。</p>
-<h4 id="配置">配置</h4>
-<p>通过Broker配置文件里的flushDiskType参数设置的，这个参数被配置成<strong>SYNC_FLUSH</strong>、<strong>ASYNC_FLUSH</strong>中的</p>
 ]]></content>
       <tags>
-        <tag>RocketMQ</tag>
+        <tag>Redis</tag>
       </tags>
   </entry>
   <entry>
     <title>RocketMQ项目进阶</title>
     <url>/2022/10/11/RocketMQ%E9%A1%B9%E7%9B%AE%E8%BF%9B%E9%98%B6/</url>
-    <content><![CDATA[<h1 id="案例介绍"><a href="#案例介绍" class="headerlink" title="案例介绍"></a>案例介绍</h1><h2 id="业务分析"><a href="#业务分析" class="headerlink" title="业务分析"></a>业务分析</h2><p>模拟电商网站购物场景中的【下单】和【支付】业务</p>
-<h3 id="下单"><a href="#下单" class="headerlink" title="下单"></a>下单</h3><img src="/2022/10/11/RocketMQ%E9%A1%B9%E7%9B%AE%E8%BF%9B%E9%98%B6/image-20221011215750789.png" class="">
-
+    <content><![CDATA[<h1>案例介绍</h1>
+<h2 id="业务分析">业务分析</h2>
+<p>模拟电商网站购物场景中的【下单】和【支付】业务</p>
+<h3 id="下单">下单</h3>
+<img src="/2022/10/11/RocketMQ%E9%A1%B9%E7%9B%AE%E8%BF%9B%E9%98%B6/image-20221011215750789.png" class="">
 <ul>
 <li>用户请求订单系统下单</li>
 <li>订单系统通过RPC调用订单服务下单</li>
@@ -1779,8 +1719,8 @@
 <li>订单服务调用用户服务，扣减用户余额</li>
 <li>订单服务完成确认订单</li>
 </ul>
-<h3 id="支付"><a href="#支付" class="headerlink" title="支付"></a>支付</h3><img src="/2022/10/11/RocketMQ%E9%A1%B9%E7%9B%AE%E8%BF%9B%E9%98%B6/image-20221011220228357.png" class="">
-
+<h3 id="支付">支付</h3>
+<img src="/2022/10/11/RocketMQ%E9%A1%B9%E7%9B%AE%E8%BF%9B%E9%98%B6/image-20221011220228357.png" class="">
 <ul>
 <li>用户请求支付系统</li>
 <li>支付系统调用第三方支付平台API进行发起支付流程</li>
@@ -1789,85 +1729,104 @@
 <li>支付系统调用积分服务添加积分</li>
 <li>支付系统调用日志服务记录日志</li>
 </ul>
-<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><h3 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h3><p>用户提交订单后，扣减库存成功、扣减优惠券成功、使用余额成功、但是在确认订单操作失败，需要对库存、余额进行回退。如何保证数据完整性？</p>
+<h2 id="问题分析">问题分析</h2>
+<h3 id="问题1">问题1</h3>
+<p>用户提交订单后，扣减库存成功、扣减优惠券成功、使用余额成功、但是在确认订单操作失败，需要对库存、余额进行回退。如何保证数据完整性？</p>
 <p><strong>使用MQ保证在下单失败后系统数据的完整性</strong></p>
 <img src="/2022/10/11/RocketMQ%E9%A1%B9%E7%9B%AE%E8%BF%9B%E9%98%B6/image-20221011221449144.png" class="">
-
-<h3 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h3><p>用户通过第三方支付平台（支付宝、微信）支付成功后，第三方支付平台要通过回调API异步通知商家支付系统用户支付结果，支付系统根据支付结果修改订单状态、记录支付日志和给用户增加积分。</p>
+<h3 id="问题2">问题2</h3>
+<p>用户通过第三方支付平台（支付宝、微信）支付成功后，第三方支付平台要通过回调API异步通知商家支付系统用户支付结果，支付系统根据支付结果修改订单状态、记录支付日志和给用户增加积分。</p>
 <p>商家支付系统如何保证在收到第三方支付平台的异步通知时，如何快速给第三方支付凭条做出回应？</p>
 <p><strong>使用MQ进行数据分发，提高系统处理性能</strong></p>
-<h1 id="技术分析"><a href="#技术分析" class="headerlink" title="技术分析"></a>技术分析</h1><h2 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h2><ul>
+<h1>技术分析</h1>
+<h2 id="技术选型">技术选型</h2>
+<ul>
 <li>SpringBoot</li>
 <li>Dubbo</li>
 <li>Zookeeper</li>
 <li>RocketMQ</li>
 <li>MySql</li>
 </ul>
-<h2 id="SpringBoot整合RocketMQ"><a href="#SpringBoot整合RocketMQ" class="headerlink" title="SpringBoot整合RocketMQ"></a>SpringBoot整合RocketMQ</h2><h3 id="消息生产者"><a href="#消息生产者" class="headerlink" title="消息生产者"></a>消息生产者</h3><ul>
-<li><p>添加依赖</p>
+<h2 id="SpringBoot整合RocketMQ">SpringBoot整合RocketMQ</h2>
+<h3 id="消息生产者-2">消息生产者</h3>
+<ul>
+<li>
+<p>添加依赖</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.rocketmq<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>rocketmq-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>配置文件</p>
+<li>
+<p>配置文件</p>
 <figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="comment"># nameserver</span></span><br><span class="line"><span class="attr">rocketmq.name-server</span>=<span class="string">36.133.171.94:9876</span></span><br><span class="line"><span class="comment"># 发送者组名</span></span><br><span class="line"><span class="attr">rocketmq.producer.group</span>=<span class="string">my-group</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>测试类</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> 消息生产测试</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Producer</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> RocketMQTemplate rocketMQTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testSendMessage</span><span class="params">()</span>&#123;</span><br><span class="line">        rocketMQTemplate.convertAndSend(<span class="string">&quot;springboot-rocketmq&quot;</span>,<span class="string">&quot;Hello SpringBoot RocketMQ&quot;</span>);</span><br><span class="line">        log.info(<span class="string">&quot;消息发送成功&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="消息消费者"><a href="#消息消费者" class="headerlink" title="消息消费者"></a>消息消费者</h3><ul>
-<li><p>添加依赖</p>
+<li>
+<p>测试类</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> 消息生产测试</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Producer</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> RocketMQTemplate rocketMQTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testSendMessage</span><span class="params">()</span>&#123;</span><br><span class="line">        rocketMQTemplate.convertAndSend(<span class="string">&quot;springboot-rocketmq&quot;</span>,<span class="string">&quot;Hello SpringBoot RocketMQ&quot;</span>);</span><br><span class="line">        log.info(<span class="string">&quot;消息发送成功&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>配置文件</p>
+</ul>
+<h3 id="消息消费者-2">消息消费者</h3>
+<ul>
+<li>
+<p>添加依赖</p>
+</li>
+<li>
+<p>配置文件</p>
 <figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 消费者组名</span></span><br><span class="line"><span class="attr">rocketmq.consumer.group</span>=<span class="string">my-group</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>消息监听器</p>
+<li>
+<p>消息监听器</p>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> 消息监听器</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@RocketMQMessageListener(topic = &quot;springboot-rocketmq&quot;, consumerGroup = &quot;$&#123;rocketmq.consumer.group&#125;&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConsumerListener</span> <span class="keyword">implements</span> <span class="title class_">RocketMQListener</span>&lt;String&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onMessage</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;接收到消息：&quot;</span> + s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="SpringBoot整合Dubbo"><a href="#SpringBoot整合Dubbo" class="headerlink" title="SpringBoot整合Dubbo"></a>SpringBoot整合Dubbo</h2><img src="/2022/10/11/RocketMQ%E9%A1%B9%E7%9B%AE%E8%BF%9B%E9%98%B6/image-20221015212755804.png" class="">
-
-<h3 id="搭建Zookeeper集群"><a href="#搭建Zookeeper集群" class="headerlink" title="搭建Zookeeper集群"></a>搭建Zookeeper集群</h3><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ul>
+<h2 id="SpringBoot整合Dubbo">SpringBoot整合Dubbo</h2>
+<img src="/2022/10/11/RocketMQ%E9%A1%B9%E7%9B%AE%E8%BF%9B%E9%98%B6/image-20221015212755804.png" class="">
+<h3 id="搭建Zookeeper集群">搭建Zookeeper集群</h3>
+<h3 id="准备工作">准备工作</h3>
+<ul>
 <li>安装JDK</li>
 <li>将Zookeeper上传服务器</li>
 <li>解压Zookeeper，并创建data目录，将conf下的zoo_sample.cfg改名为zoo.cfg</li>
 <li>建立<code>/usr/local/zookeeper-cluster</code>，将解压后的Zookeeper复制到一下三个目录</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/local/zookeeper-cluster/zookeeper-1</span><br><span class="line">/usr/local/zookeeper-cluster/zookeeper-2</span><br><span class="line">/usr/local/zookeeper-cluster/zookeeper-3</span><br></pre></td></tr></table></figure>
-
 <ul>
-<li><p>配置每一个Zookeeper的dataDir（zoo.cfg）clientPort分别为2181、2182、2183</p>
+<li>
+<p>配置每一个Zookeeper的dataDir（zoo.cfg）clientPort分别为2181、2182、2183</p>
 <p>修改每一个zookeeper下的<code>/conf/zoo.cfg</code>文件</p>
 </li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">clientPort=2181</span><br><span class="line">dataDir=/usr/local/zookeeper-cluster/zookeeper-1/data</span><br><span class="line"></span><br><span class="line">clientPort=2182</span><br><span class="line">dataDir=/usr/local/zookeeper-cluster/zookeeper-2/data</span><br><span class="line"></span><br><span class="line">clientPort=2183</span><br><span class="line">dataDir=/usr/local/zookeeper-cluster/zookeeper-3/data</span><br></pre></td></tr></table></figure>
-
-<h3 id="配置集群"><a href="#配置集群" class="headerlink" title="配置集群"></a>配置集群</h3><ul>
-<li><p>在每一个zookeeper的data目录下创建一个myid文件，内容分别是1、2、3。这个文件就是记录每个服务器的ID</p>
+<h3 id="配置集群">配置集群</h3>
+<ul>
+<li>
+<p>在每一个zookeeper的data目录下创建一个myid文件，内容分别是1、2、3。这个文件就是记录每个服务器的ID</p>
 </li>
-<li><p>在每一个zookeeper的zoo.cfg配置客户端访问端口（clientPort）和集群服务器IP列表</p>
+<li>
+<p>在每一个zookeeper的zoo.cfg配置客户端访问端口（clientPort）和集群服务器IP列表</p>
 <p>集群服务器IP列表如下</p>
 </li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">quorumListenOnAllIPs=<span class="literal">true</span></span><br><span class="line">server.1=192.168.25.140:2881:3881</span><br><span class="line">server.2=192.168.25.140:2882:3882</span><br><span class="line">server.3=192.168.25.140:2883:3883</span><br></pre></td></tr></table></figure>
-
 <p><code>quorumListenOnAllIPs</code>：当设置为true时，ZooKeeper服务器将在所有可用IP地址上侦听来自其对等方的连接，而不仅是在配置文件的服务器列表中配置的地址。它会影响处理ZAB协议和快速领导者选举协议的连接。默认值为<strong>false</strong>。参考：<a href="https://blog.csdn.net/u014284000/article/details/74508963">https://blog.csdn.net/u014284000/article/details/74508963</a></p>
-<p>sever.服务器ID&#x3D;服务器IP地址:服务器之间通信端口:服务器之间投票选举端口</p>
-<h3 id="启动集群"><a href="#启动集群" class="headerlink" title="启动集群"></a>启动集群</h3><p>启动集群就是分别启动每个实例</p>
+<p>sever.服务器ID=服务器IP地址:服务器之间通信端口:服务器之间投票选举端口</p>
+<h3 id="启动集群">启动集群</h3>
+<p>启动集群就是分别启动每个实例</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./zookeeper-1/bin/zkServer.sh start</span><br><span class="line">./zookeeper-2/bin/zkServer.sh start</span><br><span class="line">./zookeeper-3/bin/zkServer.sh start</span><br><span class="line"></span><br><span class="line">查看状态</span><br><span class="line">./zookeeper-3/bin/zkServer.sh status</span><br></pre></td></tr></table></figure>
-
-<h2 id="PRC服务接口"><a href="#PRC服务接口" class="headerlink" title="PRC服务接口"></a>PRC服务接口</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">IDubboService</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">sayHello</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="服务提供者"><a href="#服务提供者" class="headerlink" title="服务提供者"></a>服务提供者</h2><h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 服务应用名称</span></span><br><span class="line"><span class="attr">dubbo.application.name</span>=<span class="string">provider-server</span></span><br><span class="line"><span class="comment"># 注册中心地址</span></span><br><span class="line"><span class="attr">dubbo.registry.protocol</span>=<span class="string">zookeeper</span></span><br><span class="line"><span class="attr">dubbo.registry.address</span>=<span class="string">1.13.248.197:2181,1.13.248.197:2182,1.13.248.197:2183</span></span><br><span class="line"><span class="comment"># 哪些服务要被注册</span></span><br><span class="line"><span class="attr">dubbo.scan.base-packages</span>=<span class="string">com.wzzc.service</span></span><br><span class="line"><span class="comment"># 协议默认端口</span></span><br><span class="line"><span class="attr">dubbo.protocol.port</span>=<span class="string">20880</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="服务实现"><a href="#服务实现" class="headerlink" title="服务实现"></a>服务实现</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span> <span class="comment">//使用了dubbo尽量不使用@Service注解</span></span><br><span class="line"><span class="meta">@Service</span>   <span class="comment">//可以被扫描到，在项目已启动j就自动注册到注册中心</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DubboServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">IDubboService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">sayHello</span><span class="params">(String username)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;hello &quot;</span> + username;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="服务消费者"><a href="#服务消费者" class="headerlink" title="服务消费者"></a>服务消费者</h2><h3 id="配置文件-1"><a href="#配置文件-1" class="headerlink" title="配置文件"></a>配置文件</h3><figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 消费者去哪里拿服务，需要暴露自己的名称</span></span><br><span class="line"><span class="attr">dubbo.application.name</span>=<span class="string">consumer-server</span></span><br><span class="line"><span class="comment"># 注册中心的地址</span></span><br><span class="line"><span class="attr">dubbo.registry.protocol</span>=<span class="string">zookeeper</span></span><br><span class="line"><span class="attr">dubbo.registry.address</span>=<span class="string">1.13.248.197:2181,1.13.248.197:2182,1.13.248.197:2183</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/dubbo&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DubboController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//引用pom坐标；可以定义路径相同的接口名</span></span><br><span class="line">    <span class="comment">//要拿到provider-server提供的服务，要去注册中心拿到服务</span></span><br><span class="line">    <span class="meta">@Reference</span></span><br><span class="line">    <span class="keyword">private</span> IDubboService dubboService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/sayHello&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">sayHello</span><span class="params">(String username)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> dubboService.sayHello(username);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h3 id="优惠券表"><a href="#优惠券表" class="headerlink" title="优惠券表"></a>优惠券表</h3><table>
+<h2 id="PRC服务接口">PRC服务接口</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">IDubboService</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">sayHello</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="服务提供者">服务提供者</h2>
+<h3 id="配置文件">配置文件</h3>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 服务应用名称</span></span><br><span class="line"><span class="attr">dubbo.application.name</span>=<span class="string">provider-server</span></span><br><span class="line"><span class="comment"># 注册中心地址</span></span><br><span class="line"><span class="attr">dubbo.registry.protocol</span>=<span class="string">zookeeper</span></span><br><span class="line"><span class="attr">dubbo.registry.address</span>=<span class="string">1.13.248.197:2181,1.13.248.197:2182,1.13.248.197:2183</span></span><br><span class="line"><span class="comment"># 哪些服务要被注册</span></span><br><span class="line"><span class="attr">dubbo.scan.base-packages</span>=<span class="string">com.wzzc.service</span></span><br><span class="line"><span class="comment"># 协议默认端口</span></span><br><span class="line"><span class="attr">dubbo.protocol.port</span>=<span class="string">20880</span></span><br></pre></td></tr></table></figure>
+<h3 id="服务实现">服务实现</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span> <span class="comment">//使用了dubbo尽量不使用@Service注解</span></span><br><span class="line"><span class="meta">@Service</span>   <span class="comment">//可以被扫描到，在项目已启动j就自动注册到注册中心</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DubboServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">IDubboService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">sayHello</span><span class="params">(String username)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;hello &quot;</span> + username;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="服务消费者">服务消费者</h2>
+<h3 id="配置文件-2">配置文件</h3>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 消费者去哪里拿服务，需要暴露自己的名称</span></span><br><span class="line"><span class="attr">dubbo.application.name</span>=<span class="string">consumer-server</span></span><br><span class="line"><span class="comment"># 注册中心的地址</span></span><br><span class="line"><span class="attr">dubbo.registry.protocol</span>=<span class="string">zookeeper</span></span><br><span class="line"><span class="attr">dubbo.registry.address</span>=<span class="string">1.13.248.197:2181,1.13.248.197:2182,1.13.248.197:2183</span></span><br></pre></td></tr></table></figure>
+<h3 id="Controller">Controller</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/dubbo&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DubboController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//引用pom坐标；可以定义路径相同的接口名</span></span><br><span class="line">    <span class="comment">//要拿到provider-server提供的服务，要去注册中心拿到服务</span></span><br><span class="line">    <span class="meta">@Reference</span></span><br><span class="line">    <span class="keyword">private</span> IDubboService dubboService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/sayHello&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">sayHello</span><span class="params">(String username)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> dubboService.sayHello(username);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1>环境搭建</h1>
+<h2 id="数据库">数据库</h2>
+<h3 id="优惠券表">优惠券表</h3>
+<table>
 <thead>
 <tr>
 <th>Field</th>
@@ -1875,7 +1834,8 @@
 <th>Comment</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>coupon_id</td>
 <td>bigint(50) NOT NULL</td>
 <td>优惠券ID</td>
@@ -1905,8 +1865,10 @@
 <td>timestamp NULL</td>
 <td>使用时间</td>
 </tr>
-</tbody></table>
-<h3 id="商品表"><a href="#商品表" class="headerlink" title="商品表"></a>商品表</h3><table>
+</tbody>
+</table>
+<h3 id="商品表">商品表</h3>
+<table>
 <thead>
 <tr>
 <th>Field</th>
@@ -1914,7 +1876,8 @@
 <th>Comment</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>good_id</td>
 <td>bigint(50) NOT NULL</td>
 <td>商品ID</td>
@@ -1939,8 +1902,10 @@
 <td>varchar(255) NULL</td>
 <td>商品描述</td>
 </tr>
-</tbody></table>
-<h3 id="订单表"><a href="#订单表" class="headerlink" title="订单表"></a>订单表</h3><table>
+</tbody>
+</table>
+<h3 id="订单表">订单表</h3>
+<table>
 <thead>
 <tr>
 <th>Field</th>
@@ -1948,7 +1913,8 @@
 <th>Comment</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>order_id</td>
 <td>bigint(50) NOT NULL</td>
 <td>订单ID</td>
@@ -2043,8 +2009,10 @@
 <td>timestamp NULL</td>
 <td>支付时间</td>
 </tr>
-</tbody></table>
-<h3 id="订单商品日志表"><a href="#订单商品日志表" class="headerlink" title="订单商品日志表"></a>订单商品日志表</h3><table>
+</tbody>
+</table>
+<h3 id="订单商品日志表">订单商品日志表</h3>
+<table>
 <thead>
 <tr>
 <th>Field</th>
@@ -2052,7 +2020,8 @@
 <th>Comment</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>good_id</td>
 <td>bigint(50) NOT NULL</td>
 <td>商品ID</td>
@@ -2067,8 +2036,10 @@
 <td>int(11) NULL</td>
 <td>商品库存</td>
 </tr>
-</tbody></table>
-<h3 id="用户表"><a href="#用户表" class="headerlink" title="用户表"></a>用户表</h3><table>
+</tbody>
+</table>
+<h3 id="用户表">用户表</h3>
+<table>
 <thead>
 <tr>
 <th>Field</th>
@@ -2076,7 +2047,8 @@
 <th>Comment</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>user_id</td>
 <td>bigint(50) NOT NULL</td>
 <td>用户ID</td>
@@ -2106,8 +2078,10 @@
 <td>decimal(10,2) NULL</td>
 <td>用户余额</td>
 </tr>
-</tbody></table>
-<h3 id="用户余额日志表"><a href="#用户余额日志表" class="headerlink" title="用户余额日志表"></a>用户余额日志表</h3><table>
+</tbody>
+</table>
+<h3 id="用户余额日志表">用户余额日志表</h3>
+<table>
 <thead>
 <tr>
 <th>Field</th>
@@ -2115,7 +2089,8 @@
 <th>Comment</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>user_id</td>
 <td>bigint(50) NOT NULL</td>
 <td>用户ID</td>
@@ -2135,8 +2110,10 @@
 <td>decimal(10,2) NULL</td>
 <td>操作金额</td>
 </tr>
-</tbody></table>
-<h3 id="订单支付表"><a href="#订单支付表" class="headerlink" title="订单支付表"></a>订单支付表</h3><table>
+</tbody>
+</table>
+<h3 id="订单支付表">订单支付表</h3>
+<table>
 <thead>
 <tr>
 <th>Field</th>
@@ -2144,7 +2121,8 @@
 <th>Comment</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>pay_id</td>
 <td>bigint(50) NOT NULL</td>
 <td>支付编号</td>
@@ -2164,8 +2142,10 @@
 <td>int(1) NULL</td>
 <td>是否已支付，0未付款；1正在付款；2已经付款</td>
 </tr>
-</tbody></table>
-<h3 id="MQ消息生产表"><a href="#MQ消息生产表" class="headerlink" title="MQ消息生产表"></a>MQ消息生产表</h3><table>
+</tbody>
+</table>
+<h3 id="MQ消息生产表">MQ消息生产表</h3>
+<table>
 <thead>
 <tr>
 <th>Filed</th>
@@ -2173,7 +2153,8 @@
 <th>Comment</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>msg_id</td>
 <td>bigint(50) NOT NULL</td>
 <td>主键</td>
@@ -2208,8 +2189,10 @@
 <td>int(1) NULL</td>
 <td>0未处理；1已处理</td>
 </tr>
-</tbody></table>
-<h3 id="MQ消息消费表"><a href="#MQ消息消费表" class="headerlink" title="MQ消息消费表"></a>MQ消息消费表</h3><table>
+</tbody>
+</table>
+<h3 id="MQ消息消费表">MQ消息消费表</h3>
+<table>
 <thead>
 <tr>
 <th>Field</th>
@@ -2217,7 +2200,8 @@
 <th>Comment</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>msg_id</td>
 <td>bigint(50) NOT NULL</td>
 <td>消息ID</td>
@@ -2262,8 +2246,11 @@
 <td>varchar(500) NULL</td>
 <td>备注</td>
 </tr>
-</tbody></table>
-<h2 id="项目初始化"><a href="#项目初始化" class="headerlink" title="项目初始化"></a>项目初始化</h2><h3 id="工程浏览"><a href="#工程浏览" class="headerlink" title="工程浏览"></a>工程浏览</h3><ul>
+</tbody>
+</table>
+<h2 id="项目初始化">项目初始化</h2>
+<h3 id="工程浏览">工程浏览</h3>
+<ul>
 <li>父工程：shop</li>
 <li>订单系统：order-web</li>
 <li>支付系统：pay-web</li>
@@ -2277,37 +2264,47 @@
 <li>接口层：api</li>
 <li>工具工程：common</li>
 </ul>
-<h3 id="工程关系"><a href="#工程关系" class="headerlink" title="工程关系"></a>工程关系</h3><img src="/2022/10/11/RocketMQ%E9%A1%B9%E7%9B%AE%E8%BF%9B%E9%98%B6/image-20221018202744977.png" class="">
-
-<p><img src="/RocketMQ%E9%A1%B9%E7%9B%AE%E8%BF%9B%E9%98%B6%5Cimage-20221018202853010.png"></p>
-<h3 id="Mybatis-Plus代码生成"><a href="#Mybatis-Plus代码生成" class="headerlink" title="Mybatis-Plus代码生成"></a>Mybatis-Plus代码生成</h3><ul>
-<li><p>实体类导入pojo中</p>
+<h3 id="工程关系">工程关系</h3>
+<img src="/2022/10/11/RocketMQ%E9%A1%B9%E7%9B%AE%E8%BF%9B%E9%98%B6/image-20221018202744977.png" class="">
+<p><img src="RocketMQ%E9%A1%B9%E7%9B%AE%E8%BF%9B%E9%98%B6%5Cimage-20221018202853010.png" alt=""></p>
+<h3 id="Mybatis-Plus代码生成">Mybatis-Plus代码生成</h3>
+<ul>
+<li>
+<p>实体类导入pojo中</p>
 </li>
-<li><p>在服务层工程中导入对应的Mapper类和对应配置文件</p>
+<li>
+<p>在服务层工程中导入对应的Mapper类和对应配置文件</p>
 </li>
 </ul>
-<h2 id="公共类介绍"><a href="#公共类介绍" class="headerlink" title="公共类介绍"></a>公共类介绍</h2><ul>
-<li><p>ID生成器</p>
+<h2 id="公共类介绍">公共类介绍</h2>
+<ul>
+<li>
+<p>ID生成器</p>
 <p>IDWorker：Twitter雪花算法</p>
 </li>
-<li><p>异常处理类</p>
+<li>
+<p>异常处理类</p>
 <p>CustomException：自定义异常类</p>
 <p>CastException：异常抛出类</p>
 </li>
-<li><p>常量类</p>
+<li>
+<p>常量类</p>
 <p>ShopCode：系统状态类</p>
 </li>
-<li><p>响应实体类</p>
+<li>
+<p>响应实体类</p>
 <p>Result：封装响应状态和响应信息</p>
 </li>
 </ul>
-<h1 id="下单业务"><a href="#下单业务" class="headerlink" title="下单业务"></a>下单业务</h1><img src="/2022/10/11/RocketMQ%E9%A1%B9%E7%9B%AE%E8%BF%9B%E9%98%B6/image-20221018224116237.png" class="">
-
-<h2 id="下单基本流程"><a href="#下单基本流程" class="headerlink" title="下单基本流程"></a>下单基本流程</h2><h3 id="接口定义"><a href="#接口定义" class="headerlink" title="接口定义"></a>接口定义</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">IOrderService</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 下单接口</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> order</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    Result <span class="title function_">confirmOrder</span><span class="params">(Order order)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="业务类实现"><a href="#业务类实现" class="headerlink" title="业务类实现"></a>业务类实现</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">OrderServiceImpl</span> <span class="keyword">extends</span> <span class="title class_">ServiceImpl</span>&lt;OrderMapper, Order&gt; <span class="keyword">implements</span> <span class="title class_">IOrderService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Result <span class="title function_">confirmOrder</span><span class="params">(Order order)</span> &#123;</span><br><span class="line">        <span class="comment">//1.校验订单</span></span><br><span class="line">        <span class="comment">//2.生成预订单</span></span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="comment">//3.扣减库存</span></span><br><span class="line">            <span class="comment">//4.扣减优惠券</span></span><br><span class="line">            <span class="comment">//5.使用余额</span></span><br><span class="line">            <span class="comment">//6.确认订单</span></span><br><span class="line">            <span class="comment">//7.返回成功状态</span></span><br><span class="line"></span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            <span class="comment">//1.确认订单失败，发送消息</span></span><br><span class="line">            <span class="comment">//2.返回失败状态</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="校验订单"><a href="#校验订单" class="headerlink" title="校验订单"></a>校验订单</h3><ul>
+<h1>下单业务</h1>
+<img src="/2022/10/11/RocketMQ%E9%A1%B9%E7%9B%AE%E8%BF%9B%E9%98%B6/image-20221018224116237.png" class="">
+<h2 id="下单基本流程">下单基本流程</h2>
+<h3 id="接口定义">接口定义</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">IOrderService</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 下单接口</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> order</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    Result <span class="title function_">confirmOrder</span><span class="params">(Order order)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="业务类实现">业务类实现</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">OrderServiceImpl</span> <span class="keyword">extends</span> <span class="title class_">ServiceImpl</span>&lt;OrderMapper, Order&gt; <span class="keyword">implements</span> <span class="title class_">IOrderService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Result <span class="title function_">confirmOrder</span><span class="params">(Order order)</span> &#123;</span><br><span class="line">        <span class="comment">//1.校验订单</span></span><br><span class="line">        <span class="comment">//2.生成预订单</span></span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="comment">//3.扣减库存</span></span><br><span class="line">            <span class="comment">//4.扣减优惠券</span></span><br><span class="line">            <span class="comment">//5.使用余额</span></span><br><span class="line">            <span class="comment">//6.确认订单</span></span><br><span class="line">            <span class="comment">//7.返回成功状态</span></span><br><span class="line"></span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            <span class="comment">//1.确认订单失败，发送消息</span></span><br><span class="line">            <span class="comment">//2.返回失败状态</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="校验订单">校验订单</h3>
+<ul>
 <li>订单是否为空</li>
 <li>商品是否存在</li>
 <li>用户是否存在</li>
@@ -2315,17 +2312,19 @@
 <li>购买数量是否合法</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">checkOrder</span><span class="params">(Order order)</span> &#123;</span><br><span class="line">    <span class="comment">//1.校验订单是否存在</span></span><br><span class="line">    <span class="keyword">if</span>(order == <span class="literal">null</span>)&#123;</span><br><span class="line">        CastException.cast(ShopCode.SHOP_ORDER_INVALID);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//2.校验订单中的商品是否存在</span></span><br><span class="line">    <span class="type">Good</span> <span class="variable">good</span> <span class="operator">=</span> goodService.findById(order.getGoodId());</span><br><span class="line">    <span class="keyword">if</span>(good == <span class="literal">null</span>)&#123;</span><br><span class="line">        CastException.cast(ShopCode.SHOP_GOOD_NO_EXIST);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//3.校验下单用户是否合法</span></span><br><span class="line">    <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> userService.findById(order.getUserId());</span><br><span class="line">    <span class="keyword">if</span>(user == <span class="literal">null</span>)&#123;</span><br><span class="line">        CastException.cast(ShopCode.SHOP_USER_NO_EXIST);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//4.校验订单金额是否合法</span></span><br><span class="line">    <span class="keyword">if</span>(order.getPayAmount().compareTo(good.getGoodPrice().multiply(<span class="keyword">new</span> <span class="title class_">BigDecimal</span>(order.getGoodNumber()))) != <span class="number">0</span>)&#123;</span><br><span class="line">        CastException.cast(ShopCode.SHOP_ORDERAMOUNT_INVALID);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//5.校验订单商品数量是否合法</span></span><br><span class="line">    <span class="keyword">if</span>(order.getGoodNumber() &gt; good.getGoodNumber())&#123;</span><br><span class="line">        CastException.cast(ShopCode.SHOP_GOOD_NUM_NOT_ENOUGH);</span><br><span class="line">    &#125;</span><br><span class="line">    log.info(<span class="string">&quot;校验订单通过&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="生成预订单"><a href="#生成预订单" class="headerlink" title="生成预订单"></a>生成预订单</h3><ul>
+<h3 id="生成预订单">生成预订单</h3>
+<ul>
 <li>设置订单状态不可见</li>
 <li>设置订单ID</li>
 <li>核算运费是否正确</li>
 <li>核算订单总价是否正确</li>
-<li>是否使用优惠券<ul>
+<li>是否使用优惠券
+<ul>
 <li>判断优惠券是否合法</li>
 </ul>
 </li>
-<li>是否使用余额<ul>
+<li>是否使用余额
+<ul>
 <li>判断余额是否合法</li>
 </ul>
 </li>
@@ -2333,34 +2332,43 @@
 <li>设置订单时间</li>
 <li>保存订单到数据库</li>
 </ul>
-<h3 id="扣减库存"><a href="#扣减库存" class="headerlink" title="扣减库存"></a>扣减库存</h3><h3 id="扣减优惠券"><a href="#扣减优惠券" class="headerlink" title="扣减优惠券"></a>扣减优惠券</h3><h3 id="扣减用户余额"><a href="#扣减用户余额" class="headerlink" title="扣减用户余额"></a>扣减用户余额</h3><h3 id="确认订单"><a href="#确认订单" class="headerlink" title="确认订单"></a>确认订单</h3><h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><h2 id="失败补偿机制"><a href="#失败补偿机制" class="headerlink" title="失败补偿机制"></a>失败补偿机制</h2><h3 id="消息发送方"><a href="#消息发送方" class="headerlink" title="消息发送方"></a>消息发送方</h3><ul>
+<h3 id="扣减库存">扣减库存</h3>
+<h3 id="扣减优惠券">扣减优惠券</h3>
+<h3 id="扣减用户余额">扣减用户余额</h3>
+<h3 id="确认订单">确认订单</h3>
+<h3 id="小结">小结</h3>
+<h2 id="失败补偿机制">失败补偿机制</h2>
+<h3 id="消息发送方">消息发送方</h3>
+<ul>
 <li>配置RocketMQ属性值</li>
 </ul>
 <figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">rocketmq.name-server</span>=<span class="string">36.133.171.94:9876</span></span><br><span class="line"><span class="attr">mq.order.consumer.group.name</span>=<span class="string">order_orderTopic_cancel_group</span></span><br><span class="line"><span class="attr">mq.order.topic</span>=<span class="string">orderTopic</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>发送消息</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 发生订单确认失败</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">sendCancelOrder</span><span class="params">(String topic, String tag, String keys, String body)</span> <span class="keyword">throws</span> MQBrokerException, RemotingException, InterruptedException, MQClientException &#123;</span><br><span class="line">    <span class="type">Message</span> <span class="variable">message</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Message</span>(topic, tag, keys, body.getBytes(StandardCharsets.UTF_8));</span><br><span class="line">    rocketMQTemplate.getProducer().send(message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="消息接收方"><a href="#消息接收方" class="headerlink" title="消息接收方"></a>消息接收方</h3><ul>
+<h3 id="消息接收方">消息接收方</h3>
+<ul>
 <li>配置RocketMQ属性值</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">rocketmq.name-server=<span class="number">36.133</span><span class="number">.171</span><span class="number">.94</span>:<span class="number">9876</span></span><br><span class="line">mq.order.consumer.group.name=order_orderTopic_cancel_group</span><br><span class="line">mq.order.topic=orderTopic</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>创建监听类，消费消息</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> 订单失败消息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@RocketMQMessageListener(topic = &quot;&amp;&#123;mq.order.topic&#125;&quot;, consumerGroup = &quot;$&#123;mq.order.consumer.group.name&#125;&quot;, messageModel = MessageModel.BROADCASTING)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CancelMQListener</span> <span class="keyword">implements</span> <span class="title class_">RocketMQListener</span>&lt;MessageExt&gt; &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onMessage</span><span class="params">(MessageExt messageExt)</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="回退库存"><a href="#回退库存" class="headerlink" title="回退库存"></a>回退库存</h4><ul>
+<h4 id="回退库存">回退库存</h4>
+<ul>
 <li>解析消息内容</li>
-<li>查询消息消费记录（保证消息处理幂等性）<ul>
-<li>处理过<ul>
+<li>查询消息消费记录（保证消息处理幂等性）
+<ul>
+<li>处理过
+<ul>
 <li>处理成功</li>
 <li>正在处理</li>
-<li>处理失败<ul>
-<li>判断消息处理次数<ul>
+<li>处理失败
+<ul>
+<li>判断消息处理次数
+<ul>
 <li>不足3次——数据库乐观锁方式更改消息处理状态为正在处理</li>
 </ul>
 </li>
@@ -2368,7 +2376,8 @@
 </li>
 </ul>
 </li>
-<li>未处理<ul>
+<li>未处理
+<ul>
 <li>更改消息状态为正在处理</li>
 </ul>
 </li>
@@ -2377,17 +2386,22 @@
 <li>回退库存</li>
 <li>更改消息处理状态为成功</li>
 </ul>
-<h4 id="回退优惠券"><a href="#回退优惠券" class="headerlink" title="回退优惠券"></a>回退优惠券</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> 订单失败消息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@RocketMQMessageListener(topic = &quot;&amp;&#123;mq.order.topic&#125;&quot;, consumerGroup = &quot;$&#123;mq.order.consumer.group.name&#125;&quot;, messageModel = MessageModel.BROADCASTING)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CancelMQListener</span> <span class="keyword">implements</span> <span class="title class_">RocketMQListener</span>&lt;MessageExt&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> CouponMapper couponMapper;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onMessage</span><span class="params">(MessageExt messageExt)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//1. 解析消息内容</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">body</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(messageExt.getBody(), <span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">            <span class="type">MQEntity</span> <span class="variable">mqEntity</span> <span class="operator">=</span> JSON.parseObject(body, MQEntity.class);</span><br><span class="line">            log.info(<span class="string">&quot;接收到消息&quot;</span>);</span><br><span class="line">            <span class="keyword">if</span>(mqEntity.getCouponId() != <span class="literal">null</span>)&#123;</span><br><span class="line">                <span class="comment">//2. 查询优惠券信息</span></span><br><span class="line">                <span class="type">Coupon</span> <span class="variable">coupon</span> <span class="operator">=</span> couponMapper.selectById(mqEntity.getCouponId());</span><br><span class="line">                <span class="comment">//3. 更改优惠券状态</span></span><br><span class="line">                coupon.setUsedTime(<span class="literal">null</span>);</span><br><span class="line">                coupon.setIsUsed(ShopCode.SHOP_COUPON_UNUSED.getCode());</span><br><span class="line">                coupon.setOrderId(<span class="literal">null</span>);</span><br><span class="line">                couponMapper.updateById(coupon);</span><br><span class="line">            &#125;</span><br><span class="line">            log.info(<span class="string">&quot;回退优惠券成功&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            log.info(<span class="string">&quot;回退优惠券失败&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="回退余额"><a href="#回退余额" class="headerlink" title="回退余额"></a>回退余额</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> 订单失败取消消息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@RocketMQMessageListener(topic = &quot;&amp;&#123;mq.order.topic&#125;&quot;, consumerGroup = &quot;$&#123;mq.order.consumer.group.name&#125;&quot;, messageModel = MessageModel.BROADCASTING)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CancelMQListener</span> <span class="keyword">implements</span> <span class="title class_">RocketMQListener</span>&lt;MessageExt&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserService userService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onMessage</span><span class="params">(MessageExt messageExt)</span> &#123;</span><br><span class="line">        <span class="comment">//1. 解析消息</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">body</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(messageExt.getBody(), <span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">            <span class="type">MQEntity</span> <span class="variable">mqEntity</span> <span class="operator">=</span> JSON.parseObject(body, MQEntity.class);</span><br><span class="line">            log.info(<span class="string">&quot;接收消息成功&quot;</span>);</span><br><span class="line">            <span class="keyword">if</span>(mqEntity.getUserMoney() != <span class="literal">null</span> &amp;&amp; mqEntity.getUserMoney().compareTo(BigDecimal.ZERO) &gt; <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="comment">//2. 调用业务层，进行余额修改</span></span><br><span class="line">                <span class="type">Order</span> <span class="variable">order</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Order</span>();</span><br><span class="line">                userService.updateMoneyPaid(order);</span><br><span class="line">                log.info(<span class="string">&quot;余额回退成功&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (UnsupportedEncodingException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            log.error(<span class="string">&quot;余额回退成功&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="取消订单"><a href="#取消订单" class="headerlink" title="取消订单"></a>取消订单</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> 订单失败取消消息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@RocketMQMessageListener(topic = &quot;&amp;&#123;mq.order.topic&#125;&quot;, consumerGroup = &quot;$&#123;mq.order.consumer.group.name&#125;&quot;, messageModel = MessageModel.BROADCASTING)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CancelMQListener</span> <span class="keyword">implements</span> <span class="title class_">RocketMQListener</span>&lt;MessageExt&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> OrderMapper orderMapper;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onMessage</span><span class="params">(MessageExt messageExt)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//1. 解析消息</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">body</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(messageExt.getBody(), <span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">            <span class="type">MQEntity</span> <span class="variable">mqEntity</span> <span class="operator">=</span> JSON.parseObject(body, MQEntity.class);</span><br><span class="line">            log.info(<span class="string">&quot;接收消息成功&quot;</span>);</span><br><span class="line">            <span class="comment">//2. 查询订单</span></span><br><span class="line">            <span class="type">Order</span> <span class="variable">order</span> <span class="operator">=</span> orderMapper.selectById(mqEntity.getOrderId());</span><br><span class="line">            <span class="comment">//3. 更新订单状态为取消</span></span><br><span class="line">            order.setOrderStatus(ShopCode.SHOP_ORDER_MESSAGE_STATUS_CANCEL.getCode());</span><br><span class="line">            orderMapper.updateById(order);</span><br><span class="line">            log.info(<span class="string">&quot;订单状态设置为取消&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            log.info(<span class="string">&quot;订单取消失败&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><h1 id="支付业务"><a href="#支付业务" class="headerlink" title="支付业务"></a>支付业务</h1><h2 id="创建支付订单"><a href="#创建支付订单" class="headerlink" title="创建支付订单"></a>创建支付订单</h2><ul>
-<li>判断订单支付状态<ul>
+<h4 id="回退优惠券">回退优惠券</h4>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> 订单失败消息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@RocketMQMessageListener(topic = &quot;&amp;&#123;mq.order.topic&#125;&quot;, consumerGroup = &quot;$&#123;mq.order.consumer.group.name&#125;&quot;, messageModel = MessageModel.BROADCASTING)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CancelMQListener</span> <span class="keyword">implements</span> <span class="title class_">RocketMQListener</span>&lt;MessageExt&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> CouponMapper couponMapper;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onMessage</span><span class="params">(MessageExt messageExt)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//1. 解析消息内容</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">body</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(messageExt.getBody(), <span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">            <span class="type">MQEntity</span> <span class="variable">mqEntity</span> <span class="operator">=</span> JSON.parseObject(body, MQEntity.class);</span><br><span class="line">            log.info(<span class="string">&quot;接收到消息&quot;</span>);</span><br><span class="line">            <span class="keyword">if</span>(mqEntity.getCouponId() != <span class="literal">null</span>)&#123;</span><br><span class="line">                <span class="comment">//2. 查询优惠券信息</span></span><br><span class="line">                <span class="type">Coupon</span> <span class="variable">coupon</span> <span class="operator">=</span> couponMapper.selectById(mqEntity.getCouponId());</span><br><span class="line">                <span class="comment">//3. 更改优惠券状态</span></span><br><span class="line">                coupon.setUsedTime(<span class="literal">null</span>);</span><br><span class="line">                coupon.setIsUsed(ShopCode.SHOP_COUPON_UNUSED.getCode());</span><br><span class="line">                coupon.setOrderId(<span class="literal">null</span>);</span><br><span class="line">                couponMapper.updateById(coupon);</span><br><span class="line">            &#125;</span><br><span class="line">            log.info(<span class="string">&quot;回退优惠券成功&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            log.info(<span class="string">&quot;回退优惠券失败&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="回退余额">回退余额</h4>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> 订单失败取消消息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@RocketMQMessageListener(topic = &quot;&amp;&#123;mq.order.topic&#125;&quot;, consumerGroup = &quot;$&#123;mq.order.consumer.group.name&#125;&quot;, messageModel = MessageModel.BROADCASTING)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CancelMQListener</span> <span class="keyword">implements</span> <span class="title class_">RocketMQListener</span>&lt;MessageExt&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserService userService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onMessage</span><span class="params">(MessageExt messageExt)</span> &#123;</span><br><span class="line">        <span class="comment">//1. 解析消息</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">body</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(messageExt.getBody(), <span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">            <span class="type">MQEntity</span> <span class="variable">mqEntity</span> <span class="operator">=</span> JSON.parseObject(body, MQEntity.class);</span><br><span class="line">            log.info(<span class="string">&quot;接收消息成功&quot;</span>);</span><br><span class="line">            <span class="keyword">if</span>(mqEntity.getUserMoney() != <span class="literal">null</span> &amp;&amp; mqEntity.getUserMoney().compareTo(BigDecimal.ZERO) &gt; <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="comment">//2. 调用业务层，进行余额修改</span></span><br><span class="line">                <span class="type">Order</span> <span class="variable">order</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Order</span>();</span><br><span class="line">                userService.updateMoneyPaid(order);</span><br><span class="line">                log.info(<span class="string">&quot;余额回退成功&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (UnsupportedEncodingException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            log.error(<span class="string">&quot;余额回退成功&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="取消订单">取消订单</h4>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> 订单失败取消消息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@RocketMQMessageListener(topic = &quot;&amp;&#123;mq.order.topic&#125;&quot;, consumerGroup = &quot;$&#123;mq.order.consumer.group.name&#125;&quot;, messageModel = MessageModel.BROADCASTING)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CancelMQListener</span> <span class="keyword">implements</span> <span class="title class_">RocketMQListener</span>&lt;MessageExt&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> OrderMapper orderMapper;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onMessage</span><span class="params">(MessageExt messageExt)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//1. 解析消息</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">body</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(messageExt.getBody(), <span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">            <span class="type">MQEntity</span> <span class="variable">mqEntity</span> <span class="operator">=</span> JSON.parseObject(body, MQEntity.class);</span><br><span class="line">            log.info(<span class="string">&quot;接收消息成功&quot;</span>);</span><br><span class="line">            <span class="comment">//2. 查询订单</span></span><br><span class="line">            <span class="type">Order</span> <span class="variable">order</span> <span class="operator">=</span> orderMapper.selectById(mqEntity.getOrderId());</span><br><span class="line">            <span class="comment">//3. 更新订单状态为取消</span></span><br><span class="line">            order.setOrderStatus(ShopCode.SHOP_ORDER_MESSAGE_STATUS_CANCEL.getCode());</span><br><span class="line">            orderMapper.updateById(order);</span><br><span class="line">            log.info(<span class="string">&quot;订单状态设置为取消&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            log.info(<span class="string">&quot;订单取消失败&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="测试">测试</h3>
+<h1>支付业务</h1>
+<h2 id="创建支付订单">创建支付订单</h2>
+<ul>
+<li>判断订单支付状态
+<ul>
 <li>已支付</li>
-<li>未支付<ul>
-<li>创建支付订单	</li>
+<li>未支付
+<ul>
+<li>创建支付订单</li>
 <li>设置支付状态为待支付</li>
 <li>保存支付订单</li>
 </ul>
@@ -2395,10 +2409,14 @@
 </ul>
 </li>
 </ul>
-<h2 id="支付回调"><a href="#支付回调" class="headerlink" title="支付回调"></a>支付回调</h2><h3 id="流程分析"><a href="#流程分析" class="headerlink" title="流程分析"></a>流程分析</h3><ul>
-<li>判断用户支付状态<ul>
+<h2 id="支付回调">支付回调</h2>
+<h3 id="流程分析">流程分析</h3>
+<ul>
+<li>判断用户支付状态
+<ul>
 <li>支付失败</li>
-<li>支付成功<ul>
+<li>支付成功
+<ul>
 <li>更细支付订单状态为已支付</li>
 <li>创建支付成功消息</li>
 <li>保存支付成功消息</li>
@@ -2409,35 +2427,97 @@
 </ul>
 </li>
 </ul>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> Result <span class="title function_">callbackPayment</span><span class="params">(Pay pay)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">    log.info(<span class="string">&quot;支付回调&quot;</span>);</span><br><span class="line">    <span class="comment">//1. 判断用户支付状态</span></span><br><span class="line">    <span class="keyword">if</span>(pay.getIsPaid().intValue() == ShopCode.SHOP_ORDER_PAY_STATUS_IS_PAY.getCode().intValue())&#123;</span><br><span class="line">        <span class="comment">//2. 更新支付订单状态为已支付</span></span><br><span class="line">        <span class="type">Long</span> <span class="variable">payId</span> <span class="operator">=</span> pay.getPayId();</span><br><span class="line">        <span class="type">Pay</span> <span class="variable">pay1</span> <span class="operator">=</span> payMapper.selectById(payId);</span><br><span class="line">        <span class="comment">//判断支付订单是否存在</span></span><br><span class="line">        <span class="keyword">if</span>(pay1 == <span class="literal">null</span>)&#123;</span><br><span class="line">            CastException.cast(ShopCode.SHOP_PAYMENT_NOT_FOUND);</span><br><span class="line">        &#125;</span><br><span class="line">        pay1.setIsPaid(ShopCode.SHOP_ORDER_PAY_STATUS_IS_PAY.getCode());</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> payMapper.updateById(pay1);</span><br><span class="line">        log.info(<span class="string">&quot;支付订单状态改为已支付&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(i == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="comment">//3. 创建支付成功的消息</span></span><br><span class="line">            <span class="type">MqProducerLog</span> <span class="variable">mqProducerLog</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MqProducerLog</span>();</span><br><span class="line">            mqProducerLog.setMsgId(SnowFlakeUtil.getSnowFlakeId());</span><br><span class="line">            mqProducerLog.setGroupName(groupName);</span><br><span class="line">            mqProducerLog.setMsgTopic(topic);</span><br><span class="line">            mqProducerLog.setMsgTag(tag);</span><br><span class="line">            mqProducerLog.setMsgKey(String.valueOf(payId));</span><br><span class="line">            mqProducerLog.setMsgBody(JSON.toJSONString(pay));</span><br><span class="line">            <span class="comment">//4. 将消息持久化数据库</span></span><br><span class="line">            mqProducerLogMapper.insert(mqProducerLog);</span><br><span class="line">            log.info(<span class="string">&quot;将支付成功的消息持久化到数据库&quot;</span>);</span><br><span class="line">            <span class="comment">//5. 发送消息到MQ</span></span><br><span class="line">            <span class="type">SendResult</span> <span class="variable">sendResult</span> <span class="operator">=</span> sendMessage(topic, tag, String.valueOf(payId), JSON.toJSONString(pay));</span><br><span class="line">            <span class="keyword">if</span>(sendResult.getSendStatus().equals(SendStatus.SEND_OK))&#123;</span><br><span class="line">                log.info(<span class="string">&quot;消息发送成功&quot;</span>);</span><br><span class="line">                <span class="comment">//6. 等待发送结果，如果MQ接收消息，删除发送成功消息</span></span><br><span class="line">                mqProducerLogMapper.deleteById(mqProducerLog.getMsgId());</span><br><span class="line">                log.info(<span class="string">&quot;持久化到数据库的消息删除&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Result</span>(ShopCode.SHOP_SUCCESS.getSuccess(), ShopCode.SHOP_SUCCESS.getMessage());</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        CastException.cast(ShopCode.SHOP_PAYMENT_IS_PAID);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Result</span>(ShopCode.SHOP_FAIL.getSuccess(), ShopCode.SHOP_SUCCESS.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="线程池优化消息发送逻辑"><a href="#线程池优化消息发送逻辑" class="headerlink" title="线程池优化消息发送逻辑"></a>线程池优化消息发送逻辑</h3><ul>
+<h3 id="代码实现">代码实现</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> Result <span class="title function_">callbackPayment</span><span class="params">(Pay pay)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">    log.info(<span class="string">&quot;支付回调&quot;</span>);</span><br><span class="line">    <span class="comment">//1. 判断用户支付状态</span></span><br><span class="line">    <span class="keyword">if</span>(pay.getIsPaid().intValue() == ShopCode.SHOP_ORDER_PAY_STATUS_IS_PAY.getCode().intValue())&#123;</span><br><span class="line">        <span class="comment">//2. 更新支付订单状态为已支付</span></span><br><span class="line">        <span class="type">Long</span> <span class="variable">payId</span> <span class="operator">=</span> pay.getPayId();</span><br><span class="line">        <span class="type">Pay</span> <span class="variable">pay1</span> <span class="operator">=</span> payMapper.selectById(payId);</span><br><span class="line">        <span class="comment">//判断支付订单是否存在</span></span><br><span class="line">        <span class="keyword">if</span>(pay1 == <span class="literal">null</span>)&#123;</span><br><span class="line">            CastException.cast(ShopCode.SHOP_PAYMENT_NOT_FOUND);</span><br><span class="line">        &#125;</span><br><span class="line">        pay1.setIsPaid(ShopCode.SHOP_ORDER_PAY_STATUS_IS_PAY.getCode());</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> payMapper.updateById(pay1);</span><br><span class="line">        log.info(<span class="string">&quot;支付订单状态改为已支付&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(i == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="comment">//3. 创建支付成功的消息</span></span><br><span class="line">            <span class="type">MqProducerLog</span> <span class="variable">mqProducerLog</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MqProducerLog</span>();</span><br><span class="line">            mqProducerLog.setMsgId(SnowFlakeUtil.getSnowFlakeId());</span><br><span class="line">            mqProducerLog.setGroupName(groupName);</span><br><span class="line">            mqProducerLog.setMsgTopic(topic);</span><br><span class="line">            mqProducerLog.setMsgTag(tag);</span><br><span class="line">            mqProducerLog.setMsgKey(String.valueOf(payId));</span><br><span class="line">            mqProducerLog.setMsgBody(JSON.toJSONString(pay));</span><br><span class="line">            <span class="comment">//4. 将消息持久化数据库</span></span><br><span class="line">            mqProducerLogMapper.insert(mqProducerLog);</span><br><span class="line">            log.info(<span class="string">&quot;将支付成功的消息持久化到数据库&quot;</span>);</span><br><span class="line">            <span class="comment">//5. 发送消息到MQ</span></span><br><span class="line">            <span class="type">SendResult</span> <span class="variable">sendResult</span> <span class="operator">=</span> sendMessage(topic, tag, String.valueOf(payId), JSON.toJSONString(pay));</span><br><span class="line">            <span class="keyword">if</span>(sendResult.getSendStatus().equals(SendStatus.SEND_OK))&#123;</span><br><span class="line">                log.info(<span class="string">&quot;消息发送成功&quot;</span>);</span><br><span class="line">                <span class="comment">//6. 等待发送结果，如果MQ接收消息，删除发送成功消息</span></span><br><span class="line">                mqProducerLogMapper.deleteById(mqProducerLog.getMsgId());</span><br><span class="line">                log.info(<span class="string">&quot;持久化到数据库的消息删除&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Result</span>(ShopCode.SHOP_SUCCESS.getSuccess(), ShopCode.SHOP_SUCCESS.getMessage());</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        CastException.cast(ShopCode.SHOP_PAYMENT_IS_PAID);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Result</span>(ShopCode.SHOP_FAIL.getSuccess(), ShopCode.SHOP_SUCCESS.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="线程池优化消息发送逻辑">线程池优化消息发送逻辑</h3>
+<ul>
 <li>创建线程池对象</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> ThreadPoolTaskExecutor <span class="title function_">getThreadPool</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">ThreadPoolTaskExecutor</span> <span class="variable">executor</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ThreadPoolTaskExecutor</span>();</span><br><span class="line">    <span class="comment">//默认大小</span></span><br><span class="line">    executor.setCorePoolSize(<span class="number">4</span>);</span><br><span class="line">    <span class="comment">//最大线程数</span></span><br><span class="line">    executor.setMaxPoolSize(<span class="number">8</span>);</span><br><span class="line">    <span class="comment">//队列大小</span></span><br><span class="line">    executor.setQueueCapacity(<span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">    executor.setKeepAliveSeconds(<span class="number">60</span>);</span><br><span class="line"></span><br><span class="line">    executor.setThreadNamePrefix(<span class="string">&quot;Pool-A&quot;</span>);</span><br><span class="line"></span><br><span class="line">    executor.setRejectedExecutionHandler(<span class="keyword">new</span> <span class="title class_">ThreadPoolExecutor</span>.CallerRunsPolicy());</span><br><span class="line"></span><br><span class="line">    executor.initialize();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> executor;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>使用线程池</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在线程池中进行处理</span></span><br><span class="line">threadPoolTaskExecutor.submit(<span class="keyword">new</span> <span class="title class_">Runnable</span>() &#123;</span><br><span class="line">    <span class="meta">@SneakyThrows</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">//5. 发送消息到MQ</span></span><br><span class="line">        <span class="type">SendResult</span> <span class="variable">sendResult</span> <span class="operator">=</span> sendMessage(topic, tag, String.valueOf(payId), JSON.toJSONString(pay));</span><br><span class="line">        <span class="keyword">if</span>(sendResult.getSendStatus().equals(SendStatus.SEND_OK))&#123;</span><br><span class="line">            log.info(<span class="string">&quot;消息发送成功&quot;</span>);</span><br><span class="line">            <span class="comment">//6. 等待发送结果，如果MQ接收消息，删除发送成功消息</span></span><br><span class="line">            mqProducerLogMapper.deleteById(mqProducerLog.getMsgId());</span><br><span class="line">            log.info(<span class="string">&quot;持久化到数据库的消息删除&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h2 id="处理消息"><a href="#处理消息" class="headerlink" title="处理消息"></a>处理消息</h2><p>支付成功后，支付服务payService发送MQ消息，订单服务、用户服务、日志服务需要订阅消息进行处理</p>
+<h2 id="处理消息">处理消息</h2>
+<p>支付成功后，支付服务payService发送MQ消息，订单服务、用户服务、日志服务需要订阅消息进行处理</p>
 <ul>
 <li>订单服务修改订单状态为已支付</li>
 <li>日志服务记录支付日志</li>
 <li>用户服务负责给用户增加积分</li>
 </ul>
 <p>以下用订单服务为例说明消息的处理情况</p>
-<h3 id="配置RocketMQ属性值"><a href="#配置RocketMQ属性值" class="headerlink" title="配置RocketMQ属性值"></a>配置RocketMQ属性值</h3><figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">mq.pay.topic</span>=<span class="string">payTopic</span></span><br><span class="line"><span class="attr">mq.pay.consumer.group.name</span>=<span class="string">pay_payTopic_group</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="消费消息"><a href="#消费消息" class="headerlink" title="消费消息"></a>消费消息</h3><ul>
+<h3 id="配置RocketMQ属性值">配置RocketMQ属性值</h3>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">mq.pay.topic</span>=<span class="string">payTopic</span></span><br><span class="line"><span class="attr">mq.pay.consumer.group.name</span>=<span class="string">pay_payTopic_group</span></span><br></pre></td></tr></table></figure>
+<h3 id="消费消息">消费消息</h3>
+<ul>
 <li>在订单服务中，配置公共的消息处理类</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> 处理消息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@RocketMQMessageListener(topic = &quot;$&#123;mq.pay.topic&#125;&quot;, consumerGroup = &quot;$&#123;mq.pay.consumer.group.name&#125;&quot;, messageModel = MessageModel.BROADCASTING)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PaymentListener</span> <span class="keyword">implements</span> <span class="title class_">RocketMQListener</span>&lt;MessageExt&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> OrderMapper orderMapper;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onMessage</span><span class="params">(MessageExt messageExt)</span> &#123;</span><br><span class="line">        <span class="comment">//1. 解析消息内容</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">body</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(messageExt.getBody(), <span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">            <span class="type">Pay</span> <span class="variable">pay</span> <span class="operator">=</span> JSON.parseObject(body, Pay.class);</span><br><span class="line">            log.info(<span class="string">&quot;接收消息成功&quot;</span>);</span><br><span class="line">            <span class="comment">//2. 根据订单ID查询订单对象</span></span><br><span class="line">            <span class="type">Order</span> <span class="variable">order</span> <span class="operator">=</span> orderMapper.selectById(pay.getOrderId());</span><br><span class="line">            <span class="comment">//3. 更改订单支付状态为已支付</span></span><br><span class="line">            order.setPayStatus(ShopCode.SHOP_ORDER_PAY_STATUS_IS_PAY.getCode());</span><br><span class="line">            <span class="comment">//4. 更新订单数据到数据库</span></span><br><span class="line">            orderMapper.updateById(order);</span><br><span class="line">            log.info(<span class="string">&quot;更改订单支付状态为已支付&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <tags>
         <tag>RocketMQ Dubbo Zookeeper</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RocketMQ高级</title>
+    <url>/2022/10/24/RocketMQ%E9%AB%98%E7%BA%A7/</url>
+    <content><![CDATA[<h1>高级功能</h1>
+<h2 id="消息存储">消息存储</h2>
+<p>分布式队列因为有高可靠性的要求，所以数据要进行持久化存储</p>
+<p><img src="RocketMQ%E9%AB%98%E7%BA%A7%5Cimage-20221026211951678.png" alt=""></p>
+<p>1、消息生成者发送消息</p>
+<p>2、MQ收到消息，将消息进行持久化，在存储中新增一天记录</p>
+<p>3、返回ACK给生产者</p>
+<p>4、MQ push消息给对应的消费者，然后等待消费者返回ACK</p>
+<p>5、如果消息消费者在指定时间内成功返回ACK，那么MQ认为消息消费成功，在存储中删除消息，即执行第6步；如果MQ在指定时间内没有收到ACK，则认为消息消费失败，会尝试重新push消息，重复执行4、5、6步骤</p>
+<p>6、MQ删除消息</p>
+<h3 id="存储介质">存储介质</h3>
+<ul>
+<li>
+<p>关系型数据库DB</p>
+<p>Apache下开源的另一款MQ——ActiveMQ（默认采用的KahaDB做消息存储）可选用JDBC的方式来做消息持久化，通过简单的xml配置信息即可实现JDBC消息存储。由于，普通关系型数据库（如MqSQL）在单表数据量打到千万级别的情况下，其IO读写性能往往会出现瓶颈。在可靠性方面，该种方案非常依赖DB，如果一旦DB出现故障，则MQ的消息就无法落盘存储会导致线上故障。</p>
+</li>
+<li>
+<p>文件系统</p>
+<p>目前较为常用的几款产品（RocketMQ/Kafka/RabbitMQ），均采用的是消息刷盘至所部署虚拟机/物理机的文件系统来做持久化（刷盘一般可以分为异步刷盘和同步刷盘两种模式）。消息刷盘为消息存储提供了一种高效率、高可靠和高性能的数据持久化方式。除非部署MQ机器本身或是本地磁盘挂了，否则一般是不会出现无法持久化的故障问题。</p>
+</li>
+</ul>
+<h3 id="性能对比">性能对比</h3>
+<p>文件系统 &gt; 关系型数据库DB</p>
+<h3 id="消息的存储和发送">消息的存储和发送</h3>
+<h4 id="消息存储-2">消息存储</h4>
+<p>RocketMQ的消息用顺序写，保证了消息存储的速度</p>
+<h4 id="消息发送-2">消息发送</h4>
+<p>Linux操作系统分为【用户态】和【内核态】，文件操作、网络操作需要涉及这两种形态的切换，免不了进行数据复制。一台服务器把本地磁盘文件的内容发送到客户端，一般分为两个步骤：</p>
+<p>（1）read：读取本地文件内容</p>
+<p>（2）write：将读取的内容通过网络发送出去</p>
+<p>这两个看似简单的操作，实际进行了4次数据复制，分别是：</p>
+<p>1、从磁盘复制数据到内核态内存；</p>
+<p>2、从内核态内存复制到用户态内存；</p>
+<p>3、然后从用户态内存复制到网络驱动的内核态内存；</p>
+<p>4、最后是从网络驱动的内核态内存复制到网卡中进行传输；</p>
+<p><img src="RocketMQ%E9%AB%98%E7%BA%A7%5Cimage-20221026215719035.png" alt=""></p>
+<p>通过使用mmap的方式，可以省去向用户态的内存复制，提高速度。这种机制在Java中是通过MappedByteBuffer实现的，RocketMQ充分利用了上述特性，也就是所谓的“零拷贝”技术，提高消息存盘和网络发送的速度。</p>
+<h3 id="消息存储结构">消息存储结构</h3>
+<p>RocketMQ消息的存储是由ConsumeQueue和CommitLog配合完成的，消息真正的物理存储文件是CommitLog，ConsumeQueue是消息的逻辑队列，类似数据库的索引文件，存储的是指向物理存储的地址。每个Topic下的每个MessageQueue都有一个对应的ConsumeQueue文件。</p>
+<p><img src="RocketMQ%E9%AB%98%E7%BA%A7%5Cimage-20221026221117882.png" alt=""></p>
+<ul>
+<li>CommitLog：存储消息的元数据</li>
+<li>ConsumeQueue：存储消息在CommitLog的索引</li>
+<li>IndexFile：为了消息查询提供了一种通过key或时间区间来查询消息的方法，这种通过IndexFile来查找消息的方法不影响发送与消费消息的主流程</li>
+</ul>
+<h3 id="刷盘机制">刷盘机制</h3>
+<p>RocketMQ的消息是存储到磁盘上的，这样既能保证断电后恢复，又可以让存储的消息量超出内存的限制。RocketMQ为了提高性能，会尽可能地保证磁盘的顺序写。消息在通过Producer写入RocketMQ的时候，有两种写磁盘方式，分别是同步刷盘和异步刷盘。</p>
+<p><img src="RocketMQ%E9%AB%98%E7%BA%A7%5Cimage-20221026223057016.png" alt=""></p>
+<h4 id="同步刷盘">同步刷盘</h4>
+<p>在返回写成功状态时，消息已经被写入磁盘。具体流程是，消息写入内存的PAGECACHE后，立刻通知刷盘线程刷盘，然后等待刷盘完成，刷盘线程执行完成后唤醒等待的线程，返回消息写成功的状态。</p>
+<h4 id="异步刷盘">异步刷盘</h4>
+<p>在返回写成功状态时，消息可能只是被写入了内存的PAGECACHE，写操作的返回快，吞吐量大；当内存里的消息积累到一定程度时，统一触发写磁盘动作，快速写入。</p>
+<h4 id="配置">配置</h4>
+<p>通过Broker配置文件里的flushDiskType参数设置的，这个参数被配置成<strong>SYNC_FLUSH</strong>、<strong>ASYNC_FLUSH</strong>中的</p>
+]]></content>
+      <tags>
+        <tag>RocketMQ</tag>
       </tags>
   </entry>
   <entry>
@@ -3309,6 +3389,44 @@
       </tags>
   </entry>
   <entry>
+    <title>计算机网络</title>
+    <url>/2022/07/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</url>
+    <content><![CDATA[<h4 id="HTTP和HTTPS">HTTP和HTTPS</h4>
+<p>(1)	http是超文本传输协议，信息是明文传输，https协议要比http协议安全，https是具有安全性的ssl加密传输协议，可防止数据在传输过程中被窃取、改变，确保数据的完整性。</p>
+<p>(2)	http协议的默认端口为80，https的默认端口为443。</p>
+<p>(3)	http的连接很简单，是无状态的；https握手阶段比较费时，会使页面加载时间延长50%，增加耗电。</p>
+<p>(4)	https缓存不如http高效，会增加数据开销</p>
+<p>(5)	https协议需要ca证书，不能在同一个IP上绑定多个域名，IPV4资源支持不了这种消耗。</p>
+<h4 id="HTTPS协议的工作原理">HTTPS协议的工作原理</h4>
+<p>客户端在使用https方式与Web服务器通信时有一下几个步骤：</p>
+<p>(1)	客户端使用https url访问服务器，则要求Web服务器建立ssl链接</p>
+<p>(2)	Web服务器接收到客户端的请求之后，会将网站的证书（证书中包含了公钥），传输给客户端</p>
+<p>(3)	客户端和Web服务器端开始协商SSL链接的安全等级，也就是加密等级</p>
+<p>(4)	客户端浏览器通过双方协商一直的安全等级，建立会话密钥，然后通过网站的公钥来加密会话密钥，并传送给网站</p>
+<p>(5)	Web服务器通过自己的私钥解密出会话密钥</p>
+<p>(6)	Web服务器通过会话密钥加密与客户端之间的通信</p>
+<h4 id="TCP三次握手">TCP三次握手</h4>
+<p>第一次握手：建立连接时，客户端发送SYN包（syn=j）到服务器，并进入SYN_SENT状态，等待服务器确认；SYN：同步序列编号（Synchronize Sequence Numbers）；</p>
+<p>第二次握手：服务器收到SYN包并确认客户的SYN（ack=j+1），同时也发送一个自己的SYN包（syn=k），即SYN+ACK包，此时服务器进入SYN_RECV状态；</p>
+<p>第三次握手：客户端收到服务器的SYNC+ACK包，向服务器发送确认包ACK（ack=k+1），此包发送完毕，客户端和服务器进入ESTABLISHED（TCP连接成功）状态，完成三次握手。</p>
+<h4 id="TCP四次挥手">TCP四次挥手</h4>
+<h4 id="TCP-IP如何保证数据包传输的有序可靠">TCP/IP如何保证数据包传输的有序可靠</h4>
+<h4 id="TCP和UDP的区别">TCP和UDP的区别</h4>
+<p>(1)	TCP是面向链接的，而UDP是面向无连接的</p>
+<p>(2)	TCP仅支持单播传输，UDP提供了单播，多播，广播的功能</p>
+<p>(3)	TCP的三次握手保证 了连接的可靠性；UDP是无连接的、不可靠的一种数据传输协议，首先不可靠体现在无连接上，通信都不需要建立连接，对接收到的数据也不发送确认信号，发送端不知道数据是否会正确接收</p>
+<p>(4)	UDP的头部开销比TCP的更小，数据传输速率更高，实时性更好</p>
+<h4 id="HTTP和RPC协议的区别">HTTP和RPC协议的区别</h4>
+<ul>
+<li>http是应用层的超文本传输协议，是万维网数据传输通信的一个基础， 主要服务在于网页端和服务端之间一个数据传输上；rpc是一个远程过程调用协议，是定位在实现不同计算机应用之间的一个数据通信，==屏蔽了通信的底层复杂度==，让开发者能够像调用本地服务一样，去完成远程服务的调用。因此，在定位层面是完全不同的。</li>
+<li>从实现层面来说，http协议是一个已经实现并且成熟的应用层协议，定义了通信报文的一些格式， ==比如像RequestBody，RequestHead以及ReponseBody和ReponseHeader，也就是说符合这样一个协议特征的通信协议才是http协议==；rpc只是一种通信协议的一个规范，并没有具体的实现，只有按照rpc通信协议规范去实现的通信框架才是协议的真正具体的一个实现，如Dubbo，gRPC等等。因此，可以在实现rpc框架的时候 ，自定义报文通信的协议规范和自定义序列化方式，或者自定义网络通信协议的类型等等。所有，==http协议是一个成熟的应用层协议，rpc只是定义了不同服务之间数据通信的一个规范==。最后从应用层面来说，http协议和实现了rpc协议的框架都能够去实现跨网络节点之间的一些服务通信，并且==底层都是用的TCP/IP协议作为通信基础==。但是由于rpc只是一种标准协议，只需要符合rpc协议的框架，都属于rpc框架，因此，rpc网络通信协议层，也可以使用http协议去实现，如gRPC，OpenFeign底层都采用了http协议，作为通信的基础。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>网络</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>将 Bean 放入 Spring 容器中的五种方式！</title>
     <url>/2022/09/09/%E5%B0%86%20Bean%E6%94%BE%E5%85%A5Spring%E5%AE%B9%E5%99%A8%E4%B8%AD%E7%9A%84%E4%BA%94%E7%A7%8D%E6%96%B9%E5%BC%8F/</url>
     <content><![CDATA[<h4 id="Configuration-Bean">@Configuration + @Bean</h4>
@@ -3369,44 +3487,6 @@
 ]]></content>
       <tags>
         <tag>Spring</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机网络</title>
-    <url>/2022/07/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</url>
-    <content><![CDATA[<h4 id="HTTP和HTTPS">HTTP和HTTPS</h4>
-<p>(1)	http是超文本传输协议，信息是明文传输，https协议要比http协议安全，https是具有安全性的ssl加密传输协议，可防止数据在传输过程中被窃取、改变，确保数据的完整性。</p>
-<p>(2)	http协议的默认端口为80，https的默认端口为443。</p>
-<p>(3)	http的连接很简单，是无状态的；https握手阶段比较费时，会使页面加载时间延长50%，增加耗电。</p>
-<p>(4)	https缓存不如http高效，会增加数据开销</p>
-<p>(5)	https协议需要ca证书，不能在同一个IP上绑定多个域名，IPV4资源支持不了这种消耗。</p>
-<h4 id="HTTPS协议的工作原理">HTTPS协议的工作原理</h4>
-<p>客户端在使用https方式与Web服务器通信时有一下几个步骤：</p>
-<p>(1)	客户端使用https url访问服务器，则要求Web服务器建立ssl链接</p>
-<p>(2)	Web服务器接收到客户端的请求之后，会将网站的证书（证书中包含了公钥），传输给客户端</p>
-<p>(3)	客户端和Web服务器端开始协商SSL链接的安全等级，也就是加密等级</p>
-<p>(4)	客户端浏览器通过双方协商一直的安全等级，建立会话密钥，然后通过网站的公钥来加密会话密钥，并传送给网站</p>
-<p>(5)	Web服务器通过自己的私钥解密出会话密钥</p>
-<p>(6)	Web服务器通过会话密钥加密与客户端之间的通信</p>
-<h4 id="TCP三次握手">TCP三次握手</h4>
-<p>第一次握手：建立连接时，客户端发送SYN包（syn=j）到服务器，并进入SYN_SENT状态，等待服务器确认；SYN：同步序列编号（Synchronize Sequence Numbers）；</p>
-<p>第二次握手：服务器收到SYN包并确认客户的SYN（ack=j+1），同时也发送一个自己的SYN包（syn=k），即SYN+ACK包，此时服务器进入SYN_RECV状态；</p>
-<p>第三次握手：客户端收到服务器的SYNC+ACK包，向服务器发送确认包ACK（ack=k+1），此包发送完毕，客户端和服务器进入ESTABLISHED（TCP连接成功）状态，完成三次握手。</p>
-<h4 id="TCP四次挥手">TCP四次挥手</h4>
-<h4 id="TCP-IP如何保证数据包传输的有序可靠">TCP/IP如何保证数据包传输的有序可靠</h4>
-<h4 id="TCP和UDP的区别">TCP和UDP的区别</h4>
-<p>(1)	TCP是面向链接的，而UDP是面向无连接的</p>
-<p>(2)	TCP仅支持单播传输，UDP提供了单播，多播，广播的功能</p>
-<p>(3)	TCP的三次握手保证 了连接的可靠性；UDP是无连接的、不可靠的一种数据传输协议，首先不可靠体现在无连接上，通信都不需要建立连接，对接收到的数据也不发送确认信号，发送端不知道数据是否会正确接收</p>
-<p>(4)	UDP的头部开销比TCP的更小，数据传输速率更高，实时性更好</p>
-<h4 id="HTTP和RPC协议的区别">HTTP和RPC协议的区别</h4>
-<ul>
-<li>http是应用层的超文本传输协议，是万维网数据传输通信的一个基础， 主要服务在于网页端和服务端之间一个数据传输上；rpc是一个远程过程调用协议，是定位在实现不同计算机应用之间的一个数据通信，==屏蔽了通信的底层复杂度==，让开发者能够像调用本地服务一样，去完成远程服务的调用。因此，在定位层面是完全不同的。</li>
-<li>从实现层面来说，http协议是一个已经实现并且成熟的应用层协议，定义了通信报文的一些格式， ==比如像RequestBody，RequestHead以及ReponseBody和ReponseHeader，也就是说符合这样一个协议特征的通信协议才是http协议==；rpc只是一种通信协议的一个规范，并没有具体的实现，只有按照rpc通信协议规范去实现的通信框架才是协议的真正具体的一个实现，如Dubbo，gRPC等等。因此，可以在实现rpc框架的时候 ，自定义报文通信的协议规范和自定义序列化方式，或者自定义网络通信协议的类型等等。所有，==http协议是一个成熟的应用层协议，rpc只是定义了不同服务之间数据通信的一个规范==。最后从应用层面来说，http协议和实现了rpc协议的框架都能够去实现跨网络节点之间的一些服务通信，并且==底层都是用的TCP/IP协议作为通信基础==。但是由于rpc只是一种标准协议，只需要符合rpc协议的框架，都属于rpc框架，因此，rpc网络通信协议层，也可以使用http协议去实现，如gRPC，OpenFeign底层都采用了http协议，作为通信的基础。</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>网络</tag>
       </tags>
   </entry>
   <entry>

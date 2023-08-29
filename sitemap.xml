@@ -92,7 +92,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/09/09/%E5%B0%86%20Bean%E6%94%BE%E5%85%A5Spring%E5%AE%B9%E5%99%A8%E4%B8%AD%E7%9A%84%E4%BA%94%E7%A7%8D%E6%96%B9%E5%BC%8F/</loc>
+    <loc>http://example.com/2022/07/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
     
     <lastmod>2023-01-05</lastmod>
     
@@ -101,7 +101,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/07/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
+    <loc>http://example.com/2022/09/09/%E5%B0%86%20Bean%E6%94%BE%E5%85%A5Spring%E5%AE%B9%E5%99%A8%E4%B8%AD%E7%9A%84%E4%BA%94%E7%A7%8D%E6%96%B9%E5%BC%8F/</loc>
     
     <lastmod>2023-01-05</lastmod>
     
@@ -277,13 +277,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/JVM/</loc>
-    <lastmod>2023-08-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/tags/Exception/</loc>
     <lastmod>2023-08-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -292,6 +285,13 @@
   
   <url>
     <loc>http://example.com/tags/Java/</loc>
+    <lastmod>2023-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/JVM/</loc>
     <lastmod>2023-08-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -326,14 +326,14 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/Redis/</loc>
+    <loc>http://example.com/tags/RocketMQ/</loc>
     <lastmod>2023-08-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/RocketMQ/</loc>
+    <loc>http://example.com/tags/Redis/</loc>
     <lastmod>2023-08-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
