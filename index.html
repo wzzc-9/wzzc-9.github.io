@@ -235,7 +235,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Elasticsearch解压安装"><a href="#Elasticsearch解压安装" class="headerlink" title="Elasticsearch解压安装"></a>Elasticsearch解压安装</h1>
+          <h1>Elasticsearch解压安装</h1>
+
       
     </div>
 
@@ -968,40 +969,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="解决Server端乱码问题"><a href="#解决Server端乱码问题" class="headerlink" title="解决Server端乱码问题"></a>解决Server端乱码问题</h1><p>zabbix默认监测了服务端本身，但编码有问题</p>
+          <h1>解决Server端乱码问题</h1>
+<p>zabbix默认监测了服务端本身，但编码有问题</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装字体</span></span><br><span class="line">yum -y install wqy-microhei-fonts</span><br><span class="line"></span><br><span class="line"><span class="comment"># 复制字体</span></span><br><span class="line">\<span class="built_in">cp</span> /usr/share/fonts/wqy-microhei/wqy-microhei.ttc /usr/share/fonts/dejavu/DejaVuSans.ttf</span><br></pre></td></tr></table></figure>
-
-<h1 id="部署Zabbix客户端"><a href="#部署Zabbix客户端" class="headerlink" title="部署Zabbix客户端"></a>部署Zabbix客户端</h1><blockquote>
+<h1>部署Zabbix客户端</h1>
+<blockquote>
 <p><strong>zabbix-agent2采用golang语言开发，默认10050端口，也就是zabbix客户端的端口</strong></p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置时间正确</span></span><br><span class="line">yum install ntpdate -y</span><br><span class="line">ntpdate -u ntp.aliyun.com</span><br><span class="line"></span><br><span class="line"><span class="comment"># 时区的统一配置</span></span><br><span class="line"><span class="built_in">mv</span> /etc/localtime&#123;,.bak&#125;</span><br><span class="line"><span class="built_in">ln</span> -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
-
 <p><strong>zabbix-agent2部署流程</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取zabbix下载源</span></span><br><span class="line">rpm -Uvh https://mirrors.aliyun.com/zabbix/zabbix/5.0/rhel/7/x86_64/zabbix-release-5.0-1.el7.noarch.rpm</span><br><span class="line"><span class="comment"># 更换zabbix.repo源，为阿里的</span></span><br><span class="line">sed -i <span class="string">&#x27;s#http://repo.zabbix.com#https://mirrors.aliyun.com/zabbix#&#x27;</span> /etc/yum.repos.d/zabbix.repo</span><br><span class="line"></span><br><span class="line">yum install zabbix-agent2 -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看配置文件</span></span><br><span class="line">/etc/zabbix/zabbix_agent2.conf</span><br><span class="line"><span class="comment"># 启动命令</span></span><br><span class="line"><span class="built_in">ls</span> -l /usr/sbin/zabbix_agent2</span><br><span class="line"><span class="comment"># 启动客户端，开机自启</span></span><br><span class="line">systemctl <span class="built_in">enable</span> --now zabbix-agent2</span><br></pre></td></tr></table></figure>
-
 <p><strong>修改配置文件</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/zabbix/zabbix_agent2.conf</span><br><span class="line"></span><br><span class="line">Server=1.13.248.197</span><br><span class="line">ServerActive=1.13.248.197</span><br><span class="line">Hostname=机器名称</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看配置信息</span></span><br><span class="line">grep -Ev <span class="string">&#x27;^#|^$&#x27;</span> /etc/zabbix/zabbix_agent2.conf</span><br></pre></td></tr></table></figure>
-
 <p><strong>重启zabbix</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart zabbix-agent2</span><br></pre></td></tr></table></figure>
-
 <p><strong>验证zabbix-agent2的连通性</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在服务器上通过命令，主动获取数据</span></span><br><span class="line">yum install zabbix-get -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 命令监测服务端是否连接上客户端</span></span><br><span class="line">zabbix_get -s <span class="string">&#x27;1.13.248.197&#x27;</span> -p 10050 -k <span class="string">&#x27;agent.ping&#x27;</span></span><br><span class="line">zabbix_get -s <span class="string">&#x27;1.13.248.197&#x27;</span> -p 10050 -k <span class="string">&#x27;system.hostname&#x27;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="监控Nginx"><a href="#监控Nginx" class="headerlink" title="监控Nginx"></a>监控Nginx</h1><p><strong>确定监控内容：</strong>nginx内置了一个status状态的功能，通过配置可以看到nginx的运行情况，status显示的内容包括当前连接数，处于活动状态的连接数，已经处理的请求数等等。</p>
+<h1>监控Nginx</h1>
+<p>**确定监控内容：**nginx内置了一个status状态的功能，通过配置可以看到nginx的运行情况，status显示的内容包括当前连接数，处于活动状态的连接数，已经处理的请求数等等。</p>
 <p>在nginx的配置文件中，添加status配置，在虚拟主机 server {} 中加入上面配置，也可以单独定义一个专门用于监控的虚拟主机。</p>
 <p>deny all , 拒绝除 allow 中的主机之外所有主机访问此URL ，实现过程中如果遇到403 ，有可能是你把自己测试的机器拒绝了</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">location /nginx_status &#123;</span><br><span class="line">  stub_status on;</span><br><span class="line">  access_log off;		 //关闭日志</span><br><span class="line">  allow 127.0.0.1;</span><br><span class="line">  allow 192.168.10.5;   //zabbix服务器的IP地址，一般是内网地址</span><br><span class="line">  deny all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./nginx -s reload</span><br></pre></td></tr></table></figure>
-
 <p><strong>在zabbix server上测试访问：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://1.13.248.197/status</span><br></pre></td></tr></table></figure>
-
 <img src="/2022/12/11/Zabbix/image-20221228210959320.png" class="" title="image-20221228210959320">
-
 <p>nginx Status 详细说明：</p>
 <ul>
 <li>Active connections：当前处于活动状态的客户端连接数，包括连接等待空闲连接数。</li>
@@ -1014,38 +1006,29 @@
 </ul>
 <p>在访问效率很高，请求很快被处理完毕的情况下，Waiting 数比较多是正常的。如果 reading + writing 数较多，则说明并发访问量很大，正在处理过程中。</p>
 <p><strong>监控脚本编写</strong></p>
-<p>编写脚本，放于&#x2F;usr&#x2F;local&#x2F;zabbix&#x2F;scripts目录下</p>
+<p>编写脚本，放于/usr/local/zabbix/scripts目录下</p>
 <p>通过脚本获取status页面信息的关键值，zabbix server通过这些关键值才能生成数据图像，获取status的关键值脚本如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /usr/local/zabbix/scripts</span><br><span class="line">vim /usr/local/zabbix/scripts/nginx_status.sh</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"><span class="comment"># Description：zabbix监控nginx状态</span></span><br><span class="line"><span class="comment"># Note：此脚本需要配置在被监控端</span></span><br><span class="line">HOST=<span class="string">&quot;127.0.0.1&quot;</span></span><br><span class="line">PORT=<span class="string">&quot;80&quot;</span></span><br><span class="line"><span class="comment"># 检测nginx进程是否存在</span></span><br><span class="line"><span class="keyword">function</span> ping &#123;</span><br><span class="line">    /sbin/pidof nginx | <span class="built_in">wc</span> -l</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 检测nginx性能</span></span><br><span class="line"><span class="keyword">function</span> active &#123;</span><br><span class="line">    /usr/bin/curl <span class="string">&quot;http://<span class="variable">$HOST</span>:<span class="variable">$PORT</span>/status/&quot;</span> 2&gt;/dev/null| grep <span class="string">&#x27;Active&#x27;</span> | awk <span class="string">&#x27;&#123;print $NF&#125;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> reading &#123;</span><br><span class="line">    /usr/bin/curl <span class="string">&quot;http://<span class="variable">$HOST</span>:<span class="variable">$PORT</span>/status/&quot;</span> 2&gt;/dev/null| grep <span class="string">&#x27;Reading&#x27;</span> | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> writing &#123;</span><br><span class="line">    /usr/bin/curl <span class="string">&quot;http://<span class="variable">$HOST</span>:<span class="variable">$PORT</span>/status/&quot;</span> 2&gt;/dev/null| grep <span class="string">&#x27;Writing&#x27;</span> | awk <span class="string">&#x27;&#123;print $4&#125;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> waiting &#123;</span><br><span class="line">    /usr/bin/curl <span class="string">&quot;http://<span class="variable">$HOST</span>:<span class="variable">$PORT</span>/status/&quot;</span> 2&gt;/dev/null| grep <span class="string">&#x27;Waiting&#x27;</span> | awk <span class="string">&#x27;&#123;print $6&#125;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> accepts &#123;</span><br><span class="line">    /usr/bin/curl <span class="string">&quot;http://<span class="variable">$HOST</span>:<span class="variable">$PORT</span>/status/&quot;</span> 2&gt;/dev/null| awk NR==3 | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> handled &#123;</span><br><span class="line">    /usr/bin/curl <span class="string">&quot;http://<span class="variable">$HOST</span>:<span class="variable">$PORT</span>/status/&quot;</span> 2&gt;/dev/null| awk NR==3 | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> requests &#123;</span><br><span class="line">    /usr/bin/curl <span class="string">&quot;http://<span class="variable">$HOST</span>:<span class="variable">$PORT</span>/status/&quot;</span> 2&gt;/dev/null| awk NR==3 | awk <span class="string">&#x27;&#123;print $3&#125;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 执行function</span></span><br><span class="line"><span class="variable">$1</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>本地测试：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sh /usr/local/zabbix/scripts/ngx_status.sh active</span><br><span class="line">sh /usr/local/zabbix/scripts/ngx_status.sh accepts</span><br></pre></td></tr></table></figure>
-
 <p><strong>赋予脚本执行权限：</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x /usr/local/zabbix/scripts/ngx_status.sh</span><br></pre></td></tr></table></figure>
-
 <p><strong>修改zabbix_agent2.conf</strong></p>
 <p>使用脚本监控需要将zabbix-agentd.conf文件中的<code>UnsafeUserParameters=1</code> 开启。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/zabbix/zabbix_agent2.conf</span><br><span class="line"></span><br><span class="line">UnsafeUserParameters=1</span><br></pre></td></tr></table></figure>
-
 <p><strong>定义监控脚本Key</strong></p>
-<p>添加zabbix配置文件，放于&#x2F;etc&#x2F;zabbix&#x2F;zabbix_agent2.d&#x2F;目录下（agent的配置文件&#x2F;etc&#x2F;zabbix&#x2F;zabbix_agent2.conf中定义了其他key的包含目录）创建配置文件nginx_status.conf</p>
+<p>添加zabbix配置文件，放于/etc/zabbix/zabbix_agent2.d/目录下（agent的配置文件/etc/zabbix/zabbix_agent2.conf中定义了其他key的包含目录）创建配置文件nginx_status.conf</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/zabbix/zabbix_agent2.d/nginx_status.conf</span><br><span class="line"></span><br><span class="line">UserParameter=nginx.status[*],/usr/local/zabbix/scripts/nginx_status.sh <span class="variable">$1</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>配置好后重启zabbix-agent2</strong></p>
 <p><strong>Zabbix服务端使用zabbix_get 测试获取数据</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">zabbix_get -s 1.13.248.197 -p 10050 -k nginx.status[ping]</span><br><span class="line">zabbix_get -s 1.13.248.197 -p 10050 -k nginx.status[active]</span><br><span class="line">zabbix_get -s 1.13.248.197 -p 10050 -k nginx.status[accepts]</span><br></pre></td></tr></table></figure>
-
 <p><strong>出现Permission denied问题：</strong></p>
 <p>将<code>nginx_status.sh</code>脚本所属用户改为zabbix</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local</span><br><span class="line"><span class="built_in">chown</span> zabbix:zabbix -R zabbix</span><br></pre></td></tr></table></figure>
-
 <p><strong>Web界面配置</strong></p>
 <p>创建模板，添加监控项</p>
 <img src="/2022/12/11/Zabbix/image-20221229141142940.png" class="" title="image-20221229141142940">
-
 <p>创建图像，关联模板</p>
 <img src="/2022/12/11/Zabbix/image-20221229141322844.png" class="" title="image-20221229141322844">
 
@@ -1132,13 +1115,12 @@
           <p>OpenNMS :: Checkstyle</p>
 <p>OpenNMS :: Core :: Systemproperties</p>
 <p>OpenNMS :: Core :: SNMP :: API，OpenNMS :: Dependencies :: JAXB</p>
-<p>org.opennms.dependencies:jaxb-dependencies:pom:32.0.0-SNAPSHOT, </p>
-<p>org.opennms.core.snmp:org.opennms.core.snmp.api:jar:32.0.0-SNAPSHOT, org.opennms.features.collection:org.opennms.features.collection.api:jar:32.0.0-SNAPSHOT, </p>
-<p>org.opennms.core:org.opennms.core.lib:jar:32.0.0-SNAPSHOT, </p>
+<p>org.opennms.dependencies:jaxb-dependencies:pom:32.0.0-SNAPSHOT,</p>
+<p>org.opennms.core.snmp:org.opennms.core.snmp.api:jar:32.0.0-SNAPSHOT, org.opennms.features.collection:org.opennms.features.collection.api:jar:32.0.0-SNAPSHOT,</p>
+<p>org.opennms.core:org.opennms.core.lib:jar:32.0.0-SNAPSHOT,</p>
 <p>org.opennms.core:org.opennms.core.xml:jar:32.0.0-SNAPSHOT,</p>
-<p> org.opennms.core.test-api:org.opennms.core.test-api.xml:jar:32.0.0-SNAPSHOT:</p>
+<p>org.opennms.core.test-api:org.opennms.core.test-api.xml:jar:32.0.0-SNAPSHOT:</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">agent</span> <span class="attr">address</span>=<span class="string">&quot;192.168.1.1&quot;</span> <span class="attr">store-by-fs</span>=<span class="string">&quot;true&quot;</span> <span class="attr">node-id</span>=<span class="string">&quot;99&quot;</span> <span class="attr">node-label</span>=<span class="string">&quot;switch&quot;</span> <span class="attr">foreign-source</span>=<span class="string">&quot;fs&quot;</span> <span class="attr">foreign-id</span>=<span class="string">&quot;fid&quot;</span> <span class="attr">location</span>=<span class="string">&quot;HQ&quot;</span> <span class="attr">storage-resource-path</span>=<span class="string">&quot;tmp/foo&quot;</span> <span class="attr">sys-up-time</span>=<span class="string">&quot;149&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">attribute</span> <span class="attr">key</span>=<span class="string">&quot;k1&quot;</span>&gt;</span>&lt;![CDATA[v1]]&gt;<span class="tag">&lt;/<span class="name">attribute</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">agent</span> <span class="attr">address</span>=<span class="string">&quot;192.168.1.1&quot;</span> <span class="attr">store-by-fs</span>=<span class="string">&quot;true&quot;</span> <span class="attr">node-id</span>=<span class="string">&quot;99&quot;</span> <span class="attr">node-label</span>=<span class="string">&quot;switch&quot;</span> <span class="attr">foreign-source</span>=<span class="string">&quot;fs&quot;</span> <span class="attr">foreign-id</span>=<span class="string">&quot;fid&quot;</span> <span class="attr">location</span>=<span class="string">&quot;HQ&quot;</span> <span class="attr">storage-resource-path</span>=<span class="string">&quot;tmp\foo&quot;</span> <span class="attr">sys-up-time</span>=<span class="string">&quot;149&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">attribute</span> <span class="attr">key</span>=<span class="string">&quot;k1&quot;</span>&gt;</span>&lt;![CDATA[v1]]&gt;<span class="tag">&lt;/<span class="name">attribute</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">agent</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 
       
     </div>
@@ -1220,37 +1202,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p><strong>检车PostgreSQL是否已经安装</strong></p>
+          <h1>安装</h1>
+<p><strong>检车PostgreSQL是否已经安装</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查PostgreSQL是否已经安装</span></span><br><span class="line">rpm -qa | grep postgres</span><br><span class="line"><span class="comment"># 检查PostgreSQL安装位置</span></span><br><span class="line">rpm -qal | grep postgres</span><br></pre></td></tr></table></figure>
-
 <p><strong>若已经安装，则使用<code>rpm -e</code>命令卸载</strong></p>
 <p><strong>上传压缩包并解压</strong></p>
 <p><code>postgresql-12.0.tar.gz</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf postgresql-12.0.tar.gz</span><br></pre></td></tr></table></figure>
-
 <p><strong>准备</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新增postgres用户组</span></span><br><span class="line">groupadd postgres</span><br><span class="line"><span class="comment"># 新增postgres用户并且设置这个用户属于上面创建的postgres用户组</span></span><br><span class="line">useradd -g postgres postgres</span><br><span class="line"><span class="comment"># 修改postgres用户密码（这里设置密码为postgres）</span></span><br><span class="line">passwd postgres</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建安装路径和日志文件，并给用户分配权限</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /usr/local/pgsql/data</span><br><span class="line"><span class="built_in">touch</span> /usr/local/pgsql/pgsql.log</span><br><span class="line"></span><br><span class="line"><span class="built_in">chown</span> -R postgres:postgres /usr/local/pgsql/</span><br></pre></td></tr></table></figure>
-
 <p><strong>编译并安装</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/postgresql-12.0</span><br><span class="line">./configure --prefix=/usr/local/pgsql</span><br><span class="line"><span class="comment"># 如果出现configure: error: readline library not found。执行：</span></span><br><span class="line"><span class="comment"># yum install readline-devel</span></span><br><span class="line"><span class="comment"># 如果出现configure: error: zlib library not found。执行：</span></span><br><span class="line"><span class="comment"># yum install zlib-devel</span></span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-
 <p><strong>初始化</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 切换用户</span></span><br><span class="line">su - postgres</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化</span></span><br><span class="line">/usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data</span><br></pre></td></tr></table></figure>
-
 <p>有以下内容输出则为成功</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Success. You can now start the database server using:</span><br><span class="line"></span><br><span class="line">	./pg_ctl -D /usr/local/pgsql/data -l logfile start</span><br></pre></td></tr></table></figure>
-
 <p><strong>修改文件</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改访问配置文件pg_hba.conf</span></span><br><span class="line"><span class="built_in">cd</span> data</span><br><span class="line">vim pg_hba.conf</span><br><span class="line">host	all		all		0.0.0.0/0		md5</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改配置文件postgresql.conf</span></span><br><span class="line">vim postgresql.conf</span><br><span class="line"><span class="comment"># 具体修改：</span></span><br><span class="line"><span class="comment"># 将 #listen_address = &#x27;localhost&#x27;改为listen_address= &#x27;*&#x27;</span></span><br><span class="line"><span class="comment"># 将 #port = 5432 前的#号去掉</span></span><br><span class="line"><span class="comment"># 将 #password_encryption 前的#号去掉</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>启动</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化数据库并启动</span></span><br><span class="line">pg_ctl -D /usr/local/pgsql/data -l /usr/local/pgsql/pgsql.log start</span><br><span class="line">pg_ctl -D /usr/local/pgsql/data -l /usr/local/pgsql/logfile start</span><br><span class="line"> </span><br><span class="line"><span class="comment">#或者</span></span><br><span class="line">pg_ctl -D /usr/local/pgsql/data &gt; /usr/local/pgsql/pgsql.log 2&gt;&amp;1 &amp;</span><br><span class="line"> </span><br><span class="line"><span class="comment">#不带日志启动</span></span><br><span class="line">pg_ctl -D /usr/local/pgsql/data start</span><br></pre></td></tr></table></figure>
-
 <p><strong>其他命令</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//关闭</span><br><span class="line">pg_ctl -D /opt/pgsql/data -l /opt/pgsql/logfile stop</span><br><span class="line"> </span><br><span class="line">//重启</span><br><span class="line">pg_ctl -D /opt/pgsql/data -l /opt/pgsql/logfile restart</span><br><span class="line"> </span><br><span class="line">//查看数据库状态</span><br><span class="line">pg_ctl -D /opt/pgsql/data status</span><br><span class="line"> </span><br><span class="line">//查看是否启动</span><br><span class="line">ps -A | grep postgres</span><br><span class="line">ps -aux | grep postgres</span><br><span class="line"> </span><br><span class="line">//</span><br><span class="line">rpm -qa | grep postgres    检查PostgreSQL 是否已经安装</span><br><span class="line">rpm -qal | grep postgres   检查PostgreSQL 安装位置</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改密码</span></span><br><span class="line">alter user postgres with password <span class="string">&#x27;postgres&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
 
       
     </div>
@@ -1313,7 +1286,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>989</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1332,9 +1305,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h1><p><strong>加锁：</strong>加锁时要加上过期时间，加锁和设置过期时间必须时原子操作，否则可能死锁。</p>
-<p><strong>续期：</strong>业务还没有完成，锁到了过期时间，此时要给锁续期，同时设置守护线程定时给锁续期。</p>
-<p><strong>解锁：</strong>加锁和解锁必须时同一个人，对比加锁时设置的value，value相等才能解锁，对比操作和解锁操作需要原子操作。</p>
+          <h1>分布式锁</h1>
+<p>**加锁：**加锁时要加上过期时间，加锁和设置过期时间必须时原子操作，否则可能死锁。</p>
+<p>**续期：**业务还没有完成，锁到了过期时间，此时要给锁续期，同时设置守护线程定时给锁续期。</p>
+<p>**解锁：**加锁和解锁必须时同一个人，对比加锁时设置的value，value相等才能解锁，对比操作和解锁操作需要原子操作。</p>
 <p><strong>特征：</strong></p>
 <ul>
 <li>互斥性：任意时刻，只有一个客户端能持有锁。</li>
@@ -1345,25 +1319,28 @@
 </ul>
 <p><strong>方案：</strong></p>
 <ul>
-<li><p>使用Lua脚本(包含SETNX + EXPIRE两条指令)</p>
+<li>
+<p>使用Lua脚本(包含SETNX + EXPIRE两条指令)</p>
 <p>lua脚本如下：</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> redis.call(<span class="string">&#x27;setnx&#x27;</span>,KEYS[<span class="number">1</span>],ARGV[<span class="number">1</span>]) == <span class="number">1</span> <span class="keyword">then</span></span><br><span class="line">   redis.call(<span class="string">&#x27;expire&#x27;</span>,KEYS[<span class="number">1</span>],ARGV[<span class="number">2</span>])</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <p>加锁代码如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="type">String</span> <span class="variable">lua_scripts</span> <span class="operator">=</span> <span class="string">&quot;if redis.call(&#x27;setnx&#x27;,KEYS[1],ARGV[1]) == 1 then&quot;</span> +</span><br><span class="line">            <span class="string">&quot; redis.call(&#x27;expire&#x27;,KEYS[1],ARGV[2]) return 1 else return 0 end&quot;</span>;   </span><br><span class="line"><span class="type">Object</span> <span class="variable">result</span> <span class="operator">=</span> jedis.eval(lua_scripts, Collections.singletonList(key_resource_id), Collections.singletonList(values));</span><br><span class="line"><span class="comment">//判断是否成功</span></span><br><span class="line"><span class="keyword">return</span> result.equals(<span class="number">1L</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>SET的扩展命令（SET EX PX NX）——保证原子性</p>
+<li>
+<p>SET的扩展命令（SET EX PX NX）——保证原子性</p>
 <p>存在问题：</p>
 <ul>
 <li>锁过期释放了，业务还没执行完</li>
 <li>锁被别的线程误删</li>
 </ul>
 </li>
-<li><p>开源框架~Redisson</p>
-<p><img src="/Redis%5Cimage-20221129111542941.png"></p>
-<p>只要线程一加锁成功，就会启动一个<code>watch dog</code>看门狗，它是一个后台线程，会每隔10秒检查一下，如果线程1还持有锁，那么就会不断的延长锁key的生存时间。因此，Redisson就是使用Redisson解决了<strong>「锁过期释放，业务没执行完」</strong>问题。</p>
+<li>
+<p>开源框架~Redisson</p>
+<p><img src="Redis%5Cimage-20221129111542941.png" alt=""></p>
+<p>只要线程一加锁成功，就会启动一个<code>watch dog</code>看门狗，它是一个后台线程，会每隔10秒检查一下，如果线程1还持有锁，那么就会不断的延长锁key的生存时间。因此，Redisson就是使用Redisson解决了**「锁过期释放，业务没执行完」**问题。</p>
 </li>
-<li><p>方案七：多机实现的分布式锁Redlock</p>
+<li>
+<p>方案七：多机实现的分布式锁Redlock</p>
 </li>
 </ul>
 
@@ -1428,7 +1405,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>784</span>
+              <span>765</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1447,7 +1424,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="JVM内存模型"><a href="#JVM内存模型" class="headerlink" title="JVM内存模型"></a>JVM内存模型</h3><blockquote>
+          <h3 id="JVM内存模型">JVM内存模型</h3>
+<blockquote>
 <p>栈、堆、本地方法栈、程序计数器、方法区（元空间）</p>
 </blockquote>
 <ul>
@@ -1465,15 +1443,15 @@
 <ul>
 <li>方法区（Java8叫元空间）：</li>
 </ul>
-<p>​		用于<strong>保存已经被JVM加载了的类的信息、常量及静态变量等数据。</strong>运行时常量池也在方法区。</p>
+<p>​		用于**保存已经被JVM加载了的类的信息、常量及静态变量等数据。**运行时常量池也在方法区。</p>
 <ul>
 <li>堆（Heap）：</li>
 </ul>
-<p>​		<strong>用于保存所有对象的实例以及数组（但不是所有的对象实例都在堆中）；</strong>物理内存上并不连续。Java 虚拟机中内存最大的一块，<strong>是被所有线程共享的</strong>，几乎所有的对象实例都在这里分配内存。</p>
-<p>​		其大小通过**-Xms(最小值)<strong>和</strong>-Xmx(最大值)**参数设置（最大最小值都要小于1G），前者为启动时申请的最小内存，默认为操作系统物理内存的1&#x2F;64，后者为JVM可申请的最大内存,默认为物理内存的1&#x2F;4，默认当空余堆内存小于40%时，JVM会增大堆内存到-Xmx指定的大小，可通过-XX:MinHeapFreeRation&#x3D;来指定这个比列。</p>
-<p><strong>线程私有：</strong>栈、本地方法栈、程序计数器。每个线程在开辟、运行的过程中会单独创建这样的一份内存，有多少个线程可能有多少个内存。</p>
-<p><strong>全局共享：</strong>堆区、方法区</p>
-<p>&#x3D;&#x3D;栈虽然方法运行完毕了之后被清空了，但是堆上面的还没有被清空，所以引出了GC（垃圾回收），不能立马删除，因为不知道是否还有其它的也是引用了当前的地址来访问的。&#x3D;&#x3D;</p>
+<p>​		**用于保存所有对象的实例以及数组（但不是所有的对象实例都在堆中）；**物理内存上并不连续。Java 虚拟机中内存最大的一块，<strong>是被所有线程共享的</strong>，几乎所有的对象实例都在这里分配内存。</p>
+<p>​		其大小通过**-Xms(最小值)<strong>和</strong>-Xmx(最大值)**参数设置（最大最小值都要小于1G），前者为启动时申请的最小内存，默认为操作系统物理内存的1/64，后者为JVM可申请的最大内存,默认为物理内存的1/4，默认当空余堆内存小于40%时，JVM会增大堆内存到-Xmx指定的大小，可通过-XX:MinHeapFreeRation=来指定这个比列。</p>
+<p>**线程私有：**栈、本地方法栈、程序计数器。每个线程在开辟、运行的过程中会单独创建这样的一份内存，有多少个线程可能有多少个内存。</p>
+<p>**全局共享：**堆区、方法区</p>
+<p>==栈虽然方法运行完毕了之后被清空了，但是堆上面的还没有被清空，所以引出了GC（垃圾回收），不能立马删除，因为不知道是否还有其它的也是引用了当前的地址来访问的。==</p>
 
       
     </div>
@@ -1536,7 +1514,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>847</span>
+              <span>807</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1555,7 +1533,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="过滤器（Filter）和拦截器（Interceptor）的区别"><a href="#过滤器（Filter）和拦截器（Interceptor）的区别" class="headerlink" title="过滤器（Filter）和拦截器（Interceptor）的区别"></a>过滤器（Filter）和拦截器（Interceptor）的区别</h1><p>都是AOP思想的一种体现，用来解决项目中某一类问题的两种接口（工具），都可以对请求做一些增强。</p>
+          <h1>过滤器（Filter）和拦截器（Interceptor）的区别</h1>
+<p>都是AOP思想的一种体现，用来解决项目中某一类问题的两种接口（工具），都可以对请求做一些增强。</p>
 <table>
 <thead>
 <tr>
@@ -1564,7 +1543,8 @@
 <th>拦截器（Interceptor）</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>出身不同</td>
 <td>来自Servlet</td>
 <td>来自Spring</td>
@@ -1584,10 +1564,11 @@
 <td>字符编码设置、响应数据压缩（通用功能）</td>
 <td>是否登录判断、权限判断、日志等等（偏重业务功能）</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>触发时机：</p>
 <p>Request ———————————————————————&gt;</p>
-<p>Tomcat &#x3D;&#x3D;&gt; Filter &#x3D;&#x3D;&gt; Servlet &#x3D;&#x3D;&gt; Interceptor &#x3D;&#x3D;&gt; Controller</p>
+<p>Tomcat ==&gt; Filter ==&gt; Servlet ==&gt; Interceptor ==&gt; Controller</p>
 <p>&lt;———————————————————————Response</p>
 <p>Filter2 doFilter 进入方法前</p>
 <p>Filter1 doFilter 进入方法前</p>
@@ -1680,25 +1661,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="高级功能"><a href="#高级功能" class="headerlink" title="高级功能"></a>高级功能</h1><h2 id="消息存储"><a href="#消息存储" class="headerlink" title="消息存储"></a>消息存储</h2><p>分布式队列因为有高可靠性的要求，所以数据要进行持久化存储</p>
-<p><img src="/RocketMQ%E9%AB%98%E7%BA%A7%5Cimage-20221026211951678.png"></p>
+          <h1>高级功能</h1>
+<h2 id="消息存储">消息存储</h2>
+<p>分布式队列因为有高可靠性的要求，所以数据要进行持久化存储</p>
+<p><img src="RocketMQ%E9%AB%98%E7%BA%A7%5Cimage-20221026211951678.png" alt=""></p>
 <p>1、消息生成者发送消息</p>
 <p>2、MQ收到消息，将消息进行持久化，在存储中新增一天记录</p>
 <p>3、返回ACK给生产者</p>
 <p>4、MQ push消息给对应的消费者，然后等待消费者返回ACK</p>
 <p>5、如果消息消费者在指定时间内成功返回ACK，那么MQ认为消息消费成功，在存储中删除消息，即执行第6步；如果MQ在指定时间内没有收到ACK，则认为消息消费失败，会尝试重新push消息，重复执行4、5、6步骤</p>
 <p>6、MQ删除消息</p>
-<h3 id="存储介质"><a href="#存储介质" class="headerlink" title="存储介质"></a>存储介质</h3><ul>
-<li><p>关系型数据库DB</p>
+<h3 id="存储介质">存储介质</h3>
+<ul>
+<li>
+<p>关系型数据库DB</p>
 <p>Apache下开源的另一款MQ——ActiveMQ（默认采用的KahaDB做消息存储）可选用JDBC的方式来做消息持久化，通过简单的xml配置信息即可实现JDBC消息存储。由于，普通关系型数据库（如MqSQL）在单表数据量打到千万级别的情况下，其IO读写性能往往会出现瓶颈。在可靠性方面，该种方案非常依赖DB，如果一旦DB出现故障，则MQ的消息就无法落盘存储会导致线上故障。</p>
 </li>
-<li><p>文件系统</p>
-<p>目前较为常用的几款产品（RocketMQ&#x2F;Kafka&#x2F;RabbitMQ），均采用的是消息刷盘至所部署虚拟机&#x2F;物理机的文件系统来做持久化（刷盘一般可以分为异步刷盘和同步刷盘两种模式）。消息刷盘为消息存储提供了一种高效率、高可靠和高性能的数据持久化方式。除非部署MQ机器本身或是本地磁盘挂了，否则一般是不会出现无法持久化的故障问题。</p>
+<li>
+<p>文件系统</p>
+<p>目前较为常用的几款产品（RocketMQ/Kafka/RabbitMQ），均采用的是消息刷盘至所部署虚拟机/物理机的文件系统来做持久化（刷盘一般可以分为异步刷盘和同步刷盘两种模式）。消息刷盘为消息存储提供了一种高效率、高可靠和高性能的数据持久化方式。除非部署MQ机器本身或是本地磁盘挂了，否则一般是不会出现无法持久化的故障问题。</p>
 </li>
 </ul>
-<h3 id="性能对比"><a href="#性能对比" class="headerlink" title="性能对比"></a>性能对比</h3><p>文件系统 &gt; 关系型数据库DB</p>
-<h3 id="消息的存储和发送"><a href="#消息的存储和发送" class="headerlink" title="消息的存储和发送"></a>消息的存储和发送</h3><h4 id="消息存储-1"><a href="#消息存储-1" class="headerlink" title="消息存储"></a>消息存储</h4><p>RocketMQ的消息用顺序写，保证了消息存储的速度</p>
-<h4 id="消息发送"><a href="#消息发送" class="headerlink" title="消息发送"></a>消息发送</h4><p>Linux操作系统分为【用户态】和【内核态】，文件操作、网络操作需要涉及这两种形态的切换，免不了进行数据复制。一台服务器把本地磁盘文件的内容发送到客户端，一般分为两个步骤：</p>
+<h3 id="性能对比">性能对比</h3>
+<p>文件系统 &gt; 关系型数据库DB</p>
+<h3 id="消息的存储和发送">消息的存储和发送</h3>
+<h4 id="消息存储-2">消息存储</h4>
+<p>RocketMQ的消息用顺序写，保证了消息存储的速度</p>
+<h4 id="消息发送-2">消息发送</h4>
+<p>Linux操作系统分为【用户态】和【内核态】，文件操作、网络操作需要涉及这两种形态的切换，免不了进行数据复制。一台服务器把本地磁盘文件的内容发送到客户端，一般分为两个步骤：</p>
 <p>（1）read：读取本地文件内容</p>
 <p>（2）write：将读取的内容通过网络发送出去</p>
 <p>这两个看似简单的操作，实际进行了4次数据复制，分别是：</p>
@@ -1706,20 +1696,25 @@
 <p>2、从内核态内存复制到用户态内存；</p>
 <p>3、然后从用户态内存复制到网络驱动的内核态内存；</p>
 <p>4、最后是从网络驱动的内核态内存复制到网卡中进行传输；</p>
-<p><img src="/RocketMQ%E9%AB%98%E7%BA%A7%5Cimage-20221026215719035.png"></p>
+<p><img src="RocketMQ%E9%AB%98%E7%BA%A7%5Cimage-20221026215719035.png" alt=""></p>
 <p>通过使用mmap的方式，可以省去向用户态的内存复制，提高速度。这种机制在Java中是通过MappedByteBuffer实现的，RocketMQ充分利用了上述特性，也就是所谓的“零拷贝”技术，提高消息存盘和网络发送的速度。</p>
-<h3 id="消息存储结构"><a href="#消息存储结构" class="headerlink" title="消息存储结构"></a>消息存储结构</h3><p>RocketMQ消息的存储是由ConsumeQueue和CommitLog配合完成的，消息真正的物理存储文件是CommitLog，ConsumeQueue是消息的逻辑队列，类似数据库的索引文件，存储的是指向物理存储的地址。每个Topic下的每个MessageQueue都有一个对应的ConsumeQueue文件。</p>
-<p><img src="/RocketMQ%E9%AB%98%E7%BA%A7%5Cimage-20221026221117882.png"></p>
+<h3 id="消息存储结构">消息存储结构</h3>
+<p>RocketMQ消息的存储是由ConsumeQueue和CommitLog配合完成的，消息真正的物理存储文件是CommitLog，ConsumeQueue是消息的逻辑队列，类似数据库的索引文件，存储的是指向物理存储的地址。每个Topic下的每个MessageQueue都有一个对应的ConsumeQueue文件。</p>
+<p><img src="RocketMQ%E9%AB%98%E7%BA%A7%5Cimage-20221026221117882.png" alt=""></p>
 <ul>
 <li>CommitLog：存储消息的元数据</li>
 <li>ConsumeQueue：存储消息在CommitLog的索引</li>
 <li>IndexFile：为了消息查询提供了一种通过key或时间区间来查询消息的方法，这种通过IndexFile来查找消息的方法不影响发送与消费消息的主流程</li>
 </ul>
-<h3 id="刷盘机制"><a href="#刷盘机制" class="headerlink" title="刷盘机制"></a>刷盘机制</h3><p>RocketMQ的消息是存储到磁盘上的，这样既能保证断电后恢复，又可以让存储的消息量超出内存的限制。RocketMQ为了提高性能，会尽可能地保证磁盘的顺序写。消息在通过Producer写入RocketMQ的时候，有两种写磁盘方式，分别是同步刷盘和异步刷盘。</p>
-<p><img src="/RocketMQ%E9%AB%98%E7%BA%A7%5Cimage-20221026223057016.png"></p>
-<h4 id="同步刷盘"><a href="#同步刷盘" class="headerlink" title="同步刷盘"></a>同步刷盘</h4><p>在返回写成功状态时，消息已经被写入磁盘。具体流程是，消息写入内存的PAGECACHE后，立刻通知刷盘线程刷盘，然后等待刷盘完成，刷盘线程执行完成后唤醒等待的线程，返回消息写成功的状态。</p>
-<h4 id="异步刷盘"><a href="#异步刷盘" class="headerlink" title="异步刷盘"></a>异步刷盘</h4><p>在返回写成功状态时，消息可能只是被写入了内存的PAGECACHE，写操作的返回快，吞吐量大；当内存里的消息积累到一定程度时，统一触发写磁盘动作，快速写入。</p>
-<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>通过Broker配置文件里的flushDiskType参数设置的，这个参数被配置成<strong>SYNC_FLUSH</strong>、<strong>ASYNC_FLUSH</strong>中的</p>
+<h3 id="刷盘机制">刷盘机制</h3>
+<p>RocketMQ的消息是存储到磁盘上的，这样既能保证断电后恢复，又可以让存储的消息量超出内存的限制。RocketMQ为了提高性能，会尽可能地保证磁盘的顺序写。消息在通过Producer写入RocketMQ的时候，有两种写磁盘方式，分别是同步刷盘和异步刷盘。</p>
+<p><img src="RocketMQ%E9%AB%98%E7%BA%A7%5Cimage-20221026223057016.png" alt=""></p>
+<h4 id="同步刷盘">同步刷盘</h4>
+<p>在返回写成功状态时，消息已经被写入磁盘。具体流程是，消息写入内存的PAGECACHE后，立刻通知刷盘线程刷盘，然后等待刷盘完成，刷盘线程执行完成后唤醒等待的线程，返回消息写成功的状态。</p>
+<h4 id="异步刷盘">异步刷盘</h4>
+<p>在返回写成功状态时，消息可能只是被写入了内存的PAGECACHE，写操作的返回快，吞吐量大；当内存里的消息积累到一定程度时，统一触发写磁盘动作，快速写入。</p>
+<h4 id="配置">配置</h4>
+<p>通过Broker配置文件里的flushDiskType参数设置的，这个参数被配置成<strong>SYNC_FLUSH</strong>、<strong>ASYNC_FLUSH</strong>中的</p>
 
       
     </div>
@@ -1856,7 +1851,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">139k</span>
+    <span title="站点总字数">138k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

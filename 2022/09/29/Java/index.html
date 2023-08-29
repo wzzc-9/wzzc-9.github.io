@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Java序列化为什么要实现Serializable接口并指定serialVersionUID值 没有实现序列化会报错：&#x3D;&#x3D;NotSerializableException&#x3D;&#x3D;  没有指定serialVersionUID值：&#x3D;&#x3D;InvalidClassException&#x3D;&#x3D;，序列化和反序列化是的serialVersion">
+  <meta name="description" content="Java序列化为什么要实现Serializable接口并指定serialVersionUID值   没有实现序列化会报错：&#x3D;&#x3D;NotSerializableException&#x3D;&#x3D;   没有指定serialVersionUID值：&#x3D;&#x3D;InvalidClassException&#x3D;&#x3D;，序列化和反序列化是的serialVersionUID不同   结论：实现Serializable接口不指定uid的话，会">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java">
 <meta property="og:url" content="http://example.com/2022/09/29/Java/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="Java序列化为什么要实现Serializable接口并指定serialVersionUID值 没有实现序列化会报错：&#x3D;&#x3D;NotSerializableException&#x3D;&#x3D;  没有指定serialVersionUID值：&#x3D;&#x3D;InvalidClassException&#x3D;&#x3D;，序列化和反序列化是的serialVersion">
+<meta property="og:description" content="Java序列化为什么要实现Serializable接口并指定serialVersionUID值   没有实现序列化会报错：&#x3D;&#x3D;NotSerializableException&#x3D;&#x3D;   没有指定serialVersionUID值：&#x3D;&#x3D;InvalidClassException&#x3D;&#x3D;，序列化和反序列化是的serialVersionUID不同   结论：实现Serializable接口不指定uid的话，会">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-29T14:58:42.000Z">
 <meta property="article:modified_time" content="2023-01-05T07:34:05.701Z">
@@ -227,7 +227,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.3k</span>
+              <span>2.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -246,30 +246,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h5 id="Java序列化为什么要实现Serializable接口并指定serialVersionUID值"><a href="#Java序列化为什么要实现Serializable接口并指定serialVersionUID值" class="headerlink" title="Java序列化为什么要实现Serializable接口并指定serialVersionUID值"></a>Java序列化为什么要实现Serializable接口并指定serialVersionUID值</h5><ul>
-<li><p>没有实现序列化会报错：&#x3D;&#x3D;NotSerializableException&#x3D;&#x3D;</p>
+        <h5 id="Java序列化为什么要实现Serializable接口并指定serialVersionUID值">Java序列化为什么要实现Serializable接口并指定serialVersionUID值</h5>
+<ul>
+<li>
+<p>没有实现序列化会报错：==NotSerializableException==</p>
 </li>
-<li><p>没有指定serialVersionUID值：&#x3D;&#x3D;InvalidClassException&#x3D;&#x3D;，序列化和反序列化是的serialVersionUID不同</p>
+<li>
+<p>没有指定serialVersionUID值：==InvalidClassException==，序列化和反序列化是的serialVersionUID不同</p>
 </li>
 </ul>
 <p>结论：实现Serializable接口不指定uid的话，会自动分配一个随机的uid，如果在序列化后修改了这个类，那么uid就会改变，再反序列化的化，会找不到原来uid对应的类，因为原来的类发送改变了。</p>
 <hr>
-<h5 id="default关键字"><a href="#default关键字" class="headerlink" title="default关键字"></a>default关键字</h5><blockquote>
+<h5 id="default关键字">default关键字</h5>
+<blockquote>
 <p>default修饰方法只能在接口中使用，在接口中被default标记的方法为普通方法，可以直接写方法体。</p>
 </blockquote>
 <ul>
-<li><p>实现类会继承接口中的default方法</p>
+<li>
+<p>实现类会继承接口中的default方法</p>
 </li>
-<li><p>如果一个类同时实现接口A和B，接口A和B中有相同的default方法，这时，该类必须重写接口中的default方法</p>
+<li>
+<p>如果一个类同时实现接口A和B，接口A和B中有相同的default方法，这时，该类必须重写接口中的default方法</p>
 <ul>
 <li>为什么要重写呢？是因为，类在继承接口中的default方法时，不知道应该继承哪一个接口中的default方法</li>
 </ul>
 </li>
-<li><p>如果子类继承父类，父类中有b方法，该子类同时实现的接口中也有b方法（被default修饰），那么子类会继承父类的b方法而不是继承接口中的b方法</p>
+<li>
+<p>如果子类继承父类，父类中有b方法，该子类同时实现的接口中也有b方法（被default修饰），那么子类会继承父类的b方法而不是继承接口中的b方法</p>
 </li>
 </ul>
 <hr>
-<h5 id="浅拷贝-amp-深拷贝"><a href="#浅拷贝-amp-深拷贝" class="headerlink" title="浅拷贝&amp;深拷贝"></a>浅拷贝&amp;深拷贝</h5><p><strong>浅拷贝：</strong></p>
+<h5 id="浅拷贝-深拷贝">浅拷贝&amp;深拷贝</h5>
+<p><strong>浅拷贝：</strong></p>
 <blockquote>
 <p>引用拷贝&amp;对象拷贝</p>
 </blockquote>
@@ -277,17 +285,14 @@
 <li>引用拷贝：</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Teacher</span> <span class="variable">teacher1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Teacher</span>(<span class="string">&quot;张三&quot;</span>,<span class="string">&quot;123&quot;</span>);</span><br><span class="line">    <span class="type">Teacher</span> <span class="variable">teacher2</span> <span class="operator">=</span> teacher1;</span><br><span class="line">    System.out.println(teacher1);</span><br><span class="line">    System.out.println(teacher2);</span><br><span class="line">&#125;</span><br><span class="line">com.wzzc.frame.utils.Teacher<span class="meta">@cc34f4d</span></span><br><span class="line">com.wzzc.frame.utils.Teacher<span class="meta">@cc34f4d</span></span><br></pre></td></tr></table></figure>
-
-<p>&#x3D;&#x3D;栈区的student1和student2指向的是堆区的同一个引用对象&#x3D;&#x3D;</p>
+<p>==栈区的student1和student2指向的是堆区的同一个引用对象==</p>
 <ul>
 <li>对象拷贝：</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> CloneNotSupportedException &#123;</span><br><span class="line">     <span class="type">Teacher</span> <span class="variable">teacher</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Teacher</span>(<span class="string">&quot;张三&quot;</span>,<span class="string">&quot;123&quot;</span>);</span><br><span class="line">     <span class="type">Student</span> <span class="variable">student1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;小王&quot;</span>,<span class="string">&quot;12&quot;</span>,teacher);</span><br><span class="line">     <span class="comment">//进行拷贝</span></span><br><span class="line">     <span class="type">Student</span> <span class="variable">student2</span> <span class="operator">=</span> (Student) student1.clone(); </span><br><span class="line">     <span class="comment">//修改属性值</span></span><br><span class="line">     teacher.setName(<span class="string">&quot;李四&quot;</span>);</span><br><span class="line">     System.out.println(student1.getTeacher().getName());</span><br><span class="line">     System.out.println(student2.getTeacher().getName());</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Teacher</span> <span class="keyword">implements</span> <span class="title class_">Cloneable</span> &#123;</span><br><span class="line">    String name;</span><br><span class="line">    String age;</span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">super</span>.clone();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">implements</span> <span class="title class_">Cloneable</span> &#123;</span><br><span class="line">    String name;</span><br><span class="line">    String age;</span><br><span class="line">    Teacher teacher;</span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">super</span>.clone();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">李四</span><br><span class="line">李四</span><br></pre></td></tr></table></figure>
-
 <p>对于对象而言，赋值的只是这个对象的引用，将原对象的引用传递过去，实际上还是指向同一个对象。</p>
 <p><strong>深拷贝：</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">implements</span> <span class="title class_">Cloneable</span> &#123;</span><br><span class="line">    String name;</span><br><span class="line">    String age;</span><br><span class="line">    Teacher teacher;</span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException &#123;</span><br><span class="line"><span class="comment">//        浅复制</span></span><br><span class="line"><span class="comment">//        return super.clone();</span></span><br><span class="line">        <span class="type">Student</span> <span class="variable">student</span> <span class="operator">=</span> (Student) <span class="built_in">super</span>.clone();</span><br><span class="line"><span class="comment">//        本来是浅复制，现在将Teacher对象复制一份并重新set进来</span></span><br><span class="line">        student.setTeacher((Teacher) student.getTeacher().clone());</span><br><span class="line">        <span class="keyword">return</span> student;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">李四</span><br><span class="line">张三</span><br></pre></td></tr></table></figure>
-
 <p>重写克隆方法的时候，重新拷贝了一个对象，此时student1和student2引用调用的teacher引用所指向的已经是各自的teacher对象。所有，当修改student1调用的teacher引用所对应的对象时，对student2对应的teacher对象一点影响也没有！</p>
 
     </div>
@@ -382,7 +387,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Java%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AE%9E%E7%8E%B0Serializable%E6%8E%A5%E5%8F%A3%E5%B9%B6%E6%8C%87%E5%AE%9AserialVersionUID%E5%80%BC"><span class="nav-number">1.</span> <span class="nav-text">Java序列化为什么要实现Serializable接口并指定serialVersionUID值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#default%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">2.</span> <span class="nav-text">default关键字</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D-amp-%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="nav-number">3.</span> <span class="nav-text">浅拷贝&amp;深拷贝</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Java%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AE%9E%E7%8E%B0Serializable%E6%8E%A5%E5%8F%A3%E5%B9%B6%E6%8C%87%E5%AE%9AserialVersionUID%E5%80%BC"><span class="nav-number">1.</span> <span class="nav-text">Java序列化为什么要实现Serializable接口并指定serialVersionUID值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#default%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">2.</span> <span class="nav-text">default关键字</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D-%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="nav-number">3.</span> <span class="nav-text">浅拷贝&amp;深拷贝</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -445,7 +450,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">139k</span>
+    <span title="站点总字数">138k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
