@@ -29,18 +29,18 @@
 <meta property="og:site_name">
 <meta property="og:description" content="1234567891011121314151617echo &quot;开始准备打包...&quot;source &#x2F;etc&#x2F;profilemvn install -s &#x2F;home&#x2F;root&#x2F;apache-maven-3.8.6&#x2F;conf&#x2F;settings-mocha-portal.xmlecho &quot;开始准备上传文件...&quot;echo &quot;$&amp;#123;WORK">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2022/09/06/jenkins%E9%83%A8%E7%BD%B2/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170427682.png">
-<meta property="og:image" content="http://example.com/2022/09/06/jenkins%E9%83%A8%E7%BD%B2/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170459433.png">
-<meta property="og:image" content="http://example.com/2022/09/06/jenkins%E9%83%A8%E7%BD%B2/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170537961.png">
-<meta property="og:image" content="http://example.com/2022/09/06/jenkins%E9%83%A8%E7%BD%B2/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170618820.png">
-<meta property="og:image" content="http://example.com/2022/09/06/jenkins%E9%83%A8%E7%BD%B2/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170654508.png">
-<meta property="og:image" content="http://example.com/2022/09/06/jenkins%E9%83%A8%E7%BD%B2/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170722188.png">
+<meta property="og:image" content="http://example.com/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170427682.png">
+<meta property="og:image" content="http://example.com/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170459433.png">
+<meta property="og:image" content="http://example.com/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170537961.png">
+<meta property="og:image" content="http://example.com/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170618820.png">
+<meta property="og:image" content="http://example.com/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170654508.png">
+<meta property="og:image" content="http://example.com/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170722188.png">
 <meta property="article:published_time" content="2022-09-06T09:00:12.000Z">
 <meta property="article:modified_time" content="2023-01-05T07:34:05.742Z">
 <meta property="article:author" content="Wzzc">
 <meta property="article:tag" content="Jenkins">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/09/06/jenkins%E9%83%A8%E7%BD%B2/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170427682.png">
+<meta name="twitter:image" content="http://example.com/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170427682.png">
 
 <link rel="canonical" href="http://example.com/2022/09/06/jenkins%E9%83%A8%E7%BD%B2/">
 
@@ -253,14 +253,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170427682.png" alt=""></p>
-<p><img src="jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170459433.png" alt=""></p>
-<p><img src="jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170537961.png" alt=""></p>
-<p><img src="jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170618820.png" alt=""></p>
-<p><img src="jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170654508.png" alt=""></p>
+        <p><img src="/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170427682.png"></p>
+<p><img src="/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170459433.png"></p>
+<p><img src="/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170537961.png"></p>
+<p><img src="/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170618820.png"></p>
+<p><img src="/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170654508.png"></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;开始准备打包...&quot;</span><br><span class="line">source /etc/profile</span><br><span class="line">mvn install -s /home/root/apache-maven-3.8.6/conf/settings-mocha-portal.xml</span><br><span class="line">echo &quot;开始准备上传文件...&quot;</span><br><span class="line">echo &quot;$&#123;WORKSPACE&#125;&quot;</span><br><span class="line">cd $&#123;WORKSPACE&#125;/target/</span><br><span class="line">echo &quot;准备上传应用服务器...&quot;</span><br><span class="line">expect &lt;&lt; EOF</span><br><span class="line">set timeout 30</span><br><span class="line">spawn scp -P 22 mc-portal.jar root@172.27.17.59:/home/root/transport</span><br><span class="line">expect &#123;</span><br><span class="line">        &quot;*assword:&quot; &#123; send &quot;Szrd!234\r&quot;; &#125;</span><br><span class="line">        &quot;*yes/no*&quot; &#123; send &quot;yes\r&quot;; exp_continue &#125;</span><br><span class="line">&#125;</span><br><span class="line">expect eof</span><br><span class="line">EOF</span><br><span class="line">echo &quot;上传完成...&quot;</span><br></pre></td></tr></table></figure>
-<p><img src="jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170722188.png" alt=""></p>
+
+<p><img src="/jenkins%E9%83%A8%E7%BD%B2%5Cimage-20220906170722188.png"></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">time=$(date &quot;+%Y-%m-%d_%H:%M:%S&quot;)</span><br><span class="line">echo $&#123;time&#125;</span><br><span class="line">cp  /home/root/mc-portal/mc-portal.jar /home/root/mc-portal/backup/mc-portal.jar.$&#123;time&#125;</span><br><span class="line">rm -rf /home/root/mc-portal/mc-portal.jar</span><br><span class="line">mv /home/root/transport/mc-portal.jar  /home/root/mc-portal/mc-portal.jar</span><br><span class="line">cd /home/root/mc-portal/</span><br><span class="line">sh mc-portal.sh restart</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">bash mc-portal.sh</span></span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -416,12 +418,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">138k</span>
+    <span title="站点总字数">139k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:06</span>
+    <span title="站点阅读时长">2:07</span>
 </div>
 
 <!-- <br /> -->

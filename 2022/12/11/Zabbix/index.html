@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="解决Server端乱码问题 zabbix默认监测了服务端本身，但编码有问题 12345# 安装字体yum -y install wqy-microhei-fonts# 复制字体\cp &#x2F;usr&#x2F;share&#x2F;fonts&#x2F;wqy-microhei&#x2F;wqy-microhei.ttc &#x2F;usr&#x2F;share&#x2F;fonts&#x2F;dejavu&#x2F;DejaVuSans.ttf 部署Zabbix客户端  zabbix-ag">
+  <meta name="description" content="解决Server端乱码问题zabbix默认监测了服务端本身，但编码有问题 12345# 安装字体yum -y install wqy-microhei-fonts# 复制字体\cp &#x2F;usr&#x2F;share&#x2F;fonts&#x2F;wqy-microhei&#x2F;wqy-microhei.ttc &#x2F;usr&#x2F;share&#x2F;fonts&#x2F;dejavu&#x2F;DejaVuSans.ttf  部署Zabbix客户端 zabbix-age">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Zabbix">
 <meta property="og:url" content="http://example.com/2022/12/11/Zabbix/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="解决Server端乱码问题 zabbix默认监测了服务端本身，但编码有问题 12345# 安装字体yum -y install wqy-microhei-fonts# 复制字体\cp &#x2F;usr&#x2F;share&#x2F;fonts&#x2F;wqy-microhei&#x2F;wqy-microhei.ttc &#x2F;usr&#x2F;share&#x2F;fonts&#x2F;dejavu&#x2F;DejaVuSans.ttf 部署Zabbix客户端  zabbix-ag">
+<meta property="og:description" content="解决Server端乱码问题zabbix默认监测了服务端本身，但编码有问题 12345# 安装字体yum -y install wqy-microhei-fonts# 复制字体\cp &#x2F;usr&#x2F;share&#x2F;fonts&#x2F;wqy-microhei&#x2F;wqy-microhei.ttc &#x2F;usr&#x2F;share&#x2F;fonts&#x2F;dejavu&#x2F;DejaVuSans.ttf  部署Zabbix客户端 zabbix-age">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2022/12/11/Zabbix/image-20221228210959320.png">
 <meta property="og:image" content="http://example.com/2022/12/11/Zabbix/image-20221229141142940.png">
@@ -250,31 +250,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1>解决Server端乱码问题</h1>
-<p>zabbix默认监测了服务端本身，但编码有问题</p>
+        <h1 id="解决Server端乱码问题"><a href="#解决Server端乱码问题" class="headerlink" title="解决Server端乱码问题"></a>解决Server端乱码问题</h1><p>zabbix默认监测了服务端本身，但编码有问题</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装字体</span></span><br><span class="line">yum -y install wqy-microhei-fonts</span><br><span class="line"></span><br><span class="line"><span class="comment"># 复制字体</span></span><br><span class="line">\<span class="built_in">cp</span> /usr/share/fonts/wqy-microhei/wqy-microhei.ttc /usr/share/fonts/dejavu/DejaVuSans.ttf</span><br></pre></td></tr></table></figure>
-<h1>部署Zabbix客户端</h1>
-<blockquote>
+
+<h1 id="部署Zabbix客户端"><a href="#部署Zabbix客户端" class="headerlink" title="部署Zabbix客户端"></a>部署Zabbix客户端</h1><blockquote>
 <p><strong>zabbix-agent2采用golang语言开发，默认10050端口，也就是zabbix客户端的端口</strong></p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置时间正确</span></span><br><span class="line">yum install ntpdate -y</span><br><span class="line">ntpdate -u ntp.aliyun.com</span><br><span class="line"></span><br><span class="line"><span class="comment"># 时区的统一配置</span></span><br><span class="line"><span class="built_in">mv</span> /etc/localtime&#123;,.bak&#125;</span><br><span class="line"><span class="built_in">ln</span> -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
+
 <p><strong>zabbix-agent2部署流程</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取zabbix下载源</span></span><br><span class="line">rpm -Uvh https://mirrors.aliyun.com/zabbix/zabbix/5.0/rhel/7/x86_64/zabbix-release-5.0-1.el7.noarch.rpm</span><br><span class="line"><span class="comment"># 更换zabbix.repo源，为阿里的</span></span><br><span class="line">sed -i <span class="string">&#x27;s#http://repo.zabbix.com#https://mirrors.aliyun.com/zabbix#&#x27;</span> /etc/yum.repos.d/zabbix.repo</span><br><span class="line"></span><br><span class="line">yum install zabbix-agent2 -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看配置文件</span></span><br><span class="line">/etc/zabbix/zabbix_agent2.conf</span><br><span class="line"><span class="comment"># 启动命令</span></span><br><span class="line"><span class="built_in">ls</span> -l /usr/sbin/zabbix_agent2</span><br><span class="line"><span class="comment"># 启动客户端，开机自启</span></span><br><span class="line">systemctl <span class="built_in">enable</span> --now zabbix-agent2</span><br></pre></td></tr></table></figure>
+
 <p><strong>修改配置文件</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/zabbix/zabbix_agent2.conf</span><br><span class="line"></span><br><span class="line">Server=1.13.248.197</span><br><span class="line">ServerActive=1.13.248.197</span><br><span class="line">Hostname=机器名称</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看配置信息</span></span><br><span class="line">grep -Ev <span class="string">&#x27;^#|^$&#x27;</span> /etc/zabbix/zabbix_agent2.conf</span><br></pre></td></tr></table></figure>
+
 <p><strong>重启zabbix</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart zabbix-agent2</span><br></pre></td></tr></table></figure>
+
 <p><strong>验证zabbix-agent2的连通性</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在服务器上通过命令，主动获取数据</span></span><br><span class="line">yum install zabbix-get -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 命令监测服务端是否连接上客户端</span></span><br><span class="line">zabbix_get -s <span class="string">&#x27;1.13.248.197&#x27;</span> -p 10050 -k <span class="string">&#x27;agent.ping&#x27;</span></span><br><span class="line">zabbix_get -s <span class="string">&#x27;1.13.248.197&#x27;</span> -p 10050 -k <span class="string">&#x27;system.hostname&#x27;</span></span><br></pre></td></tr></table></figure>
-<h1>监控Nginx</h1>
-<p>**确定监控内容：**nginx内置了一个status状态的功能，通过配置可以看到nginx的运行情况，status显示的内容包括当前连接数，处于活动状态的连接数，已经处理的请求数等等。</p>
+
+
+
+<h1 id="监控Nginx"><a href="#监控Nginx" class="headerlink" title="监控Nginx"></a>监控Nginx</h1><p><strong>确定监控内容：</strong>nginx内置了一个status状态的功能，通过配置可以看到nginx的运行情况，status显示的内容包括当前连接数，处于活动状态的连接数，已经处理的请求数等等。</p>
 <p>在nginx的配置文件中，添加status配置，在虚拟主机 server {} 中加入上面配置，也可以单独定义一个专门用于监控的虚拟主机。</p>
 <p>deny all , 拒绝除 allow 中的主机之外所有主机访问此URL ，实现过程中如果遇到403 ，有可能是你把自己测试的机器拒绝了</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">location /nginx_status &#123;</span><br><span class="line">  stub_status on;</span><br><span class="line">  access_log off;		 //关闭日志</span><br><span class="line">  allow 127.0.0.1;</span><br><span class="line">  allow 192.168.10.5;   //zabbix服务器的IP地址，一般是内网地址</span><br><span class="line">  deny all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./nginx -s reload</span><br></pre></td></tr></table></figure>
+
 <p><strong>在zabbix server上测试访问：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://1.13.248.197/status</span><br></pre></td></tr></table></figure>
+
 <img src="/2022/12/11/Zabbix/image-20221228210959320.png" class="" title="image-20221228210959320">
+
 <p>nginx Status 详细说明：</p>
 <ul>
 <li>Active connections：当前处于活动状态的客户端连接数，包括连接等待空闲连接数。</li>
@@ -287,29 +296,38 @@
 </ul>
 <p>在访问效率很高，请求很快被处理完毕的情况下，Waiting 数比较多是正常的。如果 reading + writing 数较多，则说明并发访问量很大，正在处理过程中。</p>
 <p><strong>监控脚本编写</strong></p>
-<p>编写脚本，放于/usr/local/zabbix/scripts目录下</p>
+<p>编写脚本，放于&#x2F;usr&#x2F;local&#x2F;zabbix&#x2F;scripts目录下</p>
 <p>通过脚本获取status页面信息的关键值，zabbix server通过这些关键值才能生成数据图像，获取status的关键值脚本如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /usr/local/zabbix/scripts</span><br><span class="line">vim /usr/local/zabbix/scripts/nginx_status.sh</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"><span class="comment"># Description：zabbix监控nginx状态</span></span><br><span class="line"><span class="comment"># Note：此脚本需要配置在被监控端</span></span><br><span class="line">HOST=<span class="string">&quot;127.0.0.1&quot;</span></span><br><span class="line">PORT=<span class="string">&quot;80&quot;</span></span><br><span class="line"><span class="comment"># 检测nginx进程是否存在</span></span><br><span class="line"><span class="keyword">function</span> ping &#123;</span><br><span class="line">    /sbin/pidof nginx | <span class="built_in">wc</span> -l</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 检测nginx性能</span></span><br><span class="line"><span class="keyword">function</span> active &#123;</span><br><span class="line">    /usr/bin/curl <span class="string">&quot;http://<span class="variable">$HOST</span>:<span class="variable">$PORT</span>/status/&quot;</span> 2&gt;/dev/null| grep <span class="string">&#x27;Active&#x27;</span> | awk <span class="string">&#x27;&#123;print $NF&#125;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> reading &#123;</span><br><span class="line">    /usr/bin/curl <span class="string">&quot;http://<span class="variable">$HOST</span>:<span class="variable">$PORT</span>/status/&quot;</span> 2&gt;/dev/null| grep <span class="string">&#x27;Reading&#x27;</span> | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> writing &#123;</span><br><span class="line">    /usr/bin/curl <span class="string">&quot;http://<span class="variable">$HOST</span>:<span class="variable">$PORT</span>/status/&quot;</span> 2&gt;/dev/null| grep <span class="string">&#x27;Writing&#x27;</span> | awk <span class="string">&#x27;&#123;print $4&#125;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> waiting &#123;</span><br><span class="line">    /usr/bin/curl <span class="string">&quot;http://<span class="variable">$HOST</span>:<span class="variable">$PORT</span>/status/&quot;</span> 2&gt;/dev/null| grep <span class="string">&#x27;Waiting&#x27;</span> | awk <span class="string">&#x27;&#123;print $6&#125;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> accepts &#123;</span><br><span class="line">    /usr/bin/curl <span class="string">&quot;http://<span class="variable">$HOST</span>:<span class="variable">$PORT</span>/status/&quot;</span> 2&gt;/dev/null| awk NR==3 | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> handled &#123;</span><br><span class="line">    /usr/bin/curl <span class="string">&quot;http://<span class="variable">$HOST</span>:<span class="variable">$PORT</span>/status/&quot;</span> 2&gt;/dev/null| awk NR==3 | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> requests &#123;</span><br><span class="line">    /usr/bin/curl <span class="string">&quot;http://<span class="variable">$HOST</span>:<span class="variable">$PORT</span>/status/&quot;</span> 2&gt;/dev/null| awk NR==3 | awk <span class="string">&#x27;&#123;print $3&#125;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 执行function</span></span><br><span class="line"><span class="variable">$1</span></span><br></pre></td></tr></table></figure>
+
 <p><strong>本地测试：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sh /usr/local/zabbix/scripts/ngx_status.sh active</span><br><span class="line">sh /usr/local/zabbix/scripts/ngx_status.sh accepts</span><br></pre></td></tr></table></figure>
+
 <p><strong>赋予脚本执行权限：</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x /usr/local/zabbix/scripts/ngx_status.sh</span><br></pre></td></tr></table></figure>
+
 <p><strong>修改zabbix_agent2.conf</strong></p>
 <p>使用脚本监控需要将zabbix-agentd.conf文件中的<code>UnsafeUserParameters=1</code> 开启。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/zabbix/zabbix_agent2.conf</span><br><span class="line"></span><br><span class="line">UnsafeUserParameters=1</span><br></pre></td></tr></table></figure>
+
 <p><strong>定义监控脚本Key</strong></p>
-<p>添加zabbix配置文件，放于/etc/zabbix/zabbix_agent2.d/目录下（agent的配置文件/etc/zabbix/zabbix_agent2.conf中定义了其他key的包含目录）创建配置文件nginx_status.conf</p>
+<p>添加zabbix配置文件，放于&#x2F;etc&#x2F;zabbix&#x2F;zabbix_agent2.d&#x2F;目录下（agent的配置文件&#x2F;etc&#x2F;zabbix&#x2F;zabbix_agent2.conf中定义了其他key的包含目录）创建配置文件nginx_status.conf</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/zabbix/zabbix_agent2.d/nginx_status.conf</span><br><span class="line"></span><br><span class="line">UserParameter=nginx.status[*],/usr/local/zabbix/scripts/nginx_status.sh <span class="variable">$1</span></span><br></pre></td></tr></table></figure>
+
 <p><strong>配置好后重启zabbix-agent2</strong></p>
 <p><strong>Zabbix服务端使用zabbix_get 测试获取数据</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">zabbix_get -s 1.13.248.197 -p 10050 -k nginx.status[ping]</span><br><span class="line">zabbix_get -s 1.13.248.197 -p 10050 -k nginx.status[active]</span><br><span class="line">zabbix_get -s 1.13.248.197 -p 10050 -k nginx.status[accepts]</span><br></pre></td></tr></table></figure>
+
 <p><strong>出现Permission denied问题：</strong></p>
 <p>将<code>nginx_status.sh</code>脚本所属用户改为zabbix</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local</span><br><span class="line"><span class="built_in">chown</span> zabbix:zabbix -R zabbix</span><br></pre></td></tr></table></figure>
+
 <p><strong>Web界面配置</strong></p>
 <p>创建模板，添加监控项</p>
 <img src="/2022/12/11/Zabbix/image-20221229141142940.png" class="" title="image-20221229141142940">
+
 <p>创建图像，关联模板</p>
 <img src="/2022/12/11/Zabbix/image-20221229141322844.png" class="" title="image-20221229141322844">
 
@@ -405,7 +423,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">解决Server端乱码问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">部署Zabbix客户端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">监控Nginx</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3Server%E7%AB%AF%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">解决Server端乱码问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2Zabbix%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number">2.</span> <span class="nav-text">部署Zabbix客户端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%91%E6%8E%A7Nginx"><span class="nav-number">3.</span> <span class="nav-text">监控Nginx</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -468,12 +486,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">138k</span>
+    <span title="站点总字数">139k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:06</span>
+    <span title="站点阅读时长">2:07</span>
 </div>
 
 <!-- <br /> -->

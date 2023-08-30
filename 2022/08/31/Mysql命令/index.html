@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Mysql安装 安装准备  检查电脑是否预装了mysql（预装的mysql叫mariadb ），有则卸载删除  123rpm -qa | grep mariadb  #查询是否预装mysql rpm -e --nodeps mariadb-libs  #有返回数据则使用该命令卸载  上传解压  解压后改名，放到指定目录下 准备MySQL用户及用户组，完成相关配置  添加MySQL用户和组  123">
+  <meta name="description" content="Mysql安装安装准备 检查电脑是否预装了mysql（预装的mysql叫mariadb ），有则卸载删除  123rpm -qa | grep mariadb  #查询是否预装mysql rpm -e --nodeps mariadb-libs  #有返回数据则使用该命令卸载   上传解压  解压后改名，放到指定目录下 准备MySQL用户及用户组，完成相关配置 添加MySQL用户和组  123gr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mysql命令">
 <meta property="og:url" content="http://example.com/2022/08/31/Mysql%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="Mysql安装 安装准备  检查电脑是否预装了mysql（预装的mysql叫mariadb ），有则卸载删除  123rpm -qa | grep mariadb  #查询是否预装mysql rpm -e --nodeps mariadb-libs  #有返回数据则使用该命令卸载  上传解压  解压后改名，放到指定目录下 准备MySQL用户及用户组，完成相关配置  添加MySQL用户和组  123">
+<meta property="og:description" content="Mysql安装安装准备 检查电脑是否预装了mysql（预装的mysql叫mariadb ），有则卸载删除  123rpm -qa | grep mariadb  #查询是否预装mysql rpm -e --nodeps mariadb-libs  #有返回数据则使用该命令卸载   上传解压  解压后改名，放到指定目录下 准备MySQL用户及用户组，完成相关配置 添加MySQL用户和组  123gr">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-31T09:58:30.000Z">
 <meta property="article:modified_time" content="2023-01-05T07:34:05.703Z">
@@ -246,114 +246,140 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="Mysql安装">Mysql安装</h4>
-<h5 id="安装准备">安装准备</h5>
-<blockquote>
+        <h4 id="Mysql安装"><a href="#Mysql安装" class="headerlink" title="Mysql安装"></a>Mysql安装</h4><h5 id="安装准备"><a href="#安装准备" class="headerlink" title="安装准备"></a>安装准备</h5><blockquote>
 <p>检查电脑是否预装了mysql（预装的mysql叫mariadb ），有则卸载删除</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep mariadb  #查询是否预装mysql</span><br><span class="line"> </span><br><span class="line">rpm -e --nodeps mariadb-libs  #有返回数据则使用该命令卸载</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>上传解压</p>
 </blockquote>
 <p>解压后改名，放到指定目录下</p>
-<h5 id="准备MySQL用户及用户组，完成相关配置">准备MySQL用户及用户组，完成相关配置</h5>
-<blockquote>
+<h5 id="准备MySQL用户及用户组，完成相关配置"><a href="#准备MySQL用户及用户组，完成相关配置" class="headerlink" title="准备MySQL用户及用户组，完成相关配置"></a>准备MySQL用户及用户组，完成相关配置</h5><blockquote>
 <p>添加MySQL用户和组</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">groupadd mysql   #添加名为mysql的用户组</span><br><span class="line"> </span><br><span class="line">useradd -r -g mysql mysql   #添加名为mysql的用户，并将其添加到mysql组中</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>创建MySQL数据和日志文件夹并授权</p>
 </blockquote>
 <p>在mysql目录下，新建数据目录data和日志目录logs，并改变其所有者</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir data   #创建mysql数据目录</span><br><span class="line">mkdir logs</span><br><span class="line"> </span><br><span class="line">chown mysql:mysql -R /usr/local/mysql  #将mysql数据目录的所有者和所有组改为mysql用户和组</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>使用vim命令编辑/etc/my.cnf</p>
+<p>使用vim命令编辑&#x2F;etc&#x2F;my.cnf</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/my.cnf</span><br></pre></td></tr></table></figure>
+
 <p>配置如下：</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">[mysqld]</span></span><br><span class="line"><span class="comment">#skip-grant-tables</span></span><br><span class="line"><span class="comment">#default_password_lifetime=90</span></span><br><span class="line"><span class="attr">bind-address</span>=<span class="string">0.0.0.0</span></span><br><span class="line"><span class="comment">#mysql监听的ip地址，如果是127.0.0.1，表示仅本机访问，0.0.0.0表示全地址可以访问（任何主机）</span></span><br><span class="line"><span class="attr">port</span>=<span class="string">3306  #mysql运行在哪个端口</span></span><br><span class="line"><span class="attr">user</span>=<span class="string">mysql  #mysql以什么用户运行</span></span><br><span class="line"><span class="comment">#max_allowed_packet=10000000</span></span><br><span class="line"><span class="attr">basedir</span>=<span class="string">/usr/local/mysql  #mysql主目录</span></span><br><span class="line"><span class="attr">datadir</span>=<span class="string">/usr/local/mysql/data  #mysql的数据目录</span></span><br><span class="line"><span class="attr">socket</span>=<span class="string">/var/lib/mysql/mysql.sock   #mysql以socket方式运行的sock文件位置</span></span><br><span class="line"><span class="attr">log-error</span>=<span class="string">/usr/local/mysql/data/mysql.err  #错误日志位置</span></span><br><span class="line"><span class="attr">pid-file</span>=<span class="string">/usr/local/mysql/data/mysql.pid   #进程id文件</span></span><br><span class="line"><span class="comment">#character config</span></span><br><span class="line"><span class="attr">character_set_server</span>=<span class="string">utf8mb4  #服务器使用的字符集</span></span><br><span class="line"><span class="attr">symbolic-links</span>=<span class="string">0   #是否支持符号链接，即数据库或表可以存储在my.cnf中指定datadir之外的分区或目录，为0不开启</span></span><br><span class="line"><span class="attr">explicit_defaults_for_timestamp</span>=<span class="string">true  #mysql中TIMESTAMP类型和其他的类型有点不一样(在没有设置explicit_defaults_for_timestamp=1的情况下）</span></span><br><span class="line"><span class="comment">###########</span></span><br><span class="line"><span class="attr">character-set-server</span>=<span class="string">utf8</span></span><br><span class="line"><span class="attr">max_connections</span> = <span class="string">1000</span></span><br><span class="line"><span class="attr">group_concat_max_len</span> = <span class="string">102400</span></span><br><span class="line"><span class="attr">lower_case_table_names</span> = <span class="string">1</span></span><br><span class="line"><span class="attr">log_bin_trust_function_creators</span>=<span class="string">1</span></span><br><span class="line"><span class="attr">sql_mode</span>=<span class="string">NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES</span></span><br><span class="line"><span class="attr">transaction_isolation</span> = <span class="string">READ-COMMITTED</span></span><br><span class="line"><span class="attr">open-files-limit</span> = <span class="string">65535</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>数据库初始化</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/mysql/bin #先cd到bin目录</span><br><span class="line"> </span><br><span class="line">./mysqld --initialize --user=mysql #mysql初始化命令，必须在bin目录下使用</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>配置MySQL服务，启动MySQL</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql  #添加mysql服务</span><br><span class="line"> </span><br><span class="line">service mysql start   #启动mysql</span><br><span class="line"></span><br><span class="line">ln -s /usr/local/mysql/bin/mysql /usr/bin	#创建软连接</span><br></pre></td></tr></table></figure>
-<h5 id="使用MySQL">使用MySQL</h5>
-<blockquote>
+
+<h5 id="使用MySQL"><a href="#使用MySQL" class="headerlink" title="使用MySQL"></a>使用MySQL</h5><blockquote>
 <p>登录数据库，更换root密码</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p   #以root用户登录mysql</span><br></pre></td></tr></table></figure>
-<p>如果出现<code>Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)</code>的错误，建立一个软连接</p>
+
+<p>如果出现<code>Can&#39;t connect to local MySQL server through socket &#39;/tmp/mysql.sock&#39; (2)</code>的错误，建立一个软连接</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s /var/lib/mysql/mysql.sock /tmp/mysql.sock 	<span class="comment">#创建软连接</span></span><br></pre></td></tr></table></figure>
+
 <p>修改密码：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> use mysql;</span><br><span class="line">mysql5<span class="number">.7</span>之前</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> password<span class="operator">=</span>password(<span class="string">&#x27;123456&#x27;</span>) <span class="keyword">where</span> <span class="keyword">user</span><span class="operator">=</span><span class="string">&#x27;root&#x27;</span>;</span><br><span class="line">mysql5<span class="number">.7</span>之后</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> authentication_string<span class="operator">=</span>password(<span class="string">&#x27;123456&#x27;</span>) <span class="keyword">where</span> <span class="keyword">user</span><span class="operator">=</span><span class="string">&#x27;root&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
 <p>也可以：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SET</span> PASSWORD <span class="operator">=</span> PASSWORD(<span class="string">&#x27;你要设置的密码&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
 <p>设置密码永不过期以及其他客户端连接：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> host <span class="operator">=</span> <span class="string">&#x27;%&#x27;</span>, password_expired<span class="operator">=</span><span class="string">&#x27;N&#x27;</span> <span class="keyword">where</span> <span class="keyword">user</span><span class="operator">=</span><span class="string">&#x27;root&#x27;</span>;</span><br><span class="line">mysql<span class="operator">&gt;</span> flush privileges;</span><br><span class="line">mysql<span class="operator">&gt;</span> quit</span><br></pre></td></tr></table></figure>
-<h4 id="主从复制搭建">主从复制搭建</h4>
-<blockquote>
+
+
+
+<h4 id="主从复制搭建"><a href="#主从复制搭建" class="headerlink" title="主从复制搭建"></a>主从复制搭建</h4><blockquote>
 <p>查看binlog是否开启</p>
 </blockquote>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysq<span class="operator">&gt;</span> <span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%log_bin%&#x27;</span></span><br></pre></td></tr></table></figure>
+
 <p><strong>开启binlog，主从都要开启，配置完重启</strong></p>
 <blockquote>
 <p>master的配置文件</p>
 </blockquote>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server_id</span>=<span class="string">1</span></span><br><span class="line"><span class="attr">log_bin</span>=<span class="string">mysql-bin</span></span><br><span class="line"><span class="attr">binlog_format</span>=<span class="string">ROW</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>slave的配置文件</p>
 </blockquote>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server_id</span>=<span class="string">1</span></span><br><span class="line"><span class="attr">log_bin</span>=<span class="string">mysql-bin</span></span><br><span class="line"><span class="attr">binlog_format</span>=<span class="string">ROW</span></span><br><span class="line"></span><br><span class="line"><span class="attr">relay-log</span>=<span class="string">mysql-relay-bin #relay-log为主库的操作日志</span></span><br><span class="line"><span class="attr">replicate-wild-ignore-table</span>=<span class="string">mysql.% #忽略mysql自带的表</span></span><br><span class="line"><span class="attr">replicate-wild-ignore-table</span>=<span class="string">test.% #忽略test表</span></span><br><span class="line"><span class="attr">replicate-wild-ignore-table</span>=<span class="string">information_schema.% #忽略information——schema表</span></span><br><span class="line"><span class="attr">replicate_do_db</span>=<span class="string">mcportal #在slave上配置，指定slave要复制哪个库</span></span><br><span class="line"><span class="attr">replicate-ignore-db</span>=<span class="string">mysql,performance_schema,information_schema #在slave上配置，指定slave要复制哪个库</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>查看binlog日志</p>
 </blockquote>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">show</span> master status;</span><br><span class="line">mysql<span class="operator">&gt;</span> reset master <span class="comment">-- 生产环境慎用（清楚binlog日志）</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>在主库上创建用于同步的账号</p>
 </blockquote>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">GRANT</span> REPLICATION SLAVE <span class="keyword">ON</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">to</span> <span class="string">&#x27;mysyxs&#x27;</span>@<span class="string">&#x27;%&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;xxxx&#x27;</span>; </span><br><span class="line">mysql<span class="operator">&gt;</span> flush privileges;<span class="comment">-- 刷新权限</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>为slave机器设置master的binlog文件以及位置信息</p>
 </blockquote>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> change master <span class="keyword">to</span> master_host<span class="operator">=</span><span class="string">&#x27;10.30.38.203&#x27;</span>,master_port<span class="operator">=</span><span class="number">3306</span>,master_user<span class="operator">=</span><span class="string">&#x27;mysyxs&#x27;</span>,master_password<span class="operator">=</span><span class="string">&#x27;whitebox123!&#x27;</span>,master_log_file<span class="operator">=</span><span class="string">&#x27;mysql-bin.000001&#x27;</span>,master_log_pos<span class="operator">=</span><span class="number">154</span>;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>从机开启slave</p>
 </blockquote>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">start</span> slave; <span class="comment">-- 开启slave</span></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">show</span> slave status\G <span class="comment">-- 查看状态</span></span><br><span class="line">mysql<span class="operator">&gt;</span> stop slave;</span><br></pre></td></tr></table></figure>
-<h4 id="其他">其他</h4>
-<h5 id="引擎">引擎</h5>
-<p>查看MySQL提供什么存储引擎：</p>
+
+
+
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><h5 id="引擎"><a href="#引擎" class="headerlink" title="引擎"></a>引擎</h5><p>查看MySQL提供什么存储引擎：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">show</span> engines;</span><br></pre></td></tr></table></figure>
+
 <p>查看MySQL当前默认的存储引擎：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%storage_engine%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
 <p>查看看某个表用了什么引擎(在显示结果里参数engine后面的就表示该表当前用的存储引擎)</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> 表名;</span><br></pre></td></tr></table></figure>
-<h5 id="字符集与排序规则">字符集与排序规则</h5>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/baidu_27169523/article/details/124470382">https://blog.csdn.net/baidu_27169523/article/details/124470382</a></p>
+
+<h5 id="字符集与排序规则"><a href="#字符集与排序规则" class="headerlink" title="字符集与排序规则"></a>字符集与排序规则</h5><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/baidu_27169523/article/details/124470382">https://blog.csdn.net/baidu_27169523/article/details/124470382</a></p>
 <p>简便的批量修改MySQL表的字符集和排序规则建库 指定字符集和排序规则：</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_31766907/article/details/125784849">https://blog.csdn.net/qq_31766907/article/details/125784849</a></p>
 <p>查看MYSQL数据库服务器和数据库字符集：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%character%&#x27;</span>;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;collation%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
 <p>查看库的字符集：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">show</span> <span class="keyword">create</span> database 数据库\G;</span><br></pre></td></tr></table></figure>
+
 <p>查看表的字符集：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">show</span> <span class="keyword">table</span> status <span class="keyword">from</span> 库名 <span class="keyword">like</span> 表名;</span><br></pre></td></tr></table></figure>
+
 <p>建表指定字符集和排序规则：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">CREATE</span> DATABASE `test` <span class="keyword">DEFAULT</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_general_ci;</span><br></pre></td></tr></table></figure>
+
 <p>修改规则：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">ALTER</span> DATABASE `test` <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_general_ci;</span><br></pre></td></tr></table></figure>
-<h5 id="用户">用户</h5>
-<p>创建用户：</p>
+
+<h5 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h5><p>创建用户：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">create</span> <span class="keyword">user</span> <span class="string">&#x27;用户名&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;用户密码&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
 <p>配置权限：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">grant</span> <span class="keyword">all</span> privileges <span class="keyword">on</span> 数据库名.<span class="operator">*</span> <span class="keyword">to</span> 用户名@<span class="string">&#x27;%&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;用户密码&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
 <p>只读权限</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">GRANT</span> <span class="keyword">Select</span> <span class="keyword">ON</span> `数据库名`.<span class="operator">*</span> <span class="keyword">TO</span> `zhongjiang`@`<span class="operator">%</span>`;</span><br></pre></td></tr></table></figure>
+
 <p>添加超级权限：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">grant</span> <span class="keyword">all</span> privileges <span class="keyword">on</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">to</span> <span class="string">&#x27;yangxin&#x27;</span>@<span class="string">&#x27;%&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;yangxin123456&#x27;</span> <span class="keyword">with</span> <span class="keyword">grant</span> option;</span><br><span class="line">mysql<span class="operator">&gt;</span> flush privileges;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>all privileges：表示将所有权限授予给用户。也可指定具体的权限，如：SELECT、CREATE、DROP等。</li>
 <li>on：表示这些权限对哪些数据库和表生效，格式：数据库名.表名，这里写“*”表示所有数据库，所有表。如果我要指定将权限应用到test库的user表中，可以这么写：test.user</li>
@@ -362,30 +388,39 @@
 </ul>
 <p>回收权限：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">revoke</span> <span class="keyword">create</span> <span class="keyword">on</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">from</span> <span class="string">&#x27;yangxin@localhost&#x27;</span>;</span><br><span class="line">mysql<span class="operator">&gt;</span> flush privileges;</span><br></pre></td></tr></table></figure>
+
 <p>删除用户：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> host,<span class="keyword">user</span> <span class="keyword">from</span> <span class="keyword">user</span>;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">drop</span> <span class="keyword">user</span> <span class="string">&#x27;yangxin&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
 <p>重命名用户：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> rename <span class="keyword">user</span> <span class="string">&#x27;test3&#x27;</span>@<span class="string">&#x27;%&#x27;</span> <span class="keyword">to</span> <span class="string">&#x27;test1&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<h5 id="远程连接">远程连接</h5>
-<p>连接远程命令：</p>
+
+<h5 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h5><p>连接远程命令：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> mysql <span class="operator">-</span>h192<span class="number">.168</span><span class="number">.0</span><span class="number">.201</span> <span class="operator">-</span>p3306 <span class="operator">-</span>uroot <span class="operator">-</span>p123</span><br></pre></td></tr></table></figure>
+
 <p>添加MySQL环境变量</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 既然属于mysql的bin目录下面，那我们可以把此目录配置环境变量中，再次执行命令也可以</span></span><br><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加mysql的环境变量</span></span><br><span class="line"><span class="built_in">export</span> MYSQL_HOME=/usr/local/mysql</span><br><span class="line"><span class="built_in">export</span> PATH=.:<span class="variable">$&#123;MYSQL_HOME&#125;</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 刷新环境变量</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
-<h5 id="SSL连接">SSL连接</h5>
-<p>查看MySQL是否开启SSL：</p>
+
+<h5 id="SSL连接"><a href="#SSL连接" class="headerlink" title="SSL连接"></a>SSL连接</h5><p>查看MySQL是否开启SSL：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &quot;%ssl%&quot;;</span><br></pre></td></tr></table></figure>
-<p>在mysql/bin目录下有<code>mysql_ssl_rsa_setup</code>文件，执行它开始安装ssl</p>
+
+<p>在mysql&#x2F;bin目录下有<code>mysql_ssl_rsa_setup</code>文件，执行它开始安装ssl</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ./mysql_ssl_rsa_setup</span><br></pre></td></tr></table></figure>
-<p>安装完成后，会生成一些私钥公钥在mysql/data目录下：</p>
+
+<p>安装完成后，会生成一些私钥公钥在mysql&#x2F;data目录下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ll *.pem</span><br><span class="line">-rw------- 1 mysql mysql 1675 Jun 12 17:22 ca-key.pem         <span class="comment">#CA私钥</span></span><br><span class="line">-rw-r--r-- 1 mysql mysql 1074 Jun 12 17:22 ca.pem             <span class="comment">#自签的CA证书，客户端连接也需要提供</span></span><br><span class="line">-rw-r--r-- 1 mysql mysql 1078 Jun 12 17:22 client-cert.pem    <span class="comment">#客户端连接服务器端需要提供的证书文件</span></span><br><span class="line">-rw------- 1 mysql mysql 1675 Jun 12 17:22 client-key.pem     <span class="comment">#客户端连接服务器端需要提供的私钥文件</span></span><br><span class="line">-rw------- 1 mysql mysql 1675 Jun 12 17:22 private_key.pem    <span class="comment">#私钥/公钥对的私有成员</span></span><br><span class="line">-rw-r--r-- 1 mysql mysql 451 Jun 12 17:22  public_key.pem     <span class="comment">#私钥/公钥对的共有成员</span></span><br><span class="line">-rw-r--r-- 1 mysql mysql 1078 Jun 12 17:22 server-cert.pem    <span class="comment">#服务器端证书文件</span></span><br><span class="line">-rw------- 1 mysql mysql 1675 Jun 12 17:22 server-key.pem     <span class="comment">#服务器端私钥文件</span></span><br></pre></td></tr></table></figure>
+
 <p>修改权限：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chown</span> -R mysql.mysql *.pem</span><br></pre></td></tr></table></figure>
+
 <p>添加ssl参数到<code>my.cnf</code>配置文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">ssl-ca=/usr/local/mysql/data/ca.pem</span><br><span class="line">ssl-cert=/usr/local/mysql/data/client-cert.pem</span><br><span class="line">ssl-key=/usr/local/mysql/data/client-key.pem</span><br><span class="line"> </span><br><span class="line">[mysql]</span><br><span class="line">ssl-ca=/usr/local/mysql/data/ca.pem</span><br><span class="line">ssl-cert=/usr/local/mysql/data/client-cert.pem</span><br><span class="line">ssl-key=/usr/local/mysql/data/client-key.pem</span><br></pre></td></tr></table></figure>
+
 <p>重启MySQL</p>
 <p>使用<code>\s</code>或<code>status</code>查看当前连接是否使用了ssl</p>
 <p>强制用户使用ssl</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">/</span><span class="operator">/</span>新建用户</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">grant</span> <span class="keyword">select</span> <span class="keyword">on</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">to</span> <span class="string">&#x27;dba&#x27;</span>@<span class="string">&#x27;%&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;xxx&#x27;</span> REQUIRE SSL; </span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>修改用户</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;dba&#x27;</span>@<span class="string">&#x27;%&#x27;</span> REQUIRE SSL;</span><br><span class="line">mysql<span class="operator">&gt;</span> flush privileges;</span><br></pre></td></tr></table></figure>
+
 <p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/sumengnan/article/details/114086217">https://blog.csdn.net/sumengnan/article/details/114086217</a></p>
 
     </div>
@@ -543,12 +578,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">138k</span>
+    <span title="站点总字数">139k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:06</span>
+    <span title="站点阅读时长">2:07</span>
 </div>
 
 <!-- <br /> -->

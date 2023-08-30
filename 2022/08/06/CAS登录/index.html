@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1、CAS介绍 https:&#x2F;&#x2F;so.csdn.net&#x2F;so&#x2F;search?q&#x3D;cas&amp;t&#x3D;blog&amp;u&#x3D;Anumbrella&amp;s&#x3D;new CAS最基本的协议过程：  CAS Client与受保护的客户端应用部署在一起，以Filter方式保护受保护的资源。对于访问受保护资源的每个Web请求，CAS Client会分析该请求的Http请求中是否包含Service Ticket">
+  <meta name="description" content="1、CAS介绍https:&#x2F;&#x2F;so.csdn.net&#x2F;so&#x2F;search?q&#x3D;cas&amp;t&#x3D;blog&amp;u&#x3D;Anumbrella&amp;s&#x3D;new CAS最基本的协议过程：   CAS Client与受保护的客户端应用部署在一起，以Filter方式保护受保护的资源。对于访问受保护资源的每个Web请求，CAS Client会分析该请求的Http请求中是否包含Service Ticket">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CAS登录">
 <meta property="og:url" content="http://example.com/2022/08/06/CAS%E7%99%BB%E5%BD%95/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="1、CAS介绍 https:&#x2F;&#x2F;so.csdn.net&#x2F;so&#x2F;search?q&#x3D;cas&amp;t&#x3D;blog&amp;u&#x3D;Anumbrella&amp;s&#x3D;new CAS最基本的协议过程：  CAS Client与受保护的客户端应用部署在一起，以Filter方式保护受保护的资源。对于访问受保护资源的每个Web请求，CAS Client会分析该请求的Http请求中是否包含Service Ticket">
+<meta property="og:description" content="1、CAS介绍https:&#x2F;&#x2F;so.csdn.net&#x2F;so&#x2F;search?q&#x3D;cas&amp;t&#x3D;blog&amp;u&#x3D;Anumbrella&amp;s&#x3D;new CAS最基本的协议过程：   CAS Client与受保护的客户端应用部署在一起，以Filter方式保护受保护的资源。对于访问受保护资源的每个Web请求，CAS Client会分析该请求的Http请求中是否包含Service Ticket">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220807153953551.png">
 <meta property="og:image" content="http://example.com/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220806212042310.png">
@@ -259,162 +259,168 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="1、CAS介绍">1、CAS介绍</h3>
-<p><a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=cas&amp;t=blog&amp;u=Anumbrella&amp;s=new">https://so.csdn.net/so/search?q=cas&amp;t=blog&amp;u=Anumbrella&amp;s=new</a></p>
+        <h3 id="1、CAS介绍"><a href="#1、CAS介绍" class="headerlink" title="1、CAS介绍"></a>1、CAS介绍</h3><p><a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=cas&amp;t=blog&amp;u=Anumbrella&amp;s=new">https://so.csdn.net/so/search?q=cas&amp;t=blog&amp;u=Anumbrella&amp;s=new</a></p>
 <p>CAS最基本的协议过程：</p>
 <img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220807153953551.png" class="">
+
 <p>CAS Client与受保护的客户端应用部署在一起，以Filter方式保护受保护的资源。对于访问受保护资源的每个Web请求，CAS Client会分析该请求的Http请求中是否包含Service Ticket，如果没有，则说明当前用户尚未登录，于是将请求重定向到指定好的CAS Server登录地址，并传递Service（也就是要访问的目的资源地址），以便登录成功过后转回该地址。用户在第3步中输入认证信息，如果登录成功，CAS Server随机产生一个相当长度、唯一、不可伪造的Service Ticket，并缓存以待将来验证，之后系统自动重定向到Service所在地址，并为客户端浏览器设置一个Ticket Granted Cookie（TGC），CAS Client在拿到Service和新产生的Ticket过后，在第5，6步中与CAS Server进行身份核实，以确保Service Ticket的合法性。</p>
 <p>在该协议中，所有与CAS的交互均采用SSL协议，确保ST和TGC的安全性。协议工作过程中会有2次重定向的过程，但是CAS Client与CAS Server之间进行Ticket验证的过程对于用户是透明的。</p>
 <p>另外，CAS协议中还提供了Proxy（代理）模式，以适应更加高级、复杂的应用场景，具体参考CAS官方文档。</p>
-<h4 id="1-1、Ticket">1.1、Ticket</h4>
+<h4 id="1-1、Ticket"><a href="#1-1、Ticket" class="headerlink" title="1.1、Ticket"></a>1.1、Ticket</h4><blockquote>
+<h3 id="TGT：Ticket-Grangting-Ticket"><a href="#TGT：Ticket-Grangting-Ticket" class="headerlink" title="TGT：Ticket Grangting Ticket"></a>TGT：Ticket Grangting Ticket</h3></blockquote>
+<p> 为用户签发的登录票据，其中封装了Cookie的值（Cookie值中包含用户信息），用户CAS认证通过后，CAS Server生成TGT存储在缓存中，并生成TGC（Ticket Grangting Cookie）理解为sessionId，写入浏览器。HTTP请求到达时，会验证是否包含TGC，包含则以此为key在缓存中查找TGT，如果有说明用户登录过并且未过期，如果没有需要重新登录。</p>
 <blockquote>
-<h3 id="TGT：Ticket-Grangting-Ticket">TGT：Ticket Grangting Ticket</h3>
-</blockquote>
-<p>为用户签发的登录票据，其中封装了Cookie的值（Cookie值中包含用户信息），用户CAS认证通过后，CAS Server生成TGT存储在缓存中，并生成TGC（Ticket Grangting Cookie）理解为sessionId，写入浏览器。HTTP请求到达时，会验证是否包含TGC，包含则以此为key在缓存中查找TGT，如果有说明用户登录过并且未过期，如果没有需要重新登录。</p>
-<blockquote>
-<h3 id="TGC：Ticket-Grangting-Cookie">TGC：Ticket Grangting Cookie</h3>
-</blockquote>
+<h3 id="TGC：Ticket-Grangting-Cookie"><a href="#TGC：Ticket-Grangting-Cookie" class="headerlink" title="TGC：Ticket Grangting Cookie"></a>TGC：Ticket Grangting Cookie</h3></blockquote>
 <p>上面提到的TGT存入缓存中，而TGC即为缓存标识，通过TGC寻找到TGT。</p>
 <blockquote>
-<h3 id="ST：Service-Ticket">ST：Service Ticket</h3>
-</blockquote>
-<p>用户访问某一Service的票据。当用户调用CAS Client某一Service时，会验证用户是否含有ST，如果没有，则要求用户到CAS Server获取ST，如果用户请求中包含TGC，则CAS会以此查找缓存中的TGT，如果存在TGT，则用此TGT签发ST，返回给用户。用户凭借ST再次访问该Service，Service携带ST到CAS Server进行验证，验证通过后允许用户访问资源。</p>
-<p>为了保证安全，ST是随机生成的，另外，CAS规定，CAS只能存活一定的时间，并且规定ST只能使用一次，无论ST是否验证成功，CAS Server都会清除服务端缓存中的该Ticket，保证同一个ST不能被使用两次。</p>
-<h4 id="1-2、认证过程">1.2、认证过程</h4>
-<ul>
+<h3 id="ST：Service-Ticket"><a href="#ST：Service-Ticket" class="headerlink" title="ST：Service Ticket"></a>ST：Service Ticket</h3></blockquote>
+<p> 用户访问某一Service的票据。当用户调用CAS Client某一Service时，会验证用户是否含有ST，如果没有，则要求用户到CAS Server获取ST，如果用户请求中包含TGC，则CAS会以此查找缓存中的TGT，如果存在TGT，则用此TGT签发ST，返回给用户。用户凭借ST再次访问该Service，Service携带ST到CAS Server进行验证，验证通过后允许用户访问资源。</p>
+<p> 为了保证安全，ST是随机生成的，另外，CAS规定，CAS只能存活一定的时间，并且规定ST只能使用一次，无论ST是否验证成功，CAS Server都会清除服务端缓存中的该Ticket，保证同一个ST不能被使用两次。</p>
+<h4 id="1-2、认证过程"><a href="#1-2、认证过程" class="headerlink" title="1.2、认证过程"></a>1.2、认证过程</h4><ul>
 <li>第一步：</li>
 </ul>
-<p>1、用户请求客户端，客户端验证本地Session没有该用户信息。</p>
-<p>2、客户端检测到此次请求中没有ST。</p>
-<p>3、客户端返回给用户Redirect响应，到CAS Server，携带service参数，例如：</p>
-<p>302 Location : <a target="_blank" rel="noopener" href="https://cas.example.com/cas/login?service=http0%3A8081%2F">https://cas.example.com/cas/login?service=http0%3A8081%2F</a></p>
+<p> 1、用户请求客户端，客户端验证本地Session没有该用户信息。</p>
+<p> 2、客户端检测到此次请求中没有ST。</p>
+<p> 3、客户端返回给用户Redirect响应，到CAS Server，携带service参数，例如：</p>
+<p> 302 Location : <a target="_blank" rel="noopener" href="https://cas.example.com/cas/login?service=http0:8081/">https://cas.example.com/cas/login?service=http0%3A8081%2F</a></p>
 <ul>
 <li>第二步：</li>
 </ul>
-<p>1、CAS Server检测到该次请求中不包含TGC，跳转到登录页。</p>
-<p>2、用户输入用户名密码进行登录认证，成功后CAS Server生成TGT（集成用户信息及ST），并随机生成TGC，将TGC写入Cookie。</p>
-<p>3、CAS Server返回给用户Redirect响应，到service中的地址，携带ST参数及包含TGC的Cookie，例如：</p>
-<p>Set-Cookie : CASTGC=TGT-2345678</p>
-<p>302 Location : <a target="_blank" rel="noopener" href="http://baidu.com/web1?ticket=ST-5-Sx6eyvj7cPPCfn0pMZ">http://baidu.com/web1?ticket=ST-5-Sx6eyvj7cPPCfn0pMZ</a></p>
+<p> 1、CAS Server检测到该次请求中不包含TGC，跳转到登录页。</p>
+<p> 2、用户输入用户名密码进行登录认证，成功后CAS Server生成TGT（集成用户信息及ST），并随机生成TGC，将TGC写入Cookie。</p>
+<p> 3、CAS Server返回给用户Redirect响应，到service中的地址，携带ST参数及包含TGC的Cookie，例如：</p>
+<p> Set-Cookie : CASTGC&#x3D;TGT-2345678</p>
+<p> 302 Location : <a target="_blank" rel="noopener" href="http://baidu.com/web1?ticket=ST-5-Sx6eyvj7cPPCfn0pMZ">http://baidu.com/web1?ticket=ST-5-Sx6eyvj7cPPCfn0pMZ</a></p>
 <ul>
 <li>第三步：</li>
 </ul>
-<p>1、用户携带ticket(ST)再次请求CAS Client，客户端Authentication Filter检测到请求中带有ticket参数，会跳过，由Ticket Validation Filter处理。</p>
-<p>2、Ticket Validation Filter 携带ticket(ST)及service访问CAS Server的/serviceValidate接口，希望CAS Server验证ST有效性。</p>
-<p>3、CAS Server验证成功，将用户信息通过xml方式返回给Ticket Validation Filter，当该Filter接收到验证成功的响应时，把用户信息存入缓存。至此，SSO会话成功建立。</p>
+<p> 1、用户携带ticket(ST)再次请求CAS Client，客户端Authentication Filter检测到请求中带有ticket参数，会跳过，由Ticket Validation Filter处理。</p>
+<p> 2、Ticket Validation Filter 携带ticket(ST)及service访问CAS Server的&#x2F;serviceValidate接口，希望CAS Server验证ST有效性。</p>
+<p> 3、CAS Server验证成功，将用户信息通过xml方式返回给Ticket Validation Filter，当该Filter接收到验证成功的响应时，把用户信息存入缓存。至此，SSO会话成功建立。</p>
 <ul>
 <li>第四步：</li>
 </ul>
-<p>1、Client将用户信息存入缓存，并生成SessionId写入cookie，返回给用户Redirect响应，到用户请求的服务地址。例如：</p>
-<p>Set-Cookie : JSESSIONID=ABC123456</p>
-<p>302 Location : <a target="_blank" rel="noopener" href="http://baidu.com/web1">http://baidu.com/web1</a></p>
-<p>2、用户接下来的访问只需要验证SessionId即可，无需再向CAS Server请求验证。</p>
+<p> 1、Client将用户信息存入缓存，并生成SessionId写入cookie，返回给用户Redirect响应，到用户请求的服务地址。例如：</p>
+<p> Set-Cookie : JSESSIONID&#x3D;ABC123456</p>
+<p> 302 Location : <a target="_blank" rel="noopener" href="http://baidu.com/web1">http://baidu.com/web1</a></p>
+<p> 2、用户接下来的访问只需要验证SessionId即可，无需再向CAS Server请求验证。</p>
 <p>当用户访问同一个CAS Server但是不同的CAS Client时：</p>
-<p>1、同样CAS Client2检测缓存中没有该次请求的用户信息，没有ST，Client2返回给用户Redirect响应，携带service参数，到CAS Server。</p>
-<p>2、这是用户第二次访问CAS Server，此时Request的Cookie中会携带第一次签发的TGC，CAS Server根据TGC查找缓存中是否有对应的TGT，例如：</p>
-<p>Set-Cookie : CASTGC=TGT-2345678</p>
-<p>302 Location : <a target="_blank" rel="noopener" href="https://cas.example.com/cas/login?service=http://app.com/web">https://cas.example.com/cas/login?service=http://app.com/web</a></p>
-<p>3、如果有，说明用户登录过且未过期，用户不必再次登陆，CAS Server会直接找到TGT签发ST，返回给客户端Redirect响应，到service中的地址，例如：</p>
-<p>Set-Cookie : CASTGC=TGT-2345678</p>
-<p>302 Location : <a target="_blank" rel="noopener" href="http://app.com/web?ticket=ST-8-SoIdlj7cPPCfn0pMZ">http://app.com/web?ticket=ST-8-SoIdlj7cPPCfn0pMZ</a></p>
-<p>4、用户携带ticket(ST)再次请求CAS Client，客户端Authentication Filter检测到请求中带有ticket参数，会跳过，由Ticket Validation Filter处理。</p>
-<p>5、Ticket Validation Filter 携带ticket(ST)及service访问CAS Server的/serviceValidate接口，希望CAS Server验证ST有效性。</p>
-<p>6、CAS Server验证成功，将用户信息通过xml方式返回给Ticket Validation Filter，当该Filter接收到验证成功的响应时，把用户信息存入缓存。至此，SSO会话成功建立。</p>
-<p>7、Client将用户信息存入缓存，并生成SessionId写入cookie，返回给用户Redirect响应，到用户请求的服务地址。例如：</p>
-<p>Set-Cookie : JSESSIONID=ABC123456</p>
-<p>302 Location : <a target="_blank" rel="noopener" href="http://app.com/web">http://app.com/web</a></p>
-<p>8、用户接下来的访问只需要验证SessionId即可，无需再向CAS Server请求验证。</p>
-<h3 id="2、搭建Tomcat-Https支持">2、搭建Tomcat Https支持</h3>
-<hr>
-<h4 id="2-1、生成密钥库">2.1、生成密钥库</h4>
-<p>使用JDK自带的keytools工具生成密钥库</p>
+<p> 1、同样CAS Client2检测缓存中没有该次请求的用户信息，没有ST，Client2返回给用户Redirect响应，携带service参数，到CAS Server。</p>
+<p> 2、这是用户第二次访问CAS Server，此时Request的Cookie中会携带第一次签发的TGC，CAS Server根据TGC查找缓存中是否有对应的TGT，例如：</p>
+<p> Set-Cookie : CASTGC&#x3D;TGT-2345678</p>
+<p> 302 Location : <a target="_blank" rel="noopener" href="https://cas.example.com/cas/login?service=http://app.com/web">https://cas.example.com/cas/login?service=http://app.com/web</a></p>
+<p> 3、如果有，说明用户登录过且未过期，用户不必再次登陆，CAS Server会直接找到TGT签发ST，返回给客户端Redirect响应，到service中的地址，例如：</p>
+<p> Set-Cookie : CASTGC&#x3D;TGT-2345678</p>
+<p> 302 Location : <a target="_blank" rel="noopener" href="http://app.com/web?ticket=ST-8-SoIdlj7cPPCfn0pMZ">http://app.com/web?ticket=ST-8-SoIdlj7cPPCfn0pMZ</a></p>
+<p> 4、用户携带ticket(ST)再次请求CAS Client，客户端Authentication Filter检测到请求中带有ticket参数，会跳过，由Ticket Validation Filter处理。</p>
+<p> 5、Ticket Validation Filter 携带ticket(ST)及service访问CAS Server的&#x2F;serviceValidate接口，希望CAS Server验证ST有效性。</p>
+<p> 6、CAS Server验证成功，将用户信息通过xml方式返回给Ticket Validation Filter，当该Filter接收到验证成功的响应时，把用户信息存入缓存。至此，SSO会话成功建立。</p>
+<p> 7、Client将用户信息存入缓存，并生成SessionId写入cookie，返回给用户Redirect响应，到用户请求的服务地址。例如：</p>
+<p> Set-Cookie : JSESSIONID&#x3D;ABC123456</p>
+<p> 302 Location : <a target="_blank" rel="noopener" href="http://app.com/web">http://app.com/web</a></p>
+<p> 8、用户接下来的访问只需要验证SessionId即可，无需再向CAS Server请求验证。</p>
+<h3 id="2、搭建Tomcat-Https支持"><a href="#2、搭建Tomcat-Https支持" class="headerlink" title="2、搭建Tomcat Https支持"></a>2、搭建Tomcat Https支持</h3><hr>
+<h4 id="2-1、生成密钥库"><a href="#2-1、生成密钥库" class="headerlink" title="2.1、生成密钥库"></a>2.1、生成密钥库</h4><p>使用JDK自带的keytools工具生成密钥库</p>
 <p>别名：caskey 存储路径：D:\Work\Projects\cas\keystore\caskey.keystore</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -genkey -v -alias caskey -keyalg RSA -keystore D:\Work\Projects\cas\keystore\caskey.keystore</span><br></pre></td></tr></table></figure>
+
 <img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220806212042310.png" class="">
-<h4 id="2-2、从密钥库导出证书">2.2、从密钥库导出证书</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -export -trustcacerts -alias caskey -file  D:\Work\Projects\cas\keystore\caskey.cer -keystore D:\Work\Projects\cas\keystore\caskey.keystore</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2、从密钥库导出证书"><a href="#2-2、从密钥库导出证书" class="headerlink" title="2.2、从密钥库导出证书"></a>2.2、从密钥库导出证书</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -export -trustcacerts -alias caskey -file  D:\Work\Projects\cas\keystore\caskey.cer -keystore D:\Work\Projects\cas\keystore\caskey.keystore</span><br></pre></td></tr></table></figure>
+
 <img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220806212653642.png" class="">
-<h4 id="2-3、将证书导入到JDK证书库">2.3、将证书导入到JDK证书库</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -import -trustcacerts -alias caskey -file D:\Work\Projects\cas\keystore\caskey.cer -keystore D:\Work\Servers\Java\jdk1.8.0_181\jre\lib\security\cacerts</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-3、将证书导入到JDK证书库"><a href="#2-3、将证书导入到JDK证书库" class="headerlink" title="2.3、将证书导入到JDK证书库"></a>2.3、将证书导入到JDK证书库</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -import -trustcacerts -alias caskey -file D:\Work\Projects\cas\keystore\caskey.cer -keystore D:\Work\Servers\Java\jdk1.8.0_181\jre\lib\security\cacerts</span><br></pre></td></tr></table></figure>
+
 <p>密码：changeit</p>
 <img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220806213157447.png" class="">
-<h4 id="2-4、证书其他命令">2.4、证书其他命令</h4>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/gmaaa123/article/details/107460922">https://blog.csdn.net/gmaaa123/article/details/107460922</a></p>
-<h4 id="2-5、Tomcat配置https支持及乱码修改">2.5、Tomcat配置https支持及乱码修改</h4>
-<p>这里采用tomcat9，找到tomcat\conf\server.xml打开文件，加入如下配置即可：</p>
+
+<h4 id="2-4、证书其他命令"><a href="#2-4、证书其他命令" class="headerlink" title="2.4、证书其他命令"></a>2.4、证书其他命令</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/gmaaa123/article/details/107460922">https://blog.csdn.net/gmaaa123/article/details/107460922</a></p>
+<h4 id="2-5、Tomcat配置https支持及乱码修改"><a href="#2-5、Tomcat配置https支持及乱码修改" class="headerlink" title="2.5、Tomcat配置https支持及乱码修改"></a>2.5、Tomcat配置https支持及乱码修改</h4><p>这里采用tomcat9，找到tomcat\conf\server.xml打开文件，加入如下配置即可：</p>
 <p>keystoreFile为证书地址，keystorePass为证书密钥</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">&quot;8443&quot;</span> <span class="attr">protocol</span>=<span class="string">&quot;org.apache.coyote.http11.Http11NioProtocol&quot;</span></span></span><br><span class="line"><span class="tag">               <span class="attr">maxThreads</span>=<span class="string">&quot;150&quot;</span> <span class="attr">SSLEnabled</span>=<span class="string">&quot;true&quot;</span> <span class="attr">scheme</span>=<span class="string">&quot;https&quot;</span> <span class="attr">secure</span>=<span class="string">&quot;true&quot;</span></span></span><br><span class="line"><span class="tag">           	   <span class="attr">clientAuth</span>=<span class="string">&quot;false&quot;</span> <span class="attr">sslProtocol</span>=<span class="string">&quot;TLS&quot;</span></span></span><br><span class="line"><span class="tag">               <span class="attr">keystoreFile</span>=<span class="string">&quot;D:\Work\Projects\cas\keystore\caskey.keystore&quot;</span></span></span><br><span class="line"><span class="tag">           	   <span class="attr">keystorePass</span>=<span class="string">&quot;wzc1996&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>启动bin下的startup.bat</p>
 <p>Tomcat默认有中文乱码，在conf子目录中，找到<code>&quot;logging.properties&quot;</code>文件，打开文件，找到如下配置项：</p>
 <img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220806214732109.png" class="">
+
 <p>将UTF-8修改为GBK，保存重启！</p>
-<h4 id="2-6、测试">2.6、测试</h4>
-<p>通过<code>https://localhost:8443</code>端口可以访问</p>
+<h4 id="2-6、测试"><a href="#2-6、测试" class="headerlink" title="2.6、测试"></a>2.6、测试</h4><p>通过<code>https://localhost:8443</code>端口可以访问</p>
 <img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220806214949877.png" class="">
-<h3 id="3、CAS-Server服务端搭建">3、CAS Server服务端搭建</h3>
-<hr>
-<h4 id="3-1、CAS-Server-war-下载">3.1、CAS Server war 下载</h4>
-<p>官网：<a target="_blank" rel="noopener" href="https://www.apereo.org/">https://www.apereo.org/</a></p>
+
+
+
+<h3 id="3、CAS-Server服务端搭建"><a href="#3、CAS-Server服务端搭建" class="headerlink" title="3、CAS Server服务端搭建"></a>3、CAS Server服务端搭建</h3><hr>
+<h4 id="3-1、CAS-Server-war-下载"><a href="#3-1、CAS-Server-war-下载" class="headerlink" title="3.1、CAS Server war 下载"></a>3.1、CAS Server war 下载</h4><p>官网：<a target="_blank" rel="noopener" href="https://www.apereo.org/">https://www.apereo.org/</a></p>
 <p>GitHub官网：<a target="_blank" rel="noopener" href="https://github.com/apereo/cas">https://github.com/apereo/cas</a></p>
 <p>CAS服务端：<a target="_blank" rel="noopener" href="https://github.com/apereo/cas-overlay-template">https://github.com/apereo/cas-overlay-template</a></p>
 <p>maven仓库：<a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/cas/">https://repo1.maven.org/maven2/cas/</a></p>
 <p>war包地址：<a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/apereo/cas/cas-server-webapp-tomcat/5.3.14">https://repo1.maven.org/maven2/org/apereo/cas/cas-server-webapp-tomcat/5.3.14</a></p>
 <p>下载</p>
 <img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220806220423381.png" class="">
-<h4 id="3-2、CAS-Server发布到Tomcat">3.2、CAS Server发布到Tomcat</h4>
-<p>将下载的war包放到Tomcat的webapp目录下，将包名改为cas，访问：<a target="_blank" rel="noopener" href="https://localhost:8443/cas">https://localhost:8443/cas</a></p>
+
+<h4 id="3-2、CAS-Server发布到Tomcat"><a href="#3-2、CAS-Server发布到Tomcat" class="headerlink" title="3.2、CAS Server发布到Tomcat"></a>3.2、CAS Server发布到Tomcat</h4><p>将下载的war包放到Tomcat的webapp目录下，将包名改为cas，访问：<a target="_blank" rel="noopener" href="https://localhost:8443/cas">https://localhost:8443/cas</a></p>
 <p>配置日志路径：打开<code>WEB-INF\classes\log4j2.xml</code>文件，修改成实际日志路径</p>
 <img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220807000649129.png" class="">
+
 <p>配置hosts：修改C:\Windows\System32\hosts，可以使用域名访问</p>
 <img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220806223755547.png" class="">
+
 <p>默认用户名和密码，位于<code>application.properties</code>文件中</p>
 <img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220807001001155.png" class="">
-<h4 id="3-3、配置数据源，数据库用户认证">3.3、配置数据源，数据库用户认证</h4>
-<p>1：建表</p>
+
+<h4 id="3-3、配置数据源，数据库用户认证"><a href="#3-3、配置数据源，数据库用户认证" class="headerlink" title="3.3、配置数据源，数据库用户认证"></a>3.3、配置数据源，数据库用户认证</h4><p>1：建表</p>
 <p>2：修改application.properties配置文件，注释掉写死的认证用户，加上jdbc数据源配置</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cas.authn.accept.users=casuser::Mellon</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].url</span>=<span class="string">jdbc:mysql://localhost:3306/demo?serverTimezone=GMT</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].user</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].password</span>=<span class="string">wzc1996</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].sql</span>=<span class="string">select * from user where username = ?</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].fieldPassword</span>=<span class="string">password</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].driverClass</span>=<span class="string">com.mysql.jdbc.Driver</span></span><br></pre></td></tr></table></figure>
+
 <p>3：加上jdbc驱动包以及支持jar</p>
 <p><code>cas-server-support-jdbc-5.3.14.jar</code></p>
 <p><code>cas-server-support-jdbc-authentication-5.3.14.jar</code></p>
 <p><code>cas-server-support-jdbc-drivers-5.3.14.jar</code></p>
 <p><code>mysql-connection-java-5.1.28-bin.jar</code></p>
-<h4 id="3-4、密码加密校验">3.4、密码加密校验</h4>
-<p>1：数据库生成下MD5密码</p>
+<h4 id="3-4、密码加密校验"><a href="#3-4、密码加密校验" class="headerlink" title="3.4、密码加密校验"></a>3.4、密码加密校验</h4><p>1：数据库生成下MD5密码</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> md5(<span class="string">&#x27;123456&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
 <p>2：修改application.properties配置文件</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cas.authn.jdbc.query[0].passwordEncoder.type</span>=<span class="string">DEFAULT</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].passwordEncoder.characterEncoding</span>=<span class="string">UTF-8</span></span><br><span class="line"><span class="comment"># MD5加密策略</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].passwordEncoder.encodingAlgorithm</span>=<span class="string">MD5</span></span><br></pre></td></tr></table></figure>
+
 <p>3：测试OK</p>
-<h4 id="3-5-其他配置">3.5 其他配置</h4>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在退出时是否需要 确认一下  true确认 false直接退出，这里是CAS服务端的确认，实际情况用不到</span></span><br><span class="line"><span class="attr">cas.logout.confirmLogout</span>=<span class="string">false</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">#在CAS客户端退出时的配置</span></span><br><span class="line"><span class="comment"># 默认情况下退出登录时，页面将会跳转到CAS服务器内部的注销页面 casLogoutView.jsp ，</span></span><br><span class="line"><span class="comment"># 如果我们需要在退出登录后，跳转到指定页面,需要将下列参数设为true,在退出登录的url里需要添加service参数，该参数指定在注销后需要跳转的页面,配置允许登出后跳转到指定页面,</span></span><br><span class="line"><span class="attr">cas.logout.followServiceRedirects</span>=<span class="string">true</span></span><br><span class="line"><span class="comment">#跳转到指定页面需要的参数名为 service(default)</span></span><br><span class="line"><span class="attr">cas.logout.redirectParameter</span>=<span class="string">service</span></span><br><span class="line"><span class="comment">#是否移除子系统的票据</span></span><br><span class="line"><span class="attr">cas.logout.removeDescendantTickets</span>=<span class="string">true</span></span><br></pre></td></tr></table></figure>
-<h4 id="3-5、CAS-Redis">3.5、CAS Redis</h4>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- cas 的redis依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apereo.cas<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>cas-server-support-redis-ticket-registry<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;cas.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-5-其他配置"><a href="#3-5-其他配置" class="headerlink" title="3.5 其他配置"></a>3.5 其他配置</h4><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在退出时是否需要 确认一下  true确认 false直接退出，这里是CAS服务端的确认，实际情况用不到</span></span><br><span class="line"><span class="attr">cas.logout.confirmLogout</span>=<span class="string">false</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">#在CAS客户端退出时的配置</span></span><br><span class="line"><span class="comment"># 默认情况下退出登录时，页面将会跳转到CAS服务器内部的注销页面 casLogoutView.jsp ，</span></span><br><span class="line"><span class="comment"># 如果我们需要在退出登录后，跳转到指定页面,需要将下列参数设为true,在退出登录的url里需要添加service参数，该参数指定在注销后需要跳转的页面,配置允许登出后跳转到指定页面,</span></span><br><span class="line"><span class="attr">cas.logout.followServiceRedirects</span>=<span class="string">true</span></span><br><span class="line"><span class="comment">#跳转到指定页面需要的参数名为 service(default)</span></span><br><span class="line"><span class="attr">cas.logout.redirectParameter</span>=<span class="string">service</span></span><br><span class="line"><span class="comment">#是否移除子系统的票据</span></span><br><span class="line"><span class="attr">cas.logout.removeDescendantTickets</span>=<span class="string">true</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-5、CAS-Redis"><a href="#3-5、CAS-Redis" class="headerlink" title="3.5、CAS Redis"></a>3.5、CAS Redis</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- cas 的redis依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apereo.cas<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>cas-server-support-redis-ticket-registry<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;cas.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#其次配置application.properties</span></span><br><span class="line"><span class="attr">cas.ticket.registry.redis.host</span>=<span class="string">127.0.0.1  </span></span><br><span class="line"><span class="attr">cas.ticket.registry.redis.database</span>=<span class="string">0  </span></span><br><span class="line"><span class="attr">cas.ticket.registry.redis.port</span>=<span class="string">6379  </span></span><br><span class="line"><span class="attr">cas.ticket.registry.redis.password</span>=<span class="string">p123456</span></span><br><span class="line"><span class="attr">cas.ticket.registry.redis.timeout</span>=<span class="string">2000 </span></span><br><span class="line"><span class="attr">cas.ticket.registry.redis.useSsl</span>=<span class="string">false </span></span><br><span class="line"><span class="attr">cas.ticket.registry.redis.usePool</span>=<span class="string">false</span></span><br></pre></td></tr></table></figure>
-<h3 id="4、CAS-Client-SpringBoot客户端整合搭建">4、CAS Client+SpringBoot客户端整合搭建</h3>
-<hr>
+
+<h3 id="4、CAS-Client-SpringBoot客户端整合搭建"><a href="#4、CAS-Client-SpringBoot客户端整合搭建" class="headerlink" title="4、CAS Client+SpringBoot客户端整合搭建"></a>4、CAS Client+SpringBoot客户端整合搭建</h3><hr>
 <p>项目搭建，加入cas client依赖</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">cas.version</span>&gt;</span>2.3.0-GA<span class="tag">&lt;/<span class="name">cas.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>net.unicon.cas<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>cas-client-autoconfig-support<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;cas.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>添加application.yml配置：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cas:</span><br><span class="line">  server-url-prefix: https://localhost:8443/cas  # cas服务端地址</span><br><span class="line">  server-login-url: https://localhost:8443/cas/login #cas登录页</span><br><span class="line">  client-host-url: http://localhost:8080  #登录成功跳转地址</span><br><span class="line">  validation-type: cas3</span><br></pre></td></tr></table></figure>
+
 <p>启动类添加<code>@EnableCasClient</code>注解</p>
 <p>运行报错：</p>
 <img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220807152433436.png" class="">
+
 <p>报错原因是cas服务器默认不支持http请求，可以通过配置来让其支持http请求：</p>
 <p>1、在<code>\WEB-INF\classes\services</code>目录下，修改<code>HTTPSandIMAPS-10000001.json</code>文件</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;serviceId&quot;</span> <span class="punctuation">:</span> <span class="string">&quot;^(https|imaps)://.*&quot;</span><span class="punctuation">,</span></span><br><span class="line">改为</span><br><span class="line"><span class="attr">&quot;serviceId&quot;</span> <span class="punctuation">:</span> <span class="string">&quot;^(https|http|imaps)://.*&quot;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+
 <p>2、在<code>\WEB-INF\classes</code>下，修改<code>application.properties</code>文件</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 忽略https安全协议，使用 HTTP 协议</span></span><br><span class="line"><span class="attr">cas.tgc.secure</span>=<span class="string">false</span></span><br><span class="line"><span class="comment"># 是否开启json识别功能,默认为false</span></span><br><span class="line"><span class="attr">cas.serviceRegistry.initFromJson</span>=<span class="string">true</span></span><br></pre></td></tr></table></figure>
-<h3 id="5、显示用户名">5、显示用户名</h3>
-<hr>
+
+
+
+<h3 id="5、显示用户名"><a href="#5、显示用户名" class="headerlink" title="5、显示用户名"></a>5、显示用户名</h3><hr>
 <p>CAS客户端经过CAS Server认证后，CAS客户端可以去CAS Server端拿到登录认证的信息，比如用户名：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//代码中通过一下方法获取用户名</span></span><br><span class="line"><span class="type">Assertion</span> <span class="variable">assertion</span> <span class="operator">=</span> AssertionHolder.getAssertion();</span><br><span class="line"><span class="type">AttributePrincipal</span> <span class="variable">principal</span> <span class="operator">=</span> assertion.getPrincipal();</span><br><span class="line"><span class="type">String</span> <span class="variable">loginName</span> <span class="operator">=</span> principal.getName();</span><br></pre></td></tr></table></figure>
+
 <p>thymeleaf页面可以<code>$&#123;session._const_cas_assertion_.principal.name&#125;</code>取值；</p>
 <p>可以通过如下源码找到</p>
 <img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220809095537660.png" class="">
-<h3 id="6、注销">6、注销</h3>
-<p>href接口重定向到<code>https://localhost:8443/cas/logout</code></p>
-<h3 id="7、CAS单点登录实例实现-测试">7、CAS单点登录实例实现+测试</h3>
-<h3 id="8、CAS-Server界面修改">8、CAS Server界面修改</h3>
-<p>cas server用到springmvc + webflow实现；</p>
+
+<h3 id="6、注销"><a href="#6、注销" class="headerlink" title="6、注销"></a>6、注销</h3><p>href接口重定向到<code>https://localhost:8443/cas/logout</code></p>
+<h3 id="7、CAS单点登录实例实现-测试"><a href="#7、CAS单点登录实例实现-测试" class="headerlink" title="7、CAS单点登录实例实现+测试"></a>7、CAS单点登录实例实现+测试</h3><h3 id="8、CAS-Server界面修改"><a href="#8、CAS-Server界面修改" class="headerlink" title="8、CAS Server界面修改"></a>8、CAS Server界面修改</h3><p>cas server用到springmvc + webflow实现；</p>
 
     </div>
 
@@ -571,12 +577,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">138k</span>
+    <span title="站点总字数">139k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:06</span>
+    <span title="站点阅读时长">2:07</span>
 </div>
 
 <!-- <br /> -->

@@ -241,114 +241,140 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="Mysql安装">Mysql安装</h4>
-<h5 id="安装准备">安装准备</h5>
-<blockquote>
+          <h4 id="Mysql安装"><a href="#Mysql安装" class="headerlink" title="Mysql安装"></a>Mysql安装</h4><h5 id="安装准备"><a href="#安装准备" class="headerlink" title="安装准备"></a>安装准备</h5><blockquote>
 <p>检查电脑是否预装了mysql（预装的mysql叫mariadb ），有则卸载删除</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep mariadb  #查询是否预装mysql</span><br><span class="line"> </span><br><span class="line">rpm -e --nodeps mariadb-libs  #有返回数据则使用该命令卸载</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>上传解压</p>
 </blockquote>
 <p>解压后改名，放到指定目录下</p>
-<h5 id="准备MySQL用户及用户组，完成相关配置">准备MySQL用户及用户组，完成相关配置</h5>
-<blockquote>
+<h5 id="准备MySQL用户及用户组，完成相关配置"><a href="#准备MySQL用户及用户组，完成相关配置" class="headerlink" title="准备MySQL用户及用户组，完成相关配置"></a>准备MySQL用户及用户组，完成相关配置</h5><blockquote>
 <p>添加MySQL用户和组</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">groupadd mysql   #添加名为mysql的用户组</span><br><span class="line"> </span><br><span class="line">useradd -r -g mysql mysql   #添加名为mysql的用户，并将其添加到mysql组中</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>创建MySQL数据和日志文件夹并授权</p>
 </blockquote>
 <p>在mysql目录下，新建数据目录data和日志目录logs，并改变其所有者</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir data   #创建mysql数据目录</span><br><span class="line">mkdir logs</span><br><span class="line"> </span><br><span class="line">chown mysql:mysql -R /usr/local/mysql  #将mysql数据目录的所有者和所有组改为mysql用户和组</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>使用vim命令编辑/etc/my.cnf</p>
+<p>使用vim命令编辑&#x2F;etc&#x2F;my.cnf</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/my.cnf</span><br></pre></td></tr></table></figure>
+
 <p>配置如下：</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">[mysqld]</span></span><br><span class="line"><span class="comment">#skip-grant-tables</span></span><br><span class="line"><span class="comment">#default_password_lifetime=90</span></span><br><span class="line"><span class="attr">bind-address</span>=<span class="string">0.0.0.0</span></span><br><span class="line"><span class="comment">#mysql监听的ip地址，如果是127.0.0.1，表示仅本机访问，0.0.0.0表示全地址可以访问（任何主机）</span></span><br><span class="line"><span class="attr">port</span>=<span class="string">3306  #mysql运行在哪个端口</span></span><br><span class="line"><span class="attr">user</span>=<span class="string">mysql  #mysql以什么用户运行</span></span><br><span class="line"><span class="comment">#max_allowed_packet=10000000</span></span><br><span class="line"><span class="attr">basedir</span>=<span class="string">/usr/local/mysql  #mysql主目录</span></span><br><span class="line"><span class="attr">datadir</span>=<span class="string">/usr/local/mysql/data  #mysql的数据目录</span></span><br><span class="line"><span class="attr">socket</span>=<span class="string">/var/lib/mysql/mysql.sock   #mysql以socket方式运行的sock文件位置</span></span><br><span class="line"><span class="attr">log-error</span>=<span class="string">/usr/local/mysql/data/mysql.err  #错误日志位置</span></span><br><span class="line"><span class="attr">pid-file</span>=<span class="string">/usr/local/mysql/data/mysql.pid   #进程id文件</span></span><br><span class="line"><span class="comment">#character config</span></span><br><span class="line"><span class="attr">character_set_server</span>=<span class="string">utf8mb4  #服务器使用的字符集</span></span><br><span class="line"><span class="attr">symbolic-links</span>=<span class="string">0   #是否支持符号链接，即数据库或表可以存储在my.cnf中指定datadir之外的分区或目录，为0不开启</span></span><br><span class="line"><span class="attr">explicit_defaults_for_timestamp</span>=<span class="string">true  #mysql中TIMESTAMP类型和其他的类型有点不一样(在没有设置explicit_defaults_for_timestamp=1的情况下）</span></span><br><span class="line"><span class="comment">###########</span></span><br><span class="line"><span class="attr">character-set-server</span>=<span class="string">utf8</span></span><br><span class="line"><span class="attr">max_connections</span> = <span class="string">1000</span></span><br><span class="line"><span class="attr">group_concat_max_len</span> = <span class="string">102400</span></span><br><span class="line"><span class="attr">lower_case_table_names</span> = <span class="string">1</span></span><br><span class="line"><span class="attr">log_bin_trust_function_creators</span>=<span class="string">1</span></span><br><span class="line"><span class="attr">sql_mode</span>=<span class="string">NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES</span></span><br><span class="line"><span class="attr">transaction_isolation</span> = <span class="string">READ-COMMITTED</span></span><br><span class="line"><span class="attr">open-files-limit</span> = <span class="string">65535</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>数据库初始化</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/mysql/bin #先cd到bin目录</span><br><span class="line"> </span><br><span class="line">./mysqld --initialize --user=mysql #mysql初始化命令，必须在bin目录下使用</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>配置MySQL服务，启动MySQL</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql  #添加mysql服务</span><br><span class="line"> </span><br><span class="line">service mysql start   #启动mysql</span><br><span class="line"></span><br><span class="line">ln -s /usr/local/mysql/bin/mysql /usr/bin	#创建软连接</span><br></pre></td></tr></table></figure>
-<h5 id="使用MySQL">使用MySQL</h5>
-<blockquote>
+
+<h5 id="使用MySQL"><a href="#使用MySQL" class="headerlink" title="使用MySQL"></a>使用MySQL</h5><blockquote>
 <p>登录数据库，更换root密码</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p   #以root用户登录mysql</span><br></pre></td></tr></table></figure>
-<p>如果出现<code>Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)</code>的错误，建立一个软连接</p>
+
+<p>如果出现<code>Can&#39;t connect to local MySQL server through socket &#39;/tmp/mysql.sock&#39; (2)</code>的错误，建立一个软连接</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s /var/lib/mysql/mysql.sock /tmp/mysql.sock 	<span class="comment">#创建软连接</span></span><br></pre></td></tr></table></figure>
+
 <p>修改密码：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> use mysql;</span><br><span class="line">mysql5<span class="number">.7</span>之前</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> password<span class="operator">=</span>password(<span class="string">&#x27;123456&#x27;</span>) <span class="keyword">where</span> <span class="keyword">user</span><span class="operator">=</span><span class="string">&#x27;root&#x27;</span>;</span><br><span class="line">mysql5<span class="number">.7</span>之后</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> authentication_string<span class="operator">=</span>password(<span class="string">&#x27;123456&#x27;</span>) <span class="keyword">where</span> <span class="keyword">user</span><span class="operator">=</span><span class="string">&#x27;root&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
 <p>也可以：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SET</span> PASSWORD <span class="operator">=</span> PASSWORD(<span class="string">&#x27;你要设置的密码&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
 <p>设置密码永不过期以及其他客户端连接：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> host <span class="operator">=</span> <span class="string">&#x27;%&#x27;</span>, password_expired<span class="operator">=</span><span class="string">&#x27;N&#x27;</span> <span class="keyword">where</span> <span class="keyword">user</span><span class="operator">=</span><span class="string">&#x27;root&#x27;</span>;</span><br><span class="line">mysql<span class="operator">&gt;</span> flush privileges;</span><br><span class="line">mysql<span class="operator">&gt;</span> quit</span><br></pre></td></tr></table></figure>
-<h4 id="主从复制搭建">主从复制搭建</h4>
-<blockquote>
+
+
+
+<h4 id="主从复制搭建"><a href="#主从复制搭建" class="headerlink" title="主从复制搭建"></a>主从复制搭建</h4><blockquote>
 <p>查看binlog是否开启</p>
 </blockquote>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysq<span class="operator">&gt;</span> <span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%log_bin%&#x27;</span></span><br></pre></td></tr></table></figure>
+
 <p><strong>开启binlog，主从都要开启，配置完重启</strong></p>
 <blockquote>
 <p>master的配置文件</p>
 </blockquote>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server_id</span>=<span class="string">1</span></span><br><span class="line"><span class="attr">log_bin</span>=<span class="string">mysql-bin</span></span><br><span class="line"><span class="attr">binlog_format</span>=<span class="string">ROW</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>slave的配置文件</p>
 </blockquote>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server_id</span>=<span class="string">1</span></span><br><span class="line"><span class="attr">log_bin</span>=<span class="string">mysql-bin</span></span><br><span class="line"><span class="attr">binlog_format</span>=<span class="string">ROW</span></span><br><span class="line"></span><br><span class="line"><span class="attr">relay-log</span>=<span class="string">mysql-relay-bin #relay-log为主库的操作日志</span></span><br><span class="line"><span class="attr">replicate-wild-ignore-table</span>=<span class="string">mysql.% #忽略mysql自带的表</span></span><br><span class="line"><span class="attr">replicate-wild-ignore-table</span>=<span class="string">test.% #忽略test表</span></span><br><span class="line"><span class="attr">replicate-wild-ignore-table</span>=<span class="string">information_schema.% #忽略information——schema表</span></span><br><span class="line"><span class="attr">replicate_do_db</span>=<span class="string">mcportal #在slave上配置，指定slave要复制哪个库</span></span><br><span class="line"><span class="attr">replicate-ignore-db</span>=<span class="string">mysql,performance_schema,information_schema #在slave上配置，指定slave要复制哪个库</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>查看binlog日志</p>
 </blockquote>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">show</span> master status;</span><br><span class="line">mysql<span class="operator">&gt;</span> reset master <span class="comment">-- 生产环境慎用（清楚binlog日志）</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>在主库上创建用于同步的账号</p>
 </blockquote>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">GRANT</span> REPLICATION SLAVE <span class="keyword">ON</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">to</span> <span class="string">&#x27;mysyxs&#x27;</span>@<span class="string">&#x27;%&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;xxxx&#x27;</span>; </span><br><span class="line">mysql<span class="operator">&gt;</span> flush privileges;<span class="comment">-- 刷新权限</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>为slave机器设置master的binlog文件以及位置信息</p>
 </blockquote>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> change master <span class="keyword">to</span> master_host<span class="operator">=</span><span class="string">&#x27;10.30.38.203&#x27;</span>,master_port<span class="operator">=</span><span class="number">3306</span>,master_user<span class="operator">=</span><span class="string">&#x27;mysyxs&#x27;</span>,master_password<span class="operator">=</span><span class="string">&#x27;whitebox123!&#x27;</span>,master_log_file<span class="operator">=</span><span class="string">&#x27;mysql-bin.000001&#x27;</span>,master_log_pos<span class="operator">=</span><span class="number">154</span>;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>从机开启slave</p>
 </blockquote>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">start</span> slave; <span class="comment">-- 开启slave</span></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">show</span> slave status\G <span class="comment">-- 查看状态</span></span><br><span class="line">mysql<span class="operator">&gt;</span> stop slave;</span><br></pre></td></tr></table></figure>
-<h4 id="其他">其他</h4>
-<h5 id="引擎">引擎</h5>
-<p>查看MySQL提供什么存储引擎：</p>
+
+
+
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><h5 id="引擎"><a href="#引擎" class="headerlink" title="引擎"></a>引擎</h5><p>查看MySQL提供什么存储引擎：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">show</span> engines;</span><br></pre></td></tr></table></figure>
+
 <p>查看MySQL当前默认的存储引擎：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%storage_engine%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
 <p>查看看某个表用了什么引擎(在显示结果里参数engine后面的就表示该表当前用的存储引擎)</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> 表名;</span><br></pre></td></tr></table></figure>
-<h5 id="字符集与排序规则">字符集与排序规则</h5>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/baidu_27169523/article/details/124470382">https://blog.csdn.net/baidu_27169523/article/details/124470382</a></p>
+
+<h5 id="字符集与排序规则"><a href="#字符集与排序规则" class="headerlink" title="字符集与排序规则"></a>字符集与排序规则</h5><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/baidu_27169523/article/details/124470382">https://blog.csdn.net/baidu_27169523/article/details/124470382</a></p>
 <p>简便的批量修改MySQL表的字符集和排序规则建库 指定字符集和排序规则：</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_31766907/article/details/125784849">https://blog.csdn.net/qq_31766907/article/details/125784849</a></p>
 <p>查看MYSQL数据库服务器和数据库字符集：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%character%&#x27;</span>;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;collation%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
 <p>查看库的字符集：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">show</span> <span class="keyword">create</span> database 数据库\G;</span><br></pre></td></tr></table></figure>
+
 <p>查看表的字符集：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">show</span> <span class="keyword">table</span> status <span class="keyword">from</span> 库名 <span class="keyword">like</span> 表名;</span><br></pre></td></tr></table></figure>
+
 <p>建表指定字符集和排序规则：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">CREATE</span> DATABASE `test` <span class="keyword">DEFAULT</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_general_ci;</span><br></pre></td></tr></table></figure>
+
 <p>修改规则：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">ALTER</span> DATABASE `test` <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_general_ci;</span><br></pre></td></tr></table></figure>
-<h5 id="用户">用户</h5>
-<p>创建用户：</p>
+
+<h5 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h5><p>创建用户：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">create</span> <span class="keyword">user</span> <span class="string">&#x27;用户名&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;用户密码&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
 <p>配置权限：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">grant</span> <span class="keyword">all</span> privileges <span class="keyword">on</span> 数据库名.<span class="operator">*</span> <span class="keyword">to</span> 用户名@<span class="string">&#x27;%&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;用户密码&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
 <p>只读权限</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">GRANT</span> <span class="keyword">Select</span> <span class="keyword">ON</span> `数据库名`.<span class="operator">*</span> <span class="keyword">TO</span> `zhongjiang`@`<span class="operator">%</span>`;</span><br></pre></td></tr></table></figure>
+
 <p>添加超级权限：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">grant</span> <span class="keyword">all</span> privileges <span class="keyword">on</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">to</span> <span class="string">&#x27;yangxin&#x27;</span>@<span class="string">&#x27;%&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;yangxin123456&#x27;</span> <span class="keyword">with</span> <span class="keyword">grant</span> option;</span><br><span class="line">mysql<span class="operator">&gt;</span> flush privileges;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>all privileges：表示将所有权限授予给用户。也可指定具体的权限，如：SELECT、CREATE、DROP等。</li>
 <li>on：表示这些权限对哪些数据库和表生效，格式：数据库名.表名，这里写“*”表示所有数据库，所有表。如果我要指定将权限应用到test库的user表中，可以这么写：test.user</li>
@@ -357,30 +383,39 @@
 </ul>
 <p>回收权限：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">revoke</span> <span class="keyword">create</span> <span class="keyword">on</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">from</span> <span class="string">&#x27;yangxin@localhost&#x27;</span>;</span><br><span class="line">mysql<span class="operator">&gt;</span> flush privileges;</span><br></pre></td></tr></table></figure>
+
 <p>删除用户：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> host,<span class="keyword">user</span> <span class="keyword">from</span> <span class="keyword">user</span>;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">drop</span> <span class="keyword">user</span> <span class="string">&#x27;yangxin&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
 <p>重命名用户：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> rename <span class="keyword">user</span> <span class="string">&#x27;test3&#x27;</span>@<span class="string">&#x27;%&#x27;</span> <span class="keyword">to</span> <span class="string">&#x27;test1&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<h5 id="远程连接">远程连接</h5>
-<p>连接远程命令：</p>
+
+<h5 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h5><p>连接远程命令：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> mysql <span class="operator">-</span>h192<span class="number">.168</span><span class="number">.0</span><span class="number">.201</span> <span class="operator">-</span>p3306 <span class="operator">-</span>uroot <span class="operator">-</span>p123</span><br></pre></td></tr></table></figure>
+
 <p>添加MySQL环境变量</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 既然属于mysql的bin目录下面，那我们可以把此目录配置环境变量中，再次执行命令也可以</span></span><br><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加mysql的环境变量</span></span><br><span class="line"><span class="built_in">export</span> MYSQL_HOME=/usr/local/mysql</span><br><span class="line"><span class="built_in">export</span> PATH=.:<span class="variable">$&#123;MYSQL_HOME&#125;</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 刷新环境变量</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
-<h5 id="SSL连接">SSL连接</h5>
-<p>查看MySQL是否开启SSL：</p>
+
+<h5 id="SSL连接"><a href="#SSL连接" class="headerlink" title="SSL连接"></a>SSL连接</h5><p>查看MySQL是否开启SSL：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &quot;%ssl%&quot;;</span><br></pre></td></tr></table></figure>
-<p>在mysql/bin目录下有<code>mysql_ssl_rsa_setup</code>文件，执行它开始安装ssl</p>
+
+<p>在mysql&#x2F;bin目录下有<code>mysql_ssl_rsa_setup</code>文件，执行它开始安装ssl</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ./mysql_ssl_rsa_setup</span><br></pre></td></tr></table></figure>
-<p>安装完成后，会生成一些私钥公钥在mysql/data目录下：</p>
+
+<p>安装完成后，会生成一些私钥公钥在mysql&#x2F;data目录下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ll *.pem</span><br><span class="line">-rw------- 1 mysql mysql 1675 Jun 12 17:22 ca-key.pem         <span class="comment">#CA私钥</span></span><br><span class="line">-rw-r--r-- 1 mysql mysql 1074 Jun 12 17:22 ca.pem             <span class="comment">#自签的CA证书，客户端连接也需要提供</span></span><br><span class="line">-rw-r--r-- 1 mysql mysql 1078 Jun 12 17:22 client-cert.pem    <span class="comment">#客户端连接服务器端需要提供的证书文件</span></span><br><span class="line">-rw------- 1 mysql mysql 1675 Jun 12 17:22 client-key.pem     <span class="comment">#客户端连接服务器端需要提供的私钥文件</span></span><br><span class="line">-rw------- 1 mysql mysql 1675 Jun 12 17:22 private_key.pem    <span class="comment">#私钥/公钥对的私有成员</span></span><br><span class="line">-rw-r--r-- 1 mysql mysql 451 Jun 12 17:22  public_key.pem     <span class="comment">#私钥/公钥对的共有成员</span></span><br><span class="line">-rw-r--r-- 1 mysql mysql 1078 Jun 12 17:22 server-cert.pem    <span class="comment">#服务器端证书文件</span></span><br><span class="line">-rw------- 1 mysql mysql 1675 Jun 12 17:22 server-key.pem     <span class="comment">#服务器端私钥文件</span></span><br></pre></td></tr></table></figure>
+
 <p>修改权限：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chown</span> -R mysql.mysql *.pem</span><br></pre></td></tr></table></figure>
+
 <p>添加ssl参数到<code>my.cnf</code>配置文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">ssl-ca=/usr/local/mysql/data/ca.pem</span><br><span class="line">ssl-cert=/usr/local/mysql/data/client-cert.pem</span><br><span class="line">ssl-key=/usr/local/mysql/data/client-key.pem</span><br><span class="line"> </span><br><span class="line">[mysql]</span><br><span class="line">ssl-ca=/usr/local/mysql/data/ca.pem</span><br><span class="line">ssl-cert=/usr/local/mysql/data/client-cert.pem</span><br><span class="line">ssl-key=/usr/local/mysql/data/client-key.pem</span><br></pre></td></tr></table></figure>
+
 <p>重启MySQL</p>
 <p>使用<code>\s</code>或<code>status</code>查看当前连接是否使用了ssl</p>
 <p>强制用户使用ssl</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">/</span><span class="operator">/</span>新建用户</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">grant</span> <span class="keyword">select</span> <span class="keyword">on</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">to</span> <span class="string">&#x27;dba&#x27;</span>@<span class="string">&#x27;%&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;xxx&#x27;</span> REQUIRE SSL; </span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>修改用户</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;dba&#x27;</span>@<span class="string">&#x27;%&#x27;</span> REQUIRE SSL;</span><br><span class="line">mysql<span class="operator">&gt;</span> flush privileges;</span><br></pre></td></tr></table></figure>
+
 <p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/sumengnan/article/details/114086217">https://blog.csdn.net/sumengnan/article/details/114086217</a></p>
 
       
@@ -463,162 +498,168 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="1、CAS介绍">1、CAS介绍</h3>
-<p><a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=cas&amp;t=blog&amp;u=Anumbrella&amp;s=new">https://so.csdn.net/so/search?q=cas&amp;t=blog&amp;u=Anumbrella&amp;s=new</a></p>
+          <h3 id="1、CAS介绍"><a href="#1、CAS介绍" class="headerlink" title="1、CAS介绍"></a>1、CAS介绍</h3><p><a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=cas&amp;t=blog&amp;u=Anumbrella&amp;s=new">https://so.csdn.net/so/search?q=cas&amp;t=blog&amp;u=Anumbrella&amp;s=new</a></p>
 <p>CAS最基本的协议过程：</p>
 <img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220807153953551.png" class="">
+
 <p>CAS Client与受保护的客户端应用部署在一起，以Filter方式保护受保护的资源。对于访问受保护资源的每个Web请求，CAS Client会分析该请求的Http请求中是否包含Service Ticket，如果没有，则说明当前用户尚未登录，于是将请求重定向到指定好的CAS Server登录地址，并传递Service（也就是要访问的目的资源地址），以便登录成功过后转回该地址。用户在第3步中输入认证信息，如果登录成功，CAS Server随机产生一个相当长度、唯一、不可伪造的Service Ticket，并缓存以待将来验证，之后系统自动重定向到Service所在地址，并为客户端浏览器设置一个Ticket Granted Cookie（TGC），CAS Client在拿到Service和新产生的Ticket过后，在第5，6步中与CAS Server进行身份核实，以确保Service Ticket的合法性。</p>
 <p>在该协议中，所有与CAS的交互均采用SSL协议，确保ST和TGC的安全性。协议工作过程中会有2次重定向的过程，但是CAS Client与CAS Server之间进行Ticket验证的过程对于用户是透明的。</p>
 <p>另外，CAS协议中还提供了Proxy（代理）模式，以适应更加高级、复杂的应用场景，具体参考CAS官方文档。</p>
-<h4 id="1-1、Ticket">1.1、Ticket</h4>
+<h4 id="1-1、Ticket"><a href="#1-1、Ticket" class="headerlink" title="1.1、Ticket"></a>1.1、Ticket</h4><blockquote>
+<h3 id="TGT：Ticket-Grangting-Ticket"><a href="#TGT：Ticket-Grangting-Ticket" class="headerlink" title="TGT：Ticket Grangting Ticket"></a>TGT：Ticket Grangting Ticket</h3></blockquote>
+<p> 为用户签发的登录票据，其中封装了Cookie的值（Cookie值中包含用户信息），用户CAS认证通过后，CAS Server生成TGT存储在缓存中，并生成TGC（Ticket Grangting Cookie）理解为sessionId，写入浏览器。HTTP请求到达时，会验证是否包含TGC，包含则以此为key在缓存中查找TGT，如果有说明用户登录过并且未过期，如果没有需要重新登录。</p>
 <blockquote>
-<h3 id="TGT：Ticket-Grangting-Ticket">TGT：Ticket Grangting Ticket</h3>
-</blockquote>
-<p>为用户签发的登录票据，其中封装了Cookie的值（Cookie值中包含用户信息），用户CAS认证通过后，CAS Server生成TGT存储在缓存中，并生成TGC（Ticket Grangting Cookie）理解为sessionId，写入浏览器。HTTP请求到达时，会验证是否包含TGC，包含则以此为key在缓存中查找TGT，如果有说明用户登录过并且未过期，如果没有需要重新登录。</p>
-<blockquote>
-<h3 id="TGC：Ticket-Grangting-Cookie">TGC：Ticket Grangting Cookie</h3>
-</blockquote>
+<h3 id="TGC：Ticket-Grangting-Cookie"><a href="#TGC：Ticket-Grangting-Cookie" class="headerlink" title="TGC：Ticket Grangting Cookie"></a>TGC：Ticket Grangting Cookie</h3></blockquote>
 <p>上面提到的TGT存入缓存中，而TGC即为缓存标识，通过TGC寻找到TGT。</p>
 <blockquote>
-<h3 id="ST：Service-Ticket">ST：Service Ticket</h3>
-</blockquote>
-<p>用户访问某一Service的票据。当用户调用CAS Client某一Service时，会验证用户是否含有ST，如果没有，则要求用户到CAS Server获取ST，如果用户请求中包含TGC，则CAS会以此查找缓存中的TGT，如果存在TGT，则用此TGT签发ST，返回给用户。用户凭借ST再次访问该Service，Service携带ST到CAS Server进行验证，验证通过后允许用户访问资源。</p>
-<p>为了保证安全，ST是随机生成的，另外，CAS规定，CAS只能存活一定的时间，并且规定ST只能使用一次，无论ST是否验证成功，CAS Server都会清除服务端缓存中的该Ticket，保证同一个ST不能被使用两次。</p>
-<h4 id="1-2、认证过程">1.2、认证过程</h4>
-<ul>
+<h3 id="ST：Service-Ticket"><a href="#ST：Service-Ticket" class="headerlink" title="ST：Service Ticket"></a>ST：Service Ticket</h3></blockquote>
+<p> 用户访问某一Service的票据。当用户调用CAS Client某一Service时，会验证用户是否含有ST，如果没有，则要求用户到CAS Server获取ST，如果用户请求中包含TGC，则CAS会以此查找缓存中的TGT，如果存在TGT，则用此TGT签发ST，返回给用户。用户凭借ST再次访问该Service，Service携带ST到CAS Server进行验证，验证通过后允许用户访问资源。</p>
+<p> 为了保证安全，ST是随机生成的，另外，CAS规定，CAS只能存活一定的时间，并且规定ST只能使用一次，无论ST是否验证成功，CAS Server都会清除服务端缓存中的该Ticket，保证同一个ST不能被使用两次。</p>
+<h4 id="1-2、认证过程"><a href="#1-2、认证过程" class="headerlink" title="1.2、认证过程"></a>1.2、认证过程</h4><ul>
 <li>第一步：</li>
 </ul>
-<p>1、用户请求客户端，客户端验证本地Session没有该用户信息。</p>
-<p>2、客户端检测到此次请求中没有ST。</p>
-<p>3、客户端返回给用户Redirect响应，到CAS Server，携带service参数，例如：</p>
-<p>302 Location : <a target="_blank" rel="noopener" href="https://cas.example.com/cas/login?service=http0%3A8081%2F">https://cas.example.com/cas/login?service=http0%3A8081%2F</a></p>
+<p> 1、用户请求客户端，客户端验证本地Session没有该用户信息。</p>
+<p> 2、客户端检测到此次请求中没有ST。</p>
+<p> 3、客户端返回给用户Redirect响应，到CAS Server，携带service参数，例如：</p>
+<p> 302 Location : <a target="_blank" rel="noopener" href="https://cas.example.com/cas/login?service=http0:8081/">https://cas.example.com/cas/login?service=http0%3A8081%2F</a></p>
 <ul>
 <li>第二步：</li>
 </ul>
-<p>1、CAS Server检测到该次请求中不包含TGC，跳转到登录页。</p>
-<p>2、用户输入用户名密码进行登录认证，成功后CAS Server生成TGT（集成用户信息及ST），并随机生成TGC，将TGC写入Cookie。</p>
-<p>3、CAS Server返回给用户Redirect响应，到service中的地址，携带ST参数及包含TGC的Cookie，例如：</p>
-<p>Set-Cookie : CASTGC=TGT-2345678</p>
-<p>302 Location : <a target="_blank" rel="noopener" href="http://baidu.com/web1?ticket=ST-5-Sx6eyvj7cPPCfn0pMZ">http://baidu.com/web1?ticket=ST-5-Sx6eyvj7cPPCfn0pMZ</a></p>
+<p> 1、CAS Server检测到该次请求中不包含TGC，跳转到登录页。</p>
+<p> 2、用户输入用户名密码进行登录认证，成功后CAS Server生成TGT（集成用户信息及ST），并随机生成TGC，将TGC写入Cookie。</p>
+<p> 3、CAS Server返回给用户Redirect响应，到service中的地址，携带ST参数及包含TGC的Cookie，例如：</p>
+<p> Set-Cookie : CASTGC&#x3D;TGT-2345678</p>
+<p> 302 Location : <a target="_blank" rel="noopener" href="http://baidu.com/web1?ticket=ST-5-Sx6eyvj7cPPCfn0pMZ">http://baidu.com/web1?ticket=ST-5-Sx6eyvj7cPPCfn0pMZ</a></p>
 <ul>
 <li>第三步：</li>
 </ul>
-<p>1、用户携带ticket(ST)再次请求CAS Client，客户端Authentication Filter检测到请求中带有ticket参数，会跳过，由Ticket Validation Filter处理。</p>
-<p>2、Ticket Validation Filter 携带ticket(ST)及service访问CAS Server的/serviceValidate接口，希望CAS Server验证ST有效性。</p>
-<p>3、CAS Server验证成功，将用户信息通过xml方式返回给Ticket Validation Filter，当该Filter接收到验证成功的响应时，把用户信息存入缓存。至此，SSO会话成功建立。</p>
+<p> 1、用户携带ticket(ST)再次请求CAS Client，客户端Authentication Filter检测到请求中带有ticket参数，会跳过，由Ticket Validation Filter处理。</p>
+<p> 2、Ticket Validation Filter 携带ticket(ST)及service访问CAS Server的&#x2F;serviceValidate接口，希望CAS Server验证ST有效性。</p>
+<p> 3、CAS Server验证成功，将用户信息通过xml方式返回给Ticket Validation Filter，当该Filter接收到验证成功的响应时，把用户信息存入缓存。至此，SSO会话成功建立。</p>
 <ul>
 <li>第四步：</li>
 </ul>
-<p>1、Client将用户信息存入缓存，并生成SessionId写入cookie，返回给用户Redirect响应，到用户请求的服务地址。例如：</p>
-<p>Set-Cookie : JSESSIONID=ABC123456</p>
-<p>302 Location : <a target="_blank" rel="noopener" href="http://baidu.com/web1">http://baidu.com/web1</a></p>
-<p>2、用户接下来的访问只需要验证SessionId即可，无需再向CAS Server请求验证。</p>
+<p> 1、Client将用户信息存入缓存，并生成SessionId写入cookie，返回给用户Redirect响应，到用户请求的服务地址。例如：</p>
+<p> Set-Cookie : JSESSIONID&#x3D;ABC123456</p>
+<p> 302 Location : <a target="_blank" rel="noopener" href="http://baidu.com/web1">http://baidu.com/web1</a></p>
+<p> 2、用户接下来的访问只需要验证SessionId即可，无需再向CAS Server请求验证。</p>
 <p>当用户访问同一个CAS Server但是不同的CAS Client时：</p>
-<p>1、同样CAS Client2检测缓存中没有该次请求的用户信息，没有ST，Client2返回给用户Redirect响应，携带service参数，到CAS Server。</p>
-<p>2、这是用户第二次访问CAS Server，此时Request的Cookie中会携带第一次签发的TGC，CAS Server根据TGC查找缓存中是否有对应的TGT，例如：</p>
-<p>Set-Cookie : CASTGC=TGT-2345678</p>
-<p>302 Location : <a target="_blank" rel="noopener" href="https://cas.example.com/cas/login?service=http://app.com/web">https://cas.example.com/cas/login?service=http://app.com/web</a></p>
-<p>3、如果有，说明用户登录过且未过期，用户不必再次登陆，CAS Server会直接找到TGT签发ST，返回给客户端Redirect响应，到service中的地址，例如：</p>
-<p>Set-Cookie : CASTGC=TGT-2345678</p>
-<p>302 Location : <a target="_blank" rel="noopener" href="http://app.com/web?ticket=ST-8-SoIdlj7cPPCfn0pMZ">http://app.com/web?ticket=ST-8-SoIdlj7cPPCfn0pMZ</a></p>
-<p>4、用户携带ticket(ST)再次请求CAS Client，客户端Authentication Filter检测到请求中带有ticket参数，会跳过，由Ticket Validation Filter处理。</p>
-<p>5、Ticket Validation Filter 携带ticket(ST)及service访问CAS Server的/serviceValidate接口，希望CAS Server验证ST有效性。</p>
-<p>6、CAS Server验证成功，将用户信息通过xml方式返回给Ticket Validation Filter，当该Filter接收到验证成功的响应时，把用户信息存入缓存。至此，SSO会话成功建立。</p>
-<p>7、Client将用户信息存入缓存，并生成SessionId写入cookie，返回给用户Redirect响应，到用户请求的服务地址。例如：</p>
-<p>Set-Cookie : JSESSIONID=ABC123456</p>
-<p>302 Location : <a target="_blank" rel="noopener" href="http://app.com/web">http://app.com/web</a></p>
-<p>8、用户接下来的访问只需要验证SessionId即可，无需再向CAS Server请求验证。</p>
-<h3 id="2、搭建Tomcat-Https支持">2、搭建Tomcat Https支持</h3>
-<hr>
-<h4 id="2-1、生成密钥库">2.1、生成密钥库</h4>
-<p>使用JDK自带的keytools工具生成密钥库</p>
+<p> 1、同样CAS Client2检测缓存中没有该次请求的用户信息，没有ST，Client2返回给用户Redirect响应，携带service参数，到CAS Server。</p>
+<p> 2、这是用户第二次访问CAS Server，此时Request的Cookie中会携带第一次签发的TGC，CAS Server根据TGC查找缓存中是否有对应的TGT，例如：</p>
+<p> Set-Cookie : CASTGC&#x3D;TGT-2345678</p>
+<p> 302 Location : <a target="_blank" rel="noopener" href="https://cas.example.com/cas/login?service=http://app.com/web">https://cas.example.com/cas/login?service=http://app.com/web</a></p>
+<p> 3、如果有，说明用户登录过且未过期，用户不必再次登陆，CAS Server会直接找到TGT签发ST，返回给客户端Redirect响应，到service中的地址，例如：</p>
+<p> Set-Cookie : CASTGC&#x3D;TGT-2345678</p>
+<p> 302 Location : <a target="_blank" rel="noopener" href="http://app.com/web?ticket=ST-8-SoIdlj7cPPCfn0pMZ">http://app.com/web?ticket=ST-8-SoIdlj7cPPCfn0pMZ</a></p>
+<p> 4、用户携带ticket(ST)再次请求CAS Client，客户端Authentication Filter检测到请求中带有ticket参数，会跳过，由Ticket Validation Filter处理。</p>
+<p> 5、Ticket Validation Filter 携带ticket(ST)及service访问CAS Server的&#x2F;serviceValidate接口，希望CAS Server验证ST有效性。</p>
+<p> 6、CAS Server验证成功，将用户信息通过xml方式返回给Ticket Validation Filter，当该Filter接收到验证成功的响应时，把用户信息存入缓存。至此，SSO会话成功建立。</p>
+<p> 7、Client将用户信息存入缓存，并生成SessionId写入cookie，返回给用户Redirect响应，到用户请求的服务地址。例如：</p>
+<p> Set-Cookie : JSESSIONID&#x3D;ABC123456</p>
+<p> 302 Location : <a target="_blank" rel="noopener" href="http://app.com/web">http://app.com/web</a></p>
+<p> 8、用户接下来的访问只需要验证SessionId即可，无需再向CAS Server请求验证。</p>
+<h3 id="2、搭建Tomcat-Https支持"><a href="#2、搭建Tomcat-Https支持" class="headerlink" title="2、搭建Tomcat Https支持"></a>2、搭建Tomcat Https支持</h3><hr>
+<h4 id="2-1、生成密钥库"><a href="#2-1、生成密钥库" class="headerlink" title="2.1、生成密钥库"></a>2.1、生成密钥库</h4><p>使用JDK自带的keytools工具生成密钥库</p>
 <p>别名：caskey 存储路径：D:\Work\Projects\cas\keystore\caskey.keystore</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -genkey -v -alias caskey -keyalg RSA -keystore D:\Work\Projects\cas\keystore\caskey.keystore</span><br></pre></td></tr></table></figure>
+
 <img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220806212042310.png" class="">
-<h4 id="2-2、从密钥库导出证书">2.2、从密钥库导出证书</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -export -trustcacerts -alias caskey -file  D:\Work\Projects\cas\keystore\caskey.cer -keystore D:\Work\Projects\cas\keystore\caskey.keystore</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2、从密钥库导出证书"><a href="#2-2、从密钥库导出证书" class="headerlink" title="2.2、从密钥库导出证书"></a>2.2、从密钥库导出证书</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -export -trustcacerts -alias caskey -file  D:\Work\Projects\cas\keystore\caskey.cer -keystore D:\Work\Projects\cas\keystore\caskey.keystore</span><br></pre></td></tr></table></figure>
+
 <img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220806212653642.png" class="">
-<h4 id="2-3、将证书导入到JDK证书库">2.3、将证书导入到JDK证书库</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -import -trustcacerts -alias caskey -file D:\Work\Projects\cas\keystore\caskey.cer -keystore D:\Work\Servers\Java\jdk1.8.0_181\jre\lib\security\cacerts</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-3、将证书导入到JDK证书库"><a href="#2-3、将证书导入到JDK证书库" class="headerlink" title="2.3、将证书导入到JDK证书库"></a>2.3、将证书导入到JDK证书库</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -import -trustcacerts -alias caskey -file D:\Work\Projects\cas\keystore\caskey.cer -keystore D:\Work\Servers\Java\jdk1.8.0_181\jre\lib\security\cacerts</span><br></pre></td></tr></table></figure>
+
 <p>密码：changeit</p>
 <img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220806213157447.png" class="">
-<h4 id="2-4、证书其他命令">2.4、证书其他命令</h4>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/gmaaa123/article/details/107460922">https://blog.csdn.net/gmaaa123/article/details/107460922</a></p>
-<h4 id="2-5、Tomcat配置https支持及乱码修改">2.5、Tomcat配置https支持及乱码修改</h4>
-<p>这里采用tomcat9，找到tomcat\conf\server.xml打开文件，加入如下配置即可：</p>
+
+<h4 id="2-4、证书其他命令"><a href="#2-4、证书其他命令" class="headerlink" title="2.4、证书其他命令"></a>2.4、证书其他命令</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/gmaaa123/article/details/107460922">https://blog.csdn.net/gmaaa123/article/details/107460922</a></p>
+<h4 id="2-5、Tomcat配置https支持及乱码修改"><a href="#2-5、Tomcat配置https支持及乱码修改" class="headerlink" title="2.5、Tomcat配置https支持及乱码修改"></a>2.5、Tomcat配置https支持及乱码修改</h4><p>这里采用tomcat9，找到tomcat\conf\server.xml打开文件，加入如下配置即可：</p>
 <p>keystoreFile为证书地址，keystorePass为证书密钥</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">&quot;8443&quot;</span> <span class="attr">protocol</span>=<span class="string">&quot;org.apache.coyote.http11.Http11NioProtocol&quot;</span></span></span><br><span class="line"><span class="tag">               <span class="attr">maxThreads</span>=<span class="string">&quot;150&quot;</span> <span class="attr">SSLEnabled</span>=<span class="string">&quot;true&quot;</span> <span class="attr">scheme</span>=<span class="string">&quot;https&quot;</span> <span class="attr">secure</span>=<span class="string">&quot;true&quot;</span></span></span><br><span class="line"><span class="tag">           	   <span class="attr">clientAuth</span>=<span class="string">&quot;false&quot;</span> <span class="attr">sslProtocol</span>=<span class="string">&quot;TLS&quot;</span></span></span><br><span class="line"><span class="tag">               <span class="attr">keystoreFile</span>=<span class="string">&quot;D:\Work\Projects\cas\keystore\caskey.keystore&quot;</span></span></span><br><span class="line"><span class="tag">           	   <span class="attr">keystorePass</span>=<span class="string">&quot;wzc1996&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>启动bin下的startup.bat</p>
 <p>Tomcat默认有中文乱码，在conf子目录中，找到<code>&quot;logging.properties&quot;</code>文件，打开文件，找到如下配置项：</p>
 <img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220806214732109.png" class="">
+
 <p>将UTF-8修改为GBK，保存重启！</p>
-<h4 id="2-6、测试">2.6、测试</h4>
-<p>通过<code>https://localhost:8443</code>端口可以访问</p>
+<h4 id="2-6、测试"><a href="#2-6、测试" class="headerlink" title="2.6、测试"></a>2.6、测试</h4><p>通过<code>https://localhost:8443</code>端口可以访问</p>
 <img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220806214949877.png" class="">
-<h3 id="3、CAS-Server服务端搭建">3、CAS Server服务端搭建</h3>
-<hr>
-<h4 id="3-1、CAS-Server-war-下载">3.1、CAS Server war 下载</h4>
-<p>官网：<a target="_blank" rel="noopener" href="https://www.apereo.org/">https://www.apereo.org/</a></p>
+
+
+
+<h3 id="3、CAS-Server服务端搭建"><a href="#3、CAS-Server服务端搭建" class="headerlink" title="3、CAS Server服务端搭建"></a>3、CAS Server服务端搭建</h3><hr>
+<h4 id="3-1、CAS-Server-war-下载"><a href="#3-1、CAS-Server-war-下载" class="headerlink" title="3.1、CAS Server war 下载"></a>3.1、CAS Server war 下载</h4><p>官网：<a target="_blank" rel="noopener" href="https://www.apereo.org/">https://www.apereo.org/</a></p>
 <p>GitHub官网：<a target="_blank" rel="noopener" href="https://github.com/apereo/cas">https://github.com/apereo/cas</a></p>
 <p>CAS服务端：<a target="_blank" rel="noopener" href="https://github.com/apereo/cas-overlay-template">https://github.com/apereo/cas-overlay-template</a></p>
 <p>maven仓库：<a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/cas/">https://repo1.maven.org/maven2/cas/</a></p>
 <p>war包地址：<a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/org/apereo/cas/cas-server-webapp-tomcat/5.3.14">https://repo1.maven.org/maven2/org/apereo/cas/cas-server-webapp-tomcat/5.3.14</a></p>
 <p>下载</p>
 <img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220806220423381.png" class="">
-<h4 id="3-2、CAS-Server发布到Tomcat">3.2、CAS Server发布到Tomcat</h4>
-<p>将下载的war包放到Tomcat的webapp目录下，将包名改为cas，访问：<a target="_blank" rel="noopener" href="https://localhost:8443/cas">https://localhost:8443/cas</a></p>
+
+<h4 id="3-2、CAS-Server发布到Tomcat"><a href="#3-2、CAS-Server发布到Tomcat" class="headerlink" title="3.2、CAS Server发布到Tomcat"></a>3.2、CAS Server发布到Tomcat</h4><p>将下载的war包放到Tomcat的webapp目录下，将包名改为cas，访问：<a target="_blank" rel="noopener" href="https://localhost:8443/cas">https://localhost:8443/cas</a></p>
 <p>配置日志路径：打开<code>WEB-INF\classes\log4j2.xml</code>文件，修改成实际日志路径</p>
 <img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220807000649129.png" class="">
+
 <p>配置hosts：修改C:\Windows\System32\hosts，可以使用域名访问</p>
 <img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220806223755547.png" class="">
+
 <p>默认用户名和密码，位于<code>application.properties</code>文件中</p>
 <img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220807001001155.png" class="">
-<h4 id="3-3、配置数据源，数据库用户认证">3.3、配置数据源，数据库用户认证</h4>
-<p>1：建表</p>
+
+<h4 id="3-3、配置数据源，数据库用户认证"><a href="#3-3、配置数据源，数据库用户认证" class="headerlink" title="3.3、配置数据源，数据库用户认证"></a>3.3、配置数据源，数据库用户认证</h4><p>1：建表</p>
 <p>2：修改application.properties配置文件，注释掉写死的认证用户，加上jdbc数据源配置</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cas.authn.accept.users=casuser::Mellon</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].url</span>=<span class="string">jdbc:mysql://localhost:3306/demo?serverTimezone=GMT</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].user</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].password</span>=<span class="string">wzc1996</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].sql</span>=<span class="string">select * from user where username = ?</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].fieldPassword</span>=<span class="string">password</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].driverClass</span>=<span class="string">com.mysql.jdbc.Driver</span></span><br></pre></td></tr></table></figure>
+
 <p>3：加上jdbc驱动包以及支持jar</p>
 <p><code>cas-server-support-jdbc-5.3.14.jar</code></p>
 <p><code>cas-server-support-jdbc-authentication-5.3.14.jar</code></p>
 <p><code>cas-server-support-jdbc-drivers-5.3.14.jar</code></p>
 <p><code>mysql-connection-java-5.1.28-bin.jar</code></p>
-<h4 id="3-4、密码加密校验">3.4、密码加密校验</h4>
-<p>1：数据库生成下MD5密码</p>
+<h4 id="3-4、密码加密校验"><a href="#3-4、密码加密校验" class="headerlink" title="3.4、密码加密校验"></a>3.4、密码加密校验</h4><p>1：数据库生成下MD5密码</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> md5(<span class="string">&#x27;123456&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
 <p>2：修改application.properties配置文件</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cas.authn.jdbc.query[0].passwordEncoder.type</span>=<span class="string">DEFAULT</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].passwordEncoder.characterEncoding</span>=<span class="string">UTF-8</span></span><br><span class="line"><span class="comment"># MD5加密策略</span></span><br><span class="line"><span class="attr">cas.authn.jdbc.query[0].passwordEncoder.encodingAlgorithm</span>=<span class="string">MD5</span></span><br></pre></td></tr></table></figure>
+
 <p>3：测试OK</p>
-<h4 id="3-5-其他配置">3.5 其他配置</h4>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在退出时是否需要 确认一下  true确认 false直接退出，这里是CAS服务端的确认，实际情况用不到</span></span><br><span class="line"><span class="attr">cas.logout.confirmLogout</span>=<span class="string">false</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">#在CAS客户端退出时的配置</span></span><br><span class="line"><span class="comment"># 默认情况下退出登录时，页面将会跳转到CAS服务器内部的注销页面 casLogoutView.jsp ，</span></span><br><span class="line"><span class="comment"># 如果我们需要在退出登录后，跳转到指定页面,需要将下列参数设为true,在退出登录的url里需要添加service参数，该参数指定在注销后需要跳转的页面,配置允许登出后跳转到指定页面,</span></span><br><span class="line"><span class="attr">cas.logout.followServiceRedirects</span>=<span class="string">true</span></span><br><span class="line"><span class="comment">#跳转到指定页面需要的参数名为 service(default)</span></span><br><span class="line"><span class="attr">cas.logout.redirectParameter</span>=<span class="string">service</span></span><br><span class="line"><span class="comment">#是否移除子系统的票据</span></span><br><span class="line"><span class="attr">cas.logout.removeDescendantTickets</span>=<span class="string">true</span></span><br></pre></td></tr></table></figure>
-<h4 id="3-5、CAS-Redis">3.5、CAS Redis</h4>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- cas 的redis依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apereo.cas<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>cas-server-support-redis-ticket-registry<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;cas.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-5-其他配置"><a href="#3-5-其他配置" class="headerlink" title="3.5 其他配置"></a>3.5 其他配置</h4><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在退出时是否需要 确认一下  true确认 false直接退出，这里是CAS服务端的确认，实际情况用不到</span></span><br><span class="line"><span class="attr">cas.logout.confirmLogout</span>=<span class="string">false</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">#在CAS客户端退出时的配置</span></span><br><span class="line"><span class="comment"># 默认情况下退出登录时，页面将会跳转到CAS服务器内部的注销页面 casLogoutView.jsp ，</span></span><br><span class="line"><span class="comment"># 如果我们需要在退出登录后，跳转到指定页面,需要将下列参数设为true,在退出登录的url里需要添加service参数，该参数指定在注销后需要跳转的页面,配置允许登出后跳转到指定页面,</span></span><br><span class="line"><span class="attr">cas.logout.followServiceRedirects</span>=<span class="string">true</span></span><br><span class="line"><span class="comment">#跳转到指定页面需要的参数名为 service(default)</span></span><br><span class="line"><span class="attr">cas.logout.redirectParameter</span>=<span class="string">service</span></span><br><span class="line"><span class="comment">#是否移除子系统的票据</span></span><br><span class="line"><span class="attr">cas.logout.removeDescendantTickets</span>=<span class="string">true</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-5、CAS-Redis"><a href="#3-5、CAS-Redis" class="headerlink" title="3.5、CAS Redis"></a>3.5、CAS Redis</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- cas 的redis依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apereo.cas<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>cas-server-support-redis-ticket-registry<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;cas.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#其次配置application.properties</span></span><br><span class="line"><span class="attr">cas.ticket.registry.redis.host</span>=<span class="string">127.0.0.1  </span></span><br><span class="line"><span class="attr">cas.ticket.registry.redis.database</span>=<span class="string">0  </span></span><br><span class="line"><span class="attr">cas.ticket.registry.redis.port</span>=<span class="string">6379  </span></span><br><span class="line"><span class="attr">cas.ticket.registry.redis.password</span>=<span class="string">p123456</span></span><br><span class="line"><span class="attr">cas.ticket.registry.redis.timeout</span>=<span class="string">2000 </span></span><br><span class="line"><span class="attr">cas.ticket.registry.redis.useSsl</span>=<span class="string">false </span></span><br><span class="line"><span class="attr">cas.ticket.registry.redis.usePool</span>=<span class="string">false</span></span><br></pre></td></tr></table></figure>
-<h3 id="4、CAS-Client-SpringBoot客户端整合搭建">4、CAS Client+SpringBoot客户端整合搭建</h3>
-<hr>
+
+<h3 id="4、CAS-Client-SpringBoot客户端整合搭建"><a href="#4、CAS-Client-SpringBoot客户端整合搭建" class="headerlink" title="4、CAS Client+SpringBoot客户端整合搭建"></a>4、CAS Client+SpringBoot客户端整合搭建</h3><hr>
 <p>项目搭建，加入cas client依赖</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">cas.version</span>&gt;</span>2.3.0-GA<span class="tag">&lt;/<span class="name">cas.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>net.unicon.cas<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>cas-client-autoconfig-support<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;cas.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>添加application.yml配置：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cas:</span><br><span class="line">  server-url-prefix: https://localhost:8443/cas  # cas服务端地址</span><br><span class="line">  server-login-url: https://localhost:8443/cas/login #cas登录页</span><br><span class="line">  client-host-url: http://localhost:8080  #登录成功跳转地址</span><br><span class="line">  validation-type: cas3</span><br></pre></td></tr></table></figure>
+
 <p>启动类添加<code>@EnableCasClient</code>注解</p>
 <p>运行报错：</p>
 <img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220807152433436.png" class="">
+
 <p>报错原因是cas服务器默认不支持http请求，可以通过配置来让其支持http请求：</p>
 <p>1、在<code>\WEB-INF\classes\services</code>目录下，修改<code>HTTPSandIMAPS-10000001.json</code>文件</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;serviceId&quot;</span> <span class="punctuation">:</span> <span class="string">&quot;^(https|imaps)://.*&quot;</span><span class="punctuation">,</span></span><br><span class="line">改为</span><br><span class="line"><span class="attr">&quot;serviceId&quot;</span> <span class="punctuation">:</span> <span class="string">&quot;^(https|http|imaps)://.*&quot;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+
 <p>2、在<code>\WEB-INF\classes</code>下，修改<code>application.properties</code>文件</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 忽略https安全协议，使用 HTTP 协议</span></span><br><span class="line"><span class="attr">cas.tgc.secure</span>=<span class="string">false</span></span><br><span class="line"><span class="comment"># 是否开启json识别功能,默认为false</span></span><br><span class="line"><span class="attr">cas.serviceRegistry.initFromJson</span>=<span class="string">true</span></span><br></pre></td></tr></table></figure>
-<h3 id="5、显示用户名">5、显示用户名</h3>
-<hr>
+
+
+
+<h3 id="5、显示用户名"><a href="#5、显示用户名" class="headerlink" title="5、显示用户名"></a>5、显示用户名</h3><hr>
 <p>CAS客户端经过CAS Server认证后，CAS客户端可以去CAS Server端拿到登录认证的信息，比如用户名：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//代码中通过一下方法获取用户名</span></span><br><span class="line"><span class="type">Assertion</span> <span class="variable">assertion</span> <span class="operator">=</span> AssertionHolder.getAssertion();</span><br><span class="line"><span class="type">AttributePrincipal</span> <span class="variable">principal</span> <span class="operator">=</span> assertion.getPrincipal();</span><br><span class="line"><span class="type">String</span> <span class="variable">loginName</span> <span class="operator">=</span> principal.getName();</span><br></pre></td></tr></table></figure>
+
 <p>thymeleaf页面可以<code>$&#123;session._const_cas_assertion_.principal.name&#125;</code>取值；</p>
 <p>可以通过如下源码找到</p>
 <img src="/2022/08/06/CAS%E7%99%BB%E5%BD%95/image-20220809095537660.png" class="">
-<h3 id="6、注销">6、注销</h3>
-<p>href接口重定向到<code>https://localhost:8443/cas/logout</code></p>
-<h3 id="7、CAS单点登录实例实现-测试">7、CAS单点登录实例实现+测试</h3>
-<h3 id="8、CAS-Server界面修改">8、CAS Server界面修改</h3>
-<p>cas server用到springmvc + webflow实现；</p>
+
+<h3 id="6、注销"><a href="#6、注销" class="headerlink" title="6、注销"></a>6、注销</h3><p>href接口重定向到<code>https://localhost:8443/cas/logout</code></p>
+<h3 id="7、CAS单点登录实例实现-测试"><a href="#7、CAS单点登录实例实现-测试" class="headerlink" title="7、CAS单点登录实例实现+测试"></a>7、CAS单点登录实例实现+测试</h3><h3 id="8、CAS-Server界面修改"><a href="#8、CAS-Server界面修改" class="headerlink" title="8、CAS Server界面修改"></a>8、CAS Server界面修改</h3><p>cas server用到springmvc + webflow实现；</p>
 
       
     </div>
@@ -700,30 +741,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="自动装配">自动装配</h3>
-<hr>
-<h4 id="约定大于配置">约定大于配置</h4>
-<ul>
-<li>
-<p>开发人员仅需规定应用中不符合约定的部分</p>
+          <h3 id="自动装配"><a href="#自动装配" class="headerlink" title="自动装配"></a>自动装配</h3><hr>
+<h4 id="约定大于配置"><a href="#约定大于配置" class="headerlink" title="约定大于配置"></a>约定大于配置</h4><ul>
+<li><p>开发人员仅需规定应用中不符合约定的部分</p>
 </li>
-<li>
-<p>在没有规定配置的地方，采用默认配置，以力求最简配置为核心思想总的来说，上面两条都遵循了推荐默认配置的思想。当存在特殊需求的时候，自定义配置即可。这样可以大大的减少配置工作，这就是所谓的“约定”。</p>
+<li><p>在没有规定配置的地方，采用默认配置，以力求最简配置为核心思想总的来说，上面两条都遵循了推荐默认配置的思想。当存在特殊需求的时候，自定义配置即可。这样可以大大的减少配置工作，这就是所谓的“约定”。</p>
 </li>
 </ul>
-<h4 id="自动装配-2">自动装配</h4>
-<blockquote>
+<h4 id="自动装配-1"><a href="#自动装配-1" class="headerlink" title="自动装配"></a>自动装配</h4><blockquote>
 <p><strong>精髓</strong></p>
 </blockquote>
 <ul>
 <li>SpringBoot启动会加载大量 的自动配置类</li>
 <li>要写一个自动配置类，看需要的功能有没有在SpringBoot默认写好的自动配置类当中</li>
 <li>看自动配置类中配置了哪些组件；（只要要用的组件存在其中，就不需要再手动配置了）</li>
-<li>给容器中自动配置类添加组件的时候，会从Properties类中获取某些属性。只需要在配置文件中指定这些属性的值即可
-<ul>
+<li>给容器中自动配置类添加组件的时候，会从Properties类中获取某些属性。只需要在配置文件中指定这些属性的值即可<ul>
 <li>@XXXAutoConfiguration：自动配置类；给容器中添加组件</li>
 <li>@XXXProperties：封装配置文件中相关属性——&gt;yml配置</li>
-<li>可以通过debug=true来查看，哪些自动配置类生效，哪些没有生效</li>
+<li>可以通过debug&#x3D;true来查看，哪些自动配置类生效，哪些没有生效</li>
 </ul>
 </li>
 </ul>
@@ -736,58 +771,56 @@
 </ul>
 <p>启动器：就是SpringBoot的启动场景。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>
-<p>比如<code>spring-boot-starte-web</code>，会帮我们自动导入web环境的所有依赖；</p>
+<li><p>比如<code>spring-boot-starte-web</code>，会帮我们自动导入web环境的所有依赖；</p>
 </li>
-<li>
-<p>SpringBoot会将所有的功能场景，都变成一个个启动器；</p>
+<li><p>SpringBoot会将所有的功能场景，都变成一个个启动器；</p>
 </li>
-<li>
-<p>如果要使用什么功能，就只需要知道对应的启动器<code>stater</code></p>
+<li><p>如果要使用什么功能，就只需要知道对应的启动器<code>stater</code></p>
 </li>
 </ul>
 <blockquote>
 <p>主程序</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//标注这个类是一个SpringBoot的应用：启动类下的所有资源被导入</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AdminApplication</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//将SpringBoot应用启动</span></span><br><span class="line">        SpringApplication.run(AdminApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>注解</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootConfiguration</span>	<span class="comment">//SpringBoot的配置</span></span><br><span class="line">	<span class="meta">@Configuration</span>	<span class="comment">//Spring配置类</span></span><br><span class="line">		<span class="meta">@Component</span>	<span class="comment">//说明这也是Spring的一个组件</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span>	<span class="comment">//自动配置</span></span><br><span class="line">	<span class="meta">@AutoConfigurationPackage</span>	<span class="comment">//自动配置包</span></span><br><span class="line">		<span class="meta">@Import(&#123;Registrar.class&#125;)</span>	<span class="comment">//自动配置`包注册`</span></span><br><span class="line">	<span class="meta">@Import(&#123;AutoConfigurationImportSelector.class&#125;)</span>	<span class="comment">//自动配置导入选择</span></span><br><span class="line"><span class="meta">@ComponentScan</span>	<span class="comment">//扫描当前主启动类同级的包</span></span><br></pre></td></tr></table></figure>
-<h4 id="源码分析">源码分析</h4>
-<ul>
+
+<h4 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h4><ul>
 <li>获得自动配置的实体：</li>
 </ul>
-<p><img src="SpringBoot%5Cimage-20220918233054555.png" alt=""></p>
+<p><img src="/SpringBoot%5Cimage-20220918233054555.png"></p>
 <ul>
 <li>获取候选的配置：</li>
 </ul>
-<p><img src="SpringBoot%5Cimage-20220918233340610.png" alt=""></p>
+<p><img src="/SpringBoot%5Cimage-20220918233340610.png"></p>
 <ul>
 <li>获取所有加载的配置：</li>
 </ul>
-<p><img src="SpringBoot%5Cimage-20220918235151191.png" alt=""></p>
+<p><img src="/SpringBoot%5Cimage-20220918235151191.png"></p>
 <ul>
 <li>标注了@EnableAutoConfiguration注解的类：</li>
 </ul>
-<p><img src="SpringBoot%5Cimage-20220918235326264.png" alt=""></p>
+<p><img src="/SpringBoot%5Cimage-20220918235326264.png"></p>
 <ul>
 <li><code>META-INF/spring.factories</code>	自动配置的核心文件</li>
 </ul>
-<p><img src="SpringBoot%5Cimage-20220918230107942.png" alt=""></p>
+<p><img src="/SpringBoot%5Cimage-20220918230107942.png"></p>
 <ul>
 <li>所有的资源加载到配置类中，从资源中遍历了所有的nextElement（自动配置），遍历完成之后，封装为一个Properties供使用。</li>
 </ul>
-<p><img src="SpringBoot%5Cimage-20220918230640304.png" alt=""></p>
+<p><img src="/SpringBoot%5Cimage-20220918230640304.png"></p>
 <blockquote>
 <p>spring.factories中导入了许多自动配置，为什么没有生效，需要导入对应的start才能使用！</p>
 </blockquote>
 <ul>
 <li>@ConditionalOnXXX：如果这里面的条件都满足，才会生效</li>
 </ul>
-<h4 id="结论">结论</h4>
-<p>SpringBoot所有的自动配置都是在启动的时候扫描并加载：所有的自动配置类都在<code>spring.factories</code>中，但是不一定生效，要判断条件是否成立，只要导入对应的start，就有了对应的启动器，有了启动器，自动装配就会生效，最后配置成功~</p>
+<h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4><p>SpringBoot所有的自动配置都是在启动的时候扫描并加载：所有的自动配置类都在<code>spring.factories</code>中，但是不一定生效，要判断条件是否成立，只要导入对应的start，就有了对应的启动器，有了启动器，自动装配就会生效，最后配置成功~</p>
 <ul>
 <li>SpringBoot在启动的时候，从类路径下<code>/META-INF/spring.factories</code>获取指定的值；</li>
 <li>将这些自动配置的类导入容器，自动配置就会生效，帮我们自动进行配置；</li>
@@ -797,26 +830,20 @@
 <li>容器中存在很多的XXAutoConfiguration的文件（@Bean），就是这些类给容器中导入了这个场景需要的所有组件，并自动配置，@Configuration，JavaConfig；</li>
 <li>有了自动配置类，免去了手动编写配置文件的工作~</li>
 </ul>
-<h4 id="注解分析">注解分析</h4>
-<ul>
-<li>
-<p>@Configuration	//表明这是一个配置类</p>
+<h4 id="注解分析"><a href="#注解分析" class="headerlink" title="注解分析"></a>注解分析</h4><ul>
+<li><p>@Configuration	&#x2F;&#x2F;表明这是一个配置类</p>
 </li>
-<li>
-<p>@EnableConfigurationProperties    //自动配置属性：yml</p>
+<li><p>@EnableConfigurationProperties    &#x2F;&#x2F;自动配置属性：yml</p>
 <ul>
 <li>@XXXAutoConfiguration：默认值	@XXXProperties和配置文件绑定，就可以使用自定义的配置</li>
 </ul>
 </li>
-<li>
-<p>@ConditionOnXXX    //Spring底层注解：根据不同的条件，来判断当前配置或者类是否生效</p>
-<p><img src="SpringBoot%5Cimage-20220921213320875.png" alt=""></p>
+<li><p>@ConditionOnXXX    &#x2F;&#x2F;Spring底层注解：根据不同的条件，来判断当前配置或者类是否生效</p>
+<p><img src="/SpringBoot%5Cimage-20220921213320875.png"></p>
 </li>
 </ul>
-<h3 id="启动类">启动类</h3>
-<hr>
-<h4 id="SpringApplication">SpringApplication</h4>
-<blockquote>
+<h3 id="启动类"><a href="#启动类" class="headerlink" title="启动类"></a>启动类</h3><hr>
+<h4 id="SpringApplication"><a href="#SpringApplication" class="headerlink" title="SpringApplication"></a>SpringApplication</h4><blockquote>
 <p>主要做了四件事</p>
 </blockquote>
 <ul>
@@ -825,14 +852,13 @@
 <li>找出所有的应用程序监听器，设置到 <strong>listeners</strong> 属性中</li>
 <li>推断并设置main方法的定义类，找到运行的主类</li>
 </ul>
-<h3 id="配置文件yml">配置文件yml</h3>
-<hr>
+<h3 id="配置文件yml"><a href="#配置文件yml" class="headerlink" title="配置文件yml"></a>配置文件yml</h3><hr>
 <p><strong>生效优先级</strong></p>
 <ul>
-<li>file：./config/</li>
-<li>file：./</li>
-<li>classpath：/config/</li>
-<li>classpath：/</li>
+<li>file：.&#x2F;config&#x2F;</li>
+<li>file：.&#x2F;</li>
+<li>classpath：&#x2F;config&#x2F;</li>
+<li>classpath：&#x2F;</li>
 </ul>
 
       
@@ -896,7 +922,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -915,35 +941,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="HTTP和HTTPS">HTTP和HTTPS</h4>
-<p>(1)	http是超文本传输协议，信息是明文传输，https协议要比http协议安全，https是具有安全性的ssl加密传输协议，可防止数据在传输过程中被窃取、改变，确保数据的完整性。</p>
+          <h4 id="HTTP和HTTPS"><a href="#HTTP和HTTPS" class="headerlink" title="HTTP和HTTPS"></a>HTTP和HTTPS</h4><p>(1)	http是超文本传输协议，信息是明文传输，https协议要比http协议安全，https是具有安全性的ssl加密传输协议，可防止数据在传输过程中被窃取、改变，确保数据的完整性。</p>
 <p>(2)	http协议的默认端口为80，https的默认端口为443。</p>
 <p>(3)	http的连接很简单，是无状态的；https握手阶段比较费时，会使页面加载时间延长50%，增加耗电。</p>
 <p>(4)	https缓存不如http高效，会增加数据开销</p>
 <p>(5)	https协议需要ca证书，不能在同一个IP上绑定多个域名，IPV4资源支持不了这种消耗。</p>
-<h4 id="HTTPS协议的工作原理">HTTPS协议的工作原理</h4>
-<p>客户端在使用https方式与Web服务器通信时有一下几个步骤：</p>
+<h4 id="HTTPS协议的工作原理"><a href="#HTTPS协议的工作原理" class="headerlink" title="HTTPS协议的工作原理"></a>HTTPS协议的工作原理</h4><p>客户端在使用https方式与Web服务器通信时有一下几个步骤：</p>
 <p>(1)	客户端使用https url访问服务器，则要求Web服务器建立ssl链接</p>
 <p>(2)	Web服务器接收到客户端的请求之后，会将网站的证书（证书中包含了公钥），传输给客户端</p>
 <p>(3)	客户端和Web服务器端开始协商SSL链接的安全等级，也就是加密等级</p>
 <p>(4)	客户端浏览器通过双方协商一直的安全等级，建立会话密钥，然后通过网站的公钥来加密会话密钥，并传送给网站</p>
 <p>(5)	Web服务器通过自己的私钥解密出会话密钥</p>
 <p>(6)	Web服务器通过会话密钥加密与客户端之间的通信</p>
-<h4 id="TCP三次握手">TCP三次握手</h4>
-<p>第一次握手：建立连接时，客户端发送SYN包（syn=j）到服务器，并进入SYN_SENT状态，等待服务器确认；SYN：同步序列编号（Synchronize Sequence Numbers）；</p>
-<p>第二次握手：服务器收到SYN包并确认客户的SYN（ack=j+1），同时也发送一个自己的SYN包（syn=k），即SYN+ACK包，此时服务器进入SYN_RECV状态；</p>
-<p>第三次握手：客户端收到服务器的SYNC+ACK包，向服务器发送确认包ACK（ack=k+1），此包发送完毕，客户端和服务器进入ESTABLISHED（TCP连接成功）状态，完成三次握手。</p>
-<h4 id="TCP四次挥手">TCP四次挥手</h4>
-<h4 id="TCP-IP如何保证数据包传输的有序可靠">TCP/IP如何保证数据包传输的有序可靠</h4>
-<h4 id="TCP和UDP的区别">TCP和UDP的区别</h4>
-<p>(1)	TCP是面向链接的，而UDP是面向无连接的</p>
+<h4 id="TCP三次握手"><a href="#TCP三次握手" class="headerlink" title="TCP三次握手"></a>TCP三次握手</h4><p>第一次握手：建立连接时，客户端发送SYN包（syn&#x3D;j）到服务器，并进入SYN_SENT状态，等待服务器确认；SYN：同步序列编号（Synchronize Sequence Numbers）；</p>
+<p>第二次握手：服务器收到SYN包并确认客户的SYN（ack&#x3D;j+1），同时也发送一个自己的SYN包（syn&#x3D;k），即SYN+ACK包，此时服务器进入SYN_RECV状态；</p>
+<p>第三次握手：客户端收到服务器的SYNC+ACK包，向服务器发送确认包ACK（ack&#x3D;k+1），此包发送完毕，客户端和服务器进入ESTABLISHED（TCP连接成功）状态，完成三次握手。</p>
+<h4 id="TCP四次挥手"><a href="#TCP四次挥手" class="headerlink" title="TCP四次挥手"></a>TCP四次挥手</h4><h4 id="TCP-x2F-IP如何保证数据包传输的有序可靠"><a href="#TCP-x2F-IP如何保证数据包传输的有序可靠" class="headerlink" title="TCP&#x2F;IP如何保证数据包传输的有序可靠"></a>TCP&#x2F;IP如何保证数据包传输的有序可靠</h4><h4 id="TCP和UDP的区别"><a href="#TCP和UDP的区别" class="headerlink" title="TCP和UDP的区别"></a>TCP和UDP的区别</h4><p>(1)	TCP是面向链接的，而UDP是面向无连接的</p>
 <p>(2)	TCP仅支持单播传输，UDP提供了单播，多播，广播的功能</p>
 <p>(3)	TCP的三次握手保证 了连接的可靠性；UDP是无连接的、不可靠的一种数据传输协议，首先不可靠体现在无连接上，通信都不需要建立连接，对接收到的数据也不发送确认信号，发送端不知道数据是否会正确接收</p>
 <p>(4)	UDP的头部开销比TCP的更小，数据传输速率更高，实时性更好</p>
-<h4 id="HTTP和RPC协议的区别">HTTP和RPC协议的区别</h4>
-<ul>
-<li>http是应用层的超文本传输协议，是万维网数据传输通信的一个基础， 主要服务在于网页端和服务端之间一个数据传输上；rpc是一个远程过程调用协议，是定位在实现不同计算机应用之间的一个数据通信，==屏蔽了通信的底层复杂度==，让开发者能够像调用本地服务一样，去完成远程服务的调用。因此，在定位层面是完全不同的。</li>
-<li>从实现层面来说，http协议是一个已经实现并且成熟的应用层协议，定义了通信报文的一些格式， ==比如像RequestBody，RequestHead以及ReponseBody和ReponseHeader，也就是说符合这样一个协议特征的通信协议才是http协议==；rpc只是一种通信协议的一个规范，并没有具体的实现，只有按照rpc通信协议规范去实现的通信框架才是协议的真正具体的一个实现，如Dubbo，gRPC等等。因此，可以在实现rpc框架的时候 ，自定义报文通信的协议规范和自定义序列化方式，或者自定义网络通信协议的类型等等。所有，==http协议是一个成熟的应用层协议，rpc只是定义了不同服务之间数据通信的一个规范==。最后从应用层面来说，http协议和实现了rpc协议的框架都能够去实现跨网络节点之间的一些服务通信，并且==底层都是用的TCP/IP协议作为通信基础==。但是由于rpc只是一种标准协议，只需要符合rpc协议的框架，都属于rpc框架，因此，rpc网络通信协议层，也可以使用http协议去实现，如gRPC，OpenFeign底层都采用了http协议，作为通信的基础。</li>
+<h4 id="HTTP和RPC协议的区别"><a href="#HTTP和RPC协议的区别" class="headerlink" title="HTTP和RPC协议的区别"></a>HTTP和RPC协议的区别</h4><ul>
+<li>http是应用层的超文本传输协议，是万维网数据传输通信的一个基础， 主要服务在于网页端和服务端之间一个数据传输上；rpc是一个远程过程调用协议，是定位在实现不同计算机应用之间的一个数据通信，&#x3D;&#x3D;屏蔽了通信的底层复杂度&#x3D;&#x3D;，让开发者能够像调用本地服务一样，去完成远程服务的调用。因此，在定位层面是完全不同的。</li>
+<li>从实现层面来说，http协议是一个已经实现并且成熟的应用层协议，定义了通信报文的一些格式， &#x3D;&#x3D;比如像RequestBody，RequestHead以及ReponseBody和ReponseHeader，也就是说符合这样一个协议特征的通信协议才是http协议&#x3D;&#x3D;；rpc只是一种通信协议的一个规范，并没有具体的实现，只有按照rpc通信协议规范去实现的通信框架才是协议的真正具体的一个实现，如Dubbo，gRPC等等。因此，可以在实现rpc框架的时候 ，自定义报文通信的协议规范和自定义序列化方式，或者自定义网络通信协议的类型等等。所有，&#x3D;&#x3D;http协议是一个成熟的应用层协议，rpc只是定义了不同服务之间数据通信的一个规范&#x3D;&#x3D;。最后从应用层面来说，http协议和实现了rpc协议的框架都能够去实现跨网络节点之间的一些服务通信，并且&#x3D;&#x3D;底层都是用的TCP&#x2F;IP协议作为通信基础&#x3D;&#x3D;。但是由于rpc只是一种标准协议，只需要符合rpc协议的框架，都属于rpc框架，因此，rpc网络通信协议层，也可以使用http协议去实现，如gRPC，OpenFeign底层都采用了http协议，作为通信的基础。</li>
 </ul>
 
       
@@ -1026,31 +1045,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1>Linux下编译安装</h1>
-<blockquote>
+          <h1 id="Linux下编译安装"><a href="#Linux下编译安装" class="headerlink" title="Linux下编译安装"></a>Linux下编译安装</h1><blockquote>
 <p>下载地址：<a target="_blank" rel="noopener" href="https://mirrors.edge.kernel.org/pub/software/scm/git/">https://mirrors.edge.kernel.org/pub/software/scm/git/</a></p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 上传tar.gz；解压</span></span><br><span class="line"><span class="comment"># 安装编译环境</span></span><br><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker</span><br><span class="line"><span class="comment"># 安装该编译环境的时候，yum自动安装了git，需要先卸载这个旧版的git</span></span><br><span class="line">yum -y remove git</span><br><span class="line"><span class="comment"># 进入到刚刚解压的git文件夹中，prefix参数为安装位置</span></span><br><span class="line">make prefix=/usr/local/git all</span><br><span class="line"><span class="comment"># 安装git</span></span><br><span class="line">make prefix=/usr/local/git install</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>配置环境变量</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加以下</span></span><br><span class="line"><span class="built_in">export</span> GIT_HOME=/usr/local/git</span><br><span class="line"><span class="comment"># 这边已经先配置了JDK，所以在PATH后追加</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$GIT_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 刷新配置文件</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看git版本</span></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+
+
 <ol>
-<li>
-<p>用<code>git commit -a</code>提交了一次变化，而又不确定提交了哪些内容，可以使用如下命令显示当前HEAD上的最近一次的提交（commit）：</p>
+<li><p>用<code>git commit -a</code>提交了一次变化，而又不确定提交了哪些内容，可以使用如下命令显示当前HEAD上的最近一次的提交（commit）：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git show</span><br><span class="line">$ git <span class="built_in">log</span> -n1 -p</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>如果提交信息（commit message）写错了且这次提交（commit）还没有推（push），可以通过下面的方法来修改提交信息（commit message）：</p>
+<li><p>如果提交信息（commit message）写错了且这次提交（commit）还没有推（push），可以通过下面的方法来修改提交信息（commit message）：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit --amend --only</span><br></pre></td></tr></table></figure>
+
 <p>这会打开你的默认编辑器，在这里你可以编辑信息，另一方面，你也可以用一条命令一次完成：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">   $ git commit --amend --only -m <span class="string">&#x27;xxxxxx&#x27;</span></span><br><span class="line"></span><br><span class="line">​		如果已经推（push）了这次提交（commit），可以修改这次提交（commit）然后强推（force push），但是不推荐这么做。</span><br><span class="line"></span><br><span class="line">3. 提交（commit）里的用户名和邮箱不对</span><br><span class="line"></span><br><span class="line">   如果这只是单个提交（commit），修改它：</span><br><span class="line"></span><br><span class="line">   ```bash</span><br><span class="line">   $ git commit --amend --autor <span class="string">&quot;New AuthorName&quot;</span></span><br></pre></td></tr></table></figure>
+
 <p>如果需要修改所有历史，参考<code>git filter-branch</code>的指南页。</p>
 </li>
-<li>
-<p>我想从一个提交（commit）里移除一个文件</p>
+<li><p>我想从一个提交（commit）里移除一个文件</p>
 <p>通过下面的方法，从一个提交（commit）里移除一个文件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout HEAD^ myfile</span><br><span class="line">$ git add -A</span><br><span class="line">$ git commit --amend</span><br></pre></td></tr></table></figure>
+
 <p>当往上面提交了一个不必要的文件，你需要强推（force push）去更新这个远程补丁。</p>
 </li>
 </ol>
@@ -1136,18 +1158,17 @@
 
       
           <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
       
@@ -1285,12 +1306,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">138k</span>
+    <span title="站点总字数">139k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:06</span>
+    <span title="站点阅读时长">2:07</span>
 </div>
 
 <!-- <br /> -->
