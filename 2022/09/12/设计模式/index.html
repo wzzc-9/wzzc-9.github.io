@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="创建型单例模式 一个类只允许创建一个对象（或者实例），那这个类就是一个单例类，这种设计模式就叫作单例设计模式，简称单例模式。  饿汉式12345678910111213&#x2F;&#x2F;饿汉式public class MySingle &amp;#123;    &#x2F;&#x2F;私有构造方法，不允许外部new对象    private MySingle()&amp;#123;&amp;#125;        &#x2F;&#x2F;私有静态属性直接创建对象，外部无">
+  <meta name="description" content="创建型 单例模式  一个类只允许创建一个对象（或者实例），那这个类就是一个单例类，这种设计模式就叫作单例设计模式，简称单例模式。  饿汉式 12345678910111213&#x2F;&#x2F;饿汉式public class MySingle &amp;#123;    &#x2F;&#x2F;私有构造方法，不允许外部new对象    private MySingle()&amp;#123;&amp;#125;        &#x2F;&#x2F;私有静态属性直接创建对象，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式">
 <meta property="og:url" content="http://example.com/2022/09/12/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="创建型单例模式 一个类只允许创建一个对象（或者实例），那这个类就是一个单例类，这种设计模式就叫作单例设计模式，简称单例模式。  饿汉式12345678910111213&#x2F;&#x2F;饿汉式public class MySingle &amp;#123;    &#x2F;&#x2F;私有构造方法，不允许外部new对象    private MySingle()&amp;#123;&amp;#125;        &#x2F;&#x2F;私有静态属性直接创建对象，外部无">
+<meta property="og:description" content="创建型 单例模式  一个类只允许创建一个对象（或者实例），那这个类就是一个单例类，这种设计模式就叫作单例设计模式，简称单例模式。  饿汉式 12345678910111213&#x2F;&#x2F;饿汉式public class MySingle &amp;#123;    &#x2F;&#x2F;私有构造方法，不允许外部new对象    private MySingle()&amp;#123;&amp;#125;        &#x2F;&#x2F;私有静态属性直接创建对象，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-12T06:16:10.000Z">
 <meta property="article:modified_time" content="2023-01-05T07:34:05.752Z">
@@ -246,231 +246,365 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="创建型"><a href="#创建型" class="headerlink" title="创建型"></a>创建型</h3><h4 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h4><blockquote>
+        <h3 id="创建型">创建型</h3>
+<h4 id="单例模式">单例模式</h4>
+<blockquote>
 <p>一个类只允许创建一个对象（或者实例），那这个类就是一个单例类，这种设计模式就叫作单例设计模式，简称单例模式。</p>
 </blockquote>
-<h5 id="饿汉式"><a href="#饿汉式" class="headerlink" title="饿汉式"></a>饿汉式</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//饿汉式</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MySingle</span> &#123;</span><br><span class="line">    <span class="comment">//私有构造方法，不允许外部new对象</span></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">MySingle</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//私有静态属性直接创建对象，外部无法访问，且唯一存在</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">MySingle</span> <span class="variable">single</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MySingle</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//公有静态方法，获取唯一对象</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> MySingle <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> single;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="懒汉式"><a href="#懒汉式" class="headerlink" title="懒汉式"></a>懒汉式</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//懒汉式</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MySingle</span> &#123;</span><br><span class="line">    <span class="comment">//私有构造方法，不允许外部new对象</span></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">MySingle</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//私有静态属性，但不直接创建对象，延迟加载</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> MySingle single;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//公有静态方法，使用的时候再创建</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> MySingle <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(single == <span class="literal">null</span>)&#123;</span><br><span class="line">            single = <span class="keyword">new</span> <span class="title class_">MySingle</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> single;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="懒汉式-加锁-保证线程安全"><a href="#懒汉式-加锁-保证线程安全" class="headerlink" title="懒汉式 加锁 保证线程安全"></a>懒汉式 加锁 保证线程安全</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//懒汉式 加锁 保证线程安全</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MySingle</span> &#123;</span><br><span class="line">    <span class="comment">//私有构造方法，不允许外部new对象</span></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">MySingle</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//私有静态属性，但不直接创建对象，延迟加载</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> MySingle single;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//公有静态方法，使用的时候再创建，同时添加synchronized</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">static</span> MySingle <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(single == <span class="literal">null</span>)&#123;</span><br><span class="line">            single = <span class="keyword">new</span> <span class="title class_">MySingle</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> single;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="懒汉式-双重检测"><a href="#懒汉式-双重检测" class="headerlink" title="懒汉式 双重检测"></a>懒汉式 双重检测</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//懒汉式 双重检测</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MySingle</span> &#123;</span><br><span class="line">    <span class="comment">//私有构造方法，不允许外部new对象</span></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">MySingle</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//volatile修饰，防止指令重排</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> MySingle single;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//公有静态方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> MySingle <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">//第一重校验，检查实例是否存在</span></span><br><span class="line">        <span class="keyword">if</span>(single == <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="comment">//同步块，保证线程安全</span></span><br><span class="line">            <span class="keyword">synchronized</span>(MySingle.class)&#123;</span><br><span class="line">                <span class="comment">//第二重校验，检查实例是否存在，如果不存在，则创建</span></span><br><span class="line">                <span class="keyword">if</span>(single == <span class="literal">null</span>)&#123;</span><br><span class="line">                    single = <span class="keyword">new</span> <span class="title class_">MySingle</span>();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> single;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//静态内部类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MySingle</span> &#123;</span><br><span class="line">    <span class="comment">//私有构造方法，不允许外部new对象</span></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">MySingle</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//私有静态内部类，包含单例对象</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">InnerSingleton</span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">MySingle</span> <span class="variable">single</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MySingle</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//公有静态方法，可以直接获取内部类唯一对象</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> MySingle <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> InnerSingleton.single;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//枚举</span></span><br><span class="line"><span class="keyword">enum</span> <span class="title class_">MySingle</span>&#123;</span><br><span class="line">    <span class="comment">//定义一个枚举，代表了Singleton的一个实例</span></span><br><span class="line">    INSTANCE;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">anyMethod</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;do any thing&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h4><h5 id="简单工厂"><a href="#简单工厂" class="headerlink" title="简单工厂"></a>简单工厂</h5><blockquote>
+<h5 id="饿汉式">饿汉式</h5>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//饿汉式</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MySingle</span> &#123;</span><br><span class="line">    <span class="comment">//私有构造方法，不允许外部new对象</span></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">MySingle</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//私有静态属性直接创建对象，外部无法访问，且唯一存在</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">MySingle</span> <span class="variable">single</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MySingle</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//公有静态方法，获取唯一对象</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> MySingle <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> single;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="懒汉式">懒汉式</h5>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//懒汉式</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MySingle</span> &#123;</span><br><span class="line">    <span class="comment">//私有构造方法，不允许外部new对象</span></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">MySingle</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//私有静态属性，但不直接创建对象，延迟加载</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> MySingle single;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//公有静态方法，使用的时候再创建</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> MySingle <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(single == <span class="literal">null</span>)&#123;</span><br><span class="line">            single = <span class="keyword">new</span> <span class="title class_">MySingle</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> single;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="懒汉式-加锁-保证线程安全">懒汉式 加锁 保证线程安全</h5>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//懒汉式 加锁 保证线程安全</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MySingle</span> &#123;</span><br><span class="line">    <span class="comment">//私有构造方法，不允许外部new对象</span></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">MySingle</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//私有静态属性，但不直接创建对象，延迟加载</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> MySingle single;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//公有静态方法，使用的时候再创建，同时添加synchronized</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">static</span> MySingle <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(single == <span class="literal">null</span>)&#123;</span><br><span class="line">            single = <span class="keyword">new</span> <span class="title class_">MySingle</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> single;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="懒汉式-双重检测">懒汉式 双重检测</h5>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//懒汉式 双重检测</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MySingle</span> &#123;</span><br><span class="line">    <span class="comment">//私有构造方法，不允许外部new对象</span></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">MySingle</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//volatile修饰，防止指令重排</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> MySingle single;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//公有静态方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> MySingle <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">//第一重校验，检查实例是否存在</span></span><br><span class="line">        <span class="keyword">if</span>(single == <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="comment">//同步块，保证线程安全</span></span><br><span class="line">            <span class="keyword">synchronized</span>(MySingle.class)&#123;</span><br><span class="line">                <span class="comment">//第二重校验，检查实例是否存在，如果不存在，则创建</span></span><br><span class="line">                <span class="keyword">if</span>(single == <span class="literal">null</span>)&#123;</span><br><span class="line">                    single = <span class="keyword">new</span> <span class="title class_">MySingle</span>();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> single;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="静态内部类">静态内部类</h5>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//静态内部类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MySingle</span> &#123;</span><br><span class="line">    <span class="comment">//私有构造方法，不允许外部new对象</span></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">MySingle</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//私有静态内部类，包含单例对象</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">InnerSingleton</span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">MySingle</span> <span class="variable">single</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MySingle</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//公有静态方法，可以直接获取内部类唯一对象</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> MySingle <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> InnerSingleton.single;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="枚举">枚举</h5>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//枚举</span></span><br><span class="line"><span class="keyword">enum</span> <span class="title class_">MySingle</span>&#123;</span><br><span class="line">    <span class="comment">//定义一个枚举，代表了Singleton的一个实例</span></span><br><span class="line">    INSTANCE;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">anyMethod</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;do any thing&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="工厂模式">工厂模式</h4>
+<h5 id="简单工厂">简单工厂</h5>
+<blockquote>
 <p>工厂方法模式的一种特例。</p>
 </blockquote>
-<h5 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h5><blockquote>
+<h5 id="工厂方法">工厂方法</h5>
+<blockquote>
 <p>工厂方法模式比起简单工厂模式更加符合开闭原则。</p>
 </blockquote>
-<h5 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h5><blockquote>
+<h5 id="抽象工厂">抽象工厂</h5>
+<blockquote>
 <p>抽象工厂就是针对这种非常特殊的场景而诞生的。我们可以让一个工厂负责创建多个不同类型的对象（IRuleConfigParser、ISystemConfigParser 等），而不是只创建一种 parser 对象。这样就可以有效地减少工厂类的个数。</p>
 </blockquote>
-<h4 id="建造者模式"><a href="#建造者模式" class="headerlink" title="建造者模式"></a>建造者模式</h4><blockquote>
+<h4 id="建造者模式">建造者模式</h4>
+<blockquote>
 <p>建造者模式是让建造者类来负责对象的创建工作</p>
 </blockquote>
-<h5 id="构建者模式——生成器模式"><a href="#构建者模式——生成器模式" class="headerlink" title="构建者模式——生成器模式"></a>构建者模式——生成器模式</h5><blockquote>
+<h5 id="构建者模式——生成器模式">构建者模式——生成器模式</h5>
+<blockquote>
 <p>与工厂模式的区别：</p>
 </blockquote>
-<ul>
-<li>工厂模式是用来创建不同但是相关类型的对象（继承同一父类或者接口的一组子类），由给定的参数来决定创建哪种类型的对象。</li>
-<li>建造者模式是用来创建一种类型的复杂对象，通过设置不同的可选参数，“定制化”地创建不同的对象。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>工厂模式是用来创建不同但是相关类型的对象（继承同一父类或者接口的一组子类），由给定的参数来决定创建哪种类型的对象。</p>
+</li>
+<li class="lvl-2">
+<p>建造者模式是用来创建一种类型的复杂对象，通过设置不同的可选参数，“定制化”地创建不同的对象。</p>
+</li>
 </ul>
-<h4 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h4><blockquote>
+<h4 id="原型模式">原型模式</h4>
+<blockquote>
 <p>如果对象的创建成本比较大，而同一个类的不同对象之间差别不大（大部分字段都相同），在这种情况下，我们可以利用对已有对象（原型）进行复制（或者叫拷贝）的方式来创建新对象，以达到节省创建时间的目的。这种基于原型来创建对象的方式就叫作原型设计模式（Prototype Design Pattern），简称原型模式。</p>
 </blockquote>
-<h5 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h5><ul>
-<li><p>浅拷贝：浅拷贝只会复制图中的索引（散列表），不会复制数据（SearchWord 对象）本身。</p>
+<h5 id="实现方式">实现方式</h5>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>浅拷贝：浅拷贝只会复制图中的索引（散列表），不会复制数据（SearchWord 对象）本身。</p>
 </li>
-<li><p>深拷贝：深拷贝不仅仅会复制索引，还会复制数据本身。</p>
+<li class="lvl-2">
+<p>深拷贝：深拷贝不仅仅会复制索引，还会复制数据本身。</p>
 </li>
 </ul>
-<h3 id="结构型"><a href="#结构型" class="headerlink" title="结构型"></a>结构型</h3><h4 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h4><blockquote>
+<h3 id="结构型">结构型</h3>
+<h4 id="代理模式">代理模式</h4>
+<blockquote>
 <p>它在不改变原始类（或叫被代理类）代码的情况下，通过引入代理类来给原始类附加功能。</p>
 </blockquote>
 <p>应用场景</p>
-<ul>
-<li>业务系统的非功能性需求开发：</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>业务系统的非功能性需求开发：</p>
+</li>
 </ul>
 <p>代理模式最常用的一个应用场景就是，在业务系统中开发一些非功能性需求，比如：监控、统计、鉴权、限流、事务、幂等、日志。</p>
-<ul>
-<li>代理模式在 RPC、缓存中的应用：</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>代理模式在 RPC、缓存中的应用：</p>
+</li>
 </ul>
 <p>实际上，RPC 框架也可以看作一种代理模式，GoF 的《设计模式》一书中把它称作远程代理。通过远程代理，将网络通信、数据编解码等细节隐藏起来。客户端在使用 RPC 服务的时候，就像使用本地函数一样，无需了解跟服务器交互的细节。除此之外，RPC 服务的开发者也只需要开发业务逻辑，就像开发本地使用的函数一样，不需要关注跟客户端的交互细节。、</p>
-<ul>
-<li>代理模式在缓存中的应用：</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>代理模式在缓存中的应用：</p>
+</li>
 </ul>
-<p>在应用启动的时候，我们从配置文件中加载需要支持缓存的接口，以及相应的缓存策略（比如过期时间）等。当请求到来的时候，我们在 AOP 切面中拦截请求，如果请求中带有支持缓存的字段（比如 http:&#x2F;&#x2F;…?..&amp;cached&#x3D;true），我们便从缓存（内存缓存或者 Redis 缓存等）中获取数据直接返回。</p>
-<h4 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h4><blockquote>
-<ul>
-<li><p>桥梁模式——Bridge Design Pattern</p>
+<p>在应用启动的时候，我们从配置文件中加载需要支持缓存的接口，以及相应的缓存策略（比如过期时间）等。当请求到来的时候，我们在 AOP 切面中拦截请求，如果请求中带有支持缓存的字段（比如 http://…?..&amp;cached=true），我们便从缓存（内存缓存或者 Redis 缓存等）中获取数据直接返回。</p>
+<h4 id="桥接模式">桥接模式</h4>
+<blockquote>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>桥梁模式——Bridge Design Pattern</p>
 </li>
-<li><p>将抽象和实现解耦，让它们可以独立变化。</p>
+<li class="lvl-2">
+<p>将抽象和实现解耦，让它们可以独立变化。</p>
 </li>
-<li><p>一个类存在两个（或多个）独立变化的维度，我们通过组合的方式，让这两个（或多个）维度可以独立进行扩展。</p>
+<li class="lvl-2">
+<p>一个类存在两个（或多个）独立变化的维度，我们通过组合的方式，让这两个（或多个）维度可以独立进行扩展。</p>
 </li>
-<li><p>通过组合关系来替代继承关系，避免继承层次的指数级爆炸。</p>
+<li class="lvl-2">
+<p>通过组合关系来替代继承关系，避免继承层次的指数级爆炸。</p>
 </li>
 </ul>
 </blockquote>
-<h4 id="装饰器模式"><a href="#装饰器模式" class="headerlink" title="装饰器模式"></a>装饰器模式</h4><blockquote>
-<ul>
-<li><p>装饰器类和原始类继承同样的父类，这样我们可以对原始类“嵌套”多个装饰器类。</p>
+<h4 id="装饰器模式">装饰器模式</h4>
+<blockquote>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>装饰器类和原始类继承同样的父类，这样我们可以对原始类“嵌套”多个装饰器类。</p>
 </li>
-<li><p>装饰器类是对功能的增强，这也是装饰器模式应用场景的一个重要特点。</p>
+<li class="lvl-2">
+<p>装饰器类是对功能的增强，这也是装饰器模式应用场景的一个重要特点。</p>
 </li>
 </ul>
 </blockquote>
-<h4 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h4><blockquote>
-<ul>
-<li>这个模式就是用来做适配的，它将不兼容的接口转换为可兼容的接口，让原本由于接口不兼容而不能一起工作的类可以一起工作。</li>
-<li>一般来说，适配器模式可以看作一种“补偿模式”，用来补救设计上的缺陷。应用这种模式算是“无奈之举”。如果在设计初期，我们就能协调规避接口不兼容的问题，那这种模式就没有应用的机会了。</li>
+<h4 id="适配器模式">适配器模式</h4>
+<blockquote>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>这个模式就是用来做适配的，它将不兼容的接口转换为可兼容的接口，让原本由于接口不兼容而不能一起工作的类可以一起工作。</p>
+</li>
+<li class="lvl-2">
+<p>一般来说，适配器模式可以看作一种“补偿模式”，用来补救设计上的缺陷。应用这种模式算是“无奈之举”。如果在设计初期，我们就能协调规避接口不兼容的问题，那这种模式就没有应用的机会了。</p>
+</li>
 </ul>
 </blockquote>
 <p>实现方式：</p>
-<ul>
-<li>类适配器——使用继承关系来实现</li>
-<li>对象适配器——使用组合关系来实现</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>类适配器——使用继承关系来实现</p>
+</li>
+<li class="lvl-2">
+<p>对象适配器——使用组合关系来实现</p>
+</li>
 </ul>
 <p>总结：</p>
-<ul>
-<li><p>封装有缺陷的接口设计</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>封装有缺陷的接口设计</p>
 <p>假设我们依赖的外部系统在接口设计方面有缺陷（比如包含大量静态方法），引入之后会影响到我们自身代码的可测试性。为了隔离设计上的缺陷，我们希望对外部系统提供的接口进行二次封装，抽象出更好的接口设计，这个时候就可以使用适配器模式了。</p>
 </li>
-<li><p>统一多个类的接口设计</p>
+<li class="lvl-2">
+<p>统一多个类的接口设计</p>
 <p>某个功能的实现依赖多个外部系统（或者说类）。通过适配器模式，将它们的接口适配为统一的接口定义，然后我们就可以使用多态的特性来复用代码逻辑。</p>
 </li>
-<li><p>替换依赖的外部系统</p>
+<li class="lvl-2">
+<p>替换依赖的外部系统</p>
 <p>当我们把项目中依赖的一个外部系统替换为另一个外部系统的时候，利用适配器模式，可以减少对代码的改动。</p>
 </li>
-<li><p>兼容老版本接口</p>
+<li class="lvl-2">
+<p>兼容老版本接口</p>
 <p>在做版本升级的时候，对于一些要废弃的接口，我们不直接将其删除，而是暂时保留，并且标注为 deprecated，并将内部实现逻辑委托为新的接口实现。这样做的好处是，让使用它的项目有个过渡期，而不是强制进行代码修改。这也可以粗略地看作适配器模式的一个应用场景。</p>
 </li>
-<li><p>适配不同格式的数据它还可以用在不同格式的数据之间的适配。比如，把从不同征信系统拉取的不同格式的征信数据，统一为相同的格式，以方便存储和使用。</p>
+<li class="lvl-2">
+<p>适配不同格式的数据它还可以用在不同格式的数据之间的适配。比如，把从不同征信系统拉取的不同格式的征信数据，统一为相同的格式，以方便存储和使用。</p>
 </li>
 </ul>
-<h4 id="门面模式"><a href="#门面模式" class="headerlink" title="门面模式"></a>门面模式</h4><blockquote>
-<ul>
-<li>外观模式——门面模式为子系统提供一组统一的接口，定义一组高层接口让子系统更易用。</li>
-<li>为了保证接口的可复用性（或者叫通用性），我们需要将接口尽量设计得细粒度一点，职责单一一点。</li>
-<li>门面模式让子系统更加易用</li>
-<li>从隐藏实现复杂性，提供更易用接口这个意图来看，门面模式有点类似之前讲到的迪米特法则（最少知识原则）和接口隔离原则：两个有交互的系统，只暴露有限的必要的接口。除此之外，门面模式还有点类似之前提到封装、抽象的设计思想，提供更抽象的接口，封装底层实现细节。</li>
+<h4 id="门面模式">门面模式</h4>
+<blockquote>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>外观模式——门面模式为子系统提供一组统一的接口，定义一组高层接口让子系统更易用。</p>
+</li>
+<li class="lvl-2">
+<p>为了保证接口的可复用性（或者叫通用性），我们需要将接口尽量设计得细粒度一点，职责单一一点。</p>
+</li>
+<li class="lvl-2">
+<p>门面模式让子系统更加易用</p>
+</li>
+<li class="lvl-2">
+<p>从隐藏实现复杂性，提供更易用接口这个意图来看，门面模式有点类似之前讲到的迪米特法则（最少知识原则）和接口隔离原则：两个有交互的系统，只暴露有限的必要的接口。除此之外，门面模式还有点类似之前提到封装、抽象的设计思想，提供更抽象的接口，封装底层实现细节。</p>
+</li>
 </ul>
 </blockquote>
 <p>应用场景：</p>
-<ul>
-<li><p>解决易用性问题</p>
-<ul>
-<li>门面模式可以用来封装系统的底层实现，隐藏系统的复杂性，提供一组更加简单易用、更高层的接口。比如，Linux 系统调用函数就可以看作一种“门面”。它是 Linux 操作系统暴露给开发者的一组“特殊”的编程接口，它封装了底层更基础的 Linux 内核调用。</li>
-<li>Linux 的 Shell 命令，实际上也可以看作一种门面模式的应用。它继续封装系统调用，提供更加友好、简单的命令，让我们可以直接通过执行命令来跟操作系统交互。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>解决易用性问题</p>
+<ul class="lvl-2">
+<li class="lvl-4">门面模式可以用来封装系统的底层实现，隐藏系统的复杂性，提供一组更加简单易用、更高层的接口。比如，Linux 系统调用函数就可以看作一种“门面”。它是 Linux 操作系统暴露给开发者的一组“特殊”的编程接口，它封装了底层更基础的 Linux 内核调用。</li>
+<li class="lvl-4">Linux 的 Shell 命令，实际上也可以看作一种门面模式的应用。它继续封装系统调用，提供更加友好、简单的命令，让我们可以直接通过执行命令来跟操作系统交互。</li>
 </ul>
 </li>
-<li><p>解决性能问题</p>
-<ul>
-<li>我们通过将多个接口调用替换为一个门面接口调用，减少网络通信成本，提高 App 客户端的响应速度。</li>
+<li class="lvl-2">
+<p>解决性能问题</p>
+<ul class="lvl-2">
+<li class="lvl-4">我们通过将多个接口调用替换为一个门面接口调用，减少网络通信成本，提高 App 客户端的响应速度。</li>
 </ul>
 </li>
-<li><p>解决分布式事务问题</p>
-<ul>
-<li>要支持两个接口调用在一个事务中执行，是比较难实现的，这涉及分布式事务问题。虽然我们可以通过引入分布式事务框架或者事后补偿的机制来解决，但代码实现都比较复杂。</li>
-<li>我们可以借鉴门面模式的思想，再设计一个包裹这两个操作的新接口，让新接口在一个事务中执行两个 SQL 操作。</li>
+<li class="lvl-2">
+<p>解决分布式事务问题</p>
+<ul class="lvl-2">
+<li class="lvl-4">要支持两个接口调用在一个事务中执行，是比较难实现的，这涉及分布式事务问题。虽然我们可以通过引入分布式事务框架或者事后补偿的机制来解决，但代码实现都比较复杂。</li>
+<li class="lvl-4">我们可以借鉴门面模式的思想，再设计一个包裹这两个操作的新接口，让新接口在一个事务中执行两个 SQL 操作。</li>
 </ul>
 </li>
 </ul>
-<h4 id="组合模式"><a href="#组合模式" class="headerlink" title="组合模式"></a>组合模式</h4><blockquote>
-<ul>
-<li>将一组对象组织（Compose）成树形结构，以表示一种“部分 - 整体”的层次结构。</li>
-<li>组合让客户端（在很多设计模式书籍中，“客户端”代指代码的使用者。）可以统一单个对象和组合对象的处理逻辑。</li>
+<h4 id="组合模式">组合模式</h4>
+<blockquote>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>将一组对象组织（Compose）成树形结构，以表示一种“部分 - 整体”的层次结构。</p>
+</li>
+<li class="lvl-2">
+<p>组合让客户端（在很多设计模式书籍中，“客户端”代指代码的使用者。）可以统一单个对象和组合对象的处理逻辑。</p>
+</li>
 </ul>
 </blockquote>
-<h4 id="享元模式"><a href="#享元模式" class="headerlink" title="享元模式"></a>享元模式</h4><blockquote>
-<ul>
-<li>所谓“享元”，顾名思义就是被共享的单元。享元模式的意图是复用对象，节省内存，前提是享元对象是不可变对象。</li>
-<li>当一个系统中存在大量重复对象的时候，如果这些重复的对象是不可变对象，我们就可以利用享元模式将对象设计成享元，在内存中只保留一份实例，供多处代码引用。这样可以减少内存中对象的数量，起到节省内存的目的。</li>
+<h4 id="享元模式">享元模式</h4>
+<blockquote>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>所谓“享元”，顾名思义就是被共享的单元。享元模式的意图是复用对象，节省内存，前提是享元对象是不可变对象。</p>
+</li>
+<li class="lvl-2">
+<p>当一个系统中存在大量重复对象的时候，如果这些重复的对象是不可变对象，我们就可以利用享元模式将对象设计成享元，在内存中只保留一份实例，供多处代码引用。这样可以减少内存中对象的数量，起到节省内存的目的。</p>
+</li>
 </ul>
 </blockquote>
-<h3 id="行为型"><a href="#行为型" class="headerlink" title="行为型"></a>行为型</h3><h4 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h4><blockquote>
-<ul>
-<li>在对象之间定义一个一对多的依赖，当一个对象状态改变的时候，所有依赖的对象都会自动收到通知。</li>
-<li>被依赖的对象叫作被观察者（Observable），依赖的对象叫作观察者（Observer）。</li>
-<li>设计模式要干的事情就是解耦。创建型模式是将创建和使用代码解耦，结构型模式是将不同功能代码解耦，行为型模式是将不同的行为代码解耦，具体到观察者模式，它是将观察者和被观察者代码解耦。</li>
-<li>观察者模式的应用场景非常广泛，小到代码层面的解耦，大到架构层面的系统解耦，再或者一些产品的设计思路，都有这种模式的影子，比如，邮件订阅、RSS Feeds，本质上都是观察者模式。</li>
-<li>基于消息队列（Message Queue，比如 ActiveMQ）来实现。</li>
+<h3 id="行为型">行为型</h3>
+<h4 id="观察者模式">观察者模式</h4>
+<blockquote>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>在对象之间定义一个一对多的依赖，当一个对象状态改变的时候，所有依赖的对象都会自动收到通知。</p>
+</li>
+<li class="lvl-2">
+<p>被依赖的对象叫作被观察者（Observable），依赖的对象叫作观察者（Observer）。</p>
+</li>
+<li class="lvl-2">
+<p>设计模式要干的事情就是解耦。创建型模式是将创建和使用代码解耦，结构型模式是将不同功能代码解耦，行为型模式是将不同的行为代码解耦，具体到观察者模式，它是将观察者和被观察者代码解耦。</p>
+</li>
+<li class="lvl-2">
+<p>观察者模式的应用场景非常广泛，小到代码层面的解耦，大到架构层面的系统解耦，再或者一些产品的设计思路，都有这种模式的影子，比如，邮件订阅、RSS Feeds，本质上都是观察者模式。</p>
+</li>
+<li class="lvl-2">
+<p>基于消息队列（Message Queue，比如 ActiveMQ）来实现。</p>
+</li>
 </ul>
 </blockquote>
-<h4 id="模板模式"><a href="#模板模式" class="headerlink" title="模板模式"></a>模板模式</h4><blockquote>
+<h4 id="模板模式">模板模式</h4>
+<blockquote>
 <p>模板方法模式在一个方法中定义一个算法骨架，并将某些步骤推迟到子类中实现。模板方法模式可以让子类在不改变算法整体结构的情况下，重新定义算法中的某些步骤。</p>
 </blockquote>
 <p>作用：</p>
-<ul>
-<li>复用</li>
-<li>扩展</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>复用</p>
+</li>
+<li class="lvl-2">
+<p>扩展</p>
+</li>
 </ul>
-<h4 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h4><blockquote>
-<ul>
-<li>定义一族算法类，将每个算法分别封装起来，让它们可以互相替换。</li>
-<li>策略模式可以使算法的变化独立于使用它们的客户端（这里的客户端代指使用算法的代码）。</li>
-<li>策略类的定义比较简单，包含一个策略接口和一组实现这个接口的策略类。因为所有的策略类都实现相同的接口，所以，客户端代码基于接口而非实现编程，可以灵活地替换不同的策略。</li>
-<li>因为策略模式会包含一组策略，在使用它们的时候，一般会通过类型（type）来判断创建哪个策略来使用。为了封装创建逻辑，我们需要对客户端代码屏蔽创建细节。我们可以把根据 type 创建策略的逻辑抽离出来，放到工厂类中。</li>
+<h4 id="策略模式">策略模式</h4>
+<blockquote>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>定义一族算法类，将每个算法分别封装起来，让它们可以互相替换。</p>
+</li>
+<li class="lvl-2">
+<p>策略模式可以使算法的变化独立于使用它们的客户端（这里的客户端代指使用算法的代码）。</p>
+</li>
+<li class="lvl-2">
+<p>策略类的定义比较简单，包含一个策略接口和一组实现这个接口的策略类。因为所有的策略类都实现相同的接口，所以，客户端代码基于接口而非实现编程，可以灵活地替换不同的策略。</p>
+</li>
+<li class="lvl-2">
+<p>因为策略模式会包含一组策略，在使用它们的时候，一般会通过类型（type）来判断创建哪个策略来使用。为了封装创建逻辑，我们需要对客户端代码屏蔽创建细节。我们可以把根据 type 创建策略的逻辑抽离出来，放到工厂类中。</p>
+</li>
 </ul>
 </blockquote>
-<h4 id="职责链模式"><a href="#职责链模式" class="headerlink" title="职责链模式"></a>职责链模式</h4><blockquote>
-<ul>
-<li>将请求的发送和接收解耦，让多个接收对象都有机会处理这个请求。将这些接收对象串成一条链，并沿着这条链传递这个请求，直到链上的某个接收对象能够处理它为止。</li>
-<li>在职责链模式中，多个处理器（也就是刚刚定义中说的“接收对象”）依次处理同一个请求。一个请求先经过 A 处理器处理，然后再把请求传递给 B 处理器，B 处理器处理完后再传递给 C 处理器，以此类推，形成一个链条。链条上的每个处理器各自承担各自的处理职责，所以叫作职责链模式。</li>
-<li>状态模式一般用来实现状态机，而状态机常用在游戏、工作流引擎等系统开发中。</li>
+<h4 id="职责链模式">职责链模式</h4>
+<blockquote>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>将请求的发送和接收解耦，让多个接收对象都有机会处理这个请求。将这些接收对象串成一条链，并沿着这条链传递这个请求，直到链上的某个接收对象能够处理它为止。</p>
+</li>
+<li class="lvl-2">
+<p>在职责链模式中，多个处理器（也就是刚刚定义中说的“接收对象”）依次处理同一个请求。一个请求先经过 A 处理器处理，然后再把请求传递给 B 处理器，B 处理器处理完后再传递给 C 处理器，以此类推，形成一个链条。链条上的每个处理器各自承担各自的处理职责，所以叫作职责链模式。</p>
+</li>
+<li class="lvl-2">
+<p>状态模式一般用来实现状态机，而状态机常用在游戏、工作流引擎等系统开发中。</p>
+</li>
 </ul>
 </blockquote>
-<h4 id="状态模式——有限状态机"><a href="#状态模式——有限状态机" class="headerlink" title="状态模式——有限状态机"></a>状态模式——有限状态机</h4><blockquote>
-<ul>
-<li>英文翻译是 Finite State Machine，缩写为 FSM，简称为状态机。</li>
-<li>状态机有 3 个组成部分：状态（State）、事件（Event）、动作（Action）。</li>
-<li>事件也称为转移条件（Transition Condition）。事件触发状态的转移及动作的执行。</li>
-<li>实现方式<ul>
-<li>分支逻辑法</li>
-<li>查表法</li>
-<li>状态模式</li>
+<h4 id="状态模式——有限状态机">状态模式——有限状态机</h4>
+<blockquote>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>英文翻译是 Finite State Machine，缩写为 FSM，简称为状态机。</p>
+</li>
+<li class="lvl-2">
+<p>状态机有 3 个组成部分：状态（State）、事件（Event）、动作（Action）。</p>
+</li>
+<li class="lvl-2">
+<p>事件也称为转移条件（Transition Condition）。事件触发状态的转移及动作的执行。</p>
+</li>
+<li class="lvl-2">
+<p>实现方式</p>
+<ul class="lvl-3">
+<li class="lvl-4">分支逻辑法</li>
+<li class="lvl-4">查表法</li>
+<li class="lvl-4">状态模式</li>
 </ul>
 </li>
 </ul>
 </blockquote>
-<h4 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h4><blockquote>
-<ul>
-<li>用来遍历集合对象——大部分编程语言都提供了多种遍历集合的方式，比如 for 循环、foreach 循环、迭代器等。</li>
-<li>迭代器模式（Iterator Design Pattern），也叫作游标模式（Cursor Design Pattern）。</li>
+<h4 id="迭代器模式">迭代器模式</h4>
+<blockquote>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>用来遍历集合对象——大部分编程语言都提供了多种遍历集合的方式，比如 for 循环、foreach 循环、迭代器等。</p>
+</li>
+<li class="lvl-2">
+<p>迭代器模式（Iterator Design Pattern），也叫作游标模式（Cursor Design Pattern）。</p>
+</li>
 </ul>
 </blockquote>
-<h4 id="访问者模式"><a href="#访问者模式" class="headerlink" title="访问者模式"></a>访问者模式</h4><blockquote>
-<ul>
-<li>允许一个或者多个操作应用到一组对象上，解耦操作和对象本身。</li>
-<li>访问者模式针对的是一组类型不同的对象（PdfFile、PPTFile、WordFile）。</li>
-<li>它们继承相同的父类（ResourceFile）或者实现相同的接口。</li>
+<h4 id="访问者模式">访问者模式</h4>
+<blockquote>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>允许一个或者多个操作应用到一组对象上，解耦操作和对象本身。</p>
+</li>
+<li class="lvl-2">
+<p>访问者模式针对的是一组类型不同的对象（PdfFile、PPTFile、WordFile）。</p>
+</li>
+<li class="lvl-2">
+<p>它们继承相同的父类（ResourceFile）或者实现相同的接口。</p>
+</li>
 </ul>
 </blockquote>
-<h4 id="备忘录模式"><a href="#备忘录模式" class="headerlink" title="备忘录模式"></a>备忘录模式</h4><blockquote>
-<ul>
-<li>在不违背封装原则的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态，以便之后恢复对象为先前的状态。</li>
-<li>两部分<ul>
-<li>存储副本以便后期恢复</li>
-<li>要在不违背封装原则的前提下，进行对象的备份和恢复</li>
+<h4 id="备忘录模式">备忘录模式</h4>
+<blockquote>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>在不违背封装原则的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态，以便之后恢复对象为先前的状态。</p>
+</li>
+<li class="lvl-2">
+<p>两部分</p>
+<ul class="lvl-3">
+<li class="lvl-4">存储副本以便后期恢复</li>
+<li class="lvl-4">要在不违背封装原则的前提下，进行对象的备份和恢复</li>
 </ul>
 </li>
 </ul>
 </blockquote>
-<h4 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h4><blockquote>
-<ul>
-<li>将请求（命令）封装为一个对象，这样可以使用不同的请求参数化其他对象（将不同请求依赖注入到其他对象），并且能够支持请求（命令）的排队执行、记录日志、撤销等（附加控制）功能。</li>
-<li>当我们把函数封装成对象之后，对象就可以存储下来，方便控制执行。所以，命令模式的主要作用和应用场景，是用来控制命令的执行，比如，异步、延迟、排队执行命令、撤销重做命令、存储命令、给命令记录日志等等，这才是命令模式能发挥独一无二作用的地方。</li>
+<h4 id="命令模式">命令模式</h4>
+<blockquote>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>将请求（命令）封装为一个对象，这样可以使用不同的请求参数化其他对象（将不同请求依赖注入到其他对象），并且能够支持请求（命令）的排队执行、记录日志、撤销等（附加控制）功能。</p>
+</li>
+<li class="lvl-2">
+<p>当我们把函数封装成对象之后，对象就可以存储下来，方便控制执行。所以，命令模式的主要作用和应用场景，是用来控制命令的执行，比如，异步、延迟、排队执行命令、撤销重做命令、存储命令、给命令记录日志等等，这才是命令模式能发挥独一无二作用的地方。</p>
+</li>
 </ul>
 </blockquote>
-<h4 id="解释器模式"><a href="#解释器模式" class="headerlink" title="解释器模式"></a>解释器模式</h4><blockquote>
+<h4 id="解释器模式">解释器模式</h4>
+<blockquote>
 <p>解释器模式为某个语言定义它的语法（或者叫文法）表示，并定义一个解释器用来处理这个语法。</p>
 </blockquote>
-<h4 id="中介模式"><a href="#中介模式" class="headerlink" title="中介模式"></a>中介模式</h4><blockquote>
+<h4 id="中介模式">中介模式</h4>
+<blockquote>
 <p>中介模式定义了一个单独的（中介）对象，来封装一组对象之间的交互。将这组对象之间的交互委派给与中介对象交互，来避免对象之间的直接交互。</p>
 </blockquote>
 
@@ -582,14 +716,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -634,7 +768,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:07</span>
+    <span title="站点阅读时长">2:06</span>
 </div>
 
 <!-- <br /> -->

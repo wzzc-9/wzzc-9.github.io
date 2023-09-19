@@ -22,20 +22,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="MylSAM和InnoDB    MylSAM InnoDB    事务支持 不支持 支持   数据行锁定 不支持 支持   外键约束 不支持 支持   全文索引 支持 不支持   表空间大小 较小 较大，约为2倍   常规使用操作：  MylSAM	节约空间，速度较快 InnoDB     安全性高，事务处理，多表操作  MySql函数常用函数数据函数12345SELECT ABS(-8); &#x2F;">
+  <meta name="description" content="MylSAM和InnoDB     MylSAM InnoDB     事务支持 不支持 支持   数据行锁定 不支持 支持   外键约束 不支持 支持   全文索引 支持 不支持   表空间大小 较小 较大，约为2倍    常规使用操作：   MylSAM	节约空间，速度较快   InnoDB     安全性高，事务处理，多表操作   MySql函数 常用函数 数据函数 12345SELECT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySql基础">
 <meta property="og:url" content="http://example.com/2022/10/12/MySql%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="MylSAM和InnoDB    MylSAM InnoDB    事务支持 不支持 支持   数据行锁定 不支持 支持   外键约束 不支持 支持   全文索引 支持 不支持   表空间大小 较小 较大，约为2倍   常规使用操作：  MylSAM	节约空间，速度较快 InnoDB     安全性高，事务处理，多表操作  MySql函数常用函数数据函数12345SELECT ABS(-8); &#x2F;">
+<meta property="og:description" content="MylSAM和InnoDB     MylSAM InnoDB     事务支持 不支持 支持   数据行锁定 不支持 支持   外键约束 不支持 支持   全文索引 支持 不支持   表空间大小 较小 较大，约为2倍    常规使用操作：   MylSAM	节约空间，速度较快   InnoDB     安全性高，事务处理，多表操作   MySql函数 常用函数 数据函数 12345SELECT">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/MySql%E5%9F%BA%E7%A1%80%5Cimage-20221014171257329.png">
+<meta property="og:image" content="http://example.com/2022/10/12/MySql%E5%9F%BA%E7%A1%80/MySql%E5%9F%BA%E7%A1%80%5Cimage-20221014171257329.png">
 <meta property="article:published_time" content="2022-10-12T08:47:50.000Z">
 <meta property="article:modified_time" content="2023-01-05T07:34:05.702Z">
 <meta property="article:author" content="Wzzc">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/MySql%E5%9F%BA%E7%A1%80%5Cimage-20221014171257329.png">
+<meta name="twitter:image" content="http://example.com/2022/10/12/MySql%E5%9F%BA%E7%A1%80/MySql%E5%9F%BA%E7%A1%80%5Cimage-20221014171257329.png">
 
 <link rel="canonical" href="http://example.com/2022/10/12/MySql%E5%9F%BA%E7%A1%80/">
 
@@ -248,7 +248,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="MylSAM和InnoDB"><a href="#MylSAM和InnoDB" class="headerlink" title="MylSAM和InnoDB"></a>MylSAM和InnoDB</h1><table>
+        <h1>MylSAM和InnoDB</h1>
+<table>
 <thead>
 <tr>
 <th></th>
@@ -256,7 +257,8 @@
 <th>InnoDB</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>事务支持</td>
 <td>不支持</td>
 <td>支持</td>
@@ -281,28 +283,37 @@
 <td>较小</td>
 <td>较大，约为2倍</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>常规使用操作：</p>
-<ul>
-<li>MylSAM	节约空间，速度较快</li>
-<li>InnoDB     安全性高，事务处理，多表操作</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>MylSAM	节约空间，速度较快</p>
+</li>
+<li class="lvl-2">
+<p>InnoDB     安全性高，事务处理，多表操作</p>
+</li>
 </ul>
-<h1 id="MySql函数"><a href="#MySql函数" class="headerlink" title="MySql函数"></a>MySql函数</h1><h2 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h2><h3 id="数据函数"><a href="#数据函数" class="headerlink" title="数据函数"></a>数据函数</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">ABS</span>(<span class="number">-8</span>); <span class="comment">/*绝对值*/</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">CEILING</span>(<span class="number">9.4</span>); <span class="comment">/*向上取整*/</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">FLOOR</span>(<span class="number">9.4</span>); <span class="comment">/*向下取整*/</span></span><br><span class="line"><span class="keyword">SELECT</span> RAND(); <span class="comment">/*随机数,返回一个0-1之间的随机数*/</span></span><br><span class="line"><span class="keyword">SELECT</span> SIGN(<span class="number">0</span>); <span class="comment">/*符号函数: 负数返回-1,正数返回1,0返回0*/</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CHAR_LENGTH</span>(<span class="string">&#x27;狂神说坚持就能成功&#x27;</span>); <span class="comment">/*返回字符串包含的字符数*/</span></span><br><span class="line"><span class="keyword">SELECT</span> CONCAT(<span class="string">&#x27;我&#x27;</span>,<span class="string">&#x27;爱&#x27;</span>,<span class="string">&#x27;程序&#x27;</span>); <span class="comment">/*合并字符串,参数可以有多个*/</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">INSERT</span>(<span class="string">&#x27;我爱编程helloworld&#x27;</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="string">&#x27;超级热爱&#x27;</span>); <span class="comment">/*替换字符串,从某个位置开始替</span></span><br><span class="line"><span class="comment">换某个长度*/</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">LOWER</span>(<span class="string">&#x27;KuangShen&#x27;</span>); <span class="comment">/*小写*/</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">UPPER</span>(<span class="string">&#x27;KuangShen&#x27;</span>); <span class="comment">/*大写*/</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">LEFT</span>(<span class="string">&#x27;hello,world&#x27;</span>,<span class="number">5</span>); <span class="comment">/*从左边截取*/</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">RIGHT</span>(<span class="string">&#x27;hello,world&#x27;</span>,<span class="number">5</span>); <span class="comment">/*从右边截取*/</span></span><br><span class="line"><span class="keyword">SELECT</span> REPLACE(<span class="string">&#x27;狂神说坚持就能成功&#x27;</span>,<span class="string">&#x27;坚持&#x27;</span>,<span class="string">&#x27;努力&#x27;</span>); <span class="comment">/*替换字符串*/</span></span><br><span class="line"><span class="keyword">SELECT</span> SUBSTR(<span class="string">&#x27;狂神说坚持就能成功&#x27;</span>,<span class="number">4</span>,<span class="number">6</span>); <span class="comment">/*截取字符串,开始和长度*/</span></span><br><span class="line"><span class="keyword">SELECT</span> REVERSE(<span class="string">&#x27;狂神说坚持就能成功&#x27;</span>); <span class="comment">/*反转</span></span><br><span class="line"><span class="comment">-- 查询姓周的同学,改成邹</span></span><br><span class="line"><span class="comment">SELECT REPLACE(studentname,&#x27;周&#x27;,&#x27;邹&#x27;) AS 新名字</span></span><br><span class="line"><span class="comment">FROM student WHERE studentname LIKE &#x27;周%&#x27;;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="日期和时间函数"><a href="#日期和时间函数" class="headerlink" title="日期和时间函数"></a>日期和时间函数</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">CURRENT_DATE</span>(); <span class="comment">/*获取当前日期*/</span></span><br><span class="line"><span class="keyword">SELECT</span> CURDATE(); <span class="comment">/*获取当前日期*/</span></span><br><span class="line"><span class="keyword">SELECT</span> NOW(); <span class="comment">/*获取当前日期和时间*/</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">LOCALTIME</span>(); <span class="comment">/*获取当前日期和时间*/</span></span><br><span class="line"><span class="keyword">SELECT</span> SYSDATE(); <span class="comment">/*获取当前日期和时间*/</span></span><br><span class="line"><span class="comment">-- 获取年月日,时分秒</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">YEAR</span>(NOW());</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MONTH</span>(NOW());</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DAY</span>(NOW());</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">HOUR</span>(NOW());</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MINUTE</span>(NOW());</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SECOND</span>(NOW());</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="系统信息函数"><a href="#系统信息函数" class="headerlink" title="系统信息函数"></a>系统信息函数</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> VERSION(); <span class="comment">/*版本*/</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">USER</span>(); <span class="comment">/*用户*/</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h2><table>
+<h1>MySql函数</h1>
+<h2 id="常用函数">常用函数</h2>
+<h3 id="数据函数">数据函数</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">ABS</span>(<span class="number">-8</span>); <span class="comment">/*绝对值*/</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">CEILING</span>(<span class="number">9.4</span>); <span class="comment">/*向上取整*/</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">FLOOR</span>(<span class="number">9.4</span>); <span class="comment">/*向下取整*/</span></span><br><span class="line"><span class="keyword">SELECT</span> RAND(); <span class="comment">/*随机数,返回一个0-1之间的随机数*/</span></span><br><span class="line"><span class="keyword">SELECT</span> SIGN(<span class="number">0</span>); <span class="comment">/*符号函数: 负数返回-1,正数返回1,0返回0*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="字符串函数">字符串函数</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CHAR_LENGTH</span>(<span class="string">&#x27;狂神说坚持就能成功&#x27;</span>); <span class="comment">/*返回字符串包含的字符数*/</span></span><br><span class="line"><span class="keyword">SELECT</span> CONCAT(<span class="string">&#x27;我&#x27;</span>,<span class="string">&#x27;爱&#x27;</span>,<span class="string">&#x27;程序&#x27;</span>); <span class="comment">/*合并字符串,参数可以有多个*/</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">INSERT</span>(<span class="string">&#x27;我爱编程helloworld&#x27;</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="string">&#x27;超级热爱&#x27;</span>); <span class="comment">/*替换字符串,从某个位置开始替</span></span><br><span class="line"><span class="comment">换某个长度*/</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">LOWER</span>(<span class="string">&#x27;KuangShen&#x27;</span>); <span class="comment">/*小写*/</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">UPPER</span>(<span class="string">&#x27;KuangShen&#x27;</span>); <span class="comment">/*大写*/</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">LEFT</span>(<span class="string">&#x27;hello,world&#x27;</span>,<span class="number">5</span>); <span class="comment">/*从左边截取*/</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">RIGHT</span>(<span class="string">&#x27;hello,world&#x27;</span>,<span class="number">5</span>); <span class="comment">/*从右边截取*/</span></span><br><span class="line"><span class="keyword">SELECT</span> REPLACE(<span class="string">&#x27;狂神说坚持就能成功&#x27;</span>,<span class="string">&#x27;坚持&#x27;</span>,<span class="string">&#x27;努力&#x27;</span>); <span class="comment">/*替换字符串*/</span></span><br><span class="line"><span class="keyword">SELECT</span> SUBSTR(<span class="string">&#x27;狂神说坚持就能成功&#x27;</span>,<span class="number">4</span>,<span class="number">6</span>); <span class="comment">/*截取字符串,开始和长度*/</span></span><br><span class="line"><span class="keyword">SELECT</span> REVERSE(<span class="string">&#x27;狂神说坚持就能成功&#x27;</span>); <span class="comment">/*反转</span></span><br><span class="line"><span class="comment">-- 查询姓周的同学,改成邹</span></span><br><span class="line"><span class="comment">SELECT REPLACE(studentname,&#x27;周&#x27;,&#x27;邹&#x27;) AS 新名字</span></span><br><span class="line"><span class="comment">FROM student WHERE studentname LIKE &#x27;周%&#x27;;</span></span><br></pre></td></tr></table></figure>
+<h3 id="日期和时间函数">日期和时间函数</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">CURRENT_DATE</span>(); <span class="comment">/*获取当前日期*/</span></span><br><span class="line"><span class="keyword">SELECT</span> CURDATE(); <span class="comment">/*获取当前日期*/</span></span><br><span class="line"><span class="keyword">SELECT</span> NOW(); <span class="comment">/*获取当前日期和时间*/</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">LOCALTIME</span>(); <span class="comment">/*获取当前日期和时间*/</span></span><br><span class="line"><span class="keyword">SELECT</span> SYSDATE(); <span class="comment">/*获取当前日期和时间*/</span></span><br><span class="line"><span class="comment">-- 获取年月日,时分秒</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">YEAR</span>(NOW());</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MONTH</span>(NOW());</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DAY</span>(NOW());</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">HOUR</span>(NOW());</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MINUTE</span>(NOW());</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SECOND</span>(NOW());</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="系统信息函数">系统信息函数</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> VERSION(); <span class="comment">/*版本*/</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">USER</span>(); <span class="comment">/*用户*/</span></span><br></pre></td></tr></table></figure>
+<h2 id="聚合函数">聚合函数</h2>
+<table>
 <thead>
 <tr>
 <th>函数名称</th>
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>COUNT()</td>
 <td>返回满足Select条件的记录总和数，如 select count(*) 【不建议使用 *，效率低】</td>
 </tr>
@@ -322,18 +333,24 @@
 <td>MIN(）</td>
 <td>可以为数值字段，字符字段或表达式列作统计，返回最小的值。</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 聚合函数</span></span><br><span class="line"><span class="comment">/*COUNT:非空的*/</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(studentname) <span class="keyword">FROM</span> student;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> student;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="number">1</span>) <span class="keyword">FROM</span> student; <span class="comment">/*推荐*/</span></span><br><span class="line"><span class="comment">-- 从含义上讲，count(1) 与 count(*) 都表示对全部数据行的查询。</span></span><br><span class="line"><span class="comment">-- count(字段) 会统计该字段在表中出现的次数，忽略字段为null 的情况。即不统计字段为null</span></span><br><span class="line">的记录。</span><br><span class="line"><span class="comment">-- count(*) 包括了所有的列，相当于行数，在统计结果的时候，包含字段为null 的记录；</span></span><br><span class="line"><span class="comment">-- count(1) 用1代表代码行，在统计结果的时候，包含字段为null 的记录 。</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">很多人认为count(1)执行的效率会比count(*)高，原因是count(*)会存在全表扫描，而count(1)</span></span><br><span class="line"><span class="comment">可以针对一个字段进行查询。其实不然，count(1)和count(*)都会对全表进行扫描，统计所有记录的</span></span><br><span class="line"><span class="comment">条数，包括那些为null的记录，因此，它们的效率可以说是相差无几。而count(字段)则与前两者不</span></span><br><span class="line"><span class="comment">同，它会统计该字段不为null的记录条数。</span></span><br><span class="line"><span class="comment">下面它们之间的一些对比：</span></span><br><span class="line"><span class="comment">1）在表没有主键时，count(1)比count(*)快</span></span><br><span class="line"><span class="comment">2）有主键时，主键作为计算条件，count(主键)效率最高；</span></span><br><span class="line"><span class="comment">3）若表格只有一个字段，则count(*)效率较高。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">SUM</span>(StudentResult) <span class="keyword">AS</span> 总和 <span class="keyword">FROM</span> <span class="keyword">result</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">AVG</span>(StudentResult) <span class="keyword">AS</span> 平均分 <span class="keyword">FROM</span> <span class="keyword">result</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">MAX</span>(StudentResult) <span class="keyword">AS</span> 最高分 <span class="keyword">FROM</span> <span class="keyword">result</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">MIN</span>(StudentResult) <span class="keyword">AS</span> 最低分 <span class="keyword">FROM</span> <span class="keyword">result</span>;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><blockquote>
+<h1>事务</h1>
+<h2 id="概述">概述</h2>
+<blockquote>
 <p>什么是事务</p>
 </blockquote>
-<ul>
-<li>事务就是将一组SQL语句放在同一批次内去执行</li>
-<li>如果一个SQL语句出错,则该批次内的所有SQL都将被取消执行</li>
-<li>MySQL事务处理只支持InnoDB和BDB数据表类型</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>事务就是将一组SQL语句放在同一批次内去执行</p>
+</li>
+<li class="lvl-2">
+<p>如果一个SQL语句出错,则该批次内的所有SQL都将被取消执行</p>
+</li>
+<li class="lvl-2">
+<p>MySQL事务处理只支持InnoDB和BDB数据表类型</p>
+</li>
 </ul>
 <blockquote>
 <p>事务的ACID原则</p>
@@ -346,366 +363,505 @@
 <p>隔离状态执行事务，使它们好像是系统在给定时间内执行的唯一操作。如果有两个事务，运行在相 同的时间内，执行相同的功能，事务的隔离性将确保每一事务在系统中认为只有该事务在使用系 统。这种属性有时称为串行化，为了防止事务操作间的混淆，必须串行化或序列化请求，使得在同 一时间仅有一个请求用于同一数据。</p>
 <p><strong>持久性(Durable)</strong></p>
 <p>在事务完成以后，该事务对数据库所作的更改便持久的保存在数据库之中，并不会被回滚。</p>
-<h2 id="事务实现"><a href="#事务实现" class="headerlink" title="事务实现"></a>事务实现</h2><p><strong>基本语法</strong></p>
+<h2 id="事务实现">事务实现</h2>
+<p><strong>基本语法</strong></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 使用set语句来改变自动提交模式</span></span><br><span class="line"><span class="keyword">SET</span> autocommit <span class="operator">=</span> <span class="number">0</span>; <span class="comment">/*关闭*/</span></span><br><span class="line"><span class="keyword">SET</span> autocommit <span class="operator">=</span> <span class="number">1</span>; <span class="comment">/*开启*/</span></span><br><span class="line"><span class="comment">-- 注意:</span></span><br><span class="line"><span class="comment">--- 1.MySQL中默认是自动提交</span></span><br><span class="line"><span class="comment">--- 2.使用事务时应先关闭自动提交</span></span><br><span class="line"><span class="comment">-- 开始一个事务,标记事务的起始点</span></span><br><span class="line"><span class="keyword">START</span> TRANSACTION</span><br><span class="line"><span class="comment">-- 提交一个事务给数据库</span></span><br><span class="line"><span class="keyword">COMMIT</span></span><br><span class="line"><span class="comment">-- 将事务回滚,数据回到本次事务的初始状态</span></span><br><span class="line"><span class="keyword">ROLLBACK</span></span><br><span class="line"><span class="comment">-- 还原MySQL数据库的自动提交</span></span><br><span class="line"><span class="keyword">SET</span> autocommit <span class="operator">=</span><span class="number">1</span>;</span><br><span class="line"><span class="comment">-- 保存点</span></span><br><span class="line"><span class="keyword">SAVEPOINT</span> 保存点名称 <span class="comment">-- 设置一个事务保存点</span></span><br><span class="line"><span class="keyword">ROLLBACK</span> <span class="keyword">TO</span> <span class="keyword">SAVEPOINT</span> 保存点名称 <span class="comment">-- 回滚到保存点</span></span><br><span class="line"><span class="keyword">RELEASE</span> <span class="keyword">SAVEPOINT</span> 保存点名称 <span class="comment">-- 删除保存点</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><blockquote>
+<h1>索引</h1>
+<blockquote>
 <p>MySql官方对索引的定义为：索引（index）是帮助MySql高效获取数据的数据结构。提取句子主干，就可以得到索引的本质：索引就是数据结构</p>
 </blockquote>
-<h2 id="索引的分类"><a href="#索引的分类" class="headerlink" title="索引的分类"></a>索引的分类</h2><ul>
-<li>主键索引 (Primary Key)：某一个属性组能唯一标识一条记录<ul>
-<li>最常见的索引类型</li>
-<li>确保数据记录的唯一性</li>
-<li>确定特定数据记录在数据库中的位置</li>
+<h2 id="索引的分类">索引的分类</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>主键索引 (Primary Key)：某一个属性组能唯一标识一条记录</p>
+<ul class="lvl-2">
+<li class="lvl-4">最常见的索引类型</li>
+<li class="lvl-4">确保数据记录的唯一性</li>
+<li class="lvl-4">确定特定数据记录在数据库中的位置</li>
 </ul>
 </li>
-<li>唯一索引 (Unique)：避免同一个表中某数据列中的值重复<ul>
-<li>主键索引只能有一个</li>
-<li>唯一索引可能有多个</li>
+<li class="lvl-2">
+<p>唯一索引 (Unique)：避免同一个表中某数据列中的值重复</p>
+<ul class="lvl-2">
+<li class="lvl-4">主键索引只能有一个</li>
+<li class="lvl-4">唯一索引可能有多个</li>
 </ul>
 </li>
-<li>常规索引 (Index)：快速定位特定数据<ul>
-<li>index 和 key 关键字都可以设置常规索引</li>
-<li>应加在查询找条件的字段</li>
-<li>不宜添加太多常规索引,影响数据的插入,删除和修改操作</li>
+<li class="lvl-2">
+<p>常规索引 (Index)：快速定位特定数据</p>
+<ul class="lvl-2">
+<li class="lvl-4">index 和 key 关键字都可以设置常规索引</li>
+<li class="lvl-4">应加在查询找条件的字段</li>
+<li class="lvl-4">不宜添加太多常规索引,影响数据的插入,删除和修改操作</li>
 </ul>
 </li>
-<li>全文索引 (FullText)：快速定位特定数据<ul>
-<li>只能用于MyISAM类型的数据表</li>
-<li>只能用于CHAR , VARCHAR , TEXT数据列类型</li>
-<li>适合大型数据集</li>
+<li class="lvl-2">
+<p>全文索引 (FullText)：快速定位特定数据</p>
+<ul class="lvl-2">
+<li class="lvl-4">只能用于MyISAM类型的数据表</li>
+<li class="lvl-4">只能用于CHAR , VARCHAR , TEXT数据列类型</li>
+<li class="lvl-4">适合大型数据集</li>
 </ul>
 </li>
 </ul>
-<h2 id="测试索引"><a href="#测试索引" class="headerlink" title="测试索引"></a>测试索引</h2><h3 id="建表app-user"><a href="#建表app-user" class="headerlink" title="建表app_user"></a>建表app_user</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `app_user` (</span><br><span class="line">`id` <span class="type">bigint</span>(<span class="number">20</span>) unsigned <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">`name` <span class="type">varchar</span>(<span class="number">50</span>) <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span> COMMENT <span class="string">&#x27;用户昵称&#x27;</span>,</span><br><span class="line">`email` <span class="type">varchar</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;用户邮箱&#x27;</span>,</span><br><span class="line">`phone` <span class="type">varchar</span>(<span class="number">20</span>) <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span> COMMENT <span class="string">&#x27;手机号&#x27;</span>,</span><br><span class="line">`gender` tinyint(<span class="number">4</span>) unsigned <span class="keyword">DEFAULT</span> <span class="string">&#x27;0&#x27;</span> COMMENT <span class="string">&#x27;性别（0:男；1：女）&#x27;</span>,</span><br><span class="line">`password` <span class="type">varchar</span>(<span class="number">100</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;密码&#x27;</span>,</span><br><span class="line">`age` tinyint(<span class="number">4</span>) <span class="keyword">DEFAULT</span> <span class="string">&#x27;0&#x27;</span> COMMENT <span class="string">&#x27;年龄&#x27;</span>,</span><br><span class="line">`create_time` datetime <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span>,</span><br><span class="line">`update_time` <span class="type">timestamp</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span> <span class="keyword">ON</span> <span class="keyword">UPDATE</span></span><br><span class="line"><span class="built_in">CURRENT_TIMESTAMP</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> KEY (`id`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4 COMMENT<span class="operator">=</span><span class="string">&#x27;app用户表&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="批量插入数据"><a href="#批量插入数据" class="headerlink" title="批量插入数据"></a>批量插入数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">FUNCTION</span> IF <span class="keyword">EXISTS</span> mock_data;</span><br><span class="line">DELIMITER $$</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> mock_data()</span><br><span class="line"><span class="keyword">RETURNS</span> <span class="type">INT</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line"><span class="keyword">DECLARE</span> num <span class="type">INT</span> <span class="keyword">DEFAULT</span> <span class="number">1000000</span>;</span><br><span class="line"><span class="keyword">DECLARE</span> i <span class="type">INT</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>;</span><br><span class="line">WHILE i <span class="operator">&lt;</span> num DO</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> app_user(`name`, `email`, `phone`, `gender`, `password`,</span><br><span class="line">`age`)</span><br><span class="line"><span class="keyword">VALUES</span>(CONCAT(<span class="string">&#x27;用户&#x27;</span>, i), <span class="string">&#x27;24736743@qq.com&#x27;</span>, CONCAT(<span class="string">&#x27;18&#x27;</span>, <span class="built_in">FLOOR</span>(RAND()<span class="operator">*</span></span><br><span class="line">(<span class="number">999999999</span><span class="number">-100000000</span>)<span class="operator">+</span><span class="number">100000000</span>)),<span class="built_in">FLOOR</span>(RAND()<span class="operator">*</span><span class="number">2</span>),UUID(),</span><br><span class="line"><span class="built_in">FLOOR</span>(RAND()<span class="operator">*</span><span class="number">100</span>));</span><br><span class="line"><span class="keyword">SET</span> i <span class="operator">=</span> i <span class="operator">+</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">END</span> WHILE;</span><br><span class="line"><span class="keyword">RETURN</span> i;</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line"><span class="keyword">SELECT</span> mock_data();</span><br></pre></td></tr></table></figure>
-
-<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ELECT <span class="operator">*</span> <span class="keyword">FROM</span> app_user <span class="keyword">WHERE</span> name <span class="operator">=</span> <span class="string">&#x27;用户9999&#x27;</span>; <span class="comment">-- 查看耗时</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> INDEX idx_app_user_name <span class="keyword">ON</span> app_user(name);</span><br></pre></td></tr></table></figure>
-
-<h2 id="索引准则"><a href="#索引准则" class="headerlink" title="索引准则"></a>索引准则</h2><ul>
-<li>索引不是越多越好</li>
-<li>不要对经常变动的数据加索引</li>
-<li>小数据量的表建议不要加索引</li>
-<li>索引一般应加在查找条件的字段</li>
+<h2 id="测试索引">测试索引</h2>
+<h3 id="建表app-user">建表app_user</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `app_user` (</span><br><span class="line">`id` <span class="type">bigint</span>(<span class="number">20</span>) unsigned <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">`name` <span class="type">varchar</span>(<span class="number">50</span>) <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span> COMMENT <span class="string">&#x27;用户昵称&#x27;</span>,</span><br><span class="line">`email` <span class="type">varchar</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;用户邮箱&#x27;</span>,</span><br><span class="line">`phone` <span class="type">varchar</span>(<span class="number">20</span>) <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span> COMMENT <span class="string">&#x27;手机号&#x27;</span>,</span><br><span class="line">`gender` tinyint(<span class="number">4</span>) unsigned <span class="keyword">DEFAULT</span> <span class="string">&#x27;0&#x27;</span> COMMENT <span class="string">&#x27;性别（0:男；1：女）&#x27;</span>,</span><br><span class="line">`password` <span class="type">varchar</span>(<span class="number">100</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;密码&#x27;</span>,</span><br><span class="line">`age` tinyint(<span class="number">4</span>) <span class="keyword">DEFAULT</span> <span class="string">&#x27;0&#x27;</span> COMMENT <span class="string">&#x27;年龄&#x27;</span>,</span><br><span class="line">`create_time` datetime <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span>,</span><br><span class="line">`update_time` <span class="type">timestamp</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span> <span class="keyword">ON</span> <span class="keyword">UPDATE</span></span><br><span class="line"><span class="built_in">CURRENT_TIMESTAMP</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> KEY (`id`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4 COMMENT<span class="operator">=</span><span class="string">&#x27;app用户表&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="批量插入数据">批量插入数据</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">FUNCTION</span> IF <span class="keyword">EXISTS</span> mock_data;</span><br><span class="line">DELIMITER $$</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> mock_data()</span><br><span class="line"><span class="keyword">RETURNS</span> <span class="type">INT</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line"><span class="keyword">DECLARE</span> num <span class="type">INT</span> <span class="keyword">DEFAULT</span> <span class="number">1000000</span>;</span><br><span class="line"><span class="keyword">DECLARE</span> i <span class="type">INT</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>;</span><br><span class="line">WHILE i <span class="operator">&lt;</span> num DO</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> app_user(`name`, `email`, `phone`, `gender`, `password`,</span><br><span class="line">`age`)</span><br><span class="line"><span class="keyword">VALUES</span>(CONCAT(<span class="string">&#x27;用户&#x27;</span>, i), <span class="string">&#x27;24736743@qq.com&#x27;</span>, CONCAT(<span class="string">&#x27;18&#x27;</span>, <span class="built_in">FLOOR</span>(RAND()<span class="operator">*</span></span><br><span class="line">(<span class="number">999999999</span><span class="number">-100000000</span>)<span class="operator">+</span><span class="number">100000000</span>)),<span class="built_in">FLOOR</span>(RAND()<span class="operator">*</span><span class="number">2</span>),UUID(),</span><br><span class="line"><span class="built_in">FLOOR</span>(RAND()<span class="operator">*</span><span class="number">100</span>));</span><br><span class="line"><span class="keyword">SET</span> i <span class="operator">=</span> i <span class="operator">+</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">END</span> WHILE;</span><br><span class="line"><span class="keyword">RETURN</span> i;</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line"><span class="keyword">SELECT</span> mock_data();</span><br></pre></td></tr></table></figure>
+<h3 id="查询">查询</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ELECT <span class="operator">*</span> <span class="keyword">FROM</span> app_user <span class="keyword">WHERE</span> name <span class="operator">=</span> <span class="string">&#x27;用户9999&#x27;</span>; <span class="comment">-- 查看耗时</span></span><br></pre></td></tr></table></figure>
+<h3 id="创建索引">创建索引</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> INDEX idx_app_user_name <span class="keyword">ON</span> app_user(name);</span><br></pre></td></tr></table></figure>
+<h2 id="索引准则">索引准则</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>索引不是越多越好</p>
+</li>
+<li class="lvl-2">
+<p>不要对经常变动的数据加索引</p>
+</li>
+<li class="lvl-2">
+<p>小数据量的表建议不要加索引</p>
+</li>
+<li class="lvl-2">
+<p>索引一般应加在查找条件的字段</p>
+</li>
 </ul>
-<h2 id="索引数据结构"><a href="#索引数据结构" class="headerlink" title="索引数据结构"></a>索引数据结构</h2><ul>
-<li>hash类型的索引：查询单条快，范围查询慢</li>
-<li>btree类型的索引：b+树，层数越多，数据量指数级增长（我们就用它，因为innodb默认支持它）</li>
+<h2 id="索引数据结构">索引数据结构</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>hash类型的索引：查询单条快，范围查询慢</p>
+</li>
+<li class="lvl-2">
+<p>btree类型的索引：b+树，层数越多，数据量指数级增长（我们就用它，因为innodb默认支持它）</p>
+</li>
 </ul>
 <p>关于索引的本质：<a target="_blank" rel="noopener" href="http://blog.codinglabs.org/articles/theory-of-mysql-index.html">http://blog.codinglabs.org/articles/theory-of-mysql-index.html</a></p>
-<h1 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">导出一张表 -- mysqldump -uroot -p123456 school student &gt;D:/a.sql</span><br><span class="line">mysqldump -u用户名 -p密码 库名 表名 &gt; 文件名(D:/a.sql)</span><br><span class="line">导出多张表 -- mysqldump -uroot -p123456 school student result &gt;D:/a.sql</span><br><span class="line">mysqldump -u用户名 -p密码 库名 表1 表2 表3 &gt; 文件名(D:/a.sql)</span><br><span class="line">导出所有表 -- mysqldump -uroot -p123456 school &gt;D:/a.sql</span><br><span class="line">mysqldump -u用户名 -p密码 库名 &gt; 文件名(D:/a.sql)</span><br><span class="line">导出一个库 -- mysqldump -uroot -p123456 -B school &gt;D:/a.sql</span><br><span class="line">mysqldump -u用户名 -p密码 -B 库名 &gt; 文件名(D:/a.sql)</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="三大范式"><a href="#三大范式" class="headerlink" title="三大范式"></a>三大范式</h1><ul>
-<li>第一范式：<ul>
-<li>原子性：保证每一列不可再分</li>
-<li>指数据库表的每一列都是不可分割的基本数据项。</li>
+<h1>备份</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">导出一张表 -- mysqldump -uroot -p123456 school student &gt;D:/a.sql</span><br><span class="line">mysqldump -u用户名 -p密码 库名 表名 &gt; 文件名(D:/a.sql)</span><br><span class="line">导出多张表 -- mysqldump -uroot -p123456 school student result &gt;D:/a.sql</span><br><span class="line">mysqldump -u用户名 -p密码 库名 表1 表2 表3 &gt; 文件名(D:/a.sql)</span><br><span class="line">导出所有表 -- mysqldump -uroot -p123456 school &gt;D:/a.sql</span><br><span class="line">mysqldump -u用户名 -p密码 库名 &gt; 文件名(D:/a.sql)</span><br><span class="line">导出一个库 -- mysqldump -uroot -p123456 -B school &gt;D:/a.sql</span><br><span class="line">mysqldump -u用户名 -p密码 -B 库名 &gt; 文件名(D:/a.sql)</span><br></pre></td></tr></table></figure>
+<h1>三大范式</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>第一范式：</p>
+<ul class="lvl-2">
+<li class="lvl-4">原子性：保证每一列不可再分</li>
+<li class="lvl-4">指数据库表的每一列都是不可分割的基本数据项。</li>
 </ul>
 </li>
-<li>第二范式：<ul>
-<li>必须满足第一范式</li>
-<li>非主属性完全依赖于主关键字，不能依赖于主键的一部分</li>
-<li>要求每个表只描述一件事情</li>
+<li class="lvl-2">
+<p>第二范式：</p>
+<ul class="lvl-2">
+<li class="lvl-4">必须满足第一范式</li>
+<li class="lvl-4">非主属性完全依赖于主关键字，不能依赖于主键的一部分</li>
+<li class="lvl-4">要求每个表只描述一件事情</li>
 </ul>
 </li>
-<li>第三范式<ul>
-<li>满足第一范式和第二范式</li>
-<li>任何非主属性不依赖于其它非主属性（在2NF基础上消除传递依赖）</li>
-<li>确保数据表中的每一列数据都和主键直接相关，而不能间接相关</li>
+<li class="lvl-2">
+<p>第三范式</p>
+<ul class="lvl-2">
+<li class="lvl-4">满足第一范式和第二范式</li>
+<li class="lvl-4">任何非主属性不依赖于其它非主属性（在2NF基础上消除传递依赖）</li>
+<li class="lvl-4">确保数据表中的每一列数据都和主键直接相关，而不能间接相关</li>
 </ul>
 </li>
 </ul>
 <p><strong>规范化和性能的关系</strong></p>
-<p>&#x3D;&#x3D;关联查询的表不得超过三张&#x3D;&#x3D;</p>
-<ul>
-<li>为满足某种商业目标 , 数据库性能比规范化数据库更重要</li>
-<li>在数据规范化的同时 , 要综合考虑数据库的性能</li>
-<li>通过在给定的表中添加额外的字段,以大量减少需要从中搜索信息所需的时间（从多表查询变为单表查询）</li>
-<li>通过在给定的表中插入计算列,以方便查询</li>
+<p><mark>关联查询的表不得超过三张</mark></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>为满足某种商业目标 , 数据库性能比规范化数据库更重要</p>
+</li>
+<li class="lvl-2">
+<p>在数据规范化的同时 , 要综合考虑数据库的性能</p>
+</li>
+<li class="lvl-2">
+<p>通过在给定的表中添加额外的字段,以大量减少需要从中搜索信息所需的时间（从多表查询变为单表查询）</p>
+</li>
+<li class="lvl-2">
+<p>通过在给定的表中插入计算列,以方便查询</p>
+</li>
 </ul>
-<h1 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>SUN公司为了简化、统一对数据库的操作，定义了一套Java操作数据库的规范（接口），称之为JDBC。 这套接口由数据库厂商去实现，这样，开发人员只需要学习jdbc接口，并通过jdbc加载具体的驱动，就 可以操作数据库。</p>
-<p><img src="/MySql%E5%9F%BA%E7%A1%80%5Cimage-20221014171257329.png"></p>
-<h2 id="编写JDBC程序"><a href="#编写JDBC程序" class="headerlink" title="编写JDBC程序"></a>编写JDBC程序</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.DriverManager;</span><br><span class="line"><span class="keyword">import</span> java.sql.ResultSet;</span><br><span class="line"><span class="keyword">import</span> java.sql.Statement;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JdbcFirstDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//要连接的数据库URL</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> <span class="string">&quot;jdbc:mysql://localhost:3306/jdbcStudy?</span></span><br><span class="line"><span class="string">        useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=true&quot;</span>;</span><br><span class="line">        <span class="comment">//连接的数据库时使用的用户名</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">username</span> <span class="operator">=</span> <span class="string">&quot;root&quot;</span>;</span><br><span class="line">        <span class="comment">//连接的数据库时使用的密码</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> <span class="string">&quot;123456&quot;</span>;</span><br><span class="line">        <span class="comment">//1.加载驱动</span></span><br><span class="line">        <span class="comment">//DriverManager.registerDriver(new com.mysql.jdbc.Driver());不推荐使用</span></span><br><span class="line">        这种方式来加载驱动</span><br><span class="line">        Class.forName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>);<span class="comment">//推荐使用这种方式来加载驱动</span></span><br><span class="line">        <span class="comment">//2.获取与数据库的链接</span></span><br><span class="line">        <span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> DriverManager.getConnection(url, username, password);</span><br><span class="line">        <span class="comment">//3.获取用于向数据库发送sql语句的statement</span></span><br><span class="line">        <span class="type">Statement</span> <span class="variable">st</span> <span class="operator">=</span> conn.createStatement();</span><br><span class="line">        <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;select id,name,password,email,birthday from users&quot;</span>;</span><br><span class="line">        <span class="comment">//4.向数据库发sql,并获取代表结果集的resultset</span></span><br><span class="line">        <span class="type">ResultSet</span> <span class="variable">rs</span> <span class="operator">=</span> st.executeQuery(sql);</span><br><span class="line">        <span class="comment">//5.取出结果集的数据</span></span><br><span class="line">        <span class="keyword">while</span>(rs.next())&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;id=&quot;</span> + rs.getObject(<span class="string">&quot;id&quot;</span>));</span><br><span class="line">            System.out.println(<span class="string">&quot;name=&quot;</span> + rs.getObject(<span class="string">&quot;name&quot;</span>));</span><br><span class="line">            System.out.println(<span class="string">&quot;password=&quot;</span> + rs.getObject(<span class="string">&quot;password&quot;</span>));</span><br><span class="line">            System.out.println(<span class="string">&quot;email=&quot;</span> + rs.getObject(<span class="string">&quot;email&quot;</span>));</span><br><span class="line">            System.out.println(<span class="string">&quot;birthday=&quot;</span> + rs.getObject(<span class="string">&quot;birthday&quot;</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//6.关闭链接，释放资源</span></span><br><span class="line">        rs.close();</span><br><span class="line">        st.close();</span><br><span class="line">        conn.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="对象说明"><a href="#对象说明" class="headerlink" title="对象说明"></a>对象说明</h2><blockquote>
+<h1>JDBC</h1>
+<h2 id="介绍">介绍</h2>
+<p>SUN公司为了简化、统一对数据库的操作，定义了一套Java操作数据库的规范（接口），称之为JDBC。 这套接口由数据库厂商去实现，这样，开发人员只需要学习jdbc接口，并通过jdbc加载具体的驱动，就 可以操作数据库。</p>
+<p><img src="MySql%E5%9F%BA%E7%A1%80%5Cimage-20221014171257329.png" alt=""></p>
+<h2 id="编写JDBC程序">编写JDBC程序</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.DriverManager;</span><br><span class="line"><span class="keyword">import</span> java.sql.ResultSet;</span><br><span class="line"><span class="keyword">import</span> java.sql.Statement;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JdbcFirstDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//要连接的数据库URL</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> <span class="string">&quot;jdbc:mysql://localhost:3306/jdbcStudy?</span></span><br><span class="line"><span class="string">        useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=true&quot;</span>;</span><br><span class="line">        <span class="comment">//连接的数据库时使用的用户名</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">username</span> <span class="operator">=</span> <span class="string">&quot;root&quot;</span>;</span><br><span class="line">        <span class="comment">//连接的数据库时使用的密码</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> <span class="string">&quot;123456&quot;</span>;</span><br><span class="line">        <span class="comment">//1.加载驱动</span></span><br><span class="line">        <span class="comment">//DriverManager.registerDriver(new com.mysql.jdbc.Driver());不推荐使用</span></span><br><span class="line">        这种方式来加载驱动</span><br><span class="line">        Class.forName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>);<span class="comment">//推荐使用这种方式来加载驱动</span></span><br><span class="line">        <span class="comment">//2.获取与数据库的链接</span></span><br><span class="line">        <span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> DriverManager.getConnection(url, username, password);</span><br><span class="line">        <span class="comment">//3.获取用于向数据库发送sql语句的statement</span></span><br><span class="line">        <span class="type">Statement</span> <span class="variable">st</span> <span class="operator">=</span> conn.createStatement();</span><br><span class="line">        <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;select id,name,password,email,birthday from users&quot;</span>;</span><br><span class="line">        <span class="comment">//4.向数据库发sql,并获取代表结果集的resultset</span></span><br><span class="line">        <span class="type">ResultSet</span> <span class="variable">rs</span> <span class="operator">=</span> st.executeQuery(sql);</span><br><span class="line">        <span class="comment">//5.取出结果集的数据</span></span><br><span class="line">        <span class="keyword">while</span>(rs.next())&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;id=&quot;</span> + rs.getObject(<span class="string">&quot;id&quot;</span>));</span><br><span class="line">            System.out.println(<span class="string">&quot;name=&quot;</span> + rs.getObject(<span class="string">&quot;name&quot;</span>));</span><br><span class="line">            System.out.println(<span class="string">&quot;password=&quot;</span> + rs.getObject(<span class="string">&quot;password&quot;</span>));</span><br><span class="line">            System.out.println(<span class="string">&quot;email=&quot;</span> + rs.getObject(<span class="string">&quot;email&quot;</span>));</span><br><span class="line">            System.out.println(<span class="string">&quot;birthday=&quot;</span> + rs.getObject(<span class="string">&quot;birthday&quot;</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//6.关闭链接，释放资源</span></span><br><span class="line">        rs.close();</span><br><span class="line">        st.close();</span><br><span class="line">        conn.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="对象说明">对象说明</h2>
+<blockquote>
 <p>DriverManager类讲解</p>
 </blockquote>
 <p>Jdbc程序中的DriverManager用于加载驱动，并创建与数据库的链接，这个API的常用方法：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//DriverManager.registerDriver(new Driver())</span></span><br><span class="line">Class.forName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="type">Connection</span> <span class="variable">connection</span> <span class="operator">=</span> DriverManager.getConnection(url, user, password);</span><br><span class="line"><span class="comment">//connection代表数据库</span></span><br><span class="line"><span class="comment">//数据库设置自动提交</span></span><br><span class="line"><span class="comment">//事务提交</span></span><br><span class="line"><span class="comment">//事务回滚  </span></span><br><span class="line">connection.rollback();</span><br><span class="line">connection.commit();</span><br><span class="line">connection.setAutoCommit();</span><br></pre></td></tr></table></figure>
-
 <p>注意：在实际开发中并不推荐采用registerDriver方法注册驱动。原因有二：</p>
-<ul>
-<li>查看Driver的源代码可以看到，如果采用此种方式，会导致驱动程序注册两次，也就是在内存中会 有两个Driver对象。</li>
-<li>程序依赖mysql的api，脱离mysql的jar包，程序将无法编译，将来程序切换底层数据库将会非常麻烦。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>查看Driver的源代码可以看到，如果采用此种方式，会导致驱动程序注册两次，也就是在内存中会 有两个Driver对象。</p>
+</li>
+<li class="lvl-2">
+<p>程序依赖mysql的api，脱离mysql的jar包，程序将无法编译，将来程序切换底层数据库将会非常麻烦。</p>
+</li>
 </ul>
-<p>推荐方式：&#x3D;&#x3D;Class.forName(“com.mysql.jdbc.Driver”);&#x3D;&#x3D;</p>
+<p>推荐方式：<mark>Class.forName(“com.mysql.jdbc.Driver”);</mark></p>
 <p>采用此种方式不会导致驱动对象在内存中重复出现，并且采用此种方式，程序仅仅只需要一个字符串， 不需要依赖具体的驱动，使程序的灵活性更高。</p>
 <blockquote>
 <p>数据库URL讲解</p>
 </blockquote>
-<p>常用数据库URL地址的写法： </p>
-<ul>
-<li>Oracle写法：jdbc:oracle:thin:@localhost:1521:sid</li>
-<li>SqlServer写法：jdbc:microsoft:sqlserver:&#x2F;&#x2F;localhost:1433; DatabaseName&#x3D;sid</li>
-<li>MySql写法：jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;sid</li>
+<p>常用数据库URL地址的写法：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Oracle写法：jdbc:oracle:thin:@localhost:1521:sid</p>
+</li>
+<li class="lvl-2">
+<p>SqlServer写法：jdbc:microsoft:sqlserver://localhost:1433; DatabaseName=sid</p>
+</li>
+<li class="lvl-2">
+<p>MySql写法：jdbc:mysql://localhost:3306/sid</p>
+</li>
 </ul>
 <p>如果连接的是本地的Mysql数据库，并且连接使用的端口是3306，那么的url地址可以简写为</p>
-<p>&#x3D;&#x3D;jdbc:mysql:&#x2F;&#x2F;&#x2F;数据库&#x3D;&#x3D;</p>
+<p><mark>jdbc:mysql:///数据库</mark></p>
 <blockquote>
 <p>Statement、PrepareStatement 执行SQL的对象</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;select * from t_user&quot;</span>;</span><br><span class="line"></span><br><span class="line">statement.executeQuert();<span class="comment">//查询操作返回ResultSet</span></span><br><span class="line">statement.execute();<span class="comment">//执行任何SQL</span></span><br><span class="line">statement.executeUpdate();<span class="comment">//更新、插入、删除。都用这个，返回一个受影响的行数</span></span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>ResultSet 查询的结果集：封装了所有的查询结果</p>
 </blockquote>
 <p>获得指定的数据类型</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">resultSet.getObject();<span class="comment">//在不知道列类型的情况下使用</span></span><br><span class="line"><span class="comment">//知道列的类型就使用指定的类型</span></span><br><span class="line">resultSet.getString();</span><br></pre></td></tr></table></figure>
-
 <p>遍历，指针</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">next()：移动到下一行</span><br><span class="line">previous()：移动到前一行</span><br><span class="line">absolute(<span class="type">int</span> row)：移动到指定行</span><br><span class="line">beforeFirst()：移动resultSet的最前面。</span><br><span class="line">afterLast() ：移动到resultSet的最后面。</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>释放资源</p>
 </blockquote>
 <p>Jdbc程序运行完后，切记要释放程序在运行过程中，创建的那些与数据库进行交互的对象，这些对象通 常是ResultSet, Statement和Connection对象，特别是Connection对象，它是非常稀有的资源，用完后 必须马上释放，如果Connection不能及时、正确的关闭，极易导致系统宕机。Connection的使用原则 是尽量晚创建，尽量早的释放。</p>
 <p>为确保资源释放代码能运行，资源释放代码也一定要放在finally语句中。</p>
-<h2 id="Statement对象"><a href="#Statement对象" class="headerlink" title="Statement对象"></a>Statement对象</h2><p>Jdbc中的statement对象用于向数据库发送SQL语句，想完成对数据库的增删改查，只需要通过这个对象 向数据库发送增删改查语句即可。 Statement对象的executeUpdate方法，用于向数据库发送增、删、改的sql语句，executeUpdate执行 完后，将会返回一个整数（即增删改语句导致了数据库几行数据发生了变化）。 Statement.executeQuery方法用于向数据库发送查询语句，executeQuery方法返回代表查询结果的 ResultSet对象。</p>
+<h2 id="Statement对象">Statement对象</h2>
+<p>Jdbc中的statement对象用于向数据库发送SQL语句，想完成对数据库的增删改查，只需要通过这个对象 向数据库发送增删改查语句即可。 Statement对象的executeUpdate方法，用于向数据库发送增、删、改的sql语句，executeUpdate执行 完后，将会返回一个整数（即增删改语句导致了数据库几行数据发生了变化）。 Statement.executeQuery方法用于向数据库发送查询语句，executeQuery方法返回代表查询结果的 ResultSet对象。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JdbcUtils</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">driver</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">username</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">	<span class="keyword">static</span>&#123;</span><br><span class="line">		<span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="comment">//读取db.properties文件中的数据库连接信息</span></span><br><span class="line">            <span class="type">InputStream</span> <span class="variable">in</span> <span class="operator">=</span></span><br><span class="line">            JdbcUtils.class.getClassLoader().getResourceAsStream(<span class="string">&quot;db.properties&quot;</span>);</span><br><span class="line">            <span class="type">Properties</span> <span class="variable">prop</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Properties</span>();</span><br><span class="line">            prop.load(in);</span><br><span class="line">            <span class="comment">//获取数据库连接驱动</span></span><br><span class="line">            driver = prop.getProperty(<span class="string">&quot;driver&quot;</span>);</span><br><span class="line">            <span class="comment">//获取数据库连接URL地址</span></span><br><span class="line">            url = prop.getProperty(<span class="string">&quot;url&quot;</span>);</span><br><span class="line">            <span class="comment">//获取数据库连接用户名</span></span><br><span class="line">            username = prop.getProperty(<span class="string">&quot;username&quot;</span>);</span><br><span class="line">            <span class="comment">//获取数据库连接密码</span></span><br><span class="line">            password = prop.getProperty(<span class="string">&quot;password&quot;</span>);</span><br><span class="line">            <span class="comment">//加载数据库驱动</span></span><br><span class="line">            Class.forName(driver);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        	<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">ExceptionInInitializerError</span>(e);</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="comment">// 获取数据库连接对象</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title function_">getConnection</span><span class="params">()</span> <span class="keyword">throws</span> SQLException&#123;</span><br><span class="line">    	<span class="keyword">return</span> DriverManager.getConnection(url, username,password);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">// 释放资源，要释放的资源包括Connection数据库连接对象，负责执行SQL命令的Statement对象，存储查询结果的ResultSet对象</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">release</span><span class="params">(Connection conn,Statement st,ResultSet rs)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(rs!=<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">try</span>&#123;</span><br><span class="line">                <span class="comment">//关闭存储查询结果的ResultSet对象</span></span><br><span class="line">                rs.close();</span><br><span class="line">            &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            rs = <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(st!=<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">try</span>&#123;</span><br><span class="line">                <span class="comment">//关闭负责执行SQL命令的Statement对象</span></span><br><span class="line">                st.close();</span><br><span class="line">            &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(conn!=<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">try</span>&#123;</span><br><span class="line">                <span class="comment">//关闭Connection数据库连接对象</span></span><br><span class="line">                conn.close();</span><br><span class="line">            &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="PreparedStatement对象"><a href="#PreparedStatement对象" class="headerlink" title="PreparedStatement对象"></a>PreparedStatement对象</h2><p>PreperedStatement是Statement的子类，它的实例对象可以通过调用 Connection.preparedStatement()方法获得，相对于Statement对象而言：PreperedStatement可以避 免SQL注入的问题。 Statement会使数据库频繁编译SQL，可能造成数据库缓冲区溢出。 PreparedStatement可对SQL进行预编译，从而提高数据库的执行效率。并且PreperedStatement对于 sql中的参数，允许使用占位符的形式进行替换，简化sql语句的编写。</p>
+<h2 id="PreparedStatement对象">PreparedStatement对象</h2>
+<p>PreperedStatement是Statement的子类，它的实例对象可以通过调用 Connection.preparedStatement()方法获得，相对于Statement对象而言：PreperedStatement可以避 免SQL注入的问题。 Statement会使数据库频繁编译SQL，可能造成数据库缓冲区溢出。 PreparedStatement可对SQL进行预编译，从而提高数据库的执行效率。并且PreperedStatement对于 sql中的参数，允许使用占位符的形式进行替换，简化sql语句的编写。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestInsert</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">PreparedStatement</span> <span class="variable">st</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">ResultSet</span> <span class="variable">rs</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="comment">//获取一个数据库连接</span></span><br><span class="line">            conn = JdbcUtils.getConnection();</span><br><span class="line">            <span class="comment">//要执行的SQL命令，SQL中的参数使用?作为占位符</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;insert into users(id,name,password,email,birthday)</span></span><br><span class="line"><span class="string">            values(?,?,?,?,?)&quot;</span>;</span><br><span class="line">            <span class="comment">//通过conn对象获取负责执行SQL命令的prepareStatement对象</span></span><br><span class="line">            st = conn.prepareStatement(sql);</span><br><span class="line">            <span class="comment">//为SQL语句中的参数赋值，注意，索引是从1开始的</span></span><br><span class="line">            st.setInt(<span class="number">1</span>, <span class="number">4</span>);<span class="comment">//id是int类型的</span></span><br><span class="line">            st.setString(<span class="number">2</span>, <span class="string">&quot;kuangshen&quot;</span>);<span class="comment">//name是varchar(字符串类型)</span></span><br><span class="line">            st.setString(<span class="number">3</span>, <span class="string">&quot;123&quot;</span>);<span class="comment">//password是varchar(字符串类型)</span></span><br><span class="line">            st.setString(<span class="number">4</span>, <span class="string">&quot;24736743@qq.com&quot;</span>);<span class="comment">//email是varchar(字符串类型)</span></span><br><span class="line">            st.setDate(<span class="number">5</span>, <span class="keyword">new</span> <span class="title class_">java</span>.sql.Date(<span class="keyword">new</span></span><br><span class="line">            <span class="title class_">Date</span>().getTime()));<span class="comment">//birthday是date类型</span></span><br><span class="line">            <span class="comment">//执行插入操作，executeUpdate方法返回成功的条数</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> st.executeUpdate();</span><br><span class="line">            <span class="keyword">if</span>(num&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;插入成功！！&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">            <span class="comment">//SQL执行完成之后释放相关资源</span></span><br><span class="line">            JdbcUtils.release(conn, st, rs);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>避免sql注入，原理：执行的时候参数会用引号包起来，并把参数中的引号作为转义字符，从而避免了参数也作为条件 的一部分。</p>
-<h2 id="事务-1"><a href="#事务-1" class="headerlink" title="事务"></a>事务</h2><p>&#x3D;&#x3D;ACID原则&#x3D;&#x3D;</p>
-<ul>
-<li><p>原子性：要么全部完成，要么都不完成</p>
+<h2 id="事务">事务</h2>
+<p><mark>ACID原则</mark></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>原子性：要么全部完成，要么都不完成</p>
 </li>
-<li><p>一致性：总数不变</p>
+<li class="lvl-2">
+<p>一致性：总数不变</p>
 </li>
-<li><p><strong>隔离性</strong>：多个进程互补干扰</p>
+<li class="lvl-2">
+<p><strong>隔离性</strong>：多个进程互补干扰</p>
 </li>
-<li><p>持久性：一旦提交不可逆，持久化到数据库</p>
+<li class="lvl-2">
+<p>持久性：一旦提交不可逆，持久化到数据库</p>
 </li>
 </ul>
 <p>隔离性问题：</p>
-<ul>
-<li>脏读：脏读指一个事务读取了另外一个事务未提交的数据。</li>
-<li>不可重复读：不可重复读指在一个事务内读取表中的某一行数据，多次读取结果不同。</li>
-<li>虚读(幻读) : 虚读(幻读)是指在一个事务内读取到了别的事务插入的数据，导致前后读取不一致。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>脏读：脏读指一个事务读取了另外一个事务未提交的数据。</p>
+</li>
+<li class="lvl-2">
+<p>不可重复读：不可重复读指在一个事务内读取表中的某一行数据，多次读取结果不同。</p>
+</li>
+<li class="lvl-2">
+<p>虚读(幻读) : 虚读(幻读)是指在一个事务内读取到了别的事务插入的数据，导致前后读取不一致。</p>
+</li>
 </ul>
 <blockquote>
 <p>代码测试</p>
 </blockquote>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*创建账户表*/</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> account(</span><br><span class="line">    id <span class="type">INT</span> <span class="keyword">PRIMARY</span> KEY AUTO_INCREMENT,</span><br><span class="line">    NAME <span class="type">VARCHAR</span>(<span class="number">40</span>),</span><br><span class="line">    money <span class="type">FLOAT</span></span><br><span class="line">);</span><br><span class="line"><span class="comment">/*插入测试数据*/</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> account(name,money) <span class="keyword">values</span>(<span class="string">&#x27;A&#x27;</span>,<span class="number">1000</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> account(name,money) <span class="keyword">values</span>(<span class="string">&#x27;B&#x27;</span>,<span class="number">1000</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> account(name,money) <span class="keyword">values</span>(<span class="string">&#x27;C&#x27;</span>,<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
-
 <p>当Jdbc程序向数据库获得一个Connection对象时，默认情况下这个Connection对象会自动向数据库提交 在它上面发送的SQL语句。若想关闭这种默认提交方式，让多条SQL在一个事务中执行，可使用下列的 JDBC控制事务语句。</p>
-<ul>
-<li>Connection.setAutoCommit(false);&#x2F;&#x2F;开启事务(start transaction)</li>
-<li>Connection.rollback();&#x2F;&#x2F;回滚事务(rollback)</li>
-<li>Connection.commit();&#x2F;&#x2F;提交事务(commit)</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Connection.setAutoCommit(false);//开启事务(start transaction)</p>
+</li>
+<li class="lvl-2">
+<p>Connection.rollback();//回滚事务(rollback)</p>
+</li>
+<li class="lvl-2">
+<p>Connection.commit();//提交事务(commit)</p>
+</li>
 </ul>
 <blockquote>
 <p>程序编写</p>
 </blockquote>
-<ul>
-<li>开启事务 &#x3D;&#x3D;conn.setAutoCommit(false)&#x3D;&#x3D;</li>
-<li>一组业务执行完毕，提交事务</li>
-<li>可以在catch语句中显示的定义回滚语句，但默认失败就会回滚</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>开启事务 <mark>conn.setAutoCommit(false)</mark></p>
+</li>
+<li class="lvl-2">
+<p>一组业务执行完毕，提交事务</p>
+</li>
+<li class="lvl-2">
+<p>可以在catch语句中显示的定义回滚语句，但默认失败就会回滚</p>
+</li>
 </ul>
 <p>模拟转账成功时的业务场景</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//模拟转账成功时的业务场景</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestTransaction1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">PreparedStatement</span> <span class="variable">st</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">ResultSet</span> <span class="variable">rs</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            conn = JdbcUtils.getConnection();</span><br><span class="line">            conn.setAutoCommit(<span class="literal">false</span>);<span class="comment">//通知数据库开启事务(start transaction)</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">sql1</span> <span class="operator">=</span> <span class="string">&quot;update account set money=money-100 where</span></span><br><span class="line"><span class="string">            name=&#x27;A&#x27;&quot;</span>;</span><br><span class="line">            st = conn.prepareStatement(sql1);</span><br><span class="line">            st.executeUpdate();</span><br><span class="line">            <span class="type">String</span> <span class="variable">sql2</span> <span class="operator">=</span> <span class="string">&quot;update account set money=money+100 where</span></span><br><span class="line"><span class="string">            name=&#x27;B&#x27;&quot;</span>;</span><br><span class="line">            st = conn.prepareStatement(sql2);</span><br><span class="line">            st.executeUpdate();</span><br><span class="line">            conn.commit();<span class="comment">//上面的两条SQL执行Update语句成功之后就通知数据库提交事务(commit)</span></span><br><span class="line">            System.out.println(<span class="string">&quot;成功！！！&quot;</span>); <span class="comment">//log4j</span></span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        	e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">        	JdbcUtils.release(conn, st, rs);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>模拟转账过程中出现异常导致有一部分SQL执行失败后让数据库自动回滚事务</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 模拟转账过程中出现异常导致有一部分SQL执行失败后让数据库自动回滚事务</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestTransaction2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">PreparedStatement</span> <span class="variable">st</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">ResultSet</span> <span class="variable">rs</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            conn = JdbcUtils.getConnection();</span><br><span class="line">            conn.setAutoCommit(<span class="literal">false</span>);<span class="comment">//通知数据库开启事务(start transaction)</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">sql1</span> <span class="operator">=</span> <span class="string">&quot;update account set money=money-100 where</span></span><br><span class="line"><span class="string">            name=&#x27;A&#x27;&quot;</span>;</span><br><span class="line">            st = conn.prepareStatement(sql1);</span><br><span class="line">            st.executeUpdate();</span><br><span class="line">            <span class="comment">//用这句代码模拟执行完SQL1之后程序出现了异常而导致后面的SQL无法正常执行，事</span></span><br><span class="line">            务也无法正常提交，此时数据库会自动执行回滚操作</span><br><span class="line">            <span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">1</span>/<span class="number">0</span>;</span><br><span class="line">            <span class="type">String</span> <span class="variable">sql2</span> <span class="operator">=</span> <span class="string">&quot;update account set money=money+100 where</span></span><br><span class="line"><span class="string">            name=&#x27;B&#x27;&quot;</span>;</span><br><span class="line">            st = conn.prepareStatement(sql2);</span><br><span class="line">            st.executeUpdate();</span><br><span class="line">            conn.commit();<span class="comment">//上面的两条SQL执行Update语句成功之后就通知数据库提交事务(commit)</span></span><br><span class="line">            System.out.println(<span class="string">&quot;成功！！！&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="comment">//如果失败，默认回滚</span></span><br><span class="line">        	e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">        	JdbcUtils.release(conn, st, rs);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>模拟转账过程中出现异常导致有一部分SQL执行失败时手动通知数据库回滚事务</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//模拟转账过程中出现异常导致有一部分SQL执行失败时手动通知数据库回滚事务</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestTransaction3</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">PreparedStatement</span> <span class="variable">st</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">ResultSet</span> <span class="variable">rs</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            conn = JdbcUtils.getConnection();</span><br><span class="line">            conn.setAutoCommit(<span class="literal">false</span>);<span class="comment">//通知数据库开启事务(start transaction)</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">sql1</span> <span class="operator">=</span> <span class="string">&quot;update account set money=money-100 where</span></span><br><span class="line"><span class="string">            name=&#x27;A&#x27;&quot;</span>;</span><br><span class="line">            st = conn.prepareStatement(sql1);</span><br><span class="line">            st.executeUpdate();</span><br><span class="line">            <span class="comment">//用这句代码模拟执行完SQL1之后程序出现了异常而导致后面的SQL无法正常执行，事</span></span><br><span class="line">            务也无法正常提交</span><br><span class="line">            <span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">1</span>/<span class="number">0</span>;</span><br><span class="line">            <span class="type">String</span> <span class="variable">sql2</span> <span class="operator">=</span> <span class="string">&quot;update account set money=money+100 where</span></span><br><span class="line"><span class="string">            name=&#x27;B&#x27;&quot;</span>;</span><br><span class="line">            st = conn.prepareStatement(sql2);</span><br><span class="line">            st.executeUpdate();</span><br><span class="line">            conn.commit();<span class="comment">//上面的两条SQL执行Update语句成功之后就通知数据库提交事务(commit)</span></span><br><span class="line">            System.out.println(<span class="string">&quot;成功！！！&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        	<span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="comment">//捕获到异常之后手动通知数据库执行回滚事务的操作</span></span><br><span class="line">                conn.rollback();</span><br><span class="line">        	&#125; <span class="keyword">catch</span> (SQLException e1) &#123;</span><br><span class="line">        		e1.printStackTrace();</span><br><span class="line">        	&#125;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">        	JdbcUtils.release(conn, st, rs);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="连接池"><a href="#连接池" class="headerlink" title="连接池"></a>连接池</h2><p>用户每次请求都需要向数据库获得链接，而数据库创建连接通常需要消耗相对较大的资源，创建时间也 较长。假设网站一天10万访问量，数据库服务器就需要创建10万次连接，极大的浪费数据库的资源，并 且极易造成数据库服务器内存溢出、拓机。</p>
+<h2 id="连接池">连接池</h2>
+<p>用户每次请求都需要向数据库获得链接，而数据库创建连接通常需要消耗相对较大的资源，创建时间也 较长。假设网站一天10万访问量，数据库服务器就需要创建10万次连接，极大的浪费数据库的资源，并 且极易造成数据库服务器内存溢出、拓机。</p>
 <blockquote>
 <p>数据库连接池的基本概念</p>
 </blockquote>
 <p>数据库连接是一种关键的有限的昂贵的资源,这一点在多用户的网页应用程序中体现的尤为突出.对数据库 连接的管理能显著影响到整个应用程序的伸缩性和健壮性,影响到程序的性能指标。数据库连接池正式针对 这个问题提出来的。<strong>数据库连接池负责分配，管理和释放数据库连接，它允许应用程序重复使用一个现有的 数据库连接,而不是重新建立一个</strong>。</p>
 <p>数据库连接池在初始化时将创建一定数量的数据库连接放到连接池中, 这些数据库连接的数量是由最小数 据库连接数来设定的.无论这些数据库连接是否被使用,连接池都将一直保证至少拥有这么多的连接数量. 连接池的最大数据库连接数量限定了这个连接池能占有的最大连接数,当应用程序向连接池请求的连接数 超过最大连接数量时,这些请求将被加入到等待队列中. 数据库连接池的最小连接数和最大连接数的设置要考虑到以下几个因素: 1. 最小连接数:是连接池一直保持的数据库连接,所以如果应用程序对数据库连接的使用量不大,将会有 大量的数据库连接资源被浪费. 2. 最大连接数:是连接池能申请的最大连接数,如果数据库连接请求超过次数,后面的数据库连接请求将 被加入到等待队列中,这会影响以后的数据库操作 3. 如果最小连接数与最大连接数相差很大:那么最先连接请求将会获利,之后超过最小连接数量的连接 请求等价于建立一个新的数据库连接.不过,这些大于最小连接数的数据库连接在使用完不会马上被 释放,他将被放到连接池中等待重复使用或是空间超时后被释放.。</p>
-<p>&#x3D;&#x3D;编写连接池需实现java.sql.DataSource接口。&#x3D;&#x3D;</p>
+<p><mark>编写连接池需实现java.sql.DataSource接口。</mark></p>
 <blockquote>
 <p>开源数据库连接池</p>
 </blockquote>
 <p>现在很多WEB服务器(Weblogic, WebSphere, Tomcat)都提供了DataSoruce的实现，即连接池的实现。 通常我们把DataSource的实现，按其英文含义称之为数据源，数据源中都包含了数据库连接池的实现。</p>
-<p> 也有一些开源组织提供了数据源的独立实现： </p>
-<ul>
-<li>DBCP 数据库连接池 </li>
-<li>C3P0 数据库连接池</li>
+<p>也有一些开源组织提供了数据源的独立实现：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>DBCP 数据库连接池</p>
+</li>
+<li class="lvl-2">
+<p>C3P0 数据库连接池</p>
+</li>
 </ul>
 <p>在使用了数据库连接池之后，在项目的实际开发中就不需要编写连接数据库的代码了，直接从数据源获得数据库的连接。</p>
-<h3 id="DBCP数据源"><a href="#DBCP数据源" class="headerlink" title="DBCP数据源"></a>DBCP数据源</h3><p>DBCP 是 Apache 软件基金组织下的开源连接池实现，要使用DBCP数据源，需要应用程序应在系统中增 加如下两个 jar 文件：</p>
-<ul>
-<li>Commons-dbcp.jar：连接池的实现</li>
-<li>Commons-pool.jar：连接池实现的依赖库</li>
+<h3 id="DBCP数据源">DBCP数据源</h3>
+<p>DBCP 是 Apache 软件基金组织下的开源连接池实现，要使用DBCP数据源，需要应用程序应在系统中增 加如下两个 jar 文件：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Commons-dbcp.jar：连接池的实现</p>
+</li>
+<li class="lvl-2">
+<p>Commons-pool.jar：连接池实现的依赖库</p>
+</li>
 </ul>
 <p>Tomcat 的连接池正是采用该连接池来实现的。该数据库连接池既可以与应用服务器整合使用，也可由 应用程序独立使用。</p>
 <p>测试：</p>
 <p>1、导入相关jar包</p>
 <p>2、在类目录下加入dbcp的配置文件：dbcpconfig.properties</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#连接设置</span></span><br><span class="line"><span class="attr">driverClassName</span>=<span class="string">com.mysql.jdbc.Driver</span></span><br><span class="line"><span class="attr">url</span>=<span class="string">jdbc:mysql://localhost:3306/jdbcStudy?</span></span><br><span class="line"><span class="attr">useUnicode</span>=<span class="string">true&amp;characterEncoding=utf8&amp;useSSL=true</span></span><br><span class="line"><span class="attr">username</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">password</span>=<span class="string">123456</span></span><br><span class="line"><span class="comment">#&lt;!-- 初始化连接 --&gt;</span></span><br><span class="line"><span class="attr">initialSize</span>=<span class="string">10</span></span><br><span class="line"><span class="comment">#最大连接数量</span></span><br><span class="line"><span class="attr">maxActive</span>=<span class="string">50</span></span><br><span class="line"><span class="comment">#&lt;!-- 最大空闲连接 --&gt;</span></span><br><span class="line"><span class="attr">maxIdle</span>=<span class="string">20</span></span><br><span class="line"><span class="comment">#&lt;!-- 最小空闲连接 --&gt;</span></span><br><span class="line"><span class="attr">minIdle</span>=<span class="string">5</span></span><br><span class="line"><span class="comment">#&lt;!-- 超时等待时间以毫秒为单位 6000毫秒/1000等于60秒 --&gt;</span></span><br><span class="line"><span class="attr">maxWait</span>=<span class="string">60000</span></span><br><span class="line"><span class="comment">#JDBC驱动建立连接时附带的连接属性属性的格式必须为这样：[属性名=property;]</span></span><br><span class="line"><span class="comment">#注意：&quot;user&quot; 与 &quot;password&quot; 两个属性会被明确地传递，因此这里不需要包含他们。</span></span><br><span class="line"><span class="attr">connectionProperties</span>=<span class="string">useUnicode=true;characterEncoding=UTF8</span></span><br><span class="line"><span class="comment">#指定由连接池所创建的连接的自动提交（auto-commit）状态。</span></span><br><span class="line"><span class="attr">defaultAutoCommit</span>=<span class="string">true</span></span><br><span class="line"><span class="comment">#driver default 指定由连接池所创建的连接的只读（read-only）状态。</span></span><br><span class="line"><span class="comment">#如果没有设置该值，则“setReadOnly”方法将不被调用。（某些驱动并不支持只读模式，如：</span></span><br><span class="line"><span class="attr">Informix）</span></span><br><span class="line"><span class="attr">defaultReadOnly</span>=<span class="string"></span></span><br><span class="line"><span class="comment">#driver default 指定由连接池所创建的连接的事务级别（TransactionIsolation）。</span></span><br><span class="line"><span class="comment">#可用值为下列之一：（详情可见javadoc。）NONE,READ_UNCOMMITTED, READ_COMMITTED,</span></span><br><span class="line"><span class="attr">REPEATABLE_READ,</span> <span class="string">SERIALIZABLE</span></span><br><span class="line"><span class="attr">defaultTransactionIsolation</span>=<span class="string">READ_UNCOMMITTED</span></span><br></pre></td></tr></table></figure>
-
 <p>3、编写工具类 JdbcUtils_DBCP</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.ResultSet;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.sql.Statement;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"><span class="keyword">import</span> javax.sql.DataSource;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.dbcp.BasicDataSourceFactory;</span><br><span class="line"><span class="comment">//数据库连接工具类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JdbcUtils_DBCP</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 在java中，编写数据库连接池需实现java.sql.DataSource接口，每一种数据库连接池都</span></span><br><span class="line"><span class="comment">    是DataSource接口的实现</span></span><br><span class="line"><span class="comment">    * DBCP连接池就是java.sql.DataSource接口的一个具体实现</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">DataSource</span> <span class="variable">ds</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="comment">//在静态代码块中创建数据库连接池</span></span><br><span class="line">    <span class="keyword">static</span>&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="comment">//加载dbcpconfig.properties配置文件</span></span><br><span class="line">            <span class="type">InputStream</span> <span class="variable">in</span> <span class="operator">=</span> JdbcUtils_DBCP.class.getClassLoader().getResourceAsStream(<span class="string">&quot;dbcpconfig.properties&quot;</span>);</span><br><span class="line">            <span class="type">Properties</span> <span class="variable">prop</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Properties</span>();</span><br><span class="line">            prop.load(in);</span><br><span class="line">            <span class="comment">//创建数据源</span></span><br><span class="line">            ds = BasicDataSourceFactory.createDataSource(prop);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">ExceptionInInitializerError</span>(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//从数据源中获取数据库连接</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title function_">getConnection</span><span class="params">()</span> <span class="keyword">throws</span> SQLException&#123;</span><br><span class="line">        <span class="comment">//从数据源中获取数据库连接</span></span><br><span class="line">        <span class="keyword">return</span> ds.getConnection();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 释放资源</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">release</span><span class="params">(Connection conn,Statement st,ResultSet rs)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(rs!=<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">try</span>&#123;</span><br><span class="line">                <span class="comment">//关闭存储查询结果的ResultSet对象</span></span><br><span class="line">                rs.close();</span><br><span class="line">            &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            rs = <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(st!=<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">try</span>&#123;</span><br><span class="line">                <span class="comment">//关闭负责执行SQL命令的Statement对象</span></span><br><span class="line">                st.close();</span><br><span class="line">            &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(conn!=<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">try</span>&#123;</span><br><span class="line">                <span class="comment">//将Connection连接对象还给数据库连接池</span></span><br><span class="line">                conn.close();</span><br><span class="line">            &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>测试类</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.kuang.datasource.utils.JdbcUtils_DBCP;</span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.PreparedStatement;</span><br><span class="line"><span class="keyword">import</span> java.sql.ResultSet;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DBCPTest</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">PreparedStatement</span> <span class="variable">st</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">ResultSet</span> <span class="variable">rs</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="comment">//获取数据库连接</span></span><br><span class="line">            conn = JdbcUtils_DBCP.getConnection();</span><br><span class="line">            <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;insert into users(id,name,password,email,birthday)</span></span><br><span class="line"><span class="string">                values(?,?,?,?,?)&quot;</span>;</span><br><span class="line">            st = conn.prepareStatement(sql);</span><br><span class="line">            st.setInt(<span class="number">1</span>, <span class="number">5</span>);<span class="comment">//id是int类型的</span></span><br><span class="line">            st.setString(<span class="number">2</span>, <span class="string">&quot;kuangshen&quot;</span>);<span class="comment">//name是varchar(字符串类型)</span></span><br><span class="line">            st.setString(<span class="number">3</span>, <span class="string">&quot;123&quot;</span>);<span class="comment">//password是varchar(字符串类型)</span></span><br><span class="line">            st.setString(<span class="number">4</span>, <span class="string">&quot;24736743@qq.com&quot;</span>);<span class="comment">//email是varchar(字符串类型)</span></span><br><span class="line">            st.setDate(<span class="number">5</span>, <span class="keyword">new</span> <span class="title class_">java</span>.sql.Date(<span class="keyword">new</span></span><br><span class="line">                                            <span class="title class_">Date</span>().getTime()));<span class="comment">//birthday是date类型</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> st.executeUpdate();</span><br><span class="line">            <span class="keyword">if</span> (i&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;插入成功&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">            <span class="comment">//释放资源</span></span><br><span class="line">            JdbcUtils_DBCP.release(conn, st, rs);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="C3P0"><a href="#C3P0" class="headerlink" title="C3P0"></a>C3P0</h3><p>C3P0是一个开源的JDBC连接池，它实现了数据源和JNDI绑定，支持JDBC3规范和JDBC2的标准扩展。目 前使用它的开源项目有Hibernate，Spring等。C3P0数据源在项目开发中使用得比较多。</p>
+<h3 id="C3P0">C3P0</h3>
+<p>C3P0是一个开源的JDBC连接池，它实现了数据源和JNDI绑定，支持JDBC3规范和JDBC2的标准扩展。目 前使用它的开源项目有Hibernate，Spring等。C3P0数据源在项目开发中使用得比较多。</p>
 <p>c3p0与dbcp区别</p>
-<ul>
-<li>dbcp没有自动回收空闲连接的功能</li>
-<li>c3p0有自动回收空闲连接功能</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>dbcp没有自动回收空闲连接的功能</p>
+</li>
+<li class="lvl-2">
+<p>c3p0有自动回收空闲连接功能</p>
+</li>
 </ul>
 <p>测试：</p>
 <p>1、导入相关jar包</p>
 <p>2、在类目录下加入C3P0的配置文件：c3p0-config.xml</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">c3p0-config</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">C3P0的缺省(默认)配置，</span></span><br><span class="line"><span class="comment">如果在代码中“ComboPooledDataSource ds = new ComboPooledDataSource();”这样写</span></span><br><span class="line"><span class="comment">就表示使用的是C3P0的缺省(默认)配置信息来创建数据源</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">default-config</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;driverClass&quot;</span>&gt;</span>com.mysql.jdbc.Driver<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;jdbcUrl&quot;</span>&gt;</span>jdbc:mysql://localhost:3306/jdbcStudy?</span><br><span class="line">            useUnicode=true<span class="symbol">&amp;amp;</span>characterEncoding=utf8<span class="symbol">&amp;amp;</span>useSSL=true<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;user&quot;</span>&gt;</span>root<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span>&gt;</span>123456<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;acquireIncrement&quot;</span>&gt;</span>5<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;initialPoolSize&quot;</span>&gt;</span>10<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;minPoolSize&quot;</span>&gt;</span>5<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxPoolSize&quot;</span>&gt;</span>20<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">default-config</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">C3P0的命名配置，</span></span><br><span class="line"><span class="comment">如果在代码中“ComboPooledDataSource ds = new</span></span><br><span class="line"><span class="comment">ComboPooledDataSource(&quot;MySQL&quot;);”这样写就表示使用的是name是MySQL的配置信息来创建数据</span></span><br><span class="line"><span class="comment">源</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">named-config</span> <span class="attr">name</span>=<span class="string">&quot;MySQL&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;driverClass&quot;</span>&gt;</span>com.mysql.jdbc.Driver<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;jdbcUrl&quot;</span>&gt;</span>jdbc:mysql://localhost:3306/jdbcStudy?</span><br><span class="line">            useUnicode=true<span class="symbol">&amp;amp;</span>characterEncoding=utf8<span class="symbol">&amp;amp;</span>useSSL=true<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;user&quot;</span>&gt;</span>root<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span>&gt;</span>123456<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;acquireIncrement&quot;</span>&gt;</span>5<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;initialPoolSize&quot;</span>&gt;</span>10<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;minPoolSize&quot;</span>&gt;</span>5<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxPoolSize&quot;</span>&gt;</span>20<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">named-config</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">c3p0-config</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>3、创建工具类</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.ResultSet;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.sql.Statement;</span><br><span class="line"><span class="keyword">import</span> com.mchange.v2.c3p0.ComboPooledDataSource;</span><br><span class="line"><span class="comment">//数据库连接工具类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JdbcUtils_C3P0</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">ComboPooledDataSource</span> <span class="variable">ds</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="comment">//在静态代码块中创建数据库连接池</span></span><br><span class="line">    <span class="keyword">static</span>&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="comment">//通过代码创建C3P0数据库连接池</span></span><br><span class="line">            <span class="comment">/*ds = new ComboPooledDataSource();</span></span><br><span class="line"><span class="comment">                ds.setDriverClass(&quot;com.mysql.jdbc.Driver&quot;);</span></span><br><span class="line"><span class="comment">                ds.setJdbcUrl(&quot;jdbc:mysql://localhost:3306/jdbcstudy&quot;);</span></span><br><span class="line"><span class="comment">                ds.setUser(&quot;root&quot;);</span></span><br><span class="line"><span class="comment">                ds.setPassword(&quot;123456&quot;);</span></span><br><span class="line"><span class="comment">                ds.setInitialPoolSize(10);</span></span><br><span class="line"><span class="comment">                ds.setMinPoolSize(5);</span></span><br><span class="line"><span class="comment">                ds.setMaxPoolSize(20);*/</span></span><br><span class="line">            <span class="comment">//通过读取C3P0的xml配置文件创建数据源，C3P0的xml配置文件c3p0-config.xml,必须放在			src目录下</span></span><br><span class="line">            <span class="comment">//ds = new ComboPooledDataSource();//使用C3P0的默认配置来创建数据源</span></span><br><span class="line">            ds = <span class="keyword">new</span> <span class="title class_">ComboPooledDataSource</span>(<span class="string">&quot;MySQL&quot;</span>);<span class="comment">//使用C3P0的命名配置来创建数据源</span></span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">ExceptionInInitializerError</span>(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//从数据源中获取数据库连接</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title function_">getConnection</span><span class="params">()</span> <span class="keyword">throws</span> SQLException&#123;</span><br><span class="line">        <span class="comment">//从数据源中获取数据库连接</span></span><br><span class="line">        <span class="keyword">return</span> ds.getConnection();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//释放资源</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">release</span><span class="params">(Connection conn,Statement st,ResultSet rs)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(rs!=<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">try</span>&#123;</span><br><span class="line">                <span class="comment">//关闭存储查询结果的ResultSet对象</span></span><br><span class="line">                rs.close();</span><br><span class="line">            &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            rs = <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(st!=<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">try</span>&#123;</span><br><span class="line">                <span class="comment">//关闭负责执行SQL命令的Statement对象</span></span><br><span class="line">                st.close();</span><br><span class="line">            &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(conn!=<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">try</span>&#123;</span><br><span class="line">                <span class="comment">//将Connection连接对象还给数据库连接池</span></span><br><span class="line">                conn.close();</span><br><span class="line">            &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>测试</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.kuang.datasource.utils.JdbcUtils_C3P0;</span><br><span class="line"><span class="keyword">import</span> com.kuang.datasource.utils.JdbcUtils_DBCP;</span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.PreparedStatement;</span><br><span class="line"><span class="keyword">import</span> java.sql.ResultSet;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">C3P0Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">PreparedStatement</span> <span class="variable">st</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">ResultSet</span> <span class="variable">rs</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="comment">//获取数据库连接</span></span><br><span class="line">            conn = JdbcUtils_C3P0.getConnection();</span><br><span class="line">            <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;insert into users(id,name,password,email,birthday)</span></span><br><span class="line"><span class="string">                values(?,?,?,?,?)&quot;</span>;</span><br><span class="line">                st = conn.prepareStatement(sql);</span><br><span class="line">            st.setInt(<span class="number">1</span>, <span class="number">6</span>);<span class="comment">//id是int类型的</span></span><br><span class="line">            st.setString(<span class="number">2</span>, <span class="string">&quot;kuangshen&quot;</span>);<span class="comment">//name是varchar(字符串类型)</span></span><br><span class="line">            st.setString(<span class="number">3</span>, <span class="string">&quot;123&quot;</span>);<span class="comment">//password是varchar(字符串类型)</span></span><br><span class="line">            st.setString(<span class="number">4</span>, <span class="string">&quot;24736743@qq.com&quot;</span>);<span class="comment">//email是varchar(字符串类型)</span></span><br><span class="line">            st.setDate(<span class="number">5</span>, <span class="keyword">new</span> <span class="title class_">java</span>.sql.Date(<span class="keyword">new</span></span><br><span class="line">                                            <span class="title class_">Date</span>().getTime()));<span class="comment">//birthday是date类型</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> st.executeUpdate();</span><br><span class="line">            <span class="keyword">if</span> (i&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;插入成功&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">            <span class="comment">//释放资源</span></span><br><span class="line">            JdbcUtils_C3P0.release(conn, st, rs);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h1><h2 id="连接配置优化"><a href="#连接配置优化" class="headerlink" title="连接配置优化"></a>连接配置优化</h2><h3 id="服务端配置"><a href="#服务端配置" class="headerlink" title="服务端配置"></a>服务端配置</h3><ul>
-<li>增加可用连接数，修改环境变量<code>max_connections</code>，默认情况下服务端的最大连接数为151个</li>
-<li>及时释放不活动的连接，系统默认的客户端超时时间是28800秒（8小时），可以把这个值调小一点</li>
+<h1>性能优化</h1>
+<h2 id="连接配置优化">连接配置优化</h2>
+<h3 id="服务端配置">服务端配置</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>增加可用连接数，修改环境变量<code>max_connections</code>，默认情况下服务端的最大连接数为151个</p>
+</li>
+<li class="lvl-2">
+<p>及时释放不活动的连接，系统默认的客户端超时时间是28800秒（8小时），可以把这个值调小一点</p>
+</li>
 </ul>
-<h3 id="客户端优化"><a href="#客户端优化" class="headerlink" title="客户端优化"></a>客户端优化</h3><ul>
-<li>使用连接池<ul>
-<li><code>Druid</code>的默认最大连接池大小是8，<code>Hikari</code>默认最大连接池大小是10，盲目地加大连接池的大小，系统执行效率反而可能降低。因为对于每一个连接，服务端会创建一个单独的线程去处理，连接数越多，服务端创建的线程自然也就越多。而线程数超过CPU个数的情况下，CPU势必要用过分配时间片的方式进行线程的上下文切换，频繁的上下文切换会造成很大的性能开销。</li>
-<li><code>Hikari</code>官方给出了一个数据库连接池大小的建议值公式，CPU核心数 * 2 + 1。假设服务器的CPU核心数是4，把连接池设置成9就可以了。</li>
+<h3 id="客户端优化">客户端优化</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>使用连接池</p>
+<ul class="lvl-2">
+<li class="lvl-4"><code>Druid</code>的默认最大连接池大小是8，<code>Hikari</code>默认最大连接池大小是10，盲目地加大连接池的大小，系统执行效率反而可能降低。因为对于每一个连接，服务端会创建一个单独的线程去处理，连接数越多，服务端创建的线程自然也就越多。而线程数超过CPU个数的情况下，CPU势必要用过分配时间片的方式进行线程的上下文切换，频繁的上下文切换会造成很大的性能开销。</li>
+<li class="lvl-4"><code>Hikari</code>官方给出了一个数据库连接池大小的建议值公式，CPU核心数 * 2 + 1。假设服务器的CPU核心数是4，把连接池设置成9就可以了。</li>
 </ul>
 </li>
 </ul>
-<h2 id="架构优化"><a href="#架构优化" class="headerlink" title="架构优化"></a>架构优化</h2><ul>
-<li><p>使用缓存</p>
+<h2 id="架构优化">架构优化</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>使用缓存</p>
 </li>
-<li><p>读写分离（集群、主从赋值）</p>
-<ul>
-<li>如何保持多个节点之间数据一致性——<strong>主从复制</strong>，<code>binlog</code>是实现MySQL主从复制功能的核心组件。master会将所有的写操作记录到binlog中，slave节点会有专门的<code>I/O</code>线程读取mastrer节点的binlog，将写操作同步到当前所在的slave节点。</li>
+<li class="lvl-2">
+<p>读写分离（集群、主从赋值）</p>
+<ul class="lvl-2">
+<li class="lvl-4">如何保持多个节点之间数据一致性——<strong>主从复制</strong>，<code>binlog</code>是实现MySQL主从复制功能的核心组件。master会将所有的写操作记录到binlog中，slave节点会有专门的<code>I/O</code>线程读取mastrer节点的binlog，将写操作同步到当前所在的slave节点。</li>
 </ul>
 </li>
-<li><p>分库分表</p>
+<li class="lvl-2">
+<p>分库分表</p>
 <blockquote>
 <p>某张表的数据量急剧增加，单表的查询性能大幅下降，这个问题是读写分离也无法解决的，因为所有节点存放的是一模一样的数据，单表查询性能差，就是所有节点性能都差。这是可以把单个节点的数据分散到多个节点上进行存储，这就是<strong>分库分表</strong>。</p>
 </blockquote>
-<ul>
-<li>垂直分库：在单体数据库的基础上垂直切几刀，按照业务逻辑拆分成不同的数据库。</li>
-<li>垂直分表：在单表的基础上垂直切一刀（或几刀），将一个表的多个字段拆成若干个小表，这种操作需要根据具体业务来进行判断，通常会把经常使用的字段（热字段）分成一个表，不经常使用或者不立即使用的字段（冷字段）分成一个表，提升查询速度。</li>
-<li>水平分表：把单张表的数据按照一定的规则（分片规则）保存到多个数据表上，横着给数据表来一刀，就是水平分表。</li>
-<li>水平分库：就是对单个数据库水平切一刀，往往盘随着水平分表。</li>
+<ul class="lvl-2">
+<li class="lvl-4">
+<p>垂直分库：在单体数据库的基础上垂直切几刀，按照业务逻辑拆分成不同的数据库。</p>
+</li>
+<li class="lvl-4">
+<p>垂直分表：在单表的基础上垂直切一刀（或几刀），将一个表的多个字段拆成若干个小表，这种操作需要根据具体业务来进行判断，通常会把经常使用的字段（热字段）分成一个表，不经常使用或者不立即使用的字段（冷字段）分成一个表，提升查询速度。</p>
+</li>
+<li class="lvl-4">
+<p>水平分表：把单张表的数据按照一定的规则（分片规则）保存到多个数据表上，横着给数据表来一刀，就是水平分表。</p>
+</li>
+<li class="lvl-4">
+<p>水平分库：就是对单个数据库水平切一刀，往往盘随着水平分表。</p>
+</li>
 </ul>
 </li>
 </ul>
 <p>​		水平分，主要为了解决存储的瓶颈；垂直分，主要为了减轻并发压力。</p>
-<h2 id="消息队列削峰"><a href="#消息队列削峰" class="headerlink" title="消息队列削峰"></a>消息队列削峰</h2><h2 id="优化器——SQL分析与优化"><a href="#优化器——SQL分析与优化" class="headerlink" title="优化器——SQL分析与优化"></a>优化器——SQL分析与优化</h2><ul>
-<li><p>慢查询</p>
+<h2 id="消息队列削峰">消息队列削峰</h2>
+<h2 id="优化器——SQL分析与优化">优化器——SQL分析与优化</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>慢查询</p>
 <blockquote>
-<p>慢查询，MySQL默认关闭慢查询日志功能，使用<code>show variables like &#39;slow_query%&#39;;</code>命令查看当前慢查询状态，<code>slow_query_log</code>表示当前慢查询日志是否开启，<code>slow_query_log_file</code>表示慢查询日志的保存位置。默认超过10秒算是慢查询，如果改成0就是记录所有的SQL。<code>show variables like &#39;%long_query%&#39;</code></p>
+<p>慢查询，MySQL默认关闭慢查询日志功能，使用<code>show variables like 'slow_query%';</code>命令查看当前慢查询状态，<code>slow_query_log</code>表示当前慢查询日志是否开启，<code>slow_query_log_file</code>表示慢查询日志的保存位置。默认超过10秒算是慢查询，如果改成0就是记录所有的SQL。<code>show variables like '%long_query%'</code></p>
 </blockquote>
-<ul>
-<li><p>打开慢日志</p>
-<ul>
-<li><p>修改my.cnf，此种修改方式系统重启后依然有效</p>
+<ul class="lvl-2">
+<li class="lvl-4">
+<p>打开慢日志</p>
+<ul class="lvl-4">
+<li class="lvl-6">
+<p>修改my.cnf，此种修改方式系统重启后依然有效</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 是否开启慢查询日志</span></span><br><span class="line">slow_query_log=ON</span><br><span class="line">long_query_time=2</span><br><span class="line">slow_query_log_file=/var/lib/mysql/slow.log</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>动态修改参数（重启后失效）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="built_in">set</span> @@global.slow_query_log=1</span><br><span class="line">mysql&gt; <span class="built_in">set</span> @@global.long_query_time=2</span><br></pre></td></tr></table></figure></li>
+<li class="lvl-6">
+<p>动态修改参数（重启后失效）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="built_in">set</span> @@global.slow_query_log=1</span><br><span class="line">mysql&gt; <span class="built_in">set</span> @@global.long_query_time=2</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
-<li><p>慢日志分析：通过慢日志查询工具<code>mysqldumpslow</code>，其中</p>
-<ul>
-<li><p>Count：表示这个SQL执行的次数</p>
+<li class="lvl-4">
+<p>慢日志分析：通过慢日志查询工具<code>mysqldumpslow</code>，其中</p>
+<ul class="lvl-4">
+<li class="lvl-6">
+<p>Count：表示这个SQL执行的次数</p>
 </li>
-<li><p>Time：表示执行的时间，括号中的是累积时间</p>
+<li class="lvl-6">
+<p>Time：表示执行的时间，括号中的是累积时间</p>
 </li>
-<li><p>Locks：表示锁定的时间，括号中的是累积时间</p>
+<li class="lvl-6">
+<p>Locks：表示锁定的时间，括号中的是累积时间</p>
 </li>
-<li><p>Rows：表示返回的记录数，括号中的是累积数</p>
+<li class="lvl-6">
+<p>Rows：表示返回的记录数，括号中的是累积数</p>
 <p>更多<code>mysqldumpslow</code>的使用方式，可以查询官方文档，或者执行<code>mysqldumpslow --help</code>寻求帮助</p>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>查看运行中的线程</p>
+<li class="lvl-2">
+<p>查看运行中的线程</p>
 <blockquote>
 <p>可以运行<code>show full processlist</code>查看MySQL中运行的所有线程，查看其状态和运行时间，找到不顺眼的，直接kill。其中：</p>
 </blockquote>
-<ul>
-<li>Id：线程的唯一标志，可以使用Id杀死指定线程</li>
-<li>User：启动这个线程的用户，普通账户只能查看自己的线程</li>
-<li>Host：哪个IP和端口发起的连接</li>
-<li>db：线程操作的数据库</li>
-<li>Command：线程的命令</li>
-<li>Time：操作持续时间，单位秒</li>
-<li>State：线程的状态</li>
-<li>Info：SQL语句的前100个字符</li>
+<ul class="lvl-2">
+<li class="lvl-4">
+<p>Id：线程的唯一标志，可以使用Id杀死指定线程</p>
+</li>
+<li class="lvl-4">
+<p>User：启动这个线程的用户，普通账户只能查看自己的线程</p>
+</li>
+<li class="lvl-4">
+<p>Host：哪个IP和端口发起的连接</p>
+</li>
+<li class="lvl-4">
+<p>db：线程操作的数据库</p>
+</li>
+<li class="lvl-4">
+<p>Command：线程的命令</p>
+</li>
+<li class="lvl-4">
+<p>Time：操作持续时间，单位秒</p>
+</li>
+<li class="lvl-4">
+<p>State：线程的状态</p>
+</li>
+<li class="lvl-4">
+<p>Info：SQL语句的前100个字符</p>
+</li>
 </ul>
 </li>
-<li><p>查看服务器的运行状态</p>
+<li class="lvl-2">
+<p>查看服务器的运行状态</p>
 </li>
-<li><p>查看服务器运行状态</p>
+<li class="lvl-2">
+<p>查看服务器运行状态</p>
 <p>使用<code>SHOW TATUS</code>查看MySQL服务器的运行状态，有session和global两种作用域，一般使用like+通配符进行过滤。</p>
-<p><code>SHOW GLOBAL STATUS LIKE &#39;com_select&#39;</code>。</p>
+<p><code>SHOW GLOBAL STATUS LIKE 'com_select'</code>。</p>
 </li>
-<li><p>查看存储引擎运行信息</p>
+<li class="lvl-2">
+<p>查看存储引擎运行信息</p>
 <p><code>SHOW ENGINE</code>用来展示存储引擎的当前运行信息，包括事务持有的表锁、行锁信息；事务的锁等待情况；线程信号量等待；文件IO请求；Buffer pool统计信息等等数据。如：<code>SHOW ENGINE INNODB STATUS</code>，这条语句可以展示innodb存储引擎的当前运行的各种信息，可以据此找到MySQL当前的问题</p>
 </li>
-<li><p>EXPLAIN执行计划</p>
+<li class="lvl-2">
+<p>EXPLAIN执行计划</p>
 </li>
-<li><p>SQL和索引优化</p>
-<ul>
-<li><p>小表驱动大表：用join改写子查询：or改成union</p>
+<li class="lvl-2">
+<p>SQL和索引优化</p>
+<ul class="lvl-2">
+<li class="lvl-4">
+<p>小表驱动大表：用join改写子查询：or改成union</p>
 </li>
-<li><p>连接查询中，访问被驱动表的成本要尽量低，尽量在被驱动表的连接列上建立索引，降低访问成本；被驱动表的连接列最好是该表的主键或者唯一二级索引列，这样被驱动表的成本会降到更低</p>
+<li class="lvl-4">
+<p>连接查询中，访问被驱动表的成本要尽量低，尽量在被驱动表的连接列上建立索引，降低访问成本；被驱动表的连接列最好是该表的主键或者唯一二级索引列，这样被驱动表的成本会降到更低</p>
 </li>
-<li><p>大偏移量的limit，先过滤再排序</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 1.大偏移量的查询</span></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> limit <span class="number">9000000</span>,<span class="number">10</span>;</span><br><span class="line"><span class="comment">-- 2.先过滤ID（因为ID使用的是索引），再limit</span></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">&gt;</span> <span class="number">9000000</span> limit <span class="number">10</span>;</span><br></pre></td></tr></table></figure></li>
+<li class="lvl-4">
+<p>大偏移量的limit，先过滤再排序</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 1.大偏移量的查询</span></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> limit <span class="number">9000000</span>,<span class="number">10</span>;</span><br><span class="line"><span class="comment">-- 2.先过滤ID（因为ID使用的是索引），再limit</span></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">&gt;</span> <span class="number">9000000</span> limit <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 </ul>
-<h2 id="存储引擎和表结构"><a href="#存储引擎和表结构" class="headerlink" title="存储引擎和表结构"></a>存储引擎和表结构</h2><ul>
-<li><p>选择存储引擎</p>
+<h2 id="存储引擎和表结构">存储引擎和表结构</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>选择存储引擎</p>
 <blockquote>
 <p>一般情况下，选择MySQL默认的存储引擎InnoDB，但是当对数据库性能要求精益求精的时候，存储引擎的选择也成为一个关键的影响因素。可根据不同的业务选择不同的存储引擎，例如：</p>
 </blockquote>
-<ul>
-<li><p>查询操作、插入操作多的业务表，推荐使用MyISAM；</p>
+<ul class="lvl-2">
+<li class="lvl-4">
+<p>查询操作、插入操作多的业务表，推荐使用MyISAM；</p>
 </li>
-<li><p>临时表使用Menory；</p>
+<li class="lvl-4">
+<p>临时表使用Menory；</p>
 </li>
-<li><p>并发数量大，更新多的业务选择使用InnoDB；</p>
+<li class="lvl-4">
+<p>并发数量大，更新多的业务选择使用InnoDB；</p>
 </li>
 </ul>
 </li>
-<li><p>优化字段</p>
-<ul>
-<li>非空字段尽量设置成NOT NULL，并提供默认值，或者使用特殊值代替NULL，因为NULL类型的存储和优化都会存在性不佳的问题。</li>
-<li>不要用外键、触发器和视图功能。原因有三个：1. 降低了可读性；2. 把计算的工作交给程序，数据库只做好存储的工作；3. 数据的完整性校验的工作应该由开发者完成，而不是依赖于外键，一旦用了外键，会发现测试的时候随便删点垃圾数据都变得异常艰难</li>
+<li class="lvl-2">
+<p>优化字段</p>
+<ul class="lvl-2">
+<li class="lvl-4">非空字段尽量设置成NOT NULL，并提供默认值，或者使用特殊值代替NULL，因为NULL类型的存储和优化都会存在性不佳的问题。</li>
+<li class="lvl-4">不要用外键、触发器和视图功能。原因有三个：1. 降低了可读性；2. 把计算的工作交给程序，数据库只做好存储的工作；3. 数据的完整性校验的工作应该由开发者完成，而不是依赖于外键，一旦用了外键，会发现测试的时候随便删点垃圾数据都变得异常艰难</li>
 </ul>
 </li>
-<li><p>图片、音频、视频存储：不要直接存储大文件，而是要存储大文件的访问地址。</p>
+<li class="lvl-2">
+<p>图片、音频、视频存储：不要直接存储大文件，而是要存储大文件的访问地址。</p>
 </li>
-<li><p>大字段拆分和数据冗余</p>
-<ul>
-<li>大字段拆分就是垂直分表，把不常用的字段或者数据量较大的字段拆分出去，避免列数过多和数据量过大。</li>
-<li>字段冗余原则上不符合数据库设计范式，但是非常有利于快速检索。</li>
+<li class="lvl-2">
+<p>大字段拆分和数据冗余</p>
+<ul class="lvl-2">
+<li class="lvl-4">大字段拆分就是垂直分表，把不常用的字段或者数据量较大的字段拆分出去，避免列数过多和数据量过大。</li>
+<li class="lvl-4">字段冗余原则上不符合数据库设计范式，但是非常有利于快速检索。</li>
 </ul>
 </li>
 </ul>
@@ -802,7 +958,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MylSAM%E5%92%8CInnoDB"><span class="nav-number">1.</span> <span class="nav-text">MylSAM和InnoDB</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MySql%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">MySql函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-number">2.1.</span> <span class="nav-text">常用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%87%BD%E6%95%B0"><span class="nav-number">2.1.1.</span> <span class="nav-text">数据函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0"><span class="nav-number">2.1.2.</span> <span class="nav-text">字符串函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4%E5%87%BD%E6%95%B0"><span class="nav-number">2.1.3.</span> <span class="nav-text">日期和时间函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E5%87%BD%E6%95%B0"><span class="nav-number">2.1.4.</span> <span class="nav-text">系统信息函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="nav-number">2.2.</span> <span class="nav-text">聚合函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1"><span class="nav-number">3.</span> <span class="nav-text">事务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">3.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.2.</span> <span class="nav-text">事务实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95"><span class="nav-number">4.</span> <span class="nav-text">索引</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">4.1.</span> <span class="nav-text">索引的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E7%B4%A2%E5%BC%95"><span class="nav-number">4.2.</span> <span class="nav-text">测试索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E8%A1%A8app-user"><span class="nav-number">4.2.1.</span> <span class="nav-text">建表app_user</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="nav-number">4.2.2.</span> <span class="nav-text">批量插入数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2"><span class="nav-number">4.2.3.</span> <span class="nav-text">查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95"><span class="nav-number">4.2.4.</span> <span class="nav-text">创建索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E5%87%86%E5%88%99"><span class="nav-number">4.3.</span> <span class="nav-text">索引准则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">4.4.</span> <span class="nav-text">索引数据结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%87%E4%BB%BD"><span class="nav-number">5.</span> <span class="nav-text">备份</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E5%A4%A7%E8%8C%83%E5%BC%8F"><span class="nav-number">6.</span> <span class="nav-text">三大范式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JDBC"><span class="nav-number">7.</span> <span class="nav-text">JDBC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">7.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99JDBC%E7%A8%8B%E5%BA%8F"><span class="nav-number">7.2.</span> <span class="nav-text">编写JDBC程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E"><span class="nav-number">7.3.</span> <span class="nav-text">对象说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Statement%E5%AF%B9%E8%B1%A1"><span class="nav-number">7.4.</span> <span class="nav-text">Statement对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PreparedStatement%E5%AF%B9%E8%B1%A1"><span class="nav-number">7.5.</span> <span class="nav-text">PreparedStatement对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1-1"><span class="nav-number">7.6.</span> <span class="nav-text">事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E6%B1%A0"><span class="nav-number">7.7.</span> <span class="nav-text">连接池</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DBCP%E6%95%B0%E6%8D%AE%E6%BA%90"><span class="nav-number">7.7.1.</span> <span class="nav-text">DBCP数据源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C3P0"><span class="nav-number">7.7.2.</span> <span class="nav-text">C3P0</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="nav-number">8.</span> <span class="nav-text">性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96"><span class="nav-number">8.1.</span> <span class="nav-text">连接配置优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="nav-number">8.1.1.</span> <span class="nav-text">服务端配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BC%98%E5%8C%96"><span class="nav-number">8.1.2.</span> <span class="nav-text">客户端优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84%E4%BC%98%E5%8C%96"><span class="nav-number">8.2.</span> <span class="nav-text">架构优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E5%89%8A%E5%B3%B0"><span class="nav-number">8.3.</span> <span class="nav-text">消息队列削峰</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E5%99%A8%E2%80%94%E2%80%94SQL%E5%88%86%E6%9E%90%E4%B8%8E%E4%BC%98%E5%8C%96"><span class="nav-number">8.4.</span> <span class="nav-text">优化器——SQL分析与优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E5%92%8C%E8%A1%A8%E7%BB%93%E6%9E%84"><span class="nav-number">8.5.</span> <span class="nav-text">存储引擎和表结构</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">MylSAM和InnoDB</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">MySql函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-number">2.1.</span> <span class="nav-text">常用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%87%BD%E6%95%B0"><span class="nav-number">2.1.1.</span> <span class="nav-text">数据函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0"><span class="nav-number">2.1.2.</span> <span class="nav-text">字符串函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4%E5%87%BD%E6%95%B0"><span class="nav-number">2.1.3.</span> <span class="nav-text">日期和时间函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E5%87%BD%E6%95%B0"><span class="nav-number">2.1.4.</span> <span class="nav-text">系统信息函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="nav-number">2.2.</span> <span class="nav-text">聚合函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">事务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">3.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.2.</span> <span class="nav-text">事务实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">索引</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">4.1.</span> <span class="nav-text">索引的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E7%B4%A2%E5%BC%95"><span class="nav-number">4.2.</span> <span class="nav-text">测试索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E8%A1%A8app-user"><span class="nav-number">4.2.1.</span> <span class="nav-text">建表app_user</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="nav-number">4.2.2.</span> <span class="nav-text">批量插入数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2"><span class="nav-number">4.2.3.</span> <span class="nav-text">查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95"><span class="nav-number">4.2.4.</span> <span class="nav-text">创建索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E5%87%86%E5%88%99"><span class="nav-number">4.3.</span> <span class="nav-text">索引准则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">4.4.</span> <span class="nav-text">索引数据结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">备份</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">三大范式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">JDBC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">7.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99JDBC%E7%A8%8B%E5%BA%8F"><span class="nav-number">7.2.</span> <span class="nav-text">编写JDBC程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E"><span class="nav-number">7.3.</span> <span class="nav-text">对象说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Statement%E5%AF%B9%E8%B1%A1"><span class="nav-number">7.4.</span> <span class="nav-text">Statement对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PreparedStatement%E5%AF%B9%E8%B1%A1"><span class="nav-number">7.5.</span> <span class="nav-text">PreparedStatement对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1"><span class="nav-number">7.6.</span> <span class="nav-text">事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E6%B1%A0"><span class="nav-number">7.7.</span> <span class="nav-text">连接池</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DBCP%E6%95%B0%E6%8D%AE%E6%BA%90"><span class="nav-number">7.7.1.</span> <span class="nav-text">DBCP数据源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C3P0"><span class="nav-number">7.7.2.</span> <span class="nav-text">C3P0</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">8.</span> <span class="nav-text">性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96"><span class="nav-number">8.1.</span> <span class="nav-text">连接配置优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="nav-number">8.1.1.</span> <span class="nav-text">服务端配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BC%98%E5%8C%96"><span class="nav-number">8.1.2.</span> <span class="nav-text">客户端优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84%E4%BC%98%E5%8C%96"><span class="nav-number">8.2.</span> <span class="nav-text">架构优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E5%89%8A%E5%B3%B0"><span class="nav-number">8.3.</span> <span class="nav-text">消息队列削峰</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E5%99%A8%E2%80%94%E2%80%94SQL%E5%88%86%E6%9E%90%E4%B8%8E%E4%BC%98%E5%8C%96"><span class="nav-number">8.4.</span> <span class="nav-text">优化器——SQL分析与优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E5%92%8C%E8%A1%A8%E7%BB%93%E6%9E%84"><span class="nav-number">8.5.</span> <span class="nav-text">存储引擎和表结构</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -818,14 +974,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -870,7 +1026,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:07</span>
+    <span title="站点阅读时长">2:06</span>
 </div>
 
 <!-- <br /> -->

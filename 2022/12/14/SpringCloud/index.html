@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="组成   服务注册与发现 服务负载与调用 服务熔断降级 服务网关 服务配置 服务总线    Eureka Ribbon Hystrix Zuul Config Bus   Zookeeper LoadBalancer Resilience4j Gateway Nacos Nacos   Consul Feign Sentinel      Nacos OpenFeign       Eureka自">
+  <meta name="description" content="组成    服务注册与发现 服务负载与调用 服务熔断降级 服务网关 服务配置 服务总线     Eureka Ribbon Hystrix Zuul Config Bus   Zookeeper LoadBalancer Resilience4j Gateway Nacos Nacos   Consul Feign Sentinel      Nacos OpenFeign        Eure">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringCloud&amp;Alibaba">
 <meta property="og:url" content="http://example.com/2022/12/14/SpringCloud/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="组成   服务注册与发现 服务负载与调用 服务熔断降级 服务网关 服务配置 服务总线    Eureka Ribbon Hystrix Zuul Config Bus   Zookeeper LoadBalancer Resilience4j Gateway Nacos Nacos   Consul Feign Sentinel      Nacos OpenFeign       Eureka自">
+<meta property="og:description" content="组成    服务注册与发现 服务负载与调用 服务熔断降级 服务网关 服务配置 服务总线     Eureka Ribbon Hystrix Zuul Config Bus   Zookeeper LoadBalancer Resilience4j Gateway Nacos Nacos   Consul Feign Sentinel      Nacos OpenFeign        Eure">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2022/12/14/SpringCloud/image-20230211173828755.png">
 <meta property="og:image" content="http://example.com/2022/12/14/SpringCloud/image-20230213222811283.png">
@@ -232,7 +232,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>17k</span>
+              <span>16k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -251,7 +251,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h1><table>
+        <h1>组成</h1>
+<table>
 <thead>
 <tr>
 <th>服务注册与发现</th>
@@ -262,7 +263,8 @@
 <th>服务总线</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Eureka</td>
 <td><strong>Ribbon</strong></td>
 <td>Hystrix</td>
@@ -294,11 +296,14 @@
 <td></td>
 <td></td>
 </tr>
-</tbody></table>
-<h1 id="Eureka"><a href="#Eureka" class="headerlink" title="Eureka"></a>Eureka</h1><p><strong>自我保护机制：</strong>默认情况下EurekaClient定时向EurekaServer端发送心跳包，如果Eureka在server端一定时间内（默认90秒）没有收到EurekaClient发送的心跳包，便会直接从服务注册列表中剔除该服务，但是在短时间（90秒中）内丢失了大量的服务实例心跳，这时候EurekaServer会开启自我保护机制，不会剔除该服务（该现象可能出现在如果网络不通，但是EurekaClient未出现宕机，此时如果换做别的注册中心如果一定时间内没有收到心跳会将剔除该服务，这样就出现了严重失误，因为客户端还能正常发送心跳，只是网络延迟问题，而保护机制是为了解决此问题而产生的）。</p>
-<p>&#x3D;&#x3D;在自我保护模式中，EurekaServer会保护服务注册表中的信息，不再注销任何服务实例。&#x3D;&#x3D;</p>
+</tbody>
+</table>
+<h1>Eureka</h1>
+<p>**自我保护机制：**默认情况下EurekaClient定时向EurekaServer端发送心跳包，如果Eureka在server端一定时间内（默认90秒）没有收到EurekaClient发送的心跳包，便会直接从服务注册列表中剔除该服务，但是在短时间（90秒中）内丢失了大量的服务实例心跳，这时候EurekaServer会开启自我保护机制，不会剔除该服务（该现象可能出现在如果网络不通，但是EurekaClient未出现宕机，此时如果换做别的注册中心如果一定时间内没有收到心跳会将剔除该服务，这样就出现了严重失误，因为客户端还能正常发送心跳，只是网络延迟问题，而保护机制是为了解决此问题而产生的）。</p>
+<p><mark>在自我保护模式中，EurekaServer会保护服务注册表中的信息，不再注销任何服务实例。</mark></p>
 <p><strong>属于CAP里面AP分支</strong></p>
-<h1 id="Consul"><a href="#Consul" class="headerlink" title="Consul"></a>Consul</h1><p><a target="_blank" rel="noopener" href="http://www.consul.io/intro/index.html">http://www.consul.io/intro/index.html</a></p>
+<h1>Consul</h1>
+<p><a target="_blank" rel="noopener" href="http://www.consul.io/intro/index.html">http://www.consul.io/intro/index.html</a></p>
 <table>
 <thead>
 <tr>
@@ -310,7 +315,8 @@
 <th>Spring Cloud集成</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Eureka</td>
 <td>Java</td>
 <td>AP</td>
@@ -323,7 +329,7 @@
 <td>Go</td>
 <td>CP</td>
 <td>可支持</td>
-<td>HTTP&#x2F;DNS</td>
+<td>HTTP/DNS</td>
 <td>已集成</td>
 </tr>
 <tr>
@@ -342,366 +348,503 @@
 <td></td>
 <td></td>
 </tr>
-</tbody></table>
-<ul>
-<li>C：Consistency（强一致性）</li>
-<li>A：Availability（可用性）</li>
-<li>P：Partition tolerance（分区容错性）</li>
+</tbody>
+</table>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>C：Consistency（强一致性）</p>
+</li>
+<li class="lvl-2">
+<p>A：Availability（可用性）</p>
+</li>
+<li class="lvl-2">
+<p>P：Partition tolerance（分区容错性）</p>
+</li>
 </ul>
 <p>CAP理论核心：<strong>一个分布式系统不可能同时很好的满足一致性，可用性和分区容错性这三个需求</strong>，因此分成三大类：</p>
-<ul>
-<li>CA：单点集群，满足一致性，可用性的系统，通常在可扩展性上不太强大</li>
-<li>CP：满足一致性，分区容忍性的系统，通常性能不是特别高</li>
-<li>AP：满足可用性，分区容忍性的系统，通常可能对一致性要求低一些</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>CA：单点集群，满足一致性，可用性的系统，通常在可扩展性上不太强大</p>
+</li>
+<li class="lvl-2">
+<p>CP：满足一致性，分区容忍性的系统，通常性能不是特别高</p>
+</li>
+<li class="lvl-2">
+<p>AP：满足可用性，分区容忍性的系统，通常可能对一致性要求低一些</p>
+</li>
 </ul>
-<h1 id="Ribbon"><a href="#Ribbon" class="headerlink" title="Ribbon"></a>Ribbon</h1><p>NetFlix开源项目，主要功能是提供<strong>客户端的软件负载均衡算法和调用。</strong>提供一系列完善的配置项如连接超时，重试等。</p>
+<h1>Ribbon</h1>
+<p>NetFlix开源项目，主要功能是提供**客户端的软件负载均衡算法和调用。**提供一系列完善的配置项如连接超时，重试等。</p>
 <p>Ribbon本地负载均衡客户端与Nginx服务端负载均衡区别：</p>
 <p>Nginx是服务器负载均衡，客户端所有请求都会交给Nginx，然后有Nginx实现转发请求。即负载均衡是由服务端实现的。</p>
 <p>Ribbon本地负载均衡，在调用微服务接口时候，会在注册中心上获取注册信息服务列表之后缓存到JVM本地，从而在本地实现PRC远程服务调用技术。</p>
-<p><strong>集中式LB：</strong>即在服务消费方与提供方之间使用独立的LB设施（可以是硬件，如F5，也可以是软件，如Nginx），由该设施负责把访问请求通过某种策略转发至服务的提供方；</p>
-<p><strong>进程内LB：</strong>将LB逻辑集成到消费方，消费方从服务注册中心获取有哪些地址可用，然后自己再从这些地址中选择出一个合适的服务器。</p>
-<p>&#x3D;&#x3D;Ribbon就属于进程内LB&#x3D;&#x3D;，它只是一个类库，集成于消费方进程，消费方通过它来获取到服务提供方的地址。</p>
-<h1 id="OpenFeign"><a href="#OpenFeign" class="headerlink" title="OpenFeign"></a>OpenFeign</h1><blockquote>
+<p>**集中式LB：**即在服务消费方与提供方之间使用独立的LB设施（可以是硬件，如F5，也可以是软件，如Nginx），由该设施负责把访问请求通过某种策略转发至服务的提供方；</p>
+<p>**进程内LB：**将LB逻辑集成到消费方，消费方从服务注册中心获取有哪些地址可用，然后自己再从这些地址中选择出一个合适的服务器。</p>
+<p><mark>Ribbon就属于进程内LB</mark>，它只是一个类库，集成于消费方进程，消费方通过它来获取到服务提供方的地址。</p>
+<h1>OpenFeign</h1>
+<blockquote>
 <p>Feign是一个声明式的Web服务客户端，让编写Web服务器客户端变得非常容易，只需要创建一个接口并在接口上添加注解即可。旨在使编写Java Http客户端变得更容易</p>
 </blockquote>
 <p>在Feign的基础上支持了SpringMVC的注解，如@RequestMapping等等。OpenFeign的@FeignClient可以解析SpringMVC的@RequestMapping注解下的接口，并通过动态代理的方式产生实现类，实现类中做负载均衡并调用其他服务。</p>
-<h2 id="超时控制"><a href="#超时控制" class="headerlink" title="超时控制"></a>超时控制</h2><p>OpenFeign默认等待1秒钟，超过后报错，&#x3D;&#x3D;默认支持Ribbon&#x3D;&#x3D;，开启客户端超时控制：</p>
+<h2 id="超时控制">超时控制</h2>
+<p>OpenFeign默认等待1秒钟，超过后报错，<mark>默认支持Ribbon</mark>，开启客户端超时控制：</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#设置Feign客户端超时时间</span></span><br><span class="line"><span class="attr">ribbon:</span></span><br><span class="line"><span class="comment">#  指的是建立连接所用的时间，适用于网络状况正常的情况下，两端连接所用的时间</span></span><br><span class="line">  <span class="attr">ReadTimeout:</span> <span class="number">5000</span></span><br><span class="line"><span class="comment">#  指的是建立连接后从服务器读取到可用资源所用的时间</span></span><br><span class="line">  <span class="attr">ConnetTimeout:</span> <span class="number">5000</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="日志增强"><a href="#日志增强" class="headerlink" title="日志增强"></a>日志增强</h2><p>Feign提供了日志打印功能，可以通过配置来调整日志级别，从而了解Feign中Http请求的细节，&#x3D;&#x3D;Feign接口的调用情况进行监控和输出&#x3D;&#x3D;。</p>
+<h2 id="日志增强">日志增强</h2>
+<p>Feign提供了日志打印功能，可以通过配置来调整日志级别，从而了解Feign中Http请求的细节，<mark>Feign接口的调用情况进行监控和输出</mark>。</p>
 <p>日志级别：</p>
-<ul>
-<li>NONE：默认的，不显示任何日志；</li>
-<li>BASIC：仅记录请求方法、URL、响应状态码及执行时间；</li>
-<li>HEADERS：除了BASIC中定义的信息之外，还有请求和响应的头信息；</li>
-<li>FULL：除了HEADERS中定义的信息之外，还有请求和响应的正文及元数据。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>NONE：默认的，不显示任何日志；</p>
+</li>
+<li class="lvl-2">
+<p>BASIC：仅记录请求方法、URL、响应状态码及执行时间；</p>
+</li>
+<li class="lvl-2">
+<p>HEADERS：除了BASIC中定义的信息之外，还有请求和响应的头信息；</p>
+</li>
+<li class="lvl-2">
+<p>FULL：除了HEADERS中定义的信息之外，还有请求和响应的正文及元数据。</p>
+</li>
 </ul>
 <p>配置日志Bean；</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FeignConfig</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    Logger.Level <span class="title function_">feignLoggerLevel</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Logger.Level.FULL;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>YML文件里开启日志的Feign客户端</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">logging:</span></span><br><span class="line">  <span class="attr">level:</span></span><br><span class="line">    <span class="comment"># feign日志以什么级别监控哪个接口</span></span><br><span class="line">    <span class="attr">com.wzzc.order.service.PaymentFeignService:</span> <span class="string">debug</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="Hystrix"><a href="#Hystrix" class="headerlink" title="Hystrix"></a>Hystrix</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>Hystrix是一个用于处理分布式系统的<strong>延迟</strong>和<strong>容错</strong>的开源库，在分布式系统里，许多依赖不可避免的会调用失败，比如超时、异常等，Hystrix能够保证在一个依赖出问题的情况下，<strong>不会导致整体服务失败，避免级联故障，以提高分布式系统的弹性</strong>。</p>
+<h1>Hystrix</h1>
+<h2 id="概念">概念</h2>
+<p>Hystrix是一个用于处理分布式系统的<strong>延迟</strong>和<strong>容错</strong>的开源库，在分布式系统里，许多依赖不可避免的会调用失败，比如超时、异常等，Hystrix能够保证在一个依赖出问题的情况下，<strong>不会导致整体服务失败，避免级联故障，以提高分布式系统的弹性</strong>。</p>
 <p>“断路器”本身是一种开关装置，当某个服务单元发生故障之后，通过断路器的故障监控（类似熔断保险丝），<strong>向调用方向返回一个符合预期的、可处理的备选响应（FallBack），而不是长时间的等待或者抛出调用方法无法处理的异常</strong>，这样就保证了服务调用方的线程不会被长时间、不必要地占用，从而避免了故障在分布式系统中的蔓延，乃至雪崩。</p>
-<h3 id="服务降级"><a href="#服务降级" class="headerlink" title="服务降级"></a>服务降级</h3><p>服务器忙，请稍后再试，不让客户端等待并立刻返回一个友好提示，fallback。</p>
+<h3 id="服务降级">服务降级</h3>
+<p>服务器忙，请稍后再试，不让客户端等待并立刻返回一个友好提示，fallback。</p>
 <p>哪些情况会触发降级：</p>
-<ul>
-<li>程序运行异常</li>
-<li>超时</li>
-<li>服务熔断触发服务降级</li>
-<li>线程池&#x2F;信号量打满也会导致服务降级</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>程序运行异常</p>
+</li>
+<li class="lvl-2">
+<p>超时</p>
+</li>
+<li class="lvl-2">
+<p>服务熔断触发服务降级</p>
+</li>
+<li class="lvl-2">
+<p>线程池/信号量打满也会导致服务降级</p>
+</li>
 </ul>
-<h3 id="服务熔断"><a href="#服务熔断" class="headerlink" title="服务熔断"></a>服务熔断</h3><p>类比保险丝达到最大服务访问后，直接拒绝访问，拉闸限电，然后调用服务降级的方法并返回友好提示；</p>
+<h3 id="服务熔断">服务熔断</h3>
+<p>类比保险丝达到最大服务访问后，直接拒绝访问，拉闸限电，然后调用服务降级的方法并返回友好提示；</p>
 <p>就是保险丝，服务降级——&gt;进而熔断——&gt;恢复调用链路</p>
-<h3 id="服务限流"><a href="#服务限流" class="headerlink" title="服务限流"></a>服务限流</h3><p>秒杀高并发等操作，严禁一窝蜂的过来拥挤，大家排队，一秒钟N个，有序进行。</p>
-<h2 id="JMeter压测"><a href="#JMeter压测" class="headerlink" title="JMeter压测"></a>JMeter压测</h2><img src="/2022/12/14/SpringCloud/image-20230211173828755.png" class="">
-
-<p><strong>并发故障现象及原因：</strong>8001同一层次的其他接口服务被困死，因为Tomcat线程池里面的工作线程已经被挤占完毕</p>
+<h3 id="服务限流">服务限流</h3>
+<p>秒杀高并发等操作，严禁一窝蜂的过来拥挤，大家排队，一秒钟N个，有序进行。</p>
+<h2 id="JMeter压测">JMeter压测</h2>
+<img src="/2022/12/14/SpringCloud/image-20230211173828755.png" class="">
+<p>**并发故障现象及原因：**8001同一层次的其他接口服务被困死，因为Tomcat线程池里面的工作线程已经被挤占完毕</p>
 <p>80此时调用8001，客户端访问响应慢，转圈圈。</p>
 <p><strong>问题：</strong></p>
-<ul>
-<li>超时导致服务器变慢（转圈）——超时不再等待</li>
-<li>出错（宕机或程序运行出错）——出错要有兜底</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>超时导致服务器变慢（转圈）——超时不再等待</p>
+</li>
+<li class="lvl-2">
+<p>出错（宕机或程序运行出错）——出错要有兜底</p>
+</li>
 </ul>
 <p><strong>方法：</strong></p>
-<ul>
-<li>对方服务（8001）超时了，调用者（80）不能一直卡死等待，必须有服务降级</li>
-<li>对方服务（8001）down机了，调用者（80）不能一直卡死等待，必须有服务降级</li>
-<li>对方服务（8001）OK，调用者（80）自己出故障或有自我要求（自己等待的时间小于服务提供者），自己处理降级</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>对方服务（8001）超时了，调用者（80）不能一直卡死等待，必须有服务降级</p>
+</li>
+<li class="lvl-2">
+<p>对方服务（8001）down机了，调用者（80）不能一直卡死等待，必须有服务降级</p>
+</li>
+<li class="lvl-2">
+<p>对方服务（8001）OK，调用者（80）自己出故障或有自我要求（自己等待的时间小于服务提供者），自己处理降级</p>
+</li>
 </ul>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><h3 id="服务降级-HystrixCommand"><a href="#服务降级-HystrixCommand" class="headerlink" title="服务降级@HystrixCommand"></a>服务降级<code>@HystrixCommand</code></h3><blockquote>
-<p><strong>提供者：</strong>设置自身调用超时时间的峰值，峰值内可以正常运行，超过了需要有兜底的方法处理，作服务降级fallback</p>
+<h2 id="解决">解决</h2>
+<h3 id="服务降级-HystrixCommand">服务降级<code>@HystrixCommand</code></h3>
+<blockquote>
+<p>**提供者：**设置自身调用超时时间的峰值，峰值内可以正常运行，超过了需要有兜底的方法处理，作服务降级fallback</p>
 </blockquote>
 <p>业务类启用——<code>@HystrixCommand</code>报异常后如何处理</p>
-<ul>
-<li>一旦调用服务方法失败并抛出了错误信息后，会自动调用@HystrixCommand标注好的fallbackMethod调用类中的指定方法</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>一旦调用服务方法失败并抛出了错误信息后，会自动调用@HystrixCommand标注好的fallbackMethod调用类中的指定方法</p>
+</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@HystrixCommand(fallbackMethod = &quot;paymentInfo_TimeOutHandler&quot;, commandProperties = &#123;</span></span><br><span class="line"><span class="meta">            @HystrixProperty(name=&quot;execution.isolation.thread.timeoutInMilliseconds&quot;, value = &quot;3000&quot;)</span></span><br><span class="line"><span class="meta">    &#125;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">paymentInfo_TimeOut</span><span class="params">(Integer id)</span>&#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">10</span>/<span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> <span class="variable">time</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        TimeUnit.SECONDS.sleep(time);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;线程池：&quot;</span> + Thread.currentThread().getName() + <span class="string">&quot;paymentInfo_TimeOut，id=&quot;</span> + id + <span class="string">&quot;\t耗时（秒）：&quot;</span> + time;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">paymentInfo_TimeOutHandler</span><span class="params">(Integer id)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;线程池：&quot;</span> + Thread.currentThread().getName() + <span class="string">&quot;启动fallback方法：paymentInfo_TimeOut，id=&quot;</span> + id + <span class="string">&quot;\t耗时（秒）：&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>主启动类激活——<code>@EnableCircuitBreaker</code></li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>主启动类激活——<code>@EnableCircuitBreaker</code></p>
+</li>
 </ul>
 <p>当前服务不可用了，做服务降级，兜底的方案都是<code>paymentInfo_TimeOutHandler</code></p>
 <blockquote>
 <p><strong>消费者：</strong></p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@HystrixCommand(fallbackMethod = &quot;paymentInfo_TimeOutHandler&quot;, commandProperties = &#123;</span></span><br><span class="line"><span class="meta">            @HystrixProperty(name=&quot;execution.isolation.thread.timeoutInMilliseconds&quot;, value = &quot;1500&quot;)</span></span><br><span class="line"><span class="meta">    &#125;)</span></span><br><span class="line"><span class="meta">@GetMapping(&quot;/hystrix/timeout/&#123;id&#125;&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">paymentInfo_TimeOut</span><span class="params">(<span class="meta">@PathVariable(&quot;id&quot;)</span> Integer id)</span>&#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> paymentHystrixService.paymentInfo_TimeOut(id);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">paymentInfo_TimeOutHandler</span><span class="params">(Integer id)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;线程池：&quot;</span> + Thread.currentThread().getName() + <span class="string">&quot;80系统繁忙或运行报错，请稍后再试，id=&quot;</span> + id + <span class="string">&quot;\t耗时（秒）：&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>全局服务降级<code>@DefaultProperties(defaultFallback=&quot;&quot;)</code></p>
 </blockquote>
 <p>N个除了个别重要核心业务有专属，其他普通的可以通过<code>@DefaultProperties(defaultFallback=&quot;&quot;)</code>统一跳转到统一结果处理页面</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/consumer&quot;)</span></span><br><span class="line"><span class="meta">@DefaultProperties(defaultFallback = &quot;globalFallback&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">OrderHystrixController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> PaymentHystrixService paymentHystrixService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@HystrixCommand</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/hystrix/timeout/&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">paymentInfo_TimeOut</span><span class="params">(<span class="meta">@PathVariable(&quot;id&quot;)</span> Integer id)</span>&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>/<span class="number">0</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> paymentHystrixService.paymentInfo_TimeOut(id);</span><br><span class="line">        log.info(<span class="string">&quot;*****result：&quot;</span> + result);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 全局fallback方法</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">globalFallback</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Global异常处理信息，请稍后再试！&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>通配服务降级FeignFallback</p>
 </blockquote>
 <p>为Feign客户端定义的接口添加一个服务降级处理的实现类即可实现解耦</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@FeignClient(value = &quot;provider-hystrix-payment&quot;, fallback = PaymentFallbackService.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">PaymentHystrixService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/payment/hystrix/ok/&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">paymentInfo_OK</span><span class="params">(<span class="meta">@PathVariable(&quot;id&quot;)</span> Integer id)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/payment/hystrix/timeout/&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">paymentInfo_TimeOut</span><span class="params">(<span class="meta">@PathVariable(&quot;id&quot;)</span> Integer id)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>通过服务降级处理，让客户端在服务端不可用时也会获得提示信息而不会挂起耗死服务器。</p>
-<h3 id="服务熔断-1"><a href="#服务熔断-1" class="headerlink" title="服务熔断"></a>服务熔断</h3><p>熔断机制是应对雪崩效应的一种微服务链路保护机制，当链路的某个微服务出错不可用或者响应时间太长，会进行服务的降级，进而熔断该节点微服务的调用，快速返回错误的响应信息。</p>
+<h3 id="服务熔断-2">服务熔断</h3>
+<p>熔断机制是应对雪崩效应的一种微服务链路保护机制，当链路的某个微服务出错不可用或者响应时间太长，会进行服务的降级，进而熔断该节点微服务的调用，快速返回错误的响应信息。</p>
 <p><strong>当监测到该节点微服务调用响应正常后，恢复调用链路。</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@HystrixCommand(fallbackMethod = &quot;paymentCircuiBreaker_fallback&quot;, commandProperties = &#123;</span></span><br><span class="line"><span class="meta">            @HystrixProperty(name=&quot;circuitBreaker.enabled&quot;, value = &quot;true&quot;),//是否开启断路器</span></span><br><span class="line"><span class="meta">            @HystrixProperty(name=&quot;circuitBreaker.requestVolumeThreshold&quot;, value = &quot;10&quot;),//请求次数</span></span><br><span class="line"><span class="meta">            @HystrixProperty(name=&quot;circuitBreaker.sleepWindowInMilliseconds&quot;, value = &quot;10000&quot;),//时间窗口期</span></span><br><span class="line"><span class="meta">            @HystrixProperty(name=&quot;circuitBreaker.errorThresholdPercentage&quot;, value = &quot;60&quot;),//失败率达到多少后跳闸</span></span><br><span class="line"><span class="meta">    &#125;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">paymentCircuiBreaker</span><span class="params">(Integer id)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(id &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;id不能为负数&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">String</span> <span class="variable">uuid</span> <span class="operator">=</span> IdUtil.simpleUUID();</span><br><span class="line">        <span class="keyword">return</span> Thread.currentThread().getName() + <span class="string">&quot;\t&quot;</span> + <span class="string">&quot;调用成功，流水号：&quot;</span> + uuid;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">paymentCircuiBreaker_fallback</span><span class="params">(Integer id)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;id不能为负数，请稍后再试。id：&quot;</span> + id;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
 <p>类型：</p>
-<ul>
-<li>熔断打开：请求不再进行调用当前服务，内部设置时钟一般为MTTR，（平均故障处理时间），当打开时长达到所设时钟则进入半熔断状态</li>
-<li>熔断关闭：不会对服务进行熔断</li>
-<li>熔断半开：部分请求根据规则调用当前服务，如果请求成功且符合规则则认为当前服务恢复正常，关闭熔断</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>熔断打开：请求不再进行调用当前服务，内部设置时钟一般为MTTR，（平均故障处理时间），当打开时长达到所设时钟则进入半熔断状态</p>
+</li>
+<li class="lvl-2">
+<p>熔断关闭：不会对服务进行熔断</p>
+</li>
+<li class="lvl-2">
+<p>熔断半开：部分请求根据规则调用当前服务，如果请求成功且符合规则则认为当前服务恢复正常，关闭熔断</p>
+</li>
 </ul>
 <p><strong>断路器的三个重要参数：快照时间窗、请求总数阀值、错误百分比阀值</strong></p>
 <p>断路器开启或关闭条件：</p>
 <ol>
-<li><p>当满足一定阀值的时候（默认10秒内超过20个请求次数）</p>
+<li class="lvl-3">
+<p>当满足一定阀值的时候（默认10秒内超过20个请求次数）</p>
 </li>
-<li><p>当失败率达到一定的时候（默认10秒内超过50%的请求失败）</p>
+<li class="lvl-3">
+<p>当失败率达到一定的时候（默认10秒内超过50%的请求失败）</p>
 </li>
-<li><p>到达以上阀值，断路器将会开启</p>
+<li class="lvl-3">
+<p>到达以上阀值，断路器将会开启</p>
 </li>
-<li><p>当开启的时候，所有请求都不会进行转发</p>
+<li class="lvl-3">
+<p>当开启的时候，所有请求都不会进行转发</p>
 </li>
-<li><p>一段时间之后（默认5秒），这个时候断路器是半开状态，会让其中一个请求进行转发。如果成功，断路器关闭，若失败，继续开启；重复4和5</p>
+<li class="lvl-3">
+<p>一段时间之后（默认5秒），这个时候断路器是半开状态，会让其中一个请求进行转发。如果成功，断路器关闭，若失败，继续开启；重复4和5</p>
 </li>
 </ol>
 <p>打开之后：</p>
 <p>再有请求调用的时候，将不会调用主逻辑，而是直接调用降级fallback。通过断路器，实现了自动发现错误并将降级逻辑切换为主逻辑，减少响应延迟的效果。</p>
 <p>原来的主逻辑如何恢复：</p>
 <p>当断路器打开后，对主逻辑进行熔断之后，hystrix会启动一个休眠时间窗，在这个时间窗内，降级逻辑是临时的成为主逻辑。当休眠时间窗到期，断路器进入半开状态，释放一次请求到原来的主逻辑上，如果此次请求正常返回，那么断路器将继续闭合，主逻辑恢复，如果这次请求依然有问题，断路器继续进入打开状态，休眠时间窗重新计时。</p>
-<h3 id="服务限流-1"><a href="#服务限流-1" class="headerlink" title="服务限流"></a>服务限流</h3><p>看alibaba的Sentinel</p>
-<h2 id="HystrixDashboard"><a href="#HystrixDashboard" class="headerlink" title="HystrixDashboard"></a>HystrixDashboard</h2><p>所有Provider微服务提供类（8001&#x2F;8002&#x2F;8003）都需要监控依赖配置</p>
+<h3 id="服务限流-2">服务限流</h3>
+<p>看alibaba的Sentinel</p>
+<h2 id="HystrixDashboard">HystrixDashboard</h2>
+<p>所有Provider微服务提供类（8001/8002/8003）都需要监控依赖配置</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- actuator监控信息完善 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-actuator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>新版本Hystrix需要在主启动类MainAppHystrix8001中指定监控路径</strong></p>
 <p>Unable to connect to Command Metric Stream.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">  * 此配置是为了服务监控的配置，与服务容错本身无关，SpringCloud升级后的坑</span></span><br><span class="line"><span class="comment">  * ServletRegistrationBean因Springboot的默认路径不是”/hystrix.stream“，</span></span><br><span class="line"><span class="comment">  * 只要在自己的项目里配置上下面的servlet就可以了</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> ServletRegistrationBean <span class="title function_">getServlet</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">HystrixMetricsStreamServlet</span> <span class="variable">hystrixMetricsStreamServlet</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HystrixMetricsStreamServlet</span>();</span><br><span class="line">    <span class="type">ServletRegistrationBean</span> <span class="variable">registrationBean</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ServletRegistrationBean</span>(hystrixMetricsStreamServlet);</span><br><span class="line">    registrationBean.setLoadOnStartup(<span class="number">1</span>);</span><br><span class="line">    registrationBean.addUrlMappings(<span class="string">&quot;/hystrix.stream&quot;</span>);</span><br><span class="line">    registrationBean.setName(<span class="string">&quot;HystrixMetricsStreamServlet&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> registrationBean;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <img src="/2022/12/14/SpringCloud/image-20230213222811283.png" class="">
-
-
-
-<h1 id="Gateway-amp-amp-Zuul"><a href="#Gateway-amp-amp-Zuul" class="headerlink" title="Gateway&amp;&amp;Zuul"></a>Gateway&amp;&amp;Zuul</h1><blockquote>
+<h1>Gateway&amp;&amp;Zuul</h1>
+<blockquote>
 <p>使用的Webflux中的reactor-netty响应式编程组件，底层使用了Netty通讯框架</p>
 </blockquote>
-<p>SpringCloud Gateway目标提供统一的路由方式且基于Filter链的方式提供了网关基本的功能，例如：安全，监控&#x2F;指标、限流。</p>
-<ul>
-<li>反向代理</li>
-<li>鉴权</li>
-<li>流量控制</li>
-<li>熔断</li>
-<li>日志监控</li>
+<p>SpringCloud Gateway目标提供统一的路由方式且基于Filter链的方式提供了网关基本的功能，例如：安全，监控/指标、限流。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>反向代理</p>
+</li>
+<li class="lvl-2">
+<p>鉴权</p>
+</li>
+<li class="lvl-2">
+<p>流量控制</p>
+</li>
+<li class="lvl-2">
+<p>熔断</p>
+</li>
+<li class="lvl-2">
+<p>日志监控</p>
+</li>
 </ul>
-<p>Zuul 1.X是<strong>基于阻塞I&#x2F;O的API Gateway；基于servlet之上的一个阻塞式处理模型</strong>，不支持任何长连接（如WebSocket），设计模式和Nginx比较像，每次I&#x2F;O操作都是从工作线程中选择执行，请求线程被阻塞到工作线程完成。即spring实现了处理所有request请求的一个servlet（DispatcherServlet），并由该servlet阻塞式处理。所以无法摆脱servlet模型的弊端</p>
+<p>Zuul 1.X是<strong>基于阻塞I/O的API Gateway；基于servlet之上的一个阻塞式处理模型</strong>，不支持任何长连接（如WebSocket），设计模式和Nginx比较像，每次I/O操作都是从工作线程中选择执行，请求线程被阻塞到工作线程完成。即spring实现了处理所有request请求的一个servlet（DispatcherServlet），并由该servlet阻塞式处理。所以无法摆脱servlet模型的弊端</p>
 <p>SpringCloud Gateway建立在Spring FrameWork 5、Project Reactor 和Spring Boot 2之上，使用非阻塞API；还支持WebSocket，并且与Spring紧密集成拥有更好的开发体验。<strong>异步非阻塞</strong></p>
 <p>Spring WebFlux是一个典型非阻塞异步的框架，核心是基于Reactor相关API实现的，非阻塞式+函数式是Spring 5.0引入的新的响应式框架，区别于Spring MVC，它不需要依赖Servlet API，它是完全<strong>异步非阻塞</strong>的，并且是基于Reactor来实现响应式流规范。</p>
-<h2 id="三大核心概念"><a href="#三大核心概念" class="headerlink" title="三大核心概念"></a>三大核心概念</h2><ul>
-<li>Route（路由）：构建网关的基本模块，由ID，目标URI，一系列的断言和过滤器组成，如果断言为true则匹配该路由</li>
-<li>Predicate（断言）：可以匹配HTTP请求中的所有内容（例如请求头和请求参数），如果请求与断言相匹配则进行路由</li>
-<li>Filter（过滤）：指的是Spring框架中GatewayFilter的实例，使用过滤器，可以在请求被路由前或之后对请求进行修改</li>
+<h2 id="三大核心概念">三大核心概念</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Route（路由）：构建网关的基本模块，由ID，目标URI，一系列的断言和过滤器组成，如果断言为true则匹配该路由</p>
+</li>
+<li class="lvl-2">
+<p>Predicate（断言）：可以匹配HTTP请求中的所有内容（例如请求头和请求参数），如果请求与断言相匹配则进行路由</p>
+</li>
+<li class="lvl-2">
+<p>Filter（过滤）：指的是Spring框架中GatewayFilter的实例，使用过滤器，可以在请求被路由前或之后对请求进行修改</p>
+</li>
 </ul>
 <p>总体：web请求，通过一些匹配条件，定位到真正的服务节点。并在这个转发过程的前后，进行一些精细化控制。</p>
 <p>predicate就是匹配条件；而filter，就可以理解为拦截器。有了这两个元素，再加上uri，就可以实现一个具体的路由了 。</p>
-<h2 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h2><img src="/2022/12/14/SpringCloud/image-20230215222740124.png" class="">
-
+<h2 id="工作流程">工作流程</h2>
+<img src="/2022/12/14/SpringCloud/image-20230215222740124.png" class="">
 <p>客户端向SpringCloud Gateway发出请求。然后在<strong>Gateway Handler Mapping</strong>中找到与请求相匹配的路由，将其发送到<strong>Gateway Web Handler</strong>；</p>
 <p><strong>Handler</strong>再通过指定的过滤器来将请求发送到我们实际的服务执行业务逻辑，然后返回；</p>
 <p>过滤器之间用虚线分开是因为过滤器可能会在发送代理请求之前（“pre”）或之后（“post”）执行业务逻辑。</p>
 <p><strong>Filter</strong>在”pre“类型的过滤器可以做参数校验、权限校验、流量监控、日志输出、协议转换等，</p>
 <p>在“post”类型的过滤器中可以做响应内容、响应头的修改、日志的输出、流量的监控等有着非常重要的作用。</p>
 <p><strong>路由转发</strong> + <strong>执行过滤器链</strong></p>
-<h2 id="路由配置两种方式"><a href="#路由配置两种方式" class="headerlink" title="路由配置两种方式"></a>路由配置两种方式</h2><ul>
-<li>在配置文件yml中配置</li>
+<h2 id="路由配置两种方式">路由配置两种方式</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>在配置文件yml中配置</p>
+</li>
 </ul>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">gateway:</span></span><br><span class="line">      <span class="attr">routes:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">payment_routh</span>             <span class="comment">#路由的Id，没有固定规则但要求唯一，建议配合服务名</span></span><br><span class="line">          <span class="attr">uri:</span> <span class="string">http://localhost:8001</span>    <span class="comment">#匹配后提供服务的路由地址</span></span><br><span class="line">          <span class="attr">predicates:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">Path=/payment/get/**</span>      <span class="comment">#断言，路径相匹配的进行路由</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>代码中注入RouteLocator的Bean</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>代码中注入RouteLocator的Bean</p>
+</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GatewayConfig</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> RouteLocator <span class="title function_">customRouteLocator</span><span class="params">(RouteLocatorBuilder routeLocatorBuilder)</span>&#123;</span><br><span class="line">        RouteLocatorBuilder.<span class="type">Builder</span> <span class="variable">routes</span> <span class="operator">=</span> routeLocatorBuilder.routes();</span><br><span class="line">        routes.route(<span class="string">&quot;path_route_wzzc&quot;</span>, r -&gt; r.path(<span class="string">&quot;/guonei&quot;</span>).uri(<span class="string">&quot;https://news.baidu.com/guonei&quot;</span>)).build();</span><br><span class="line">        <span class="keyword">return</span> routes.build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="动态路由"><a href="#动态路由" class="headerlink" title="动态路由"></a>动态路由</h2><blockquote>
+<h2 id="动态路由">动态路由</h2>
+<blockquote>
 <p>默认情况下Gateway会根据注册中心注册的服务列表，以注册中心 上微服务名为路劲创建动态路由进行转发，从而实现动态路由的功能</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  cloud:</span><br><span class="line">    gateway:</span><br><span class="line">      discovery:</span><br><span class="line">        locator:</span><br><span class="line">          enabled: <span class="literal">true</span> # 开启从注册中心动态创建路由的功能，利用微服务名进行路由</span><br><span class="line">      routes:</span><br><span class="line">        - id: payment_routh             #路由的Id，没有固定规则但要求唯一，建议配合服务名</span><br><span class="line">          uri: lb:<span class="comment">//PROVIDER-PAYMENT    #匹配后提供服务的路由地址</span></span><br><span class="line">          predicates:</span><br><span class="line">            - Path=/payment/get<span class="comment">/**      #断言，路径相匹配的进行路由</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>uri的协议为lb，表示启用Gateway的负载均衡功能，lb:&#x2F;&#x2F;serviceName是SpringCloud Gateway在微服务中自动为我们创建的负载均衡uri</strong></p>
-<h2 id="常用Predicate"><a href="#常用Predicate" class="headerlink" title="常用Predicate"></a>常用Predicate</h2><blockquote>
+<p><strong>uri的协议为lb，表示启用Gateway的负载均衡功能，lb://serviceName是SpringCloud Gateway在微服务中自动为我们创建的负载均衡uri</strong></p>
+<h2 id="常用Predicate">常用Predicate</h2>
+<blockquote>
 <p>匹配HTTP请求中的所有内容（例如请求头或请求参数），如果请求与断言相匹配则进行路由</p>
 </blockquote>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">predicates:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">Path=/payment/lb/**</span>       <span class="comment">#断言，路径相匹配的进行路由</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">After=2023-02-20T22:50:08.213+08:00[Asia/Shanghai]</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">Cookie=username,wzc</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">Header=X-Request-Id,</span> <span class="string">\d+</span>  <span class="comment">#请求头要有X-Request-Id属性，并且值为整数的正则表达式、</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">Host=**.atguigu.com</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">Method=GET</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">Query=username,</span> <span class="string">\d+</span>   <span class="comment">#要有参数username并且还要是整数才能路由</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h2><blockquote>
+<h2 id="Filter">Filter</h2>
+<blockquote>
 <p>指的是Spring框架中GatewayFilter的实例，使用过滤器，可以在请求被路由前或者之后对请求进行修改</p>
 </blockquote>
 <p>可用于修改进入HTTP请求和返回的HTTP响应，路由过滤器只能指定路由进行使用</p>
 <p>SpringCloud Gateway内置了多种路由过滤器，他们都由GatewayFilter的工厂类来产生</p>
 <p>生命周期</p>
-<ul>
-<li>pre</li>
-<li>post</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>pre</p>
+</li>
+<li class="lvl-2">
+<p>post</p>
+</li>
 </ul>
 <p>种类</p>
-<ul>
-<li>GatewayFilter</li>
-<li>GlobalFilter</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>GatewayFilter</p>
+</li>
+<li class="lvl-2">
+<p>GlobalFilter</p>
+</li>
 </ul>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">filters:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">AddRequestParameter=X-Request-Id,1024</span> <span class="comment">#过滤器工厂会在匹配的请求头加上一对请求头，名称为X-Request-Id，值为1024</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="自定义过滤器"><a href="#自定义过滤器" class="headerlink" title="自定义过滤器"></a>自定义过滤器</h3><p>实现GlobalFilter, Ordered两个接口</p>
+<h3 id="自定义过滤器">自定义过滤器</h3>
+<p>实现GlobalFilter, Ordered两个接口</p>
 <p>功能：全局日志记录、统一网关鉴权、。。。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GatewayFilter</span> <span class="keyword">implements</span> <span class="title class_">GlobalFilter</span>, Ordered &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Mono&lt;Void&gt; <span class="title function_">filter</span><span class="params">(ServerWebExchange exchange, GatewayFilterChain chain)</span> &#123;</span><br><span class="line">        log.info(<span class="string">&quot;===============进入全局过滤器&quot;</span> + <span class="keyword">new</span> <span class="title class_">Date</span>());</span><br><span class="line">        <span class="type">String</span> <span class="variable">username</span> <span class="operator">=</span> exchange.getRequest().getQueryParams().getFirst(<span class="string">&quot;username&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(username == <span class="literal">null</span>)&#123;</span><br><span class="line">            log.error(<span class="string">&quot;用户名为null，非法用户！&quot;</span>);</span><br><span class="line">            exchange.getResponse().setStatusCode(HttpStatus.NOT_ACCEPTABLE);</span><br><span class="line">            <span class="keyword">return</span> exchange.getResponse().setComplete();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> chain.filter(exchange);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getOrder</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="Config-amp-amp-Bus"><a href="#Config-amp-amp-Bus" class="headerlink" title="Config&amp;&amp;Bus"></a>Config&amp;&amp;Bus</h1><p>SpringCloud Config为微服务架构中的微服务提供集中化的外部配置支持，配置服务器为各个不同的微服务应用的所有环境提供了一个中心化的外部配置。</p>
-<ul>
-<li>服务端：&#x3D;&#x3D;称为分布式配置中心，是一个独立的微服务应用&#x3D;&#x3D;，用来连接配置服务器并为客户端提供获取配置信息，加密&#x2F;解密信息等访问接口</li>
-<li>客户端：通过指定的配置中心来管理应用资源，以及与业务相关的配置内容，并在启动的时候从配置中心获取和加载配置信息配置服务器，默认采用git来存储配置信息，这样就有助于对环境配置进行版本管理，并且可以通过git客户端工具来方便的管理和访问配置内容。</li>
+<h1>Config&amp;&amp;Bus</h1>
+<p>SpringCloud Config为微服务架构中的微服务提供集中化的外部配置支持，配置服务器为各个不同的微服务应用的所有环境提供了一个中心化的外部配置。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>服务端：<mark>称为分布式配置中心，是一个独立的微服务应用</mark>，用来连接配置服务器并为客户端提供获取配置信息，加密/解密信息等访问接口</p>
+</li>
+<li class="lvl-2">
+<p>客户端：通过指定的配置中心来管理应用资源，以及与业务相关的配置内容，并在启动的时候从配置中心获取和加载配置信息配置服务器，默认采用git来存储配置信息，这样就有助于对环境配置进行版本管理，并且可以通过git客户端工具来方便的管理和访问配置内容。</p>
+</li>
 </ul>
 <p><strong>作用：</strong></p>
-<ul>
-<li>集中管理配置文件</li>
-<li>不同环境不同配置，动态化的配置更新，分环境部署比如dev&#x2F;test&#x2F;prod&#x2F;&#x2F;beta&#x2F;release</li>
-<li>运行期间动态调整配置，不再需要在每个服务器部署的机器上编写配置文件，服务会向配置中心统一拉取配置自己的信息</li>
-<li>当配置发生改变时，服务不需要重启即可感知到配置的变化并应用新的配置</li>
-<li>将配置信息以REST接口的形式暴露，post、curl访问刷新均可……</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>集中管理配置文件</p>
+</li>
+<li class="lvl-2">
+<p>不同环境不同配置，动态化的配置更新，分环境部署比如dev/test/prod//beta/release</p>
+</li>
+<li class="lvl-2">
+<p>运行期间动态调整配置，不再需要在每个服务器部署的机器上编写配置文件，服务会向配置中心统一拉取配置自己的信息</p>
+</li>
+<li class="lvl-2">
+<p>当配置发生改变时，服务不需要重启即可感知到配置的变化并应用新的配置</p>
+</li>
+<li class="lvl-2">
+<p>将配置信息以REST接口的形式暴露，post、curl访问刷新均可…</p>
+</li>
 </ul>
-<p>默认使用Git来存储配置文件（也有其他方式，比如支持SVN和本地文件），但推荐的还是Git，而且使用的是http&#x2F;https访问的形式</p>
-<h2 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h2><p>bootstrap.yml 是系统级的，&#x3D;&#x3D;优先级更高&#x3D;&#x3D;</p>
+<p>默认使用Git来存储配置文件（也有其他方式，比如支持SVN和本地文件），但推荐的还是Git，而且使用的是http/https访问的形式</p>
+<h2 id="客户端配置">客户端配置</h2>
+<p>bootstrap.yml 是系统级的，<mark>优先级更高</mark></p>
 <p>application.yml 是用户级的资源配置项</p>
-<p>SpringCloud会创建一个“BootStrap Context”，作为Spring应用的“Application Context”的父上下文。初始化的时候，“BootStrap Context”负责从&#x3D;&#x3D;外部源&#x3D;&#x3D;</p>
+<p>SpringCloud会创建一个“BootStrap Context”，作为Spring应用的“Application Context”的父上下文。初始化的时候，“BootStrap Context”负责从<mark>外部源</mark></p>
 <p>加载配置属性并解析配置。这两个上下文共享一个从外部获取的“Environment”。</p>
 <p>“BootStrap”属性有高优先级，默认情况下，它们不会被本地配置覆盖。“BootStrap context”和“Application context”有着不同的约定，所以新增了一个“bootstrap.yml”文件，保证“BootStrap context”和“Application context”配置的分离。</p>
-<p>&#x3D;&#x3D;要将Client模块下的application.yml文件修改为bootstrap.yml，这很关键。&#x3D;&#x3D;</p>
+<p><mark>要将Client模块下的application.yml文件修改为bootstrap.yml，这很关键。</mark></p>
 <p>因为bootstrap.yml是比application.yml先加载的，bootstrap.yml优先级高于application.yml</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">3355</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">config-client</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="comment"># config客户端配置</span></span><br><span class="line">    <span class="attr">config:</span></span><br><span class="line">      <span class="attr">label:</span> <span class="string">master</span> <span class="comment"># 分支名称</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">config</span> <span class="comment"># 配置文件名称</span></span><br><span class="line">      <span class="attr">profile:</span> <span class="string">dev</span> <span class="comment"># 读取后缀名称，综合：master分支上config-dev.yml的配置文件被读取 http://localhost:3344/master/config-dev.yml</span></span><br><span class="line">      <span class="attr">uri:</span> <span class="string">http://localhost:3344</span> <span class="comment"># 配置中心地址</span></span><br><span class="line"><span class="comment"># 服务注册到eureka地址</span></span><br><span class="line"><span class="attr">eureka:</span></span><br><span class="line">  <span class="attr">client:</span></span><br><span class="line">    <span class="attr">service-url:</span></span><br><span class="line">      <span class="attr">defaultZone:</span> <span class="string">http://localhost:7001/eureka</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="分布式配置的动态刷新"><a href="#分布式配置的动态刷新" class="headerlink" title="分布式配置的动态刷新"></a>分布式配置的动态刷新</h2><p>修改Gitee上的配置文件，刷新3344，ConfigServer配置中心立刻响应。</p>
-<ul>
-<li><p>pom引入actuator监控</p>
+<h2 id="分布式配置的动态刷新">分布式配置的动态刷新</h2>
+<p>修改Gitee上的配置文件，刷新3344，ConfigServer配置中心立刻响应。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>pom引入actuator监控</p>
 </li>
-<li><p>修改yml，暴露监控端口</p>
+<li class="lvl-2">
+<p>修改yml，暴露监控端口</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 暴露监控端点</span></span><br><span class="line"><span class="attr">management:</span></span><br><span class="line">  <span class="attr">endpoints:</span></span><br><span class="line">    <span class="attr">web:</span></span><br><span class="line">      <span class="attr">exposure:</span></span><br><span class="line">        <span class="attr">include:</span> <span class="string">&quot;*&quot;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>@RefreshScope业务类Controller修改</p>
+<li class="lvl-2">
+<p>@RefreshScope业务类Controller修改</p>
 </li>
-<li><p>发送POST请求刷新3355</p>
-<ul>
-<li>curl -x POST “<a target="_blank" rel="noopener" href="http://localhost:3355/actuator/refresh&quot;">http://localhost:3355/actuator/refresh&quot;</a></li>
+<li class="lvl-2">
+<p>发送POST请求刷新3355</p>
+<ul class="lvl-2">
+<li class="lvl-4">curl -x POST “<a target="_blank" rel="noopener" href="http://localhost:3355/actuator/refresh">http://localhost:3355/actuator/refresh</a>”</li>
 </ul>
 </li>
 </ul>
-<h3 id="Bus-Config"><a href="#Bus-Config" class="headerlink" title="Bus+Config"></a>Bus+Config</h3><p>是用来将分布式系统的节点与轻量级消息系统链接起来的框架，它整合了Java的事件处理机制和消息中间件的功能。</p>
+<h3 id="Bus-Config">Bus+Config</h3>
+<p>是用来将分布式系统的节点与轻量级消息系统链接起来的框架，它整合了Java的事件处理机制和消息中间件的功能。</p>
 <p>Bus支持两种消息代理：RabbitMQ，Kafka。</p>
 <p>SpringCloud Bus能管理和传播分布式系统间的消息，就像一个分布式执行器，可用于广播状态更改、事件推送等，也可以当做微服务间的通信通道。</p>
 <p><strong>什么是总线：</strong></p>
-<p>在微服务架构的系统中，通常会使用&#x3D;&#x3D;轻量级的消息代理&#x3D;&#x3D;来构建一个&#x3D;&#x3D;共用的消息主题&#x3D;&#x3D;，并让系统中所有微服务实例都连接上来。由于&#x3D;&#x3D;该主题中产生的消息会被所有实例监听和消费，所以称它为消息总线。在总线上的各个实例，都可以方便地广播一些需要让其他连接在该主题上的实例都知道的消息。</p>
+<p>在微服务架构的系统中，通常会使用<mark>轻量级的消息代理</mark>来构建一个<mark>共用的消息主题</mark>，并让系统中所有微服务实例都连接上来。由于==该主题中产生的消息会被所有实例监听和消费，所以称它为消息总线。在总线上的各个实例，都可以方便地广播一些需要让其他连接在该主题上的实例都知道的消息。</p>
 <p><strong>基本原理：</strong></p>
 <p>ConfigClient实例都监听MQ中同一个topic（默认是springCloudBus）。当一个服务刷新数据的时候，它会把这个信息放入到Topic中，这样其他监听同一个Topic的服务就能得到通知，然后去更新自身的配置。</p>
-<h3 id="RabbitMQ消息环境配置"><a href="#RabbitMQ消息环境配置" class="headerlink" title="RabbitMQ消息环境配置"></a>RabbitMQ消息环境配置</h3><ul>
-<li>安装Erlang，下载地址：<a target="_blank" rel="noopener" href="http://erlang.org/download/">http://erlang.org/download/</a></li>
-<li>安装RabbitMQ</li>
-<li>进入sbin目录，输入：rabbitmq-plugins enable rabbitmq_management，添加可视化插件；启动MQ，输入<a target="_blank" rel="noopener" href="http://127.0.0.1:15672/%E5%B0%B1%E5%8F%AF%E8%AE%BF%E9%97%AE%E4%BA%86%E3%80%82">http://127.0.0.1:15672/就可访问了。</a></li>
+<h3 id="RabbitMQ消息环境配置">RabbitMQ消息环境配置</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>安装Erlang，下载地址：<a target="_blank" rel="noopener" href="http://erlang.org/download/">http://erlang.org/download/</a></p>
+</li>
+<li class="lvl-2">
+<p>安装RabbitMQ</p>
+</li>
+<li class="lvl-2">
+<p>进入sbin目录，输入：rabbitmq-plugins enable rabbitmq_management，添加可视化插件；启动MQ，输入http://127.0.0.1:15672/就可访问了。</p>
+</li>
 </ul>
-<p><strong>设计思想：利用消息总线触发一个客户端&#x2F;bus&#x2F;refresh，而刷新所有客户端的配置</strong></p>
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol>
-<li><p>3344配置中心服务端添加消息总线支持</p>
+<p><strong>设计思想：利用消息总线触发一个客户端/bus/refresh，而刷新所有客户端的配置</strong></p>
+<h3 id="步骤">步骤</h3>
+<ol>
+<li class="lvl-3">
+<p>3344配置中心服务端添加消息总线支持</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&lt;!--</span> <span class="string">添加消息总线RabbitMQ支持</span> <span class="string">--&gt;</span></span><br><span class="line"><span class="string">&lt;dependency&gt;</span></span><br><span class="line">    <span class="string">&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span></span><br><span class="line">    <span class="string">&lt;artifactId&gt;spring-cloud-starter-bus-amqp&lt;/artifactId&gt;</span></span><br><span class="line"><span class="string">&lt;/dependency&gt;</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># rabbitmq相关配置</span></span><br><span class="line">  <span class="attr">rabbitmq:</span></span><br><span class="line">    <span class="attr">host:</span> <span class="string">localhost</span></span><br><span class="line">    <span class="attr">port:</span> <span class="number">5672</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">guest</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">guest</span></span><br><span class="line"><span class="comment"># rabbitmq相关配置，暴露bus刷新配置的断电</span></span><br><span class="line"><span class="attr">management:</span></span><br><span class="line">  <span class="attr">endpoints:</span></span><br><span class="line">    <span class="attr">web:</span></span><br><span class="line">      <span class="attr">exposure:</span></span><br><span class="line">        <span class="attr">include:</span> <span class="string">&#x27;bus-refresh&#x27;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>3355客户端添加消息总线支持</p>
+<li class="lvl-3">
+<p>3355客户端添加消息总线支持</p>
 </li>
-<li><p>3366客户端添加消息总线支持</p>
+<li class="lvl-3">
+<p>3366客户端添加消息总线支持</p>
 </li>
 </ol>
 <p>测试：发送post请求：curl -X POST <a target="_blank" rel="noopener" href="http://localhost:3344/actuator/bus-refresh">http://localhost:3344/actuator/bus-refresh</a></p>
-<h3 id="定点通知"><a href="#定点通知" class="headerlink" title="定点通知"></a>定点通知</h3><p>指定某一个实例生效而不是全部</p>
+<h3 id="定点通知">定点通知</h3>
+<p>指定某一个实例生效而不是全部</p>
 <p>公式：<a target="_blank" rel="noopener" href="http://localhost:3344/actuator/bus-refresh/%7Bdestination%7D">http://localhost:3344/actuator/bus-refresh/{destination}</a></p>
-<p>&#x2F;bus&#x2F;refresh请求不再发送到具体的服务实例上，而是发给config server，通过destination参数类指定需要更新配置的服务或实例</p>
+<p>/bus/refresh请求不再发送到具体的服务实例上，而是发给config server，通过destination参数类指定需要更新配置的服务或实例</p>
 <p>只通知3355：<a target="_blank" rel="noopener" href="http://localhost:3344/actuator/bus-refresh/config-client:3355">http://localhost:3344/actuator/bus-refresh/config-client:3355</a></p>
-<h1 id="Nacos"><a href="#Nacos" class="headerlink" title="Nacos"></a>Nacos</h1><p>注册中心+配置中心，Nacos &#x3D; Eureka + Config +Bus</p>
+<h1>Nacos</h1>
+<p>注册中心+配置中心，Nacos = Eureka + Config +Bus</p>
 <img src="/2022/12/14/SpringCloud/image-20230308212329947.png" class="" title="image-20230308212329947">
-
 <p><strong>Nacos支持AP和CP模式的切换</strong></p>
 <p>C是所有节点在同一时间看到的数据是一致的，而A的定义是所有的请求都会收到响应</p>
-<h2 id="注册中心"><a href="#注册中心" class="headerlink" title="注册中心"></a>注册中心</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">config-client</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="string">localhost:8848</span> <span class="comment"># Nacos服务注册中心地址</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="配置中心"><a href="#配置中心" class="headerlink" title="配置中心"></a>配置中心</h2><p><strong>基础配置</strong></p>
+<h2 id="注册中心">注册中心</h2>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">config-client</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="string">localhost:8848</span> <span class="comment"># Nacos服务注册中心地址</span></span><br></pre></td></tr></table></figure>
+<h2 id="配置中心">配置中心</h2>
+<p><strong>基础配置</strong></p>
 <p>通过SpringCloud原生注解@RefreshScope实现配置自动更新</p>
 <p>Nacos的匹配规则</p>
-<p>DataId：${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-exetension}</p>
+<p>DataId：${<a target="_blank" rel="noopener" href="http://spring.application.name">spring.application.name</a>}-${spring.profiles.active}.${spring.cloud.nacos.config.file-exetension}</p>
 <p>prefix默认为spring.application.name的值</p>
 <p>spring.profile.active即为当前环境对应的profile，可以通过配置项spring.profile.active来配置</p>
 <p>file-extension为配置内容的数据格式，可以通过配置项spring.cloud.nacos.config.file-extension来配置</p>
 <p><strong>分类配置</strong></p>
 <p>三种方案加载配置：</p>
-<ul>
-<li>DataID方案<ul>
-<li>指定spring.profile.active和配置文件的DataID来使不同环境下读取不同的配置</li>
-<li>默认空间+默认分组+新建dev和test两个DataID</li>
-<li>通过spring.profile.active属性就能进行多环境下配置文件的读取</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>DataID方案</p>
+<ul class="lvl-2">
+<li class="lvl-4">指定spring.profile.active和配置文件的DataID来使不同环境下读取不同的配置</li>
+<li class="lvl-4">默认空间+默认分组+新建dev和test两个DataID</li>
+<li class="lvl-4">通过spring.profile.active属性就能进行多环境下配置文件的读取</li>
 </ul>
 </li>
-<li>Group方案<ul>
-<li>通过Group实现环境区分</li>
-<li>在config下增加一条group的配置即可</li>
+<li class="lvl-2">
+<p>Group方案</p>
+<ul class="lvl-2">
+<li class="lvl-4">通过Group实现环境区分</li>
+<li class="lvl-4">在config下增加一条group的配置即可</li>
 </ul>
 </li>
-<li>Namespace方案<ul>
-<li>新建dev&#x2F;test的Namespace</li>
-<li>新增namespace配置</li>
+<li class="lvl-2">
+<p>Namespace方案</p>
+<ul class="lvl-2">
+<li class="lvl-4">新建dev/test的Namespace</li>
+<li class="lvl-4">新增namespace配置</li>
 </ul>
 </li>
 </ul>
-<h2 id="集群和持久化配置"><a href="#集群和持久化配置" class="headerlink" title="集群和持久化配置"></a>集群和持久化配置</h2><p>nginx配置：</p>
+<h2 id="集群和持久化配置">集群和持久化配置</h2>
+<p>nginx配置：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">gzip  on;</span></span><br><span class="line">upstream cluster&#123;</span><br><span class="line">    server 127.0.0.1:8847;</span><br><span class="line">    server 127.0.0.1:8848;</span><br><span class="line">    server 127.0.0.1:8849;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location / &#123;</span><br><span class="line">    #root   html;</span><br><span class="line">    #index  index.html index.htm;</span><br><span class="line">    proxy_pass http://cluster;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="Sentinel"><a href="#Sentinel" class="headerlink" title="Sentinel"></a>Sentinel</h1><p>采用懒加载，执行一次访问即可</p>
-<h2 id="流控规则"><a href="#流控规则" class="headerlink" title="流控规则"></a>流控规则</h2><ul>
-<li>资源名：唯一名称，默认请求路径</li>
-<li>针对来源：Sentinel可以针对调用者进行限流，填写微服务名，默认Default（不区分来源）</li>
-<li>阈值类型&#x2F;单机阈值<ul>
-<li>QPS（每秒钟的请求数量）：当调用该api的QPS达到阈值的时候，进行限流。</li>
-<li>线程数：当调用该api的线程数达到阈值的时候，进行限流</li>
+<h1>Sentinel</h1>
+<p>采用懒加载，执行一次访问即可</p>
+<h2 id="流控规则">流控规则</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>资源名：唯一名称，默认请求路径</p>
+</li>
+<li class="lvl-2">
+<p>针对来源：Sentinel可以针对调用者进行限流，填写微服务名，默认Default（不区分来源）</p>
+</li>
+<li class="lvl-2">
+<p>阈值类型/单机阈值</p>
+<ul class="lvl-2">
+<li class="lvl-4">QPS（每秒钟的请求数量）：当调用该api的QPS达到阈值的时候，进行限流。</li>
+<li class="lvl-4">线程数：当调用该api的线程数达到阈值的时候，进行限流</li>
 </ul>
 </li>
-<li>是否集群：不需要集群</li>
-<li>流控模式：<ul>
-<li>直接：api达到限流条件时，直接限流</li>
-<li>关联：当关联的资源达到阈值时，就限流自己<ul>
-<li>当与A关联的资源B达到阈值后，就限流A自己</li>
+<li class="lvl-2">
+<p>是否集群：不需要集群</p>
+</li>
+<li class="lvl-2">
+<p>流控模式：</p>
+<ul class="lvl-2">
+<li class="lvl-4">直接：api达到限流条件时，直接限流</li>
+<li class="lvl-4">关联：当关联的资源达到阈值时，就限流自己
+<ul class="lvl-4">
+<li class="lvl-6">当与A关联的资源B达到阈值后，就限流A自己</li>
 </ul>
 </li>
-<li>链路：只记录指定链路上的流量（指定资源从入口资源进来的流量，如果达到阈值，就进行限流）【api级别的针对来源】</li>
+<li class="lvl-4">链路：只记录指定链路上的流量（指定资源从入口资源进来的流量，如果达到阈值，就进行限流）【api级别的针对来源】</li>
 </ul>
 </li>
-<li>流控效果：<ul>
-<li>快速失败：直接失败，抛异常</li>
-<li>Warm Up：根据codeFactor（冷加载因子，默认3）的值，从阈值&#x2F;codeFactor，经过预热时长，才达到设定的QPS阈值</li>
-<li>排队等待：匀速排队，让请求以匀速的速度通过，阈值类型必须设置为QPS，否则无效</li>
+<li class="lvl-2">
+<p>流控效果：</p>
+<ul class="lvl-2">
+<li class="lvl-4">快速失败：直接失败，抛异常</li>
+<li class="lvl-4">Warm Up：根据codeFactor（冷加载因子，默认3）的值，从阈值/codeFactor，经过预热时长，才达到设定的QPS阈值</li>
+<li class="lvl-4">排队等待：匀速排队，让请求以匀速的速度通过，阈值类型必须设置为QPS，否则无效</li>
 </ul>
 </li>
 </ul>
-<h2 id="降级规则"><a href="#降级规则" class="headerlink" title="降级规则"></a>降级规则</h2><ul>
-<li><p>RT（平均响应时间，秒级）</p>
-<p>平均响应时间超出阈值且在时间窗口内通过的请求&gt;&#x3D;5，两个条件同时满足后触发降级</p>
+<h2 id="降级规则">降级规则</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>RT（平均响应时间，秒级）</p>
+<p>平均响应时间超出阈值且在时间窗口内通过的请求&gt;=5，两个条件同时满足后触发降级</p>
 <p>窗口期过后关闭断路器</p>
-<p>RT最大4900（更大的需要通过-Dcsp.sentinel.statistic.max.rt&#x3D;XXXX才能生效）</p>
+<p>RT最大4900（更大的需要通过-Dcsp.sentinel.statistic.max.rt=XXXX才能生效）</p>
 </li>
-<li><p>异常比例（秒级）</p>
-<p>QPS &gt;&#x3D; 5且异常比例（秒级统计）超过阈值时，触发降级；时间窗口结束后，关闭降级</p>
+<li class="lvl-2">
+<p>异常比例（秒级）</p>
+<p>QPS &gt;= 5且异常比例（秒级统计）超过阈值时，触发降级；时间窗口结束后，关闭降级</p>
 </li>
-<li><p>异常数（分钟级）</p>
+<li class="lvl-2">
+<p>异常数（分钟级）</p>
 <p>异常数（分钟统计）超过阈值时，触发降级；时间窗口结束后，关闭降级</p>
 </li>
 </ul>
-<h2 id="热点规则"><a href="#热点规则" class="headerlink" title="热点规则"></a>热点规则</h2><p>@SentinelResource(value &#x3D; “testHotKey”, blockHandler  &#x3D; “dealHandler_testHotKey”)</p>
+<h2 id="热点规则">热点规则</h2>
+<p>@SentinelResource(value = “testHotKey”, blockHandler  = “dealHandler_testHotKey”)</p>
 <p>方法testHotKey里面第一个参数只要QPS超过每秒1次，马上降级处理</p>
 <p>@SentinelResource主管配置出错，运行出错该走异常走异常</p>
 
@@ -797,7 +940,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%84%E6%88%90"><span class="nav-number">1.</span> <span class="nav-text">组成</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Eureka"><span class="nav-number">2.</span> <span class="nav-text">Eureka</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Consul"><span class="nav-number">3.</span> <span class="nav-text">Consul</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ribbon"><span class="nav-number">4.</span> <span class="nav-text">Ribbon</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OpenFeign"><span class="nav-number">5.</span> <span class="nav-text">OpenFeign</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B6%85%E6%97%B6%E6%8E%A7%E5%88%B6"><span class="nav-number">5.1.</span> <span class="nav-text">超时控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E5%BF%97%E5%A2%9E%E5%BC%BA"><span class="nav-number">5.2.</span> <span class="nav-text">日志增强</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hystrix"><span class="nav-number">6.</span> <span class="nav-text">Hystrix</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">6.1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E9%99%8D%E7%BA%A7"><span class="nav-number">6.1.1.</span> <span class="nav-text">服务降级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%86%94%E6%96%AD"><span class="nav-number">6.1.2.</span> <span class="nav-text">服务熔断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E9%99%90%E6%B5%81"><span class="nav-number">6.1.3.</span> <span class="nav-text">服务限流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JMeter%E5%8E%8B%E6%B5%8B"><span class="nav-number">6.2.</span> <span class="nav-text">JMeter压测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3"><span class="nav-number">6.3.</span> <span class="nav-text">解决</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E9%99%8D%E7%BA%A7-HystrixCommand"><span class="nav-number">6.3.1.</span> <span class="nav-text">服务降级@HystrixCommand</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%86%94%E6%96%AD-1"><span class="nav-number">6.3.2.</span> <span class="nav-text">服务熔断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E9%99%90%E6%B5%81-1"><span class="nav-number">6.3.3.</span> <span class="nav-text">服务限流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HystrixDashboard"><span class="nav-number">6.4.</span> <span class="nav-text">HystrixDashboard</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Gateway-amp-amp-Zuul"><span class="nav-number">7.</span> <span class="nav-text">Gateway&amp;&amp;Zuul</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E5%A4%A7%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="nav-number">7.1.</span> <span class="nav-text">三大核心概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">7.2.</span> <span class="nav-text">工作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">7.3.</span> <span class="nav-text">路由配置两种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1"><span class="nav-number">7.4.</span> <span class="nav-text">动态路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8Predicate"><span class="nav-number">7.5.</span> <span class="nav-text">常用Predicate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Filter"><span class="nav-number">7.6.</span> <span class="nav-text">Filter</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="nav-number">7.6.1.</span> <span class="nav-text">自定义过滤器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Config-amp-amp-Bus"><span class="nav-number">8.</span> <span class="nav-text">Config&amp;&amp;Bus</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="nav-number">8.1.</span> <span class="nav-text">客户端配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE%E7%9A%84%E5%8A%A8%E6%80%81%E5%88%B7%E6%96%B0"><span class="nav-number">8.2.</span> <span class="nav-text">分布式配置的动态刷新</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bus-Config"><span class="nav-number">8.2.1.</span> <span class="nav-text">Bus+Config</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RabbitMQ%E6%B6%88%E6%81%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">8.2.2.</span> <span class="nav-text">RabbitMQ消息环境配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">8.2.3.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E9%80%9A%E7%9F%A5"><span class="nav-number">8.2.4.</span> <span class="nav-text">定点通知</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nacos"><span class="nav-number">9.</span> <span class="nav-text">Nacos</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83"><span class="nav-number">9.1.</span> <span class="nav-text">注册中心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83"><span class="nav-number">9.2.</span> <span class="nav-text">配置中心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E5%92%8C%E6%8C%81%E4%B9%85%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="nav-number">9.3.</span> <span class="nav-text">集群和持久化配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sentinel"><span class="nav-number">10.</span> <span class="nav-text">Sentinel</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E6%8E%A7%E8%A7%84%E5%88%99"><span class="nav-number">10.1.</span> <span class="nav-text">流控规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%8D%E7%BA%A7%E8%A7%84%E5%88%99"><span class="nav-number">10.2.</span> <span class="nav-text">降级规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%83%AD%E7%82%B9%E8%A7%84%E5%88%99"><span class="nav-number">10.3.</span> <span class="nav-text">热点规则</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">组成</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">Eureka</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">Consul</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">Ribbon</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">OpenFeign</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B6%85%E6%97%B6%E6%8E%A7%E5%88%B6"><span class="nav-number">5.1.</span> <span class="nav-text">超时控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E5%BF%97%E5%A2%9E%E5%BC%BA"><span class="nav-number">5.2.</span> <span class="nav-text">日志增强</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">Hystrix</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">6.1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E9%99%8D%E7%BA%A7"><span class="nav-number">6.1.1.</span> <span class="nav-text">服务降级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%86%94%E6%96%AD"><span class="nav-number">6.1.2.</span> <span class="nav-text">服务熔断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E9%99%90%E6%B5%81"><span class="nav-number">6.1.3.</span> <span class="nav-text">服务限流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JMeter%E5%8E%8B%E6%B5%8B"><span class="nav-number">6.2.</span> <span class="nav-text">JMeter压测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3"><span class="nav-number">6.3.</span> <span class="nav-text">解决</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E9%99%8D%E7%BA%A7-HystrixCommand"><span class="nav-number">6.3.1.</span> <span class="nav-text">服务降级@HystrixCommand</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%86%94%E6%96%AD-2"><span class="nav-number">6.3.2.</span> <span class="nav-text">服务熔断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E9%99%90%E6%B5%81-2"><span class="nav-number">6.3.3.</span> <span class="nav-text">服务限流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HystrixDashboard"><span class="nav-number">6.4.</span> <span class="nav-text">HystrixDashboard</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">Gateway&amp;&amp;Zuul</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E5%A4%A7%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="nav-number">7.1.</span> <span class="nav-text">三大核心概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">7.2.</span> <span class="nav-text">工作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">7.3.</span> <span class="nav-text">路由配置两种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1"><span class="nav-number">7.4.</span> <span class="nav-text">动态路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8Predicate"><span class="nav-number">7.5.</span> <span class="nav-text">常用Predicate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Filter"><span class="nav-number">7.6.</span> <span class="nav-text">Filter</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="nav-number">7.6.1.</span> <span class="nav-text">自定义过滤器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">8.</span> <span class="nav-text">Config&amp;&amp;Bus</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="nav-number">8.1.</span> <span class="nav-text">客户端配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE%E7%9A%84%E5%8A%A8%E6%80%81%E5%88%B7%E6%96%B0"><span class="nav-number">8.2.</span> <span class="nav-text">分布式配置的动态刷新</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bus-Config"><span class="nav-number">8.2.1.</span> <span class="nav-text">Bus+Config</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RabbitMQ%E6%B6%88%E6%81%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">8.2.2.</span> <span class="nav-text">RabbitMQ消息环境配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">8.2.3.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E9%80%9A%E7%9F%A5"><span class="nav-number">8.2.4.</span> <span class="nav-text">定点通知</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">9.</span> <span class="nav-text">Nacos</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83"><span class="nav-number">9.1.</span> <span class="nav-text">注册中心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83"><span class="nav-number">9.2.</span> <span class="nav-text">配置中心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E5%92%8C%E6%8C%81%E4%B9%85%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="nav-number">9.3.</span> <span class="nav-text">集群和持久化配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">10.</span> <span class="nav-text">Sentinel</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E6%8E%A7%E8%A7%84%E5%88%99"><span class="nav-number">10.1.</span> <span class="nav-text">流控规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%8D%E7%BA%A7%E8%A7%84%E5%88%99"><span class="nav-number">10.2.</span> <span class="nav-text">降级规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%83%AD%E7%82%B9%E8%A7%84%E5%88%99"><span class="nav-number">10.3.</span> <span class="nav-text">热点规则</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -813,14 +956,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -865,7 +1008,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:07</span>
+    <span title="站点阅读时长">2:06</span>
 </div>
 
 <!-- <br /> -->
